@@ -21,8 +21,6 @@
 
 </head>
 <body>
-	<c:set var="num" value="1"/>
-	<%int a=1;%>
 	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<jsp:include page="../../module/managerTop.jsp"/>
 	<br>
@@ -53,7 +51,6 @@
 				<c:forEach items="${page}" var="member">
 					
 					<tr class="is-size-7">
-						<td align="center">${num}</td>
 						<td align="center">${member.RNUM}</td>
 						<td align="center">${member.account_user}</td>
 						<td align="center">${member.account_password}</td>
@@ -74,7 +71,6 @@
 								<button type="button" class="button is-danger is-small">삭제</button>
 							</a>
 						</td>
-						<c:set var="num" value="${num + 1}"/>
 					</tr>
 				</c:forEach>
 			</tbody>	

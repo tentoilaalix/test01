@@ -75,6 +75,9 @@ public class ManagerController {
     	
     }
 	
+    
+    
+    
   //글 목록 + 페이징
 	/*
 	 * @RequestMapping(value="product/product_page.do", method = RequestMethod.GET)
