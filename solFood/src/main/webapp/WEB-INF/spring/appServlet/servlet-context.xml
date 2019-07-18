@@ -30,14 +30,12 @@
 	
 	<!-- 업로드된 파일의 저장 위치 지정 workplace경로--> 
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="C:\Users\soldesk\git\test02\solFood_0716\src\main\webapp\resources" />
+		<beans:constructor-arg value="C:\git\solFood\src\main\webapp\resources" />
 	</beans:bean>
-	<!-- C:\Users\soldesk\git\test02\solFood_0716\src\main\webapp\resources -->
-	<!-- C:\eclipse\workplace\solFood\src\main\webapp\resources -->
 	
 	<!-- 업로드된 파일의 저장 위치 지정 썸네일 workplace경로--> 
 	<beans:bean id="uploadPaths" class="java.lang.String">
-		<beans:constructor-arg value="C:\Users\soldesk\git\test02\solFood_0716\src\main\webapp\resources" />
+		<beans:constructor-arg value="C:\git\solFood\src\main\webapp\resources" />
 	</beans:bean>
 	
 	
