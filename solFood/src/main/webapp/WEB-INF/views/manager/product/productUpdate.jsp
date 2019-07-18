@@ -204,7 +204,7 @@
 					<div class="field-label is-normal"><label class="label">유통기한</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<input type="text" class="input" name="product_date" maxlength="20" value="2012-12-12" value="${productDetail.product_date}">
+							<input type="text" class="input" name="product_date" maxlength="20" value="2018-08-30" value="${productDetail.product_date}">
 						</div>
 					</div>	
 				</div>
