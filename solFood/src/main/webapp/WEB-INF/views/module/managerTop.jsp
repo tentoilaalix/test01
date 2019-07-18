@@ -10,17 +10,23 @@
 	
 	<title>manager main page</title>
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:700" rel="stylesheet">
-
+	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
  	
  	<style type="text/css">
-	 	body{
+	 	body {
 	 		font-family: 'Nanum Gothic Coding';
 	 		font-size: ;
+	 		z-index: -1;
 	 	}
-	 	p{
+	 	p {
 	 		vertical-align: middle;
+	 	}
+	 	
+	 	nav {
+	 		z-index: 1;
 	 	}
  	</style>
  	
@@ -44,15 +50,13 @@
 		<div class="navbar-menu">
 			<div class="navbar-start">
 				<div class="navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link" href="${path}/manager/product/product_list.do">
-						상품관리
-					</a>
+					
 					<a class="navbar-link" href="${path}/manager/product/product_page.do">
-						상품관리2
+						상품관리
 					</a>
 					
 					<div class="navbar-dropdown " data-style="width: 18rem;">
-						<a class="navbar-item" href="${path}/manager/product/product_list.do">
+						<a class="navbar-item" href="${path}/manager/product/product_page.do">
 							상품현황
 						</a>
 						<a class="navbar-item" href="${path}/manager/product/product_register.do">

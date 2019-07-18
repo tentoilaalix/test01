@@ -69,8 +69,6 @@
 			<div class="row" id="allVegeC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			    <abbr title="${products.product_image}"><img src="/img/${products.product_image}" style="width:50px; height:auto;"/></abbr>
-						
 			      ${products.product_name}<br>
 			      ${products.product_price}<br>
 			      ${products.product_content}<br><br><br><br>

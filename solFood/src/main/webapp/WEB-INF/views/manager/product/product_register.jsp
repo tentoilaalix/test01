@@ -208,10 +208,10 @@
 					<div class="field-label is-normal"><label class="label">대표이미지</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<textarea id="summernote" class="input" name="product_content"></textarea>							
+							<textarea id="summernote" class="input" name="product_content">상품정보를 입력하세요.</textarea>							
 						</div>
 						<script>
-							$(document).ready(function() {
+							/* $(document).ready(function() {
 								$('#summernote').summernote({
 									height: 400,          // 기본 높이값
 									minHeight: null,      // 최소 높이값(null은 제한 없음)
@@ -219,7 +219,15 @@
 									//focus: true,        // 페이지가 열릴때 포커스를 지정함
 									lang: 'ko-KR'         // 한국어 지정(기본값은 en-US)
 								});
-							});
+							}); */
+							
+							$('#summernote').summernote({
+								  height: 50,                 // set editor height
+								  minHeight: null,             // set minimum height of editor
+								  maxHeight: null,             // set maximum height of editor
+								  focus: true                  // set focus to editable area after initializing summernote
+								});
+							
 							
 							function postForm(){
 								$('textarea[name="product_content"]').val($('#summernote').summernote('code'));
@@ -260,24 +268,26 @@
 					</div>	
 				</div>
 				<hr>
-				<div class="field is-grouped">
+				<div class="field is-grouped is-pulled-right"">
 					<div class="control">
 						<button class="button is-link" type="submit">상품등록</button>
 					</div>
-					<div class="control">
-						<input class="button is-danger" type="button" value="취소" onclick="history.back();" />
-					</div>
-					
+					<!-- 
 					<div class="form-group">
 					    <button type="submit" id="register_Btn" name="submit" class="btn btn-primary">등록</button>
 					</div>
+					 -->
+					<div class="control">
+						<input class="button is-danger" type="button" value="취소" onclick="history.back();" />
+					</div>
 				</div>
-				
-				
 			</form>
 		</div>
+		
+		<hr>
 	</div>
 	
+	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
 	<!-- 
 		노트
 		<label for="staticEmail">상품설명:</label>

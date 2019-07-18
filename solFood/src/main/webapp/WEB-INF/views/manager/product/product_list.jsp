@@ -7,11 +7,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>product_list</title>
-	<a href="/product_page.do">a</a>
-	<a href="/manager/product/product_page.do">b</a>
-	<a href="/product_page.do">c</a>
-	<a href="/product_page.do">d</a>
-		
+	
 	<link href="../../../resources/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	
@@ -19,6 +15,9 @@
 	<style>
 	td {
 		vertical-align: middle !important;
+	}
+	table {
+		font-family: 'SpoqaHanSans-kr';
 	}
 	</style>
 </head>

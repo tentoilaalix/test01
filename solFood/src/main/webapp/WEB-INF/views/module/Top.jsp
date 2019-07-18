@@ -7,6 +7,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>top top</title>
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:700" rel="stylesheet">
+
 	<link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../resources/css/animate.css" rel="stylesheet">
 	<link href="../resources/css/wickedcss.min.css" rel="stylesheet">
@@ -27,7 +29,16 @@
 			display:block;
 			z-index: 10;
 		}
+	 	body{
+	 		font-family: 'Nanum Gothic Coding';
+	 		font-size: ;
+	 	}
+	 	p{
+	 		vertical-align: middle;
+	 	}
 	</style>
+
+
 
 </head>
 <body>

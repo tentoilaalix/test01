@@ -14,6 +14,9 @@
 	td {
 		vertical-align: middle !important;
 	}
+	table {
+		font-family: 'SpoqaHanSans-kr';
+	}
 	</style>
 
 </head>

@@ -197,7 +197,7 @@ public class ManagerController {
     	
 		service.insertProduct(productVo);		
 		
-		return "redirect:product_list.do";
+		return "redirect:product_page.do";
 	}
 	
 	//상품수정
@@ -236,7 +236,7 @@ public class ManagerController {
 		
 		service.updateProduct(productVo);
 		
-		return "redirect:product_list.do";
+		return "redirect:product_page.do";
 	}
 	
 	/*
@@ -260,7 +260,7 @@ public class ManagerController {
 		
 		System.out.println(vo);
 		
-		return "redirect:product_list.do";
+		return "redirect:product_page.do";
 		
 	}
 }

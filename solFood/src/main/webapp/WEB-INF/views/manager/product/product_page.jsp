@@ -16,6 +16,9 @@
 	td {
 		vertical-align: middle !important;
 	}
+	table {
+		font-family: 'SpoqaHanSans-kr';
+	}
 	</style>
 </head>
 <body>
@@ -25,10 +28,8 @@
 	
 	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<div class="container">
-		<div class="title" style="vertical-align: bottom;">
-			상품현황<a href="${path}/manager/product/product_register.do"><span class="icon"><i class="fas fa-home"></i></span></a>
-			
-			
+		<div class="title">
+			상품현황
 			<a class="button is-info" href="${path}/manager/product/product_register.do" style="font-size: small;">상품등록</a>
 		</div>
 	
@@ -96,7 +97,10 @@
 			</c:if> 
 		</div>
 		
+		
+		<hr>
 	</div>
+	
 	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
 </body>
 </html>
