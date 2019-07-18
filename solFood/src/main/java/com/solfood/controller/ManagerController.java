@@ -61,6 +61,21 @@ public class ManagerController {
         return "/manager/account/account_list";
     }
 	
+	//글 목록 + 페이징
+    @RequestMapping(value="account/account_page.do", method = RequestMethod.GET)
+    public void pageAccount(Criteria cri, Model model) throws Exception{
+    	
+    	List<ProductVO> page = service.pageProduct(cri);
+    	model.addAttribute("page", page);
+    	
+    	PageMaker pageMaker = new PageMaker();
+    	pageMaker.setCri(cri);
+    	pageMaker.setTotalCount(service.countProduct());
+    	model.addAttribute("pageMaker", pageMaker);
+    	
+    }
+	
+	
 	/* 회원정보 상세조회 */
 	@RequestMapping(value = "account/accountUpdate.do", method = RequestMethod.GET) 
 	public void getDetailAccount(@RequestParam("account_user") String account_user, Model model) throws Exception{ 

@@ -91,6 +91,8 @@ public class ManagerDAOImpl implements ManagerDAO {
 		sqlSession.insert(Namespace+".insertProduct", vo);
 	}
 
+	
+	//상품페이지
 	@Override
 	public int countProduct() throws Exception {
 		return sqlSession.selectOne(Namespace+".countProduct");
@@ -99,6 +101,19 @@ public class ManagerDAOImpl implements ManagerDAO {
 	@Override
 	public List<ProductVO> pageProduct(Criteria cri) throws Exception {
 		return sqlSession.selectList(Namespace+".pageProduct", cri);
+	}
+
+	
+	
+	//회원페이지
+	@Override
+	public List<ProductVO> pageAccount(Criteria cri) throws Exception {
+		return sqlSession.selectList(Namespace+".pageAccount", cri);
+	}
+
+	@Override
+	public int countAccount() throws Exception {
+		return sqlSession.selectOne(Namespace+".countAccount");
 	}
 	
 	

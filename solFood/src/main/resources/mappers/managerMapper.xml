@@ -11,6 +11,8 @@
 	        SELECT * FROM product
 	    </select>    
 	    
+	    
+	    <!-- 상품페이지 -->
 	    <select id="pageProduct" resultType="com.solfood.dto.ProductVO" parameterType="com.solfood.utils.Criteria">
 		    SELECT * 
 			FROM product 
@@ -25,6 +27,26 @@
 	    	WHERE product_id > 0
 		    ]]>
 	    </select>
+	    
+	    
+	    <!-- 회원페이지 -->
+	    <select id="pageAccount" resultType="com.solfood.dto.MemberVO" parameterType="com.solfood.utils.Criteria">
+		    SELECT * 
+			FROM product 
+			ORDER BY product_id DESC
+			LIMIT #{rowStart}, #{rowEnd};
+	    </select>
+	    
+	    <select id="countAccount" resultType="int">
+		    <![CDATA[
+	    	SELECT count(accoun)
+	    	FROM product
+	    	WHERE product_id > 0
+		    ]]>
+	    </select>
+	    
+	    
+	    
 	    
 	    
 	    <update id="updateProduct" parameterType="com.solfood.dto.ProductVO">
@@ -43,7 +65,7 @@
 	    	WHERE product_id= #{product_id}
 	    </update>
 	    
-	     <!-- <update id="updateProduct" parameterType="com.solfood.dto.ProductVO">
+	    <!-- <update id="updateProduct" parameterType="com.solfood.dto.ProductVO">
 	    	UPDATE PRODUCT 
 	    	SET PRODUCT_NAME=#{product_name}, 
 	    		PRODUCT_CATEGORY1=#{product_category1}, 

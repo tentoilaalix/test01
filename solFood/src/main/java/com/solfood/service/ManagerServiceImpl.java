@@ -99,6 +99,16 @@ public class ManagerServiceImpl implements ManagerService {
 		return dao.countProduct();
 	}
 
+	@Override
+	public List<ProductVO> pageAccount(Criteria cri) throws Exception {
+		return dao.pageAccount(cri);
+	}
+
+	@Override
+	public int countAccount() throws Exception {
+		return dao.countAccount();
+	}
+
 }
 
 

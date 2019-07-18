@@ -68,6 +68,9 @@
 				<a class="navbar-item" href="${path}/manager/account/account_list.do">
 					회원관리
 				</a>
+				<a class="navbar-item" href="${path}/manager/account/account_page.do">
+					회원관리222
+				</a>
 				<a class="navbar-item" href="${path}/manager/buy/buy_list.do">
 					구매관리
 				</a>
