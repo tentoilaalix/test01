@@ -189,6 +189,7 @@ public class ManagerController {
 			} else {
 				new File(imgUploadPaths + File.separator + File.separator + "s_"+ req.getParameter("product_image").substring(12)).delete();	//썸네일 삭제
 			}
+			
 			new File(uploadPath + File.separator + req.getParameter("product_image")).delete();												//이미지 원본 삭제
 			
 			
