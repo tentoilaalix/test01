@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SolFood</title>
+<title>SolFood doyoon</title>
 	<link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../resources/css/carouselMulti.css" rel="stylesheet">
 	<link href="../resources/css/animate.css" rel="stylesheet">
