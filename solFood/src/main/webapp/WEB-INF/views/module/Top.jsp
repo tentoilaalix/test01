@@ -60,7 +60,7 @@
 			    </div>
 			    </c:otherwise>
 			</c:choose>
-		 	<a class="navbar-item" href="${path}/manager/managerMain.do">관리자 페이지
+		 	<a class="navbar-item" href="${path}/manager/managerMain.do">관리자 페이지@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				<img src="${path}/resources/image/logo0.png" width="95" height="35">
 			</a>
 	</div>
