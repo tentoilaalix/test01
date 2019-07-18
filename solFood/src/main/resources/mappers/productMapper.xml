@@ -32,13 +32,13 @@
 			FROM PRODUCT 
 			WHERE product_category2 = #{product_category2}
 		</select>
+
+		
 	<!-- =============================== UPDATE ========================================= -->
 	   <!-- buy로 상품이 넘어가면 product_count를 cart_count 만큼 빼주기 (재고관리) -->
 		<update id="updateProduct_count_minus" parameterType="com.solfood.dto.TotalVO">
 			UPDATE PRODUCT SET PRODUCT_COUNT= PRODUCT_COUNT- #{buy_count} WHERE PRODUCT_ID= #{product_id};
 		</update> 
-				
-		
 	</mapper>
 	
 	

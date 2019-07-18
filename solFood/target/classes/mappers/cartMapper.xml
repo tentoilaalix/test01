@@ -24,7 +24,7 @@
 		<!-- =============================== INSERT ========================================= -->
 		<!-- cart에 상품 넣기 -->
 		<insert id="insertCart" parameterType="com.solfood.dto.TotalVO">
-			INSERT INTO CART(CART_DATE, CART_COUNT, PRODUCT_ID, ACCOUNT_USER) VALUES(current_date(), 1, #{product_id}, #{account_user}) 
+			INSERT INTO CART(CART_DATE, CART_COUNT, PRODUCT_ID, ACCOUNT_USER) VALUES(current_date(), #{cart_count}, #{product_id}, #{account_user}) 
 		</insert>
 		
 		
@@ -40,15 +40,14 @@
 	    </delete>
 	    
 	    <!-- =============================== UPDATE ========================================= -->
-	    <!-- cart에서 상품 개수 조정하기 -->
+	    <!-- cart에서 상품 개수 조정하기// 이미 상품이 있는데, 선택한 개수만큼 더 장바구니에 넣고싶을 때 -->
 	    <update id="updateCart" parameterType="com.solfood.dto.TotalVO">
 			UPDATE CART 
-			SET CART_COUNT= #{cart_count}  
+			SET CART_COUNT= CART_COUNT+ #{cart_count}  
 			WHERE ACCOUNT_USER= #{account_user} AND PRODUCT_ID= #{product_id}
 		</update>
 		
-		
-		<!-- cart에 같은 상품 넣으면 수량만 올라가게 조정// cart에서 수량 + 조정하기 -->
+		<!-- cart에서 수량 + 조정하기 -->
 		<update id="updateCart_plusCartCount" parameterType="com.solfood.dto.TotalVO">
 			UPDATE CART 
 			SET CART_COUNT= CART_COUNT+ 1  
