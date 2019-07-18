@@ -29,18 +29,18 @@
 	    
 	    <update id="updateProduct" parameterType="com.solfood.dto.ProductVO">
 	    	UPDATE product 
-	    	SET product_name=#{product_name}, 
-	    		product_category1=#{product_category1}, 
-	    		product_category2=#{product_category2}, 
-	    		product_price=#{product_price}, 
-	    		product_discountrate=#{product_discountrate}, 
-	    		product_count=#{product_count}, 
-	    		product_image=#{product_image}, 
-	    		product_package=#{product_package}, 
-	    		product_ea=#{product_ea}, 
-	    		product_content='1', 
-	    		product_date=#{product_date}
-	    	WHERE product_id= #{product_id}
+	    	SET product_name= #{product_name}, 
+	    		product_category1= #{product_category1}, 
+	    		product_category2= #{product_category2}, 
+	    		product_price= #{product_price}, 
+	    		product_discountrate= #{product_discountrate}, 
+	    		product_count= #{product_count}, 
+	    		product_image= #{product_image}, 
+	    		product_package= #{product_package}, 
+	    		product_ea= #{product_ea}, 
+	    		product_content= #{product_content}, 
+	    		product_date= #{product_date}
+	    	WHERE product_id= #{product_id} 
 	    </update>
 	    
 	     <!-- <update id="updateProduct" parameterType="com.solfood.dto.ProductVO">

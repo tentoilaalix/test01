@@ -70,13 +70,13 @@
 	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<div class="container is-fluid">
 		<div class="columns is-centered">
-			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data">
+			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data" action="${path}/manager/product/productUpdatePro.do?product_id=${productDetail.product_id}">
 				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">상품이름</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
-							<input type="text" class="input" name="product_name" maxlength="20" value="${productUpdate.product_name}">
+							<input type="text" class="input" name="product_name" maxlength="20" value="${productDetail.product_name}">
 							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
 						</div>
 					</div>	
@@ -86,7 +86,7 @@
 					<div class="field-label is-normal"><label class="label">대분류</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
-							<input type="text" class="input" name="product_category1" maxlength="20" value="${productUpdate.product_category1}">
+							<input type="text" class="input" name="product_category1" maxlength="20" value="${productDetail.product_category1}">
 							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
 						</div>
 					</div>	
@@ -96,7 +96,7 @@
 					<div class="field-label is-normal"><label class="label">소분류</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<input type="text" class="input" name="product_category2" maxlength="20" value="${productUpdate.product_category2}">
+							<input type="text" class="input" name="product_category2" maxlength="20" value="${productDetail.product_category2}">
 						</div>
 					</div>	
 				</div>	
@@ -105,7 +105,7 @@
 					<div class="field-label is-normal"><label class="label">가격</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
-							<input type="text" class="input" name="product_price" maxlength="20" value="${productUpdate.product_price}">
+							<input type="text" class="input" name="product_price" maxlength="20" value="${productDetail.product_price}">
 							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
 						</div>
 					</div>	
@@ -115,7 +115,7 @@
 					<div class="field-label is-normal"><label class="label">할인율</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<input type="text" class="input" name="product_discountrate" maxlength="20" value="${productUpdate.product_discountrate}">
+							<input type="text" class="input" name="product_discountrate" maxlength="20" value="${productDetail.product_discountrate}">
 						</div>
 					</div>	
 				</div>	
@@ -124,7 +124,7 @@
 					<div class="field-label is-normal"><label class="label">재고</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<input type="text" class="input" name="product_count" maxlength="50" value="${productUpdate.product_count}">
+							<input type="text" class="input" name="product_count" maxlength="50" value="${productDetail.product_count}">
 							
 						</div>
 					</div>	
@@ -136,11 +136,13 @@
 					<div class="field-body">
 					
 						<div class="field is-expanded">
+							<input type="file" class="input" id="product_image" name="file"/>
+							${productDetail.product_image}
 							<div class="select_img">
-								<input type="file" class="input" id="product_image" name="file">
-								<img src="" />
-								
-								<script>
+								<img src="/img/${productDetail.product_image}" style="width: 100px; height: auto;"/>						
+								<input type="hidden" name="product_image" value="${productDetail.product_image}">
+							</div>
+							<script>
 									$("#product_image").change(function(){
 										if(this.files && this.files[0]) {
 											var reader = new FileReader;
@@ -150,20 +152,16 @@
 											reader.readAsDataURL(this.files[0]);
 										}
 									});
-								</script>
-								
-								
-							</div>
+							</script>
 						</div>
-					</div>	
-				</div>
-				
+					</div>
+				</div>	
 				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">보관형태</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
-							<input type="text" class="input" name="product_package" maxlength="20" value="${productUpdate.product_package}">
+							<input type="text" class="input" name="product_package" maxlength="20" value="${productDetail.product_package}">
 							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
 						</div>
 					</div>	
@@ -172,7 +170,7 @@
 					<div class="field-label is-normal"><label class="label">포장단위</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
-							<input type="text" class="input" name="product_ea" maxlength="20" value="${productUpdate.product_ea}">
+							<input type="text" class="input" name="product_ea" maxlength="20" value="${productDetail.product_ea}">
 							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
 						</div>
 					</div>	
@@ -182,7 +180,7 @@
 					<div class="field-label is-normal"><label class="label">내용</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<textarea id="summernote" class="input" name="product_content">${productUpdate.product_content}</textarea>							
+							<textarea id="summernote" class="input" name="product_content">${productDetail.product_content}</textarea>							
 						</div>
 						<script>
 							$(document).ready(function() {
@@ -206,7 +204,7 @@
 					<div class="field-label is-normal"><label class="label">유통기한</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<input type="text" class="input" name="product_date" maxlength="20" value="2012-12-12" value="${productUpdate.product_date}">
+							<input type="text" class="input" name="product_date" maxlength="20" value="2012-12-12" value="${productDetail.product_date}">
 						</div>
 					</div>	
 				</div>

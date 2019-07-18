@@ -1,6 +1,7 @@
 package com.solfood.controller;
 
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -133,15 +134,7 @@ public class ManagerController {
     	
     }
 	
-	/* 상품 상세조회 */
-	@RequestMapping(value = "product/productUpdate.do", method = RequestMethod.GET)
-	public void getDetailProduct(@RequestParam("product_id") int product_id, Model model) throws Exception{
-		ProductVO productUpdate = null;
-		productUpdate = service.productDetail(product_id);
-		
-		model.addAttribute("productUpdate", productUpdate);
-	}
-	
+
 	@Resource(name="uploadPath")
 	private String uploadPath;
 	
@@ -167,19 +160,8 @@ public class ManagerController {
 			fileName = File.separator + "noImage" + File.separator + "noImage.png";
 		}
     	
-    	//원본 파일 경로 + 파일명 저장
-    	System.out.println("###"+imgUploadPath);
-    	System.out.println("###"+fileName);
-    	System.out.println("###"+uploadPath);
-		/*
-		 * System.out.println(uploadPath + "imgUpload" + ymdPath + File.separator +
-		 * fileName);
-		 */
-    	
     	//img 파일경로 + 파일명 저장
     	productVo.setProduct_image(File.separator + "productImg" + File.separator + fileName);
-		//썸네일 파일경로 + 파일명 저장
-    	//productVo.setProduct_thumb("s" + File.separator + "s_"+ fileName);
     	
 		service.insertProduct(productVo);		
 		
@@ -187,38 +169,55 @@ public class ManagerController {
 	}
 	
 	//상품수정
-	@RequestMapping(value = "product/productUpdate.do", method = RequestMethod.POST)
-	public String productUpdate(ProductVO productVo, MultipartFile file, HttpServletRequest req) throws Exception{
-		logger.info("###modify product");
+	@RequestMapping(value="product/productUpdate.do")
+	public String productUpdate(Model model, int product_id) throws Exception{
+		ProductVO productDetail= service.productDetail(product_id);
+		model.addAttribute("productDetail", productDetail);
 		
+		return "manager/product/productUpdate";
+	}
+	
+	@RequestMapping(value = "product/productUpdatePro.do", method = RequestMethod.POST)
+	public String productUpdatePro(ProductVO productVo, MultipartFile file, HttpServletRequest req, int product_id) throws Exception{				
 		// 새로운 파일이 등록되었는지 확인
 		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			String imgUploadPaths = uploadPath + File.separator + "productImg" + File.separator + "s";					// 기존이미지 파일 삭제
 			
-			/* 기존 이미지파일을 삭제 */	
-			// 썸네일 업로드 주소 불러오기
-			String imgUploadPaths = uploadPath + File.separator + "productImg" + File.separator + "s";
+			// 지금 product_image가 1 이렇게 되어있는게 많은데, 이런거는 substring(12)가 안먹고 오류나서 이렇게 했어요 by 영민
+			if(req.getParameter("product_image").length()== 1) {
+				new File(imgUploadPaths + File.separator + File.separator + "s_"+ req.getParameter("product_image")).delete();
+			} else {
+				new File(imgUploadPaths + File.separator + File.separator + "s_"+ req.getParameter("product_image").substring(12)).delete();	//썸네일 삭제
+			}
+			new File(uploadPath + File.separator + req.getParameter("product_image")).delete();												//이미지 원본 삭제
 			
-			//썸네일 삭제
-			new File(imgUploadPaths + File.separator + File.separator + "s_"+ req.getParameter("product_image").substring(12)).delete();
-			//이미지 원본 삭제
-			new File(uploadPath + File.separator + req.getParameter("product_image")).delete();
 			
-			
-			/* 새로 첨부한 파일을 등록 */ 	//String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
-			//업로드 경로 설정
+			/* 새로 첨부한 파일을 등록 */ 	//String ymdPath = UploadFileUtils.calcPath(imgUploadPath);// //업로드 경로 설정
 			String imgUploadPath = uploadPath + File.separator + "productImg";
-			String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes());
-			
+			String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes());			
 
 	    	productVo.setProduct_image(File.separator + "productImg" + File.separator + fileName);
 	    	
-		} else {  // 새로운 파일이 등록되지 않았다면 기존 이미지를 그대로 사용
+	    // 새로운 파일이 등록되지 않았다면 기존 이미지를 그대로 사용
+		} else {  
 			productVo.setProduct_image(req.getParameter("product_image"));
-			System.out.println("###2"+uploadPath);
-			System.out.println("###2"+req.getParameter("product_image"));
 		}
 		
-
+		productVo.setProduct_id(product_id);
+		productVo.setProduct_name(req.getParameter("product_name"));
+		productVo.setProduct_category1(req.getParameter("product_category1"));
+		productVo.setProduct_category2(req.getParameter("product_category2"));
+		productVo.setProduct_price(Integer.parseInt(req.getParameter("product_price")));
+		productVo.setProduct_discountrate(Integer.parseInt(req.getParameter("product_discountrate")));
+		productVo.setProduct_count(Integer.parseInt(req.getParameter("product_count")));
+		productVo.setProduct_package(req.getParameter("product_package"));
+		productVo.setProduct_ea(Integer.parseInt(req.getParameter("product_ea")));
+		productVo.setProduct_content(req.getParameter("product_content"));
+		productVo.setProduct_date(req.getParameter("product_date"));
+		
+		// 삭제하기
+		System.out.println("==============================="+ productVo);
+		
 		
 		service.updateProduct(productVo);
 		
@@ -271,9 +270,18 @@ public class ManagerController {
 	}
 	
 	@RequestMapping(value="recipe/recipe_registerPro.do")
-	public String recipe_registerPro(HttpServletRequest request) throws Exception{
+	public String recipe_registerPro(HttpServletRequest request, MultipartFile file) throws Exception{
+		String imgUploadPath = uploadPath + File.separator + "productImg";
+    	String fileName = null;
+		    	
+    	if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+    		fileName =  UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes()); 
+		} else {
+			fileName = File.separator + "noImage" + File.separator + "noImage.png";
+		}
+
 		TotalVO vo= new TotalVO();
-		vo.setRecipe_image(request.getParameter("recipe_image"));
+		vo.setRecipe_image(File.separator + "productImg" + File.separator + fileName);
 		vo.setRecipe_content(request.getParameter("recipe_content"));
 		vo.setRecipe_name(request.getParameter("recipe_name"));
 		vo.setRecipe_keyword(request.getParameter("recipe_keyword"));
@@ -294,14 +302,31 @@ public class ManagerController {
 	}
 	
 	@RequestMapping(value="recipe/recipeUpdatePro.do")
-	public String recipeUpdatePro(Model model, HttpServletRequest request, int recipe_id) throws Exception{
+	public String recipeUpdatePro(HttpServletRequest request, MultipartFile file, int recipe_id) throws Exception{
 		TotalVO vo= new TotalVO();
-		vo.setRecipe_image(request.getParameter("recipe_image"));
 		vo.setRecipe_content(request.getParameter("recipe_content"));
 		vo.setRecipe_name(request.getParameter("recipe_name"));
 		vo.setRecipe_keyword(request.getParameter("recipe_keyword"));
 		vo.setRecipe_id(recipe_id);
 		
+		
+		// 새로운 파일이 등록되었는지 확인--> 삭제하고 새로운 거 등록하기
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			String imgUploadPaths = uploadPath + File.separator + "productImg" + File.separator + "s";
+					
+			new File(imgUploadPaths + File.separator + File.separator + "s_"+ request.getParameter("recipe_image").substring(12)).delete();
+			new File(uploadPath + File.separator + request.getParameter("recipe_image")).delete();
+					
+			String imgUploadPath = uploadPath + File.separator + "productImg";
+			String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes());
+
+	    	vo.setRecipe_image(File.separator + "productImg" + File.separator + fileName);
+			    	
+	    // 새로운 파일이 등록되지 않았다면 기존 이미지를 그대로 사용
+		} else { 
+			vo.setRecipe_image(request.getParameter("recipe_image"));
+		}
+	
 		service.updateRecipe(vo);
 		
 		return "redirect:/manager/recipe/recipe_list.do";

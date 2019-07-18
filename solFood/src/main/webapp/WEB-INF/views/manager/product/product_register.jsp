@@ -132,9 +132,7 @@
 				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">대표사진</label></div>
-					
 					<div class="field-body">
-					
 						<div class="field is-expanded">
 							<div class="select_img">
 								<input type="file" class="input" id="product_image" name="file">

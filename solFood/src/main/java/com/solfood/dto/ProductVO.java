@@ -13,7 +13,7 @@ public class ProductVO {
     private String product_package;
     private int product_ea;
     private String product_content;
-    private Date product_date;
+    private String product_date;
     
 	public int getProduct_id() {
 		return product_id;
@@ -81,10 +81,10 @@ public class ProductVO {
 	public void setProduct_content(String product_content) {
 		this.product_content = product_content;
 	}
-	public Date getProduct_date() {
+	public String getProduct_date() {
 		return product_date;
 	}
-	public void setProduct_date(Date product_date) {
+	public void setProduct_date(String product_date) {
 		this.product_date = product_date;
 	}
 	
