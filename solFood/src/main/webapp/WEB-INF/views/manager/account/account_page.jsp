@@ -21,6 +21,7 @@
 
 </head>
 <body>
+	<c:set var="num" value="1"/>
 	<%int a=1;%>
 	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<jsp:include page="../../module/managerTop.jsp"/>
@@ -49,9 +50,11 @@
 				</tr>	
 			</thead>
 			<tbody>
-				<c:forEach items="${memberList}" var="member">
+				<c:forEach items="${page}" var="member">
+					
 					<tr class="is-size-7">
-						<td align="center"><%=a%></td>
+						<td align="center">${num}</td>
+						<td align="center">${member.RNUM}</td>
 						<td align="center">${member.account_user}</td>
 						<td align="center">${member.account_password}</td>
 						<td align="center">${member.account_name}</td>
@@ -71,11 +74,26 @@
 								<button type="button" class="button is-danger is-small">삭제</button>
 							</a>
 						</td>
-						<% a += 1; %>
+						<c:set var="num" value="${num + 1}"/>
 					</tr>
 				</c:forEach>
 			</tbody>	
 		</table>
+		
+		<div class="container">
+	 		<c:if test="${pageMaker.prev}">
+				<a href="account_page.do?page=${pageMaker.startPage - 1}">이전</a>
+			</c:if> 
+			
+			<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+				<a href="account_page.do?page=${idx}">${idx}</a>
+			</c:forEach>
+			
+			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+				<a href="account_page.do?page=${pageMaker.endPage + 1}">다음</a>
+			</c:if> 
+		</div>
+		<hr>
 	</div>
 	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
 </body>

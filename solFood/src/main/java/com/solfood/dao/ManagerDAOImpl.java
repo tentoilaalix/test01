@@ -107,7 +107,7 @@ public class ManagerDAOImpl implements ManagerDAO {
 	
 	//회원페이지
 	@Override
-	public List<ProductVO> pageAccount(Criteria cri) throws Exception {
+	public List<MemberVO> pageAccount(Criteria cri) throws Exception {
 		return sqlSession.selectList(Namespace+".pageAccount", cri);
 	}
 

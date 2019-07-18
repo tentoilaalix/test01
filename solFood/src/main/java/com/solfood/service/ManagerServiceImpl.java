@@ -100,7 +100,7 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	@Override
-	public List<ProductVO> pageAccount(Criteria cri) throws Exception {
+	public List<MemberVO> pageAccount(Criteria cri) throws Exception {
 		return dao.pageAccount(cri);
 	}
 

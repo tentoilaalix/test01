@@ -19,7 +19,7 @@ public interface ManagerService {
 	//회원
 	//=============================================================================================
 	public List<MemberVO> selectMember() throws Exception;							//회원조회
-	public List<ProductVO> pageAccount(Criteria cri) throws Exception;				//회원페이지
+	public List<MemberVO> pageAccount(Criteria cri) throws Exception;				//회원페이지
 	public int countAccount() throws Exception;										//회원페이지 : 카운트
 	
     public MemberVO memberDetail(String account_user) throws Exception;				//회원정보 상세페이지
