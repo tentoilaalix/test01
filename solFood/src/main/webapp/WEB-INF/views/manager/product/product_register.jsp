@@ -7,33 +7,17 @@
 	<meta charset="utf-8">
 	<title>account_list</title>
 	
-	<link href="../../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
-	<script src="../../../resources/bootstrap/js/bootstrap.js"></script>
+	<!-- include libraries(jQuery, bootstrap) -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 	
-	<!-- summer -->
+	<!-- include summernote css/js -->
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-	 
-	<link href="../../../resources/summernote/summernote.css" rel="stylesheet">
-	<script src="../../../resources/summernote/summernote.js"></script>
 	
-	<!-- summer note korean language pack -->
-	<script src="../../../resources/summernote/lang/summernote-ko-KR.js"></script>
-
 	<%@ include file = "../../module/managerTop.jsp" %>
 	
-	<script type="text/javascript">
-	$(function() {
-		$('.summernote').summernote({
-			height: 300,          // 기본 높이값
-			minHeight: null,      // 최소 높이값(null은 제한 없음)
-			maxHeight: null,      // 최대 높이값(null은 제한 없음)
-			focus: true,          // 페이지가 열릴때 포커스를 지정함
-			lang: 'ko-KR'         // 한국어 지정(기본값은 en-US)
-		});
-	});
-	</script>
 	<script>
 	var file = document.getElementById("file");
 	file.onchange = function(){
@@ -144,6 +128,7 @@
 									$("#product_image").change(function(){
 										if(this.files && this.files[0]) {
 											var reader = new FileReader;
+											
 											reader.onload = function(data) {
 												$(".select_img img").attr("src", data.target.result).width(200);								
 											}
@@ -159,29 +144,6 @@
 					</div>	
 				</div>
 				
-				<%-- <div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">대표사진</label></div>
-					
-					<div class="field-body">
-					
-						<div class="control field is-expanded has-icons-right">
-							<input type="file" class="input inputfile inputfile-2" id="product_image" name="file">
-							<div class="select_img"><img src="" /></div>
-							<script>
-								$("#product_image").change(function(){
-									if(this.files && this.files[0]) {
-										var reader = new FileReader;
-										reader.onload = function(data) {
-											$(".select_img product_image").attr("src", data.target.result).width(500);								
-										}
-										reader.readAsDataURL(this.files[0]);
-									}
-								});
-							</script>
-							<%=request.getRealPath("/") %>
-						</div>
-					</div>	
-				</div> --%>	
 				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">보관형태</label></div>
@@ -202,37 +164,12 @@
 					</div>	
 				</div>
 				
-				
-				
 				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">대표이미지</label></div>
+					<div class="field-label is-normal"><label class="label">에디터</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<textarea id="summernote" class="input" name="product_content">상품정보를 입력하세요.</textarea>							
+							<textarea name="product_content" id="summernote"></textarea>						
 						</div>
-						<script>
-							/* $(document).ready(function() {
-								$('#summernote').summernote({
-									height: 400,          // 기본 높이값
-									minHeight: null,      // 최소 높이값(null은 제한 없음)
-									maxHeight: null,      // 최대 높이값(null은 제한 없음)
-									//focus: true,        // 페이지가 열릴때 포커스를 지정함
-									lang: 'ko-KR'         // 한국어 지정(기본값은 en-US)
-								});
-							}); */
-							
-							$('#summernote').summernote({
-								  height: 50,                 // set editor height
-								  minHeight: null,             // set minimum height of editor
-								  maxHeight: null,             // set maximum height of editor
-								  focus: true                  // set focus to editable area after initializing summernote
-								});
-							
-							
-							function postForm(){
-								$('textarea[name="product_content"]').val($('#summernote').summernote('code'));
-							}
-						</script>
 					</div>
 				</div>
 				
@@ -288,58 +225,8 @@
 	</div>
 	
 	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
-	<!-- 
-		노트
-		<label for="staticEmail">상품설명:</label>
-		<div class="form-group" id="summernote" ><p></p></div>
-		
-		<script>
-			$(document).ready(function() {
-				$('#summernote').summernote({
-					height: 500,          // 기본 높이값
-					width: 800,
-					minHeight: null,      // 최소 높이값(null은 제한 없음)
-					maxHeight: null,      // 최대 높이값(null은 제한 없음)
-					//focus: true,        // 페이지가 열릴때 포커스를 지정함
-					lang: 'ko-KR'         // 한국어 지정(기본값은 en-US)
-				});
-			});
-			
-			function postForm(){
-				$('textarea[name="product_content"]').val($('#summernote').summernote('code'));
-			}
-		</script>
-		
-		서브밋
-		<div class="form-group">
-		    <button type="submit" name="submit" class="btn btn-primary">등록</button>
-		</div>
-		</div>
-	</form>
-	 -->
+	<script src="${pageContext.request.contextPath}/resources/js/editor.js"></script>
 
-
-<!-- 	private int product_id;
-    private String product_name;
-    private String product_category1;
-    private String product_category2;
-    private int product_price;
-    private int product_discountrate;
-    private int product_count;
-    private String product_image;
-    private int product_package;
-    private int product_ea;
-    private String product_content;
-    private Date product_date; -->
- 
- 
 </body>
-	<!-- include summernote css/js-->
-	<link href="../../../resources/summernote/summernote.css" rel="stylesheet">
-	<script src="../../../resources/summernote/summernote.js"></script>
-	
-	<!-- summer note korean language pack -->
-	<script src="../../../resources/summernote/lang/summernote-ko-KR.js"></script>
-		
 </html>
 

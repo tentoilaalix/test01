@@ -47,11 +47,29 @@
 				account_date,
 				account_tel,
 				account_address,
+				account_grade,
 				account_age,
 				account_gender,
 				account_email
 			FROM (SELECT @rownum :=0) AS R, account
 			ORDER BY RNUM DESC
+			LIMIT #{rowStart}, #{rowEnd};
+		</select>
+		
+		<select id="pageAccountGrade" resultType="com.solfood.dto.MemberVO" parameterType="com.solfood.utils.Criteria">
+			SELECT @rownum := @rownum+1 AS RNUM,
+				account_user, 
+				account_password,
+				account_name,
+				account_date,
+				account_tel,
+				account_address,
+				account_grade,
+				account_age,
+				account_gender,
+				account_email
+			FROM (SELECT @rownum :=0) AS R, account
+			ORDER BY #{column} DESC
 			LIMIT #{rowStart}, #{rowEnd};
 		</select>
 		
@@ -88,7 +106,7 @@
 	    		product_image=#{product_image}, 
 	    		product_package=#{product_package}, 
 	    		product_ea=#{product_ea}, 
-	    		product_content='1', 
+	    		product_content=#{product_content}, 
 	    		product_date=#{product_date}
 	    	WHERE product_id= #{product_id}
 	    </update>

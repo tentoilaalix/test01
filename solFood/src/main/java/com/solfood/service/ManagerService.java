@@ -33,6 +33,7 @@ public interface ManagerService {
 	//=============================================================================================
 	public List<ProductVO> selectProduct() throws Exception;						//상품조회
 	public List<ProductVO> pageProduct(Criteria cri) throws Exception;				//상품페이지
+	public List<MemberVO> pageAccountGrade(Criteria cri) throws Exception;
 	public int countProduct() throws Exception;										//상품페이지 : 카운트
 	
 	public ProductVO productDetail(int product_id) throws Exception;				//상품정보 상세페이지

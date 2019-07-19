@@ -48,7 +48,7 @@
 					<th class="is-dark col-md-1"><abbr title="Thumbnail Image">IMG</abbr></th>
 					<th class="is-dark col-md-1"><abbr title="Packaging Type">PACK</abbr></th>
 					<th class="is-dark col-md-1"><abbr title="Count per Product">EA</abbr></th>
-					<th class="is-dark col-md-1">CONTENT</th>
+					<!-- <th class="is-dark col-md-1">CONTENT</th> -->
 					<th class="is-dark col-md-1">DATE</th>
 					<th class="is-dark col-md-2">CONFIG</th>						
 				</tr>	
@@ -67,7 +67,7 @@
 						
 						<td align="center">${product.product_package}</td>
 						<td align="center">${product.product_ea}</td>
-						<td align="center">${product.product_content}</td>
+						<%-- <td align="center">${product.product_content}</td> --%>
 						<td align="center">${product.product_date}</td>
 						
 						<td align="center">

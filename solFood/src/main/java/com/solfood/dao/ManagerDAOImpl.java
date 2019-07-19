@@ -115,6 +115,11 @@ public class ManagerDAOImpl implements ManagerDAO {
 	public int countAccount() throws Exception {
 		return sqlSession.selectOne(Namespace+".countAccount");
 	}
+
+	@Override
+	public List<MemberVO> pageAccountGrade(Criteria cri) throws Exception {
+		return sqlSession.selectList(Namespace+".pageAccountGrade", cri);
+	}
 	
 	
 }

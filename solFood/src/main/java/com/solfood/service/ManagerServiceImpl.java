@@ -109,6 +109,11 @@ public class ManagerServiceImpl implements ManagerService {
 		return dao.countAccount();
 	}
 
+	@Override
+	public List<MemberVO> pageAccountGrade(Criteria cri) throws Exception {
+		return dao.pageAccountGrade(cri);
+	}
+
 }
 
 

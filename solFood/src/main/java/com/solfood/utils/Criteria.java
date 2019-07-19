@@ -6,8 +6,18 @@ public class Criteria
  private int perPageNum;
  private int rowStart;
  private int rowEnd;
+ private String column;
  
- public Criteria()
+ 
+ public String getColumn() {
+	return column;
+}
+
+public void setColumn(String column) {
+	this.column = column;
+}
+
+public Criteria()
  {
   this.page = 1;
   this.perPageNum = 10;

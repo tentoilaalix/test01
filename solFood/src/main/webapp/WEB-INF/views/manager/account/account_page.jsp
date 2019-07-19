@@ -88,7 +88,10 @@
 			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 				<a href="account_page.do?page=${pageMaker.endPage + 1}">다음</a>
 			</c:if> 
+			<a href="${path}/manager/account/account_list.do">▼</a>
+			
 		</div>
+			
 		<hr>
 	</div>
 	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>

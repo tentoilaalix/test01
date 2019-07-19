@@ -76,6 +76,8 @@ public class ManagerController {
     }
 	
     
+ 
+    
     
     
   //글 목록 + 페이징

@@ -7,15 +7,12 @@
 	<meta charset="utf-8">
 	<title>productUpdate</title>
 	
-	<!-- include libraries(jQuery, bootstrap) -->
-	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+	<link href="../../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	<script src="../../../resources/bootstrap/js/bootstrap.js"></script>
 	
-	<!-- include summernote css/js -->
-	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-	
+	<script src="https://cdn.ckeditor.com/ckeditor5/12.0.0/classic/ckeditor.js"></script>
+
 	<%@ include file = "../../module/managerTop.jsp" %>
 	
 	<script>
@@ -124,7 +121,7 @@
 				</div>	
 				
 				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">대표사진</label></div>
+					<div class="field-label is-normal"><label class="label">대표사진2</label></div>
 					
 					<div class="field-body">
 					
@@ -147,7 +144,9 @@
 									}
 								});
 							</script>
-							<%-- <%=request.getRealPath("/") %> --%>
+								
+								<%-- <%=request.getRealPath("/") %> --%>
+								
 						</div>
 					</div>	
 				</div>
@@ -184,12 +183,14 @@
 					<div class="field-label is-normal"><label class="label">에디터</label></div>
 					<div class="field-body">
 						<div class="field is-expanded">
-							<textarea class="input" name="product_content" id="summernote">${productUpdate.product_content}</textarea>
+							<textarea class="input" name="product_content" id="editor">${productUpdate.product_content}</textarea>				
 						</div>
 					</div>
 				</div>
 				
+				
 				<hr>
+				
 				
 				<div class="field is-grouped">
 					<div class="control">
@@ -205,8 +206,10 @@
 		</div>
 	</div>
 	
+		
 	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
-	<script src="../../../resources/js/editor.js"></script>
+	
+	<script src="../../../resources/js/ckeditor.js"></script>
 	
 </body>
 </html>

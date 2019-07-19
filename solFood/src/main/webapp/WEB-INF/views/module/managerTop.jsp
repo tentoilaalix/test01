@@ -6,12 +6,11 @@
 <html class="has-navbar-fixed-top">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width. initial-scale=1">
-	
 	<title>manager main page</title>
+	<!-- 
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:700" rel="stylesheet">
 	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
-	
+	 -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
  	
@@ -19,14 +18,9 @@
 	 	body {
 	 		font-family: 'Nanum Gothic Coding';
 	 		font-size: ;
-	 		z-index: -1;
 	 	}
 	 	p {
 	 		vertical-align: middle;
-	 	}
-	 	
-	 	nav {
-	 		z-index: 1;
 	 	}
  	</style>
  	
@@ -70,6 +64,12 @@
 				</a>
 				<a class="navbar-item" href="${path}/manager/account/account_page.do">
 					회원관리222
+				</a>
+				<a class="navbar-item" href="${path}/manager/account/account_page_grade.do">
+					회원관리3
+				</a>
+				<a class="navbar-item" href="${path}/manager/account/account_page_grade">
+					회원관리4
 				</a>
 				<a class="navbar-item" href="${path}/manager/buy/buy_list.do">
 					구매관리
