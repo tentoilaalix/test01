@@ -3,11 +3,10 @@ package com.solfood.dto;
 import java.sql.Date;
 
 public class MemberVO {
- 
 	private String account_user;
 	private String account_password;
 	private String account_name;
-	private Date account_date;
+	private String account_date;
 	private String account_tel;
 	private String account_address;
 	private int account_grade;
@@ -57,10 +56,10 @@ public class MemberVO {
 	public void setAccount_name(String account_name) {
 		this.account_name = account_name;
 	}
-	public Date getAccount_date() {
+	public String getAccount_date() {
 		return account_date;
 	}
-	public void setAccount_date(Date account_date) {
+	public void setAccount_date(String account_date) {
 		this.account_date = account_date;
 	}
 	public String getAccount_tel() {

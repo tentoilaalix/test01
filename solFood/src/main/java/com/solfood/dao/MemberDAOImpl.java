@@ -47,6 +47,16 @@ public class MemberDAOImpl implements MemberDAO {
     public void joinMember(MemberVO vo) throws Exception {
     	sqlSession.insert(Namespace + ".joinMember", vo);
     }
+    // 아이디 중복 체크
+ 	@Override
+ 	public int check_id(String account_user) throws Exception {
+ 		return sqlSession.selectOne(Namespace+".check_id", account_user);
+ 	}
+ 	// 이메일 중복 체크 
+ 	@Override
+ 	public int check_email(String account_email) throws Exception {
+ 		return sqlSession.selectOne(Namespace+".check_email", account_email);
+ 	}
     /* 회원정보 수정 */
 	@Override
 	public void updateMyAccount(MemberVO memberVo) throws Exception {
@@ -57,6 +67,5 @@ public class MemberDAOImpl implements MemberDAO {
 	public void deleteMyAccount(MemberVO memberVo) throws Exception {
 		sqlSession.delete(Namespace+".deleteMember", memberVo);
 	}
-
 
 }

@@ -48,7 +48,7 @@
 							html+= "<td align='center' width='100'>"+ data[i].cart_count+ "</td>";
 							html+= "<td align='center' width='100'>"+ data[i].product_count+ "</td>";
 							html+= "<td align='center' width='100'>"+ data[i].product_price+ "</td>";
-							html+= "<td align='center' width='100'>"+ data[i].product_image+ "</td>";
+							html+= "<td align='center' width='100'><img src='/img/"+ data[i].product_image +"' style='width:90px; height:auto;'/></td>";
 							html+= "</tr>";		
 						}
 						$("#cartList").html(html);
