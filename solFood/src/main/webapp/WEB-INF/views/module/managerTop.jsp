@@ -59,18 +59,10 @@
 					</div>
 				</div>
 				
-				<a class="navbar-item" href="${path}/manager/account/account_list.do">
+				<a class="navbar-item" href="${path}/manager/account/account_page.do">
 					회원관리
 				</a>
-				<a class="navbar-item" href="${path}/manager/account/account_page.do">
-					회원관리222
-				</a>
-				<a class="navbar-item" href="${path}/manager/account/account_page_grade.do">
-					회원관리3
-				</a>
-				<a class="navbar-item" href="${path}/manager/account/account_page_grade">
-					회원관리4
-				</a>
+				
 				<a class="navbar-item" href="${path}/manager/buy/buy_list.do">
 					구매관리
 				</a>

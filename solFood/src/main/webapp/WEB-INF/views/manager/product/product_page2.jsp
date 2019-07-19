@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>product_list</title>
-	
+		
 	<link href="../../../resources/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	
@@ -18,6 +18,13 @@
 	}
 	table {
 		font-family: 'SpoqaHanSans-kr';
+	}
+	#pagination {
+		justify-content: false;	
+	}
+	
+	.pagination is-small is-centered{
+		justify-content: ;
 	}
 	</style>
 </head>
@@ -54,7 +61,7 @@
 				</tr>	
 			</thead>
 			<tbody>
-				<c:forEach items="${productList}" var="product">
+				<c:forEach items="${page}" var="product">
 					<tr class="is-size-7">
 						<td align="center">${product.product_id}</td>
 						<td align="center">${product.product_name}</td>
@@ -82,7 +89,52 @@
 				</c:forEach>
 			</tbody>	
 		</table>
+		<div class="columns">
+			<div class="column is-one-third"></div>
+			<div class="column is-one-third">
+				<nav class="pagination is-small is-centered" role="navigation">
+			 		<c:if test="${pageMaker.prev}">
+			 			<li>
+							<a class="pagination-previous" href="product_page.do?page=${pageMaker.startPage - 1}">이전</a>
+			 			</li>
+					</c:if> 
+					
+					<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+						<li>
+							<a id="page${idx}" class="pagination-link" aria-current="page" href='<c:url value="product_page.do?page=${idx}"/>'>${idx}</a>
+						</li>
+					</c:forEach>
+					
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<li>
+							<a class="pagination-next" href="product_page.do?page=${pageMaker.endPage + 1}">다음</a>
+						</li>
+					</c:if>
+				</nav>
+			</div>
+			<div class="column is-one-third">
+				<nav class="pagination is-small is-centered" role="navigation" aria-label="pagination">
+					<li>
+						<a class="pagination-link" href='<c:url value="${path}/manager/product/product_list.do"/>'>▼</a>
+					</li>
+				</nav>
+			</div>
+		</div>
+		
+		<script>
+			$(function(){
+				var thisPage = '${pageMaker.cri.page}';
+				$('#page'+thisPage).addClass('is-current');
+			})
+		</script>
+		<%-- 활성페이지 : ${criteria.page}, 활성페이지 : ${pageMaker.cri.page} = 같은 결과 --%>
+		<hr>
+							 
+			
+		
+		<hr>
 	</div>
+	
 	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
 </body>
 </html>

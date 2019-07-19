@@ -19,6 +19,13 @@
 	table {
 		font-family: 'SpoqaHanSans-kr';
 	}
+	#pagination {
+		justify-content: false;	
+	}
+	
+	.pagination is-small is-centered{
+		justify-content: ;
+	}
 	</style>
 </head>
 <body>
@@ -82,22 +89,41 @@
 				</c:forEach>
 			</tbody>	
 		</table>
-		
-		<div class="container">
-	 		<c:if test="${pageMaker.prev}">
-				<a href="product_page.do?page=${pageMaker.startPage - 1}">이전</a>
-			</c:if> 
-			
-			<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-				<a href="product_page.do?page=${idx}">${idx}</a>
-			</c:forEach>
-			
-			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-				<a href="product_page.do?page=${pageMaker.endPage + 1}">다음</a>
-			</c:if> 
+		<div class="columns is-centered">
+			<div class="column is-one-third">
+				<nav class="pagination is-small is-centered" role="navigation">
+			 		<c:if test="${pageMaker.prev}">
+			 			<li>
+							<a class="pagination-previous" href="product_page.do?page=${pageMaker.startPage - 1}">PREV</a>
+			 			</li>
+					</c:if> 
+					
+					<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+						<li>
+							<a id="page${idx}" class="pagination-link" aria-current="page" href='<c:url value="product_page.do?page=${idx}"/>'>${idx}</a>
+						</li>
+					</c:forEach>
+					
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<li>
+							<a class="pagination-next" href="product_page.do?page=${pageMaker.endPage + 1}">NEXT</a>
+						</li>
+					</c:if>
+					
+					<li>
+						<a class="pagination-link is-danger" href='<c:url value="${path}/manager/product/product_list.do"/>'>▼</a>
+					</li>
+				</nav>
+			</div>
 		</div>
 		
-		
+		<script>
+			$(function(){
+				var thisPage = '${pageMaker.cri.page}';
+				$('#page'+thisPage).addClass('is-current');
+			})
+		</script>
+		<%-- 활성페이지 : ${criteria.page}, 활성페이지 : ${pageMaker.cri.page} = 같은 결과 --%>
 		<hr>
 	</div>
 	
