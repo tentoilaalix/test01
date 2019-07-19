@@ -171,6 +171,15 @@
 				</div>
 				
 				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">상품설명</label></div><!-- 에디터 -->
+					<div class="field-body">
+						<div class="field is-expanded">
+							<textarea class="input" name="product_content" id="summernote">${productUpdate.product_content}</textarea>
+						</div>
+					</div>
+				</div>
+				
+				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">유통기한</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
@@ -180,26 +189,21 @@
 					</div>	
 				</div>	
 				
-				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">에디터</label></div>
-					<div class="field-body">
-						<div class="field is-expanded">
-							<textarea class="input" name="product_content" id="summernote">${productUpdate.product_content}</textarea>
-						</div>
-					</div>
-				</div>
-				
 				<hr>
 				
-				<div class="field is-grouped">
+				<div class="field is-grouped is-pulled-right"">
 					<div class="control">
-						<button class="button is-link" type="submit">수정완료</button>
+						<button class="button is-link" type="submit">정보수정</button>
 					</div>
+					<!-- 
+					<div class="form-group">
+					    <button type="submit" id="register_Btn" name="submit" class="btn btn-primary">등록</button>
+					</div>
+					 -->
 					<div class="control">
 						<input class="button is-danger" type="button" value="취소" onclick="history.back();" />
 					</div>
 				</div>
-				
 				
 			</form>
 		</div>

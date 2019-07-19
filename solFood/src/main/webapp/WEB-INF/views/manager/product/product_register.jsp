@@ -57,7 +57,7 @@
 			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data">
 				
 				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">상품이름</label></div>
+					<div class="field-label is-normal"><label class="label">상품명</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
 							<input type="text" class="input" name="product_name" maxlength="20">
@@ -165,7 +165,7 @@
 				</div>
 				
 				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">에디터</label></div>
+					<div class="field-label is-normal"><label class="label">상품설명</label></div><!-- 에디터 -->
 					<div class="field-body">
 						<div class="field is-expanded">
 							<textarea name="product_content" id="summernote"></textarea>						
