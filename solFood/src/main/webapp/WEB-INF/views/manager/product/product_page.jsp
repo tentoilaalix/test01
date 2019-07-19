@@ -96,20 +96,17 @@
 			 			<li>
 							<a class="pagination-previous" href="product_page.do?page=${pageMaker.startPage - 1}">PREV</a>
 			 			</li>
-					</c:if> 
-					
+					</c:if>
 					<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
 						<li>
 							<a id="page${idx}" class="pagination-link" aria-current="page" href='<c:url value="product_page.do?page=${idx}"/>'>${idx}</a>
 						</li>
 					</c:forEach>
-					
 					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 						<li>
 							<a class="pagination-next" href="product_page.do?page=${pageMaker.endPage + 1}">NEXT</a>
 						</li>
 					</c:if>
-					
 					<li>
 						<a class="pagination-link is-danger" href='<c:url value="${path}/manager/product/product_list.do"/>'>▼</a>
 					</li>
