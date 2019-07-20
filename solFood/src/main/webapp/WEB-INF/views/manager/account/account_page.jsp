@@ -77,30 +77,27 @@
 		</table>
 		
 		<div class="columns is-centered">
-			
 			<div class="column is-one-third">
-			<nav class="pagination is-small is-centered" role="navigation">
-	 		<c:if test="${pageMaker.prev}">
-	 		<li>
-				<a class="pagination-previous" href="account_page.do?page=${pageMaker.startPage - 1}">PREV</a>
-	 		</li>
-			</c:if> 
-			
-			<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
-			<li>
-				<a id="page${idx}" class="pagination-link" aria-current="page"  href="account_page.do?page=${idx}">${idx}</a>
-			</li>
-			</c:forEach>
-			
-			<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-				<li>
-				<a class="pagination-next" href="account_page.do?page=${pageMaker.endPage + 1}">NEXT</a>
-				</li>
-			</c:if>
-			<li>
-			<a class="pagination-link" href='<c:url value="${path}/manager/account/account_list.do"/>'>▼</a>
-			</li>
-			</nav>
+				<nav class="pagination is-small is-centered" role="navigation">
+			 		<c:if test="${pageMaker.prev}">
+				 		<li>
+							<a class="pagination-previous" href="account_page.do?page=${pageMaker.startPage - 1}">PREV</a>
+				 		</li>
+					</c:if> 
+					<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+						<li>
+							<a id="page${idx}" class="pagination-link" aria-current="page"  href="account_page.do?page=${idx}">${idx}</a>
+						</li>
+					</c:forEach>
+					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+						<li>
+							<a class="pagination-next" href="account_page.do?page=${pageMaker.endPage + 1}">NEXT</a>
+						</li>
+					</c:if>
+					<li>
+						<a class="pagination-link" href='<c:url value="${path}/manager/account/account_list.do"/>'>▼</a>
+					</li>
+				</nav>
 			</div>
 		</div>
 		<script>

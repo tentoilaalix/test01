@@ -19,13 +19,7 @@
 	table {
 		font-family: 'SpoqaHanSans-kr';
 	}
-	#pagination {
-		justify-content: false;	
-	}
 	
-	.pagination is-small is-centered{
-		justify-content: ;
-	}
 	</style>
 </head>
 <body>
@@ -37,7 +31,13 @@
 	<div class="container">
 		<div class="title">
 			상품현황
-			<a class="button is-info" href="${path}/manager/product/product_register.do" style="font-size: small;">상품등록</a>
+			<button class="button is-outlined" onclick="location.href='${path}/manager/product/product_register.do'" style="vertical-align: middle;">
+			<span class="icon">
+			  <i class="fas fa-lg fa-pencil-alt"></i>
+			</span>
+			</button>
+			
+		
 		</div>
 	
 		<hr>
@@ -89,6 +89,7 @@
 				</c:forEach>
 			</tbody>	
 		</table>
+		
 		<div class="columns is-centered">
 			<div class="column is-one-third">
 				<nav class="pagination is-small is-centered" role="navigation">
@@ -113,7 +114,6 @@
 				</nav>
 			</div>
 		</div>
-		
 		<script>
 			$(function(){
 				var thisPage = '${pageMaker.cri.page}';

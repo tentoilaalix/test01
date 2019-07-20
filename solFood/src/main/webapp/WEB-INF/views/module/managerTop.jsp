@@ -55,11 +55,20 @@
 						<a class="navbar-item" href="${path}/manager/product/product_register.do">
 							상품등록
 						</a>
-						<a class="navbar-item" href="${path}/manager/recipe/recipe_list.do">
-							레시피현황
+					</div>
+				</div>
+				
+				<%--============================== 게시판 관리 ===============================--%>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link" href="">
+						게시판관리
+					</a>
+					<div class="navbar-dropdown " data-style="width: 18rem;">
+						<a class="navbar-item" href="">
+							사용자게시판관리
 						</a>
-						<a class="navbar-item" href="${path}/manager/recipe/recipe_register.do">
-							레시피등록
+						<a class="navbar-item" href="${path}/manager/recipe/recipe_list.do">
+							콘텐츠(레시피)관리
 						</a>
 					</div>
 				</div>
@@ -71,22 +80,32 @@
 				
 				
 				<%--============================== 구매 관리 ===============================--%>
-				<a class="navbar-item" href="${path}/manager/buy/buy_list.do">
-					구매관리
-				</a>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link" href="">
+						구매관리
+					</a>
+					<div class="navbar-dropdown " data-style="width: 18rem;">
+						<a class="navbar-item" href="">
+							주문내역
+						</a>
+						<a class="navbar-item" href="">
+							배송관리
+						</a>
+					</div>
+				</div>
 				
 				<%--============================== 통계 관리 ===============================--%>
 				<div class="navbar-item has-dropdown is-hoverable">
 					<a class="navbar-link " href="http://bulma.io/blog/">
-						통계
+						통계자료
 					</a>
 					<div class="navbar-dropdown " data-style="width: 18rem;">
 						<a class="navbar-item" href="/">
-							월간 통계
+							월간통계
 						</a>
 		
 						<a class="navbar-item" href="/">
-							상품 통계
+							상품통계
 						</a>
 					</div>
 				</div>
@@ -105,7 +124,7 @@
 					<p class="navbar-link">
 						ADMIN
 					</p>
-					<div class="navbar-dropdown">
+					<div class="navbar-dropdown is-right">
 						<p class="navbar-item">관리자 : ${login.account_name}</p>
 				        <p class="navbar-item">관리등급 : ${login.account_grade}</p>
 				        
