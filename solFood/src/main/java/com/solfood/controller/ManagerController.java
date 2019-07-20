@@ -90,7 +90,7 @@ public class ManagerController {
 		service.updateMember(vo);
 		
 		//목록으로 리다이렉트
-		return "redirect:account_list.do";
+		return "redirect:account_page.do";
 		//return "redirect:accountUpdate.do" + accountUpdate;
 	}
 	
