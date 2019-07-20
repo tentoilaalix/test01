@@ -8,6 +8,7 @@ import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.MemberVO;
 import com.solfood.dto.ProductVO;
+import com.solfood.dto.TotalVO;
 import com.solfood.utils.Criteria;
  
 @Repository

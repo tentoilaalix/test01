@@ -99,6 +99,15 @@ public class ManagerServiceImpl implements ManagerService {
 	}
 
 	
+	@Override
+	public List<MemberVO> pageAccount(Criteria cri) throws Exception {
+		return dao.pageAccount(cri);
+	}
+	@Override
+	public int countAccount() throws Exception {
+		return dao.countAccount();
+	}
+	
 	//-------------------------------------------------------
     //	recipe
     //-------------------------------------------------------
@@ -127,7 +136,7 @@ public class ManagerServiceImpl implements ManagerService {
 		dao.deleteRecipe(recipe_id);
 	}
 
-	
+
 
 }
 

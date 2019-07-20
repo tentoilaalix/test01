@@ -6,6 +6,7 @@ import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.MemberVO;
 import com.solfood.dto.ProductVO;
+import com.solfood.dto.TotalVO;
 import com.solfood.utils.Criteria;
 
 
@@ -33,7 +34,6 @@ public interface ManagerService {
 	//=============================================================================================
 	public List<ProductVO> selectProduct() throws Exception;						//상품조회
 	public List<ProductVO> pageProduct(Criteria cri) throws Exception;				//상품페이지
-	public List<MemberVO> pageAccountGrade(Criteria cri) throws Exception;
 	public int countProduct() throws Exception;										//상품페이지 : 카운트
 	
 	public ProductVO productDetail(int product_id) throws Exception;				//상품정보 상세페이지
@@ -41,11 +41,12 @@ public interface ManagerService {
 	public void deleteProduct(ProductVO vo) throws Exception;						//상품정보 삭제
 	void insertProduct(ProductVO vo) throws Exception;							 	//상품등록
 	
+	
 	//=============================================================================================
 	// 레시피 
 	//=============================================================================================
 	public List<TotalVO> selectRecipe() throws Exception;							//레시피 조회
-	public TotalVO selectRecipeDetail(int recipe_id) throws Exception;							//특정 레시피 조회
+	public TotalVO selectRecipeDetail(int recipe_id) throws Exception;				//특정 레시피 조회
 	public void insertRecipe(TotalVO vo) throws Exception;							//레시피 등록 
 	public void updateRecipe(TotalVO vo) throws Exception;							//레시피 수정
 	public void deleteRecipe(int recipe_id) throws Exception;						//레시피 삭제

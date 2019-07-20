@@ -22,6 +22,10 @@ public interface MemberService {
 
 	public void updateMyAccount(MemberVO memberVo) throws Exception;	//회원 정보수정
 	public void deleteMyAccount(MemberVO memberVo) throws Exception; 	//회원 탈퇴
+
+	public int check_id(String account_user);
+
+	public int check_email(String account_email);
     
     
 	
