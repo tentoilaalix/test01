@@ -90,28 +90,35 @@ public class CartController {
 	public String insertCart(TotalVO vo, HttpServletRequest request) throws Exception{	
 		int product_id= Integer.parseInt(request.getParameter("product_id"));
 		String account_user= request.getParameter("account_user");
+		int purchase_count= Integer.parseInt(request.getParameter("purchase_count"));
 
 		vo.setProduct_id(product_id);
 		vo.setAccount_user(account_user);		
-			
+		
+		// return할 주소값	
 		String returnURI= "redirect:/cart/cartList.do?account_user="+ account_user;
+		
 		
 		// product_id에 해당하는 product_count 알아보기
 		List<TotalVO> result= productService.selectProduct(product_id);
 		int product_count= result.get(0).getProduct_count();	
-				
+		
+		
 		// cart에 있는 해당 상품의 count 수 구하기 
 		int cart_count= cartService.selectCart_alreadyInOrNot(vo);
+		
 		
 		// cart_count 수량이 product_count 수량을 넘지 않는 선에서 수량 + ---> cart_count가 product_count 안넘게가 지금 안돼서 걍 일단 했어여
 		if(product_count== 0) {
 			System.out.println("******************* 품절 상품은 넣을 수 없음");
 		
 		} else if(cart_count== 0) {
+			vo.setCart_count(purchase_count);
 			cartService.insertCart(vo);
 		} else if(cart_count> 0) {
 			if(cart_count< product_count) {
-				cartService.updateCart_plusCartCount(vo);
+				vo.setCart_count(purchase_count);
+				cartService.updateCart(vo);
 			} else if(cart_count>= product_count){
 				System.out.println("더 이상 넣을 수 없음");
 				return returnURI;

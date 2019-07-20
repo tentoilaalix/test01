@@ -15,11 +15,9 @@
 		vertical-align: middle !important;
 	}
 	</style>
-	
-
 </head>
 <body>
-	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
+	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menuﾁﾁﾁﾁﾁ ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<jsp:include page="../../module/managerTop.jsp"/>
 	<br><br><br><br>
 	

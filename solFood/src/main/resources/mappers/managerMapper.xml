@@ -212,6 +212,41 @@
 		<select id="selectBoard" resultType="com.solfood.dto.BoardVO">
 	        SELECT * FROM BOARD
 	    </select>
+	    
+	    
+	    <!-- =============================== recipe ========================================= -->
+		<!-- recipe list 보기 -->
+		<select id="selectRecipe" resultType="com.solfood.dto.TotalVO">
+			SELECT R.RECIPE_ID, R.RECIPE_IMAGE, R.RECIPE_CONTENT, R.RECIPE_NAME, R.RECIPE_KEYWORD  
+			FROM RECIPE R 
+		</select>
+	    
+	    <!-- recipe 특정 레시피 보기 -->
+		<select id="selectRecipeDetail" parameterType="int" resultType="com.solfood.dto.TotalVO">
+			SELECT R.RECIPE_ID, R.RECIPE_IMAGE, R.RECIPE_CONTENT, R.RECIPE_NAME, R.RECIPE_KEYWORD  
+			FROM RECIPE R 
+			WHERE RECIPE_ID= #{recipe_id}
+		</select>
+	    
+	    
+	    <!-- recipe 등록하기 -->
+	    <update id="insertRecipe" parameterType="com.solfood.dto.TotalVO">
+	    	INSERT INTO RECIPE (RECIPE_IMAGE, RECIPE_CONTENT, RECIPE_NAME, RECIPE_KEYWORD) 
+	    	VALUES (#{recipe_image}, #{recipe_content}, #{recipe_name}, #{recipe_keyword}) 
+	    </update>
+	    
+	    <!-- recipe 수정하기 -->
+	    <update id="updateRecipe" parameterType="com.solfood.dto.TotalVO">
+	    	UPDATE RECIPE 
+	    	SET RECIPE_IMAGE= #{recipe_image}, RECIPE_CONTENT= #{recipe_content}, RECIPE_NAME= #{recipe_name}, RECIPE_KEYWORD= #{recipe_keyword} 
+			WHERE RECIPE_ID= #{recipe_id} 	    	
+	    </update>
+	    
+	    <!-- recipe 삭제하기 -->
+	    <delete id="deleteRecipe" parameterType="int">
+	    	DELETE FROM RECIPE WHERE RECIPE_ID= #{recipe_id} 
+	    </delete>
+	    
 	</mapper>
 
 	

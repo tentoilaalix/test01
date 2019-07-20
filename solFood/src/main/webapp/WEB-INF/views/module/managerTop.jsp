@@ -6,20 +6,20 @@
 <html class="has-navbar-fixed-top">
 <head>
 	<meta charset="UTF-8">
-	<title>manager main page</title>
-	 
-	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:700" rel="stylesheet">
-	<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width. initial-scale=1">
 	
+	<title>manager main page</title>
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:700" rel="stylesheet">
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
  	
  	<style type="text/css">
-	 	body {
+	 	body{
 	 		font-family: 'Nanum Gothic Coding';
 	 		font-size: ;
 	 	}
-	 	p {
+	 	p{
 	 		vertical-align: middle;
 	 	}
  	</style>
@@ -43,12 +43,11 @@
 
 		<div class="navbar-menu">
 			<div class="navbar-start">
+				<%--============================== 상품 관리 ===============================--%>
 				<div class="navbar-item has-dropdown is-hoverable">
-					
 					<a class="navbar-link" href="${path}/manager/product/product_page.do">
 						상품관리
 					</a>
-					
 					<div class="navbar-dropdown " data-style="width: 18rem;">
 						<a class="navbar-item" href="${path}/manager/product/product_page.do">
 							상품현황
@@ -56,16 +55,27 @@
 						<a class="navbar-item" href="${path}/manager/product/product_register.do">
 							상품등록
 						</a>
+						<a class="navbar-item" href="${path}/manager/recipe/recipe_list.do">
+							레시피현황
+						</a>
+						<a class="navbar-item" href="${path}/manager/recipe/recipe_register.do">
+							레시피등록
+						</a>
 					</div>
 				</div>
 				
+				<%--============================== 회원 관리 ===============================--%>
 				<a class="navbar-item" href="${path}/manager/account/account_page.do">
 					회원관리
 				</a>
 				
+				
+				<%--============================== 구매 관리 ===============================--%>
 				<a class="navbar-item" href="${path}/manager/buy/buy_list.do">
 					구매관리
 				</a>
+				
+				<%--============================== 통계 관리 ===============================--%>
 				<div class="navbar-item has-dropdown is-hoverable">
 					<a class="navbar-link " href="http://bulma.io/blog/">
 						통계
@@ -80,13 +90,9 @@
 						</a>
 					</div>
 				</div>
-				
-				
-				
-				
 			</div>
 
-
+	<%--================================= 관리자 메뉴 ========================================--%>
 			<div class="navbar-end">
 				<a class="navbar-item" href="${path}/">
 					SHOP

@@ -10,6 +10,7 @@ import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.MemberVO;
 import com.solfood.dto.ProductVO;
+import com.solfood.dto.TotalVO;
 import com.solfood.utils.Criteria;
  
 @Repository
@@ -20,12 +21,10 @@ public class ManagerDAOImpl implements ManagerDAO {
     
     
 	
-	//===================================================================================================
-	//ㅇㅁㄴㅁㄴㅇㅁㄴ
-	//===================================================================================================
-	
-
-	//판매관리
+  	//===================================================================================================
+  	//	buy/ board
+  	//===================================================================================================
+  	//판매관리
 	@Override
 	public List<BuyVO> selectBuy() throws Exception {
 		return sqlSession.selectList(Namespace+".selectBuy");
@@ -121,5 +120,34 @@ public class ManagerDAOImpl implements ManagerDAO {
 		return sqlSession.selectList(Namespace+".pageAccountGrade", cri);
 	}
 	
+	//===================================================================================================
+  	// 레시피
+  	//===================================================================================================
+	/* 레시피 조회 */
+	@Override
+	public List<TotalVO> selectRecipe() throws Exception {
+		return sqlSession.selectList(Namespace+".selectRecipe");
+	}
+	@Override
+	public TotalVO selectRecipeDetail(int recipe_id) throws Exception {
+		return sqlSession.selectOne(Namespace+".selectRecipeDetail", recipe_id);
+	}
+	
+	@Override
+	public void insertRecipe(TotalVO vo) throws Exception {
+		sqlSession.insert(Namespace+".insertRecipe", vo);
+	}
+
+	@Override
+	public void updateRecipe(TotalVO vo) throws Exception {
+		sqlSession.update(Namespace+".updateRecipe", vo);
+		
+	}
+
+	@Override
+	public void deleteRecipe(int recipe_id) throws Exception {
+		sqlSession.delete(Namespace+".deleteRecipe", recipe_id);
+	}
+
 	
 }

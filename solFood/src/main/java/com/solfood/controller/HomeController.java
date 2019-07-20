@@ -66,4 +66,11 @@ public class HomeController {
 		return "company/guide";
 	}
 	
+	
+	// test2
+	@RequestMapping("/test.do")
+	public String test() {
+		return "test";
+	}
+	
 }

@@ -1,6 +1,7 @@
 package com.solfood.controller;
 
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -21,13 +22,12 @@ import com.solfood.dto.MemberVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.LikeVO;
 import com.solfood.dto.ProductVO;
+import com.solfood.dto.TotalVO;
 
 import com.solfood.service.ManagerService;
 import com.solfood.utils.Criteria;
 import com.solfood.utils.PageMaker;
 import com.solfood.utils.UploadFileUtils;
-
-
 
 
 @Controller
@@ -74,27 +74,6 @@ public class ManagerController {
     	model.addAttribute("pageMaker", pageMaker);
     	
     }
-	
-    
- 
-    
-    
-    
-  //글 목록 + 페이징
-	/*
-	 * @RequestMapping(value="product/product_page.do", method = RequestMethod.GET)
-	 * public void pageProduct(Criteria cri, Model model) throws Exception{
-	 * 
-	 * List<ProductVO> page = service.pageProduct(cri); model.addAttribute("page",
-	 * page);
-	 * 
-	 * PageMaker pageMaker = new PageMaker(); pageMaker.setCri(cri);
-	 * pageMaker.setTotalCount(service.countProduct());
-	 * model.addAttribute("pageMaker", pageMaker);
-	 * 
-	 * }
-	 */
-    
     
 	/* 회원정보 상세조회 */
 	@RequestMapping(value = "account/accountUpdate.do", method = RequestMethod.GET) 

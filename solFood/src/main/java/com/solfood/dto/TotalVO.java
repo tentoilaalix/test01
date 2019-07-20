@@ -1,5 +1,5 @@
 /*
- * 	CART, PRODUCT, ACCOUNT 의 컬럼이 모두 들어있는 VO
+ * 	CART, PRODUCT, ACCOUNT 의 컬럼이 모두 들어있는 VO,
  */
 
 package com.solfood.dto;
@@ -16,7 +16,7 @@ public class TotalVO {
     private int 	product_discountrate;
     private int 	product_count;
     private String 	product_image;
-    private int 	product_package;
+    private String 	product_package;
     private int 	product_ea;
     private String 	product_content;
     private Date 	product_date;
@@ -25,7 +25,7 @@ public class TotalVO {
     private String account_user;
 	private String account_password;
 	private String account_name;
-	private Date account_date;
+	private String account_date;
 	private String account_tel;
 	private String account_address;
 	private int account_grade;
@@ -43,6 +43,13 @@ public class TotalVO {
 	private String 	buy_date;
 	private int 	buy_count;
 	
+	
+	// RECIPE
+	private int 	recipe_id;
+	private String 	recipe_image;
+	private String	recipe_content;
+	private String	recipe_name;
+	private String	recipe_keyword;
 	
 	
 	// GETTERS AND SETTERS
@@ -94,10 +101,10 @@ public class TotalVO {
 	public void setProduct_image(String product_image) {
 		this.product_image = product_image;
 	}
-	public int getProduct_package() {
+	public String getProduct_package() {
 		return product_package;
 	}
-	public void setProduct_package(int product_package) {
+	public void setProduct_package(String product_package) {
 		this.product_package = product_package;
 	}
 	public int getProduct_ea() {
@@ -136,10 +143,10 @@ public class TotalVO {
 	public void setAccount_name(String account_name) {
 		this.account_name = account_name;
 	}
-	public Date getAccount_date() {
+	public String getAccount_date() {
 		return account_date;
 	}
-	public void setAccount_date(Date account_date) {
+	public void setAccount_date(String account_date) {
 		this.account_date = account_date;
 	}
 	public String getAccount_tel() {
@@ -214,5 +221,35 @@ public class TotalVO {
 	}
 	public void setBuy_count(int buy_count) {
 		this.buy_count = buy_count;
+	}
+	public int getRecipe_id() {
+		return recipe_id;
+	}
+	public void setRecipe_id(int recipe_id) {
+		this.recipe_id = recipe_id;
+	}
+	public String getRecipe_image() {
+		return recipe_image;
+	}
+	public void setRecipe_image(String recipe_image) {
+		this.recipe_image = recipe_image;
+	}
+	public String getRecipe_content() {
+		return recipe_content;
+	}
+	public void setRecipe_content(String recipe_content) {
+		this.recipe_content = recipe_content;
+	}
+	public String getRecipe_name() {
+		return recipe_name;
+	}
+	public void setRecipe_name(String recipe_name) {
+		this.recipe_name = recipe_name;
+	}
+	public String getRecipe_keyword() {
+		return recipe_keyword;
+	}
+	public void setRecipe_keyword(String recipe_keyword) {
+		this.recipe_keyword = recipe_keyword;
 	}
 }

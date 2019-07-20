@@ -8,6 +8,7 @@ import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.MemberVO;
 import com.solfood.dto.ProductVO;
+import com.solfood.dto.TotalVO;
 import com.solfood.utils.Criteria;
  
 @Service
@@ -44,10 +45,8 @@ public class ManagerServiceImpl implements ManagerService {
 	
 	
 	//-------------------------------------------------------
-    //	ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴ
+    //	buy
     //-------------------------------------------------------
-    
-
 	@Override
 	public List<BuyVO> selectBuy() throws Exception {
 		 return dao.selectBuy();
@@ -99,20 +98,36 @@ public class ManagerServiceImpl implements ManagerService {
 		return dao.countProduct();
 	}
 
+	
+	//-------------------------------------------------------
+    //	recipe
+    //-------------------------------------------------------
+	/* 레시피 조회 */
 	@Override
-	public List<MemberVO> pageAccount(Criteria cri) throws Exception {
-		return dao.pageAccount(cri);
+	public List<TotalVO> selectRecipe() throws Exception {
+		return dao.selectRecipe();
+	}
+	@Override
+	public TotalVO selectRecipeDetail(int recipe_id) throws Exception {
+		return dao.selectRecipeDetail(recipe_id);
+	}
+	
+	@Override
+	public void insertRecipe(TotalVO vo) throws Exception {
+		dao.insertRecipe(vo);
 	}
 
 	@Override
-	public int countAccount() throws Exception {
-		return dao.countAccount();
+	public void updateRecipe(TotalVO vo) throws Exception {
+		dao.updateRecipe(vo);
+		
+	}
+	@Override
+	public void deleteRecipe(int recipe_id) throws Exception {
+		dao.deleteRecipe(recipe_id);
 	}
 
-	@Override
-	public List<MemberVO> pageAccountGrade(Criteria cri) throws Exception {
-		return dao.pageAccountGrade(cri);
-	}
+	
 
 }
 
