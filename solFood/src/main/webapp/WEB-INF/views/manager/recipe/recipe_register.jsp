@@ -81,7 +81,7 @@
 					<div class="field-label is-normal"><label class="label">작성일</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
-							<input type="text" class="input" name="recipe_date" maxlength="20" value="${sysYear}">
+							<input type="date" class="input" name="recipe_date" maxlength="20" value="${sysYear}">
 							<span class="icon is-small is-right"><i class="fas fa-exclamation-triangle has-text-grey-dark"></i></span>
 						</div>
 					</div>	
