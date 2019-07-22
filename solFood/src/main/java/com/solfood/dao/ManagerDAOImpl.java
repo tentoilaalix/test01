@@ -115,11 +115,6 @@ public class ManagerDAOImpl implements ManagerDAO {
 		return sqlSession.selectOne(Namespace+".countAccount");
 	}
 
-	@Override
-	public List<MemberVO> pageAccountGrade(Criteria cri) throws Exception {
-		return sqlSession.selectList(Namespace+".pageAccountGrade", cri);
-	}
-	
 	//===================================================================================================
   	// 레시피
   	//===================================================================================================
@@ -132,18 +127,14 @@ public class ManagerDAOImpl implements ManagerDAO {
 	public TotalVO selectRecipeDetail(int recipe_id) throws Exception {
 		return sqlSession.selectOne(Namespace+".selectRecipeDetail", recipe_id);
 	}
-	
 	@Override
 	public void insertRecipe(TotalVO vo) throws Exception {
 		sqlSession.insert(Namespace+".insertRecipe", vo);
 	}
-
 	@Override
 	public void updateRecipe(TotalVO vo) throws Exception {
 		sqlSession.update(Namespace+".updateRecipe", vo);
-		
 	}
-
 	@Override
 	public void deleteRecipe(int recipe_id) throws Exception {
 		sqlSession.delete(Namespace+".deleteRecipe", recipe_id);

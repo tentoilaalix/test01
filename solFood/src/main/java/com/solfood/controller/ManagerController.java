@@ -246,8 +246,6 @@ public class ManagerController {
 			System.out.println("###2"+req.getParameter("product_image"));
 		}
 		
-
-		
 		service.updateProduct(productVo);
 		
 		return "redirect:product_page.do";
@@ -292,13 +290,12 @@ public class ManagerController {
 	
 	
 	// 레시피 등록
-	@RequestMapping(value="recipe/recipe_register.do")
-	public String recipe_register() throws Exception{
-		return "manager/recipe/recipe_register";
+	@RequestMapping(value="recipe/recipe_register.do", method = RequestMethod.GET)
+	public void recipe_register() throws Exception{
+		
 	}
-	
-	@RequestMapping(value="recipe/recipe_registerPro.do")
-	public String recipe_registerPro(HttpServletRequest request, MultipartFile file) throws Exception{
+	@RequestMapping(value="recipe/recipe_register.do", method = RequestMethod.POST)
+	public String recipe_registerPro(TotalVO vo, MultipartFile file) throws Exception{
 		String imgUploadPath = uploadPath + File.separator + "productImg";
     	String fileName = null;
 		    	
@@ -307,12 +304,7 @@ public class ManagerController {
 		} else {
 			fileName = File.separator + "noImage" + File.separator + "noImage.png";
 		}
-
-		TotalVO vo= new TotalVO();
 		vo.setRecipe_image(File.separator + "productImg" + File.separator + fileName);
-		vo.setRecipe_content(request.getParameter("recipe_content"));
-		vo.setRecipe_name(request.getParameter("recipe_name"));
-		vo.setRecipe_keyword(request.getParameter("recipe_keyword"));
 		
 		service.insertRecipe(vo);
 		
@@ -330,13 +322,7 @@ public class ManagerController {
 	}
 	
 	@RequestMapping(value="recipe/recipeUpdatePro.do")
-	public String recipeUpdatePro(HttpServletRequest request, MultipartFile file, int recipe_id) throws Exception{
-		TotalVO vo= new TotalVO();
-		vo.setRecipe_content(request.getParameter("recipe_content"));
-		vo.setRecipe_name(request.getParameter("recipe_name"));
-		vo.setRecipe_keyword(request.getParameter("recipe_keyword"));
-		vo.setRecipe_id(recipe_id);
-		
+	public String recipeUpdatePro(TotalVO vo, HttpServletRequest request, MultipartFile file, int recipe_id) throws Exception{
 		
 		// 새로운 파일이 등록되었는지 확인--> 삭제하고 새로운 거 등록하기
 		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {

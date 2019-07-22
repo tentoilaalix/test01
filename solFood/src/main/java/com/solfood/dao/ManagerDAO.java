@@ -37,10 +37,10 @@ public interface ManagerDAO {
 	public void updateProduct(ProductVO vo) throws Exception;					//상품정보 수정
 	public void deleteProduct(ProductVO vo) throws Exception;					//상품정보 삭제
 	public void insertProduct(ProductVO vo) throws Exception;					//상품등록
-	public List<MemberVO> pageAccountGrade(Criteria cri) throws Exception;
 	
 	/* 레시피 관리 */
 	public List<TotalVO> selectRecipe() throws Exception;						// 레시피 조회
+	
 	public TotalVO selectRecipeDetail(int recipe_id) throws Exception;			// 특정 레시피 조회 	
 	public void insertRecipe(TotalVO vo) throws Exception;						// 레시피 등록 
 	public void updateRecipe(TotalVO vo) throws Exception;						// 레시피 수정

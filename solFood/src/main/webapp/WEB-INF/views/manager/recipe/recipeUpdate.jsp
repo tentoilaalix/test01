@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -7,33 +8,17 @@
 	<meta charset="utf-8">
 	<title>recipe update</title>
 	
-	<link href="../../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
-	<script src="../../../resources/bootstrap/js/bootstrap.js"></script>
+	<!-- include libraries(jQuery, bootstrap) -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 	
-	<!-- summer -->
+	<!-- include summernote css/js -->
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-	 
-	<link href="../../../resources/summernote/summernote.css" rel="stylesheet">
-	<script src="../../../resources/summernote/summernote.js"></script>
 	
-	<!-- summer note korean language pack -->
-	<script src="../../../resources/summernote/lang/summernote-ko-KR.js"></script>
-
 	<%@ include file = "../../module/managerTop.jsp" %>
 	
-	<script type="text/javascript">
-	$(function() {
-		$('.summernote').summernote({
-			height: 300,          // 기본 높이값
-			minHeight: null,      // 최소 높이값(null은 제한 없음)
-			maxHeight: null,      // 최대 높이값(null은 제한 없음)
-			focus: true,          // 페이지가 열릴때 포커스를 지정함
-			lang: 'ko-KR'         // 한국어 지정(기본값은 en-US)
-		});
-	});
-	</script>
 	<script>
 	var file = document.getElementById("file");
 	file.onchange = function(){
@@ -63,7 +48,7 @@
 	
 	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<div class="container">
-		<h1 class="title">레시피 수정</h1>
+		<h1 class="title">콘텐츠수정</h1>
 		<hr>
 	</div>
 	
@@ -72,15 +57,15 @@
 		<div class="columns is-centered">
 			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data" action="${path}/manager/recipe/recipeUpdatePro.do?recipe_id=${recipeDetail.recipe_id}">
 				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">레시피코드</label></div>
+					<div class="field-label is-normal"><label class="label">콘텐츠no.</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
-							<input type="text" class="input" name="recipe_id" maxlength="20" value="${recipeDetail.recipe_id}">
+							<input type="text" class="input" name="recipe_id" maxlength="20" value="${recipeDetail.recipe_id}" placeholder="Disabled input" disabled>
 							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
 						</div>
 					</div>	
 				</div>	
-				
+			
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">이름</label></div>
 					<div class="field-body">
@@ -98,6 +83,19 @@
 						</div>
 					</div>	
 				</div>	
+				
+				<!-- 현재년도 -->
+				<c:set var="now" value="<%=new java.util.Date()%>" />
+				<c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh:mm:ss" /></c:set>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">작성일</label></div>
+					<div class="field-body">
+						<div class="control field is-expanded has-icons-right">
+							<input type="text" class="input" name="recipe_date" maxlength="20" value="${recipeDetail.recipe_date}">
+							<span class="icon is-small is-right"><i class="fas fa-exclamation-triangle has-text-grey-dark"></i></span>
+						</div>
+					</div>	
+				</div>
 				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">사진</label></div>
@@ -128,43 +126,36 @@
 				</div>
 				
 				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">내용</label></div>
+					<div class="field-label is-normal"><label class="label">내용</label></div><!-- 에디터 -->
 					<div class="field-body">
 						<div class="field is-expanded">
-							<textarea id="summernote" class="input" name="recipe_content">${recipeDetail.recipe_content}</textarea>							
+							<textarea name="recipe_content" id="summernote">${recipeDetail.recipe_content}</textarea>						
 						</div>
-						<script>
-							$(document).ready(function() {
-								$('#summernote').summernote({
-									height: 400,          // 기본 높이값
-									minHeight: null,      // 최소 높이값(null은 제한 없음)
-									maxHeight: null,      // 최대 높이값(null은 제한 없음)
-									//focus: true,        // 페이지가 열릴때 포커스를 지정함
-									lang: 'ko-KR'         // 한국어 지정(기본값은 en-US)
-								});
-							});
-							
-							function postForm(){
-								$('textarea[name="recipe_content"]').val($('#summernote').summernote('code'));
-							}
-						</script>
 					</div>
 				</div>
 				<hr>
 								
-				<div class="field is-grouped">
+				<%-- 등록/취소 버튼 --%>
+				<div class="field is-grouped is-pulled-right"">
 					<div class="control">
 						<button class="button is-link" type="submit">수정완료</button>
 					</div>
+					<!-- 
+					<div class="form-group">
+					    <button type="submit" id="register_Btn" name="submit" class="btn btn-primary">등록</button>
+					</div>
+					 -->
 					<div class="control">
 						<input class="button is-danger" type="button" value="취소" onclick="history.back();" />
 					</div>
 				</div>
 			</form>
 		</div>
+		<hr>
 	</div>
 	
-		
 	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
+	<script src="${pageContext.request.contextPath}/resources/js/editor.js"></script>
+	
 </body>
 </html>

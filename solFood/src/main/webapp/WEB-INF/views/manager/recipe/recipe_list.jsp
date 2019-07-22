@@ -42,6 +42,7 @@
 				<tr>
 					<th class="is-dark col-md-1">ID.</th>
 					<th class="is-dark col-md-1">NAME</th>
+					<th class="is-dark col-md-1">DATE</th>
 					<th class="is-dark col-md-1">IMG</th>
 					<th class="is-dark col-md-1">CONTENT</th>
 					<th class="is-dark col-md-1">KEYWORD</th>
@@ -53,6 +54,7 @@
 					<tr class="is-size-7">
 						<td align="center">${recipe.recipe_id}</td>
 						<td align="center">${recipe.recipe_name}</td>
+						<td align="center">${recipe.recipe_date}</td>
 						<td align="center"><abbr title="${recipe.recipe_image}"><img src="/img/${recipe.recipe_image}" style="width:50px; height:auto;"/></abbr></td>
 						<td align="center">${recipe.recipe_content}</td>
 						<td align="center">${recipe.recipe_keyword}</td>

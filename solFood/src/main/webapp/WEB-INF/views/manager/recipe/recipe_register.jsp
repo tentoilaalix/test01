@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,26 +15,9 @@
 	<!-- summer -->
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-	 
-	<link href="../../../resources/summernote/summernote.css" rel="stylesheet">
-	<script src="../../../resources/summernote/summernote.js"></script>
 	
-	<!-- summer note korean language pack -->
-	<script src="../../../resources/summernote/lang/summernote-ko-KR.js"></script>
-
 	<%@ include file = "../../module/managerTop.jsp" %>
 	
-	<script type="text/javascript">
-	$(function() {
-		$('.summernote').summernote({
-			height: 300,          // 기본 높이값
-			minHeight: null,      // 최소 높이값(null은 제한 없음)
-			maxHeight: null,      // 최대 높이값(null은 제한 없음)
-			focus: true,          // 페이지가 열릴때 포커스를 지정함
-			lang: 'ko-KR'         // 한국어 지정(기본값은 en-US)
-		});
-	});
-	</script>
 	<script>
 	var file = document.getElementById("file");
 	file.onchange = function(){
@@ -70,7 +54,8 @@
 	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<div class="container is-fluid">
 		<div class="columns is-centered">
-			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data" action="${path}/manager/recipe/recipe_registerPro.do">
+			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data">
+			
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">이름</label></div>
 					<div class="field-body">
@@ -88,6 +73,19 @@
 						</div>
 					</div>	
 				</div>	
+			
+				<!-- 현재년도 -->
+				<c:set var="now" value="<%=new java.util.Date()%>" />
+				<c:set var="sysYear"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd" /></c:set>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">작성일</label></div>
+					<div class="field-body">
+						<div class="control field is-expanded has-icons-right">
+							<input type="text" class="input" name="recipe_date" maxlength="20" value="${sysYear}">
+							<span class="icon is-small is-right"><i class="fas fa-exclamation-triangle has-text-grey-dark"></i></span>
+						</div>
+					</div>	
+				</div>
 				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">사진</label></div>

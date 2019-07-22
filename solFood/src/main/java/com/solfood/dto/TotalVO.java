@@ -50,6 +50,7 @@ public class TotalVO {
 	private String	recipe_content;
 	private String	recipe_name;
 	private String	recipe_keyword;
+	private Date	recipe_date;
 	
 	
 	// GETTERS AND SETTERS
@@ -252,4 +253,15 @@ public class TotalVO {
 	public void setRecipe_keyword(String recipe_keyword) {
 		this.recipe_keyword = recipe_keyword;
 	}
+	public Date getRecipe_date() {
+		return recipe_date;
+	}
+	public void setRecipe_date(Date recipe_date) {
+		this.recipe_date = recipe_date;
+	}
+	
+	
+	
+	
+	
 }
