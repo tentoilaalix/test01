@@ -160,7 +160,7 @@
     			#{product_package},
     			#{product_ea},
     			#{product_content},
-    			now())
+    			#{product_date})
 	    </insert>
 
 		<!--================================ account ===================================-->	
