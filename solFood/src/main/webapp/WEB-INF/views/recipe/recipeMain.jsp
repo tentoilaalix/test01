@@ -47,13 +47,15 @@
 			<div class="col-xs-offset-2" align="left">
 			${recipeList.recipe_content}
 			</div>
-		</c:forEach>
+		</c:forEach>			
 	</div>
-	<br><br><br><br><br>
-	<div class="col-xs-offset-1" style="border-bottom: 5px solid #5D5D5D; width: 50px;"></div>
-	<div class="col-xs-offset-1">RECIPE ITEMS</div>
 	<br><br><br>
-	
+	<hr>
+	<div class="col-xs-offset-2" style="border-bottom: 5px solid #5D5D5D; width: 50px;"></div>
+	<div class="col-xs-offset-2">RECIPE ITEMS</div>
+		<!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 연관상품 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+		<%@ include file = "./recipeRelate.jsp" %>
+	<br><br><br><br><br>
 	
 	<br><br><br><br>
 	<hr style="border: 1px solid #003399;">

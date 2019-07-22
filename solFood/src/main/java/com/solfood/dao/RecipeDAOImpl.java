@@ -23,5 +23,11 @@ public class RecipeDAOImpl implements RecipeDAO{
 	public List<TotalVO> allRecipe() throws Exception {
 		return sqlSession.selectList(Namespace+".allRecipe");
 	}
+
+	@Override
+	public List<TotalVO> relateProduct(String recipe_keyword) throws Exception {
+		return sqlSession.selectList(Namespace+".relateProduct");
+	}
+
 	
 }

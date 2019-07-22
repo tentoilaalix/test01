@@ -30,22 +30,44 @@ public class RecipeController {
 	@Inject
 	private ProductService productService;
 	//============================================================
-		//	selectRecipe--> 레시피 정보 불러오기// SELECT * FROM PRODUCT WHERE RECIPE_ID= ?
-		//============================================================
-		@RequestMapping(value = "/recipe.do")
-		public String selectRecipe(Model model, int recipe_id) throws Exception{		
-			List<TotalVO> recipeList= recipeService.selectRecipe(recipe_id);						
-			model.addAttribute("recipeList", recipeList);
-			System.out.println(recipeList);
-			return "recipe/recipeMain";
-		}
+	//	selectRecipe--> 레시피 정보 불러오기// SELECT * FROM PRODUCT WHERE RECIPE_ID= ?
+	//============================================================
+	/*
+	@RequestMapping(value = "/recipe.do")
+	public String selectRecipe(Model model, int recipe_id) throws Exception{		
+		List<TotalVO> recipeList= recipeService.selectRecipe(recipe_id);						
+		model.addAttribute("recipeList", recipeList);
+		System.out.println("###1:"+recipeList);
+		return "recipe/recipeMain";
+	}
+	*/
+	
+	@RequestMapping(value = "/recipe.do")
+	public String selectRecipe(Model model, int recipe_id, String recipe_keyword) throws Exception{	
+		List<TotalVO> recipeList = null;
 		
-		@RequestMapping(value = "/recipeList.do")
-		public String selectRecipeList(Model model) throws Exception{		
-			List<TotalVO> allRecipe= recipeService.allRecipe();						
-			model.addAttribute("allRecipe", allRecipe);
-			System.out.println(allRecipe);
-			return "recipe/recipeList";
-		}
+		model.addAttribute("recipeList", recipeList);
+		
+		System.out.println("###1:"+recipeList);
+		return "recipe/recipeMain";
+	}
+	
+	
+	@RequestMapping(value = "/recipeRelate.do")
+	public String selectRelateProduct(Model model, String recipe_keyword) throws Exception{		
+		List<TotalVO> relateProduct= recipeService.relateProduct(recipe_keyword);						
+		model.addAttribute("relateProduct", relateProduct);
+		System.out.println("###2:"+relateProduct);
+		return "recipe/recipeRecipe";
+	}
+	
+	
+	@RequestMapping(value = "/recipeList.do")
+	public String selectRecipeList(Model model) throws Exception{		
+		List<TotalVO> allRecipe= recipeService.allRecipe();						
+		model.addAttribute("allRecipe", allRecipe);
+		System.out.println(allRecipe);
+		return "recipe/recipeList";
+	}
 		
 }

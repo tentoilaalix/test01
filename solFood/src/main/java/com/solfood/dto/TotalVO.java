@@ -50,6 +50,8 @@ public class TotalVO {
 	private String	recipe_content;
 	private String	recipe_name;
 	private String	recipe_keyword;
+	
+	private String	recipe_tag;
 	private Date	recipe_date;
 	
 	
@@ -259,7 +261,12 @@ public class TotalVO {
 	public void setRecipe_date(Date recipe_date) {
 		this.recipe_date = recipe_date;
 	}
-	
+	public String getRecipe_tag() {
+		return recipe_tag;
+	}
+	public void setRecipe_tag(String recipe_tag) {
+		this.recipe_tag = recipe_tag;
+	}
 	
 	
 	

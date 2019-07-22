@@ -7,13 +7,32 @@
 	<!-- =============================== SELECT ========================================= -->
 		<!-- ID에 해당하는 레시피 정보 모두 추출 -->
 		<select id="selectRecipe" parameterType="int" resultType="com.solfood.dto.TotalVO">
-			SELECT * FROM RECIPE WHERE RECIPE_ID= #{recipe_id}  
+			SELECT * 
+			FROM recipe 
+			WHERE recipe_id = #{recipe_id}  
 		</select>
 	
 		<!-- 레시피 정보 모두 추출 -->
 		<select id="allRecipe" resultType="com.solfood.dto.TotalVO">
-			SELECT * FROM RECIPE; 
+			SELECT * 
+			FROM recipe;
 		</select>
+		
+		<!-- 연관상품 -->
+		<select id="relateProduct" resultType="com.solfood.dto.TotalVO">
+			SELECT * 
+			FROM recipe r, product p
+			<!-- WHERE p.product_name LIKE #{recipe_keyword}
+			OR recipe_tag LIKE #{recipe_keyword}; -->
+		</select>
+		
+		<!-- 
+		SELECT * 
+		FROM recipe
+		WHERE recipe_name LIKE #{recipeList.reciepe_keyword}
+		OR recipe_tag LIKE #{recipeList.reciepe_keyword};
+		 -->
+		
 	</mapper>
 	
 	
