@@ -10,11 +10,10 @@ public class ProductVO {
     private int product_discountrate;
     private int product_count;
     private String product_image;
-    private int product_package;
+    private String product_package;
     private int product_ea;
     private String product_content;
     private Date product_date;
-    
 	public int getProduct_id() {
 		return product_id;
 	}
@@ -63,10 +62,10 @@ public class ProductVO {
 	public void setProduct_image(String product_image) {
 		this.product_image = product_image;
 	}
-	public int getProduct_package() {
+	public String getProduct_package() {
 		return product_package;
 	}
-	public void setProduct_package(int product_package) {
+	public void setProduct_package(String product_package) {
 		this.product_package = product_package;
 	}
 	public int getProduct_ea() {
@@ -87,7 +86,8 @@ public class ProductVO {
 	public void setProduct_date(Date product_date) {
 		this.product_date = product_date;
 	}
-	
+    
+    
 	
 	
 	

@@ -19,7 +19,6 @@
 	table {
 		font-family: 'SpoqaHanSans-kr';
 	}
-	
 	</style>
 </head>
 <body>
@@ -36,12 +35,8 @@
 			  <i class="fas fa-lg fa-pencil-alt"></i>
 			</span>
 			</button>
-			
-		
 		</div>
-	
 		<hr>
-
 		<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth is-dark">
 			<thead>
 				<tr>

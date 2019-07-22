@@ -63,7 +63,7 @@
 	
 	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<div class="container">
-		<h1 class="title">레시피 등록</h1>
+		<h1 class="title">콘텐츠등록</h1>
 		<hr>
 	</div>
 	
@@ -112,7 +112,7 @@
 						</div>
 					</div>	
 				</div>
-						
+				<!-- 		
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">내용</label></div>
 					<div class="field-body">
@@ -136,27 +136,40 @@
 						</script>
 					</div>
 				</div>
+				 -->
+				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">내용</label></div><!-- 에디터 -->
+					<div class="field-body">
+						<div class="field is-expanded">
+							<textarea name="recipe_content" id="summernote"></textarea>						
+						</div>
+					</div>
+				</div>
+				
 				<hr>
 				
 				<%-- 등록/취소 버튼 --%>
-				<div class="field is-grouped">
+				<div class="field is-grouped is-pulled-right"">
 					<div class="control">
-						<button class="button is-link" type="submit">레시피 등록</button>
+						<button class="button is-link" type="submit">등록</button>
 					</div>
+					<!-- 
+					<div class="form-group">
+					    <button type="submit" id="register_Btn" name="submit" class="btn btn-primary">등록</button>
+					</div>
+					 -->
 					<div class="control">
 						<input class="button is-danger" type="button" value="취소" onclick="history.back();" />
 					</div>
-				</div>	
+				</div>
 			</form>
 		</div>
+		<hr>
 	</div>
-</body>
-	<!-- include summernote css/js-->
-	<link href="../../../resources/summernote/summernote.css" rel="stylesheet">
-	<script src="../../../resources/summernote/summernote.js"></script>
 	
-	<!-- summer note korean language pack -->
-	<script src="../../../resources/summernote/lang/summernote-ko-KR.js"></script>
-		
+	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
+	<script src="${pageContext.request.contextPath}/resources/js/editor.js"></script>
+	
+</body>
 </html>
 

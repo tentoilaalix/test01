@@ -277,4 +277,95 @@ public class ManagerController {
 		return "redirect:product_page.do";
 		
 	}
+	
+	//===========================================================================
+	// 레시피 관리
+	//===========================================================================
+	// 레시피 조회
+	@RequestMapping(value="recipe/recipe_list.do", method= {RequestMethod.POST, RequestMethod.GET})
+	public String recipe_list(Model model) throws Exception{
+		List<TotalVO> recipeList= service.selectRecipe();
+		model.addAttribute("recipeList", recipeList);
+		
+		return "manager/recipe/recipe_list";
+	}
+	
+	
+	// 레시피 등록
+	@RequestMapping(value="recipe/recipe_register.do")
+	public String recipe_register() throws Exception{
+		return "manager/recipe/recipe_register";
+	}
+	
+	@RequestMapping(value="recipe/recipe_registerPro.do")
+	public String recipe_registerPro(HttpServletRequest request, MultipartFile file) throws Exception{
+		String imgUploadPath = uploadPath + File.separator + "productImg";
+    	String fileName = null;
+		    	
+    	if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+    		fileName =  UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes()); 
+		} else {
+			fileName = File.separator + "noImage" + File.separator + "noImage.png";
+		}
+
+		TotalVO vo= new TotalVO();
+		vo.setRecipe_image(File.separator + "productImg" + File.separator + fileName);
+		vo.setRecipe_content(request.getParameter("recipe_content"));
+		vo.setRecipe_name(request.getParameter("recipe_name"));
+		vo.setRecipe_keyword(request.getParameter("recipe_keyword"));
+		
+		service.insertRecipe(vo);
+		
+		return "redirect:/manager/recipe/recipe_list.do";
+	}
+	
+	
+	// 레시피 수정
+	@RequestMapping(value="recipe/recipeUpdate.do")
+	public String recipeUpdate(Model model, int recipe_id) throws Exception{
+		TotalVO recipeDetail= service.selectRecipeDetail(recipe_id);
+		model.addAttribute("recipeDetail", recipeDetail);
+		
+		return "manager/recipe/recipeUpdate";
+	}
+	
+	@RequestMapping(value="recipe/recipeUpdatePro.do")
+	public String recipeUpdatePro(HttpServletRequest request, MultipartFile file, int recipe_id) throws Exception{
+		TotalVO vo= new TotalVO();
+		vo.setRecipe_content(request.getParameter("recipe_content"));
+		vo.setRecipe_name(request.getParameter("recipe_name"));
+		vo.setRecipe_keyword(request.getParameter("recipe_keyword"));
+		vo.setRecipe_id(recipe_id);
+		
+		
+		// 새로운 파일이 등록되었는지 확인--> 삭제하고 새로운 거 등록하기
+		if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
+			String imgUploadPaths = uploadPath + File.separator + "productImg" + File.separator + "s";
+					
+			new File(imgUploadPaths + File.separator + File.separator + "s_"+ request.getParameter("recipe_image").substring(12)).delete();
+			new File(uploadPath + File.separator + request.getParameter("recipe_image")).delete();
+					
+			String imgUploadPath = uploadPath + File.separator + "productImg";
+			String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes());
+
+	    	vo.setRecipe_image(File.separator + "productImg" + File.separator + fileName);
+			    	
+	    // 새로운 파일이 등록되지 않았다면 기존 이미지를 그대로 사용
+		} else { 
+			vo.setRecipe_image(request.getParameter("recipe_image"));
+		}
+	
+		service.updateRecipe(vo);
+		
+		return "redirect:/manager/recipe/recipe_list.do";
+	}
+	
+	
+	// 레시피 삭제
+	@RequestMapping(value="recipe/recipeDelete.do")
+	public String recipeDelete(int recipe_id) throws Exception{
+		service.deleteRecipe(recipe_id);
+		
+		return "redirect:/manager/recipe/recipe_list.do";
+	}
 }

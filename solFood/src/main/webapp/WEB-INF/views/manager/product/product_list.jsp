@@ -30,11 +30,13 @@
 	<div class="container">
 		<div class="title">
 			상품현황
-			<a class="button is-info" href="${path}/manager/product/product_register.do" style="font-size: small;">상품등록</a>
+			<button class="button is-outlined" onclick="location.href='${path}/manager/product/product_register.do'" style="vertical-align: middle;">
+			<span class="icon">
+			  <i class="fas fa-lg fa-pencil-alt"></i>
+			</span>
+			</button>
 		</div>
-	
 		<hr>
-
 		<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth is-dark">
 			<thead>
 				<tr>

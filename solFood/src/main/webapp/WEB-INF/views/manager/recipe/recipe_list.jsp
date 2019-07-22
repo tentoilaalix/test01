@@ -7,12 +7,17 @@
 <head>
 	<meta charset="utf-8">
 	<title>recipe list</title>		
+	
 	<link href="../../../resources/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+	
 	<script src="../../../resources/bootstrap/js/bootstrap.js"></script>
 	<style>
 	td {
 		vertical-align: middle !important;
+	}
+	table {
+		font-family: 'SpoqaHanSans-kr';
 	}
 	</style>
 </head>
@@ -24,13 +29,14 @@
 	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<div class="container">
 		<div class="title" style="vertical-align: bottom;">
-			레시피 현황<a href="${path}/manager/recipe/recipe_list.do"><span class="icon"><i class="fas fa-home"></i></span></a>
-			
-			<a class="button is-info" href="${path}/manager/recipe/recipe_register.do" style="font-size: small;">레시피 등록</a>
+			콘텐츠현황
+			<button class="button is-outlined" onclick="location.href='${path}/manager/recipe/recipe_register.do'" style="vertical-align: middle;">
+			<span class="icon">
+			  <i class="fas fa-lg fa-pencil-alt"></i>
+			</span>
+			</button>
 		</div>
-	
 		<hr>
-
 		<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth is-dark">
 			<thead>
 				<tr>

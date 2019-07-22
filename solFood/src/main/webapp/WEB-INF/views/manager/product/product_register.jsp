@@ -61,11 +61,36 @@
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
 							<input type="text" class="input" name="product_name" maxlength="20">
-							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
+							<!-- <span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span> -->
 						</div>
 					</div>	
 				</div>	
 				<hr>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">대분류</label></div>
+					<div class="field-body">
+						<div class="control field is-expanded has-icons-right">
+							<div class="select is-multiple">
+							  <select multiple size="4" name="product_category1">
+							    <option value="Argentina">Argentina2</option>
+							    <option value="Bolivia">Bolivia</option>
+							    <option value="Brazil">Brazil</option>
+							    <option value="Chile">Chile</option>
+							    <option value="Colombia">Colombia</option>
+							    <option value="Ecuador">Ecuador</option>
+							    <option value="Guyana">Guyana</option>
+							    <option value="Paraguay">Paraguay</option>
+							    <option value="Peru">Peru</option>
+							    <option value="Suriname">Suriname</option>
+							    <option value="Uruguay">Uruguay</option>
+							    <option value="Venezuela">Venezuela</option>
+							  </select>
+							</div>
+							<!-- <span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span> -->
+						</div>
+					</div>
+				</div>
+				<!-- 
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">대분류</label></div>
 					<div class="field-body">
@@ -75,7 +100,7 @@
 						</div>
 					</div>	
 				</div>	
-				
+				 -->
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">소분류</label></div>
 					<div class="field-body">
@@ -90,7 +115,7 @@
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
 							<input type="text" class="input" name="product_price" maxlength="20">
-							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
+							<span class="icon is-small is-right"><i class="fas fa-exclamation-triangle has-text-grey-dark"></i></span>
 						</div>
 					</div>	
 				</div>	
@@ -136,9 +161,6 @@
 										}
 									});
 								</script>
-								
-								<%-- <%=request.getRealPath("/") %> --%>
-								
 							</div>
 						</div>
 					</div>	
@@ -150,7 +172,7 @@
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
 							<input type="text" class="input" name="product_package" maxlength="20">
-							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
+							<!-- <span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span> -->
 						</div>
 					</div>	
 				</div>
@@ -159,7 +181,7 @@
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
 							<input type="text" class="input" name="product_ea" maxlength="20">
-							<span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span>
+							<!-- <span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span> -->
 						</div>
 					</div>	
 				</div>
@@ -173,34 +195,12 @@
 					</div>
 				</div>
 				
-				
-				
-				<!-- 드롭다운 -->
-				<%-- 	
-				<div class="select" >
-				  <select name="account_gender" value="${accountUpdate.account_gender}">
-				    <option>m</option>
-				    <option>f</option>
-				  </select>
-				</div>
-				
-				<div class="control" name="account_gender" value="${accountUpdate.account_gender}">
-				  <label class="radio">
-				    <input type="radio" name="account_gender">
-				    m
-				  </label>
-				  <label class="radio">
-				    <input type="radio" name="account_gender">
-				    f
-				  </label>
-				</div> --%>
-				
-				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">유통기한</label></div>
 					<div class="field-body">
-						<div class="field is-expanded">
-							<input type="text" class="input" name="product_date" maxlength="20" value="2012-12-12">
+						<div class="control field is-expanded has-icons-right">
+							<input type="text" class="input" name="product_date" maxlength="20">
+							<span class="icon is-small is-right"><i class="fas fa-exclamation-triangle has-text-grey-dark"></i></span>
 						</div>
 					</div>	
 				</div>
