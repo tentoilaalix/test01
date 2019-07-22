@@ -72,21 +72,44 @@
 						<div class="control field is-expanded has-icons-right">
 							<div class="select is-multiple">
 							  <select multiple size="4" name="product_category1">
-							    <option value="Argentina">Argentina2</option>
-							    <option value="Bolivia">Bolivia</option>
-							    <option value="Brazil">Brazil</option>
-							    <option value="Chile">Chile</option>
-							    <option value="Colombia">Colombia</option>
-							    <option value="Ecuador">Ecuador</option>
-							    <option value="Guyana">Guyana</option>
-							    <option value="Paraguay">Paraguay</option>
-							    <option value="Peru">Peru</option>
-							    <option value="Suriname">Suriname</option>
-							    <option value="Uruguay">Uruguay</option>
-							    <option value="Venezuela">Venezuela</option>
+							    <option value="채소·과일">채소·과일</option>
+							    <option value="국·반찬·요리">국·반찬·요리</option>
+							    <option value="정육·계란">정육·계란</option>
+							    <option value="샐러드·간편식">샐러드·간편식</option>
 							  </select>
 							</div>
-							<!-- <span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span> -->
+						</div>
+					</div>
+				</div>
+				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">소분류</label></div>
+					<div class="field-body">
+						<div class="control field is-expanded has-icons-right">
+							<div class="select is-multiple">
+							  <select multiple size="4" name="product_category2">
+							    <option value="기본채소">기본채소</option>
+							    <option value="콩나물·버섯류">콩나물·버섯류</option>
+							    <option value="양파·마늘·생강·파">양파·마늘·생강·파</option>
+							    
+							    <option value="국·탕·찌개">국·탕·찌개</option>
+							    <option value="밑반찬">밑반찬</option>
+							    <option value="김치·장아찌·젓갈">김치·장아찌·젓갈</option>
+							    <option value="두부·어묵">두부·어묵</option>
+							    <option value="메인요리">메인요리</option>
+							    
+							    <option value="소고기">소고기</option>
+							    <option value="돼지고기">돼지고기</option>
+							    <option value="양고기">양고기</option>
+							    <option value="닭·오리고기">닭·오리고기</option>
+							    <option value="계란·돈까스">계란·돈까스</option>
+							    
+							    <option value="샐러드·도시락">샐러드·도시락</option>
+							    <option value="간편식·냉동식품">간편식·냉동식품</option>
+							    <option value="죽·수프">죽·수프</option>
+							  	<option value="선식·시리얼·그래놀라">죽·선식·시리얼·그래놀라</option>
+							    
+							  </select>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -100,7 +123,6 @@
 						</div>
 					</div>	
 				</div>	
-				 -->
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">소분류</label></div>
 					<div class="field-body">
@@ -109,6 +131,7 @@
 						</div>
 					</div>	
 				</div>	
+				 -->
 				<hr>
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">가격</label></div>
@@ -171,11 +194,27 @@
 					<div class="field-label is-normal"><label class="label">보관형태</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right">
-							<input type="text" class="input" name="product_package" maxlength="20">
-							<!-- <span class="icon is-small is-right"><i class="fas fa-lock has-text-grey-dark"></i></span> -->
+							<div class="control has-icons-left">
+							<div class="select">
+								<select name="product_package">
+									<option></option>
+									<option>실온</option>
+									<option>냉장보관</option>
+									<option>냉동보관</option>
+								</select>
+								</div>
+								<span class="icon has-text-danger is-left">
+									<i class="fas fa-exclamation-triangle"></i>
+								</span>
+							</div>
 						</div>
 					</div>	
 				</div>
+				
+				
+				
+				
+				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">포장단위</label></div>
 					<div class="field-body">
