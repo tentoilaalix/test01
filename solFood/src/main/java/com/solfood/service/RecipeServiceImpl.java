@@ -31,4 +31,8 @@ public class RecipeServiceImpl implements RecipeService{
 		return dao.relateProduct(recipe_keyword);
 	}
 	
+	@Override
+	public TotalVO getRecipe(int recipe_id) throws Exception {
+		return dao.getRecipe(recipe_id);
+	}
 }

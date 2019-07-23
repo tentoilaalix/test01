@@ -32,6 +32,14 @@ public class RecipeController {
 	//============================================================
 	//	selectRecipe--> 레시피 정보 불러오기// SELECT * FROM PRODUCT WHERE RECIPE_ID= ?
 	//============================================================
+	@RequestMapping(value = "/recipe.do")
+	public String selectRecipe(Model model, int recipe_id) throws Exception{		
+		TotalVO recipeLists = recipeService.getRecipe(recipe_id);	
+		model.addAttribute("recipeLists", recipeLists);
+		List<TotalVO> recipeList = recipeService.selectRecipe(recipe_id);	
+		model.addAttribute("recipeList", recipeList);
+		return "recipe/recipeMain";
+	}
 	/*
 	@RequestMapping(value = "/recipe.do")
 	public String selectRecipe(Model model, int recipe_id) throws Exception{		
@@ -41,26 +49,7 @@ public class RecipeController {
 		return "recipe/recipeMain";
 	}
 	*/
-	
-	@RequestMapping(value = "/recipe.do")
-	public String selectRecipe(Model model, int recipe_id, String recipe_keyword) throws Exception{	
-		List<TotalVO> recipeList = null;
-		
-		model.addAttribute("recipeList", recipeList);
-		
-		System.out.println("###1:"+recipeList);
-		return "recipe/recipeMain";
-	}
-	
-	
-	@RequestMapping(value = "/recipeRelate.do")
-	public String selectRelateProduct(Model model, String recipe_keyword) throws Exception{		
-		List<TotalVO> relateProduct= recipeService.relateProduct(recipe_keyword);						
-		model.addAttribute("relateProduct", relateProduct);
-		System.out.println("###2:"+relateProduct);
-		return "recipe/recipeRecipe";
-	}
-	
+
 	
 	@RequestMapping(value = "/recipeList.do")
 	public String selectRecipeList(Model model) throws Exception{		

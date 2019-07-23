@@ -50,12 +50,23 @@ public class TotalVO {
 	private String	recipe_content;
 	private String	recipe_name;
 	private String	recipe_keyword;
-	
 	private String	recipe_tag;
 	private Date	recipe_date;
 	
+	// RELATE : Reciepe & Product
+	private int no;
+	private int recipe_no;
+	private int product_no;
+	
 	
 	// GETTERS AND SETTERS
+	
+	public int getProduct_no() {
+		return product_no;
+	}
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
+	}
 	public int getProduct_id() {
 		return product_id;
 	}
@@ -266,6 +277,18 @@ public class TotalVO {
 	}
 	public void setRecipe_tag(String recipe_tag) {
 		this.recipe_tag = recipe_tag;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public int getRecipe_no() {
+		return recipe_no;
+	}
+	public void setRecipe_no(int recipe_no) {
+		this.recipe_no = recipe_no;
 	}
 	
 	

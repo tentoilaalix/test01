@@ -11,4 +11,5 @@ public interface RecipeDAO {
 
 		public List<TotalVO> relateProduct(String recipe_keyword) throws Exception;	
 		
+		public TotalVO getRecipe(int recipe_id) throws Exception;	
 }

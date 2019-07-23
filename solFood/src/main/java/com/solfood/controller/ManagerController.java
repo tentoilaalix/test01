@@ -165,6 +165,7 @@ public class ManagerController {
 		ProductVO productUpdate = null;
 		productUpdate = service.productDetail(product_id);
 		
+		
 		model.addAttribute("productUpdate", productUpdate);
 	}
 	
