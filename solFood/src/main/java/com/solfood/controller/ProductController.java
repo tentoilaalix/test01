@@ -74,7 +74,7 @@ public class ProductController {
 	// proudcts.jsp 에서 heart 처리 컨트롤러--> heart 테이블로 들어가게 해줌
 	@RequestMapping(value= "/heart.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public void heart(int product_id) throws Exception{
-		productService.insertHeart(product_id);
+		productService.insertHeart(product_id);		
 	}
 	
 }

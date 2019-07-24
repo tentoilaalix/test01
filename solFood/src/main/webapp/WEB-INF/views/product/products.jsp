@@ -16,22 +16,20 @@
 			var json= {"product_id":product_id};
 			var html= "";
 
-			// heart 테이블로 product_id 넣어주기
 			$.ajax({
 				type: "post",
 				url: "/product/heart.do",
 				data: json,
-				success: function(){
-					alert("heart table success");
-					$("#heartImage").toggleClass("beforeClick afterClick");
+				success: function(){					
+					$("[name='heartImage"+ product_id +"']").toggleClass("beforeClick afterClick");
 				},
 				error: function(){
-					alert("heart table fail");
-					$("#heartImage").toggleClass("beforeClick afterClick");
+					$("[name='heartImage"+ product_id +"']").toggleClass("beforeClick afterClick");
 				}
 			});
-		}
 
+		}
+	
 		/*
 		// 이미지 afterlike.png로 바꿔주기
 		var heartImage = $('#heartImage');
@@ -107,15 +105,15 @@
 			});
 			</script>
 	
-	
 				<div class="row" id="allVegeC">
 				<c:forEach items="${products}" var="products">
-				    <div class="col-xs-4" align="center">
-				      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      ${products.product_name}&nbsp;
-				      <input type="button" id='heartImage' onclick= "heart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-					<!--img src="../../../resources/image/beforelike.PNG" -->
-					${products.product_price}원<br><br><br><br>
+					<div class="col-xs-4" align="center">
+					
+						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "heart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
