@@ -140,5 +140,10 @@ public class ManagerDAOImpl implements ManagerDAO {
 		sqlSession.delete(Namespace+".deleteRecipe", recipe_id);
 	}
 
+	@Override
+	public void insertRelateRP(TotalVO vo) throws Exception {
+		sqlSession.insert(Namespace+".insertRelateRP", vo);
+	}
+
 	
 }

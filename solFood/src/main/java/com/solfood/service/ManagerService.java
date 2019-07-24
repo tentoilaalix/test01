@@ -49,8 +49,11 @@ public interface ManagerService {
 	
 	public TotalVO selectRecipeDetail(int recipe_id) throws Exception;				//특정 레시피 조회
 	public void insertRecipe(TotalVO vo) throws Exception;							//레시피 등록 
+	public void insertRelateRP(TotalVO vo) throws Exception;
+	
 	public void updateRecipe(TotalVO vo) throws Exception;							//레시피 수정
 	public void deleteRecipe(int recipe_id) throws Exception;						//레시피 삭제
+	
 
 }
 

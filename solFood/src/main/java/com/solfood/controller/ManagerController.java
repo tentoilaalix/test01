@@ -296,7 +296,15 @@ public class ManagerController {
 		
 	}
 	@RequestMapping(value="recipe/recipe_register.do", method = RequestMethod.POST)
-	public String recipe_registerPro(TotalVO vo, MultipartFile file) throws Exception{
+	public String recipe_registerPro(TotalVO vo, MultipartFile file, HttpServletRequest request) throws Exception{
+		String[] param = request.getParameterValues("product_no[]");
+		for (int i = 0; i < param.length; i++) {
+			System.out.println("@@@:"+ param[i]);
+		}
+		
+		System.out.println("###getProduct_id:"+vo.getProduct_no());
+		
+		
 		String imgUploadPath = uploadPath + File.separator + "productImg";
     	String fileName = null;
 		    	
@@ -307,7 +315,16 @@ public class ManagerController {
 		}
 		vo.setRecipe_image(File.separator + "productImg" + File.separator + fileName);
 		
+		//recipe 등록
 		service.insertRecipe(vo);
+		
+		//recipe_no 가져와서 recipe_id로 입력하기
+		vo.setRecipe_no(vo.getRecipe_id());
+		service.insertRelateRP(vo);
+		
+		System.out.println("###getRecipe_id:"+vo.getRecipe_id());
+		System.out.println("###getRecipe_no:"+vo.getRecipe_no());
+		
 		
 		return "redirect:/manager/recipe/recipe_list.do";
 	}

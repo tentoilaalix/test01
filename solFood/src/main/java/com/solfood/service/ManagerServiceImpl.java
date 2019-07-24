@@ -136,6 +136,11 @@ public class ManagerServiceImpl implements ManagerService {
 		dao.deleteRecipe(recipe_id);
 	}
 
+	@Override
+	public void insertRelateRP(TotalVO vo) throws Exception {
+		dao.insertRelateRP(vo);
+	}
+
 
 
 }

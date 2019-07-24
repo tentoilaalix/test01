@@ -230,7 +230,7 @@
 	    
 	    
 	    <!-- recipe 등록하기 -->
-	    <update id="insertRecipe" parameterType="com.solfood.dto.TotalVO">
+	    <update id="insertRecipe" parameterType="com.solfood.dto.TotalVO" useGeneratedKeys="true" keyProperty="recipe_id">
 	    	INSERT INTO RECIPE (RECIPE_IMAGE, 
 						    	RECIPE_CONTENT, 
 						    	RECIPE_NAME, 
@@ -241,6 +241,13 @@
 			    	#{recipe_name}, 
 			    	#{recipe_keyword}, 
 			    	#{recipe_date}) 
+	    </update>
+	    
+	    <update id="insertRelateRP" parameterType="com.solfood.dto.TotalVO">
+	    	INSERT INTO relaterp 	(recipe_no,
+					    			product_no)
+			VALUES (#{recipe_no},
+					#{product_id})
 	    </update>
 	    
 	    <!-- recipe 수정하기 -->

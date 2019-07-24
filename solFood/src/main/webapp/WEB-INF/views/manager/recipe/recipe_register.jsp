@@ -18,7 +18,7 @@
 	
 	<%@ include file = "../../module/managerTop.jsp" %>
 	
-	<script>
+	<script type="text/javascript">
 	var file = document.getElementById("file");
 	file.onchange = function(){
 	    if(file.files.length > 0)
@@ -26,6 +26,43 @@
 	      document.getElementById('filename').innerHTML = file.files[0].name;
 	    }
 	};
+	</script>
+	
+	<script>
+	var rowNum = 0;
+	var oTbl;
+	//Row 추가
+	function insRow() {
+	  oTbl = document.getElementById("addTable");
+	  var oRow = oTbl.insertRow();
+	  oRow.onmouseover=function(){oTbl.clickedRowIndex=this.rowIndex}; //clickedRowIndex - 클릭한 Row의 위치를 확인;
+	  var oCell = oRow.insertCell();
+
+	  //삽입될 Form Tag
+	  rowNum += 1;
+	  var frmTag = "<div class='field is-horizontal'><input type='text' class='input' name='product_id["+rowNum+"]' maxlength='20'><input type=button value='삭제' onClick='removeRow()'></div>";
+	  oCell.innerHTML = frmTag;
+	}
+	//Row 삭제
+	function removeRow() {
+	  oTbl.deleteRow(oTbl.clickedRowIndex);
+	}
+
+	function frmCheck()
+	{
+	  var frm = document.form;
+	 
+	  for( var i = 0; i <= frm.elements.length - 1; i++ ){
+	     if( frm.elements[i].name == "addText[]" )
+	     {
+	         if( !frm.elements[i].value ){
+	             alert("텍스트박스에 값을 입력하세요!");
+	             frm.elements[i].focus();
+	             return;
+	          }
+	      }
+	   }
+	 }
 	</script>
 	
 	<style>
@@ -40,7 +77,7 @@
 	</style>
 	
 </head>
-<body>
+<body onload = "addForm()">
 
 	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<br>
@@ -145,7 +182,27 @@
 				</div>
 				
 				<hr>
+				<hr>
 				
+				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">product_id</label></div>
+					<div class="field-body">
+						<div class="control field is-expanded has-icons-right" id="addedFormDiv">
+							<input type="text" class="input" name="product_id[0]" maxlength="20">
+							<table id="addTable">
+								<tr>
+									<td align="left"></td>
+								</tr>
+							</table></td>
+						</div>
+						
+					</div>
+				</div>
+				<input name="addButton" type="button" onClick="insRow()" value="추가"/>
+				<hr>
+				   
+
+
 				<%-- 등록/취소 버튼 --%>
 				<div class="field is-grouped is-pulled-right"">
 					<div class="control">
