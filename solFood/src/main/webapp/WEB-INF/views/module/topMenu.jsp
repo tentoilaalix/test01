@@ -242,7 +242,7 @@
   <a href="#" id="topMenu">이 벤 트</a>
   </div>
   <div class="col-xs-2">
-  <a href="#" id="topMenu">게 시 판</a>
+  <a href="${path}/board/listPage" id="topMenu">게 시 판</a>
   </div>
   <div class="col-xs-2">
   <a href="${path}/recipeList.do" id="topMenu">레 시 피</a>

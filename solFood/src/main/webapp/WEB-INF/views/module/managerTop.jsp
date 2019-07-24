@@ -64,7 +64,7 @@
 						게시판관리
 					</a>
 					<div class="navbar-dropdown " data-style="width: 18rem;">
-						<a class="navbar-item" href="">
+						<a class="navbar-item" href="${path}/board/managerBoard_listPage">
 							사용자게시판관리
 						</a>
 						<a class="navbar-item" href="${path}/manager/recipe/recipe_list.do">
