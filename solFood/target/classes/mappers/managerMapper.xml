@@ -243,9 +243,17 @@
 			    	#{recipe_date}) 
 	    </update>
 	    
+	    <!-- 연관성 조회하기 -->
+	    <select id="readRelate" resultType="com.solfood.dto.TotalVO">
+	    	SELECT *
+	    	FROM relateRP
+	    	WHERE recipe_no = #{recipe_id}
+	    </select>
+	    
+	    <!-- 연관성 테이블에 레시피와 제품번호 입력하기 -->
 	    <update id="insertRelateRP" parameterType="com.solfood.dto.TotalVO">
-	    	INSERT INTO relaterp 	(recipe_no,
-					    			product_no)
+	    	INSERT INTO relateRP (recipe_no,
+					    		  product_no)
 			VALUES (#{recipe_no},
 					#{product_id})
 	    </update>
