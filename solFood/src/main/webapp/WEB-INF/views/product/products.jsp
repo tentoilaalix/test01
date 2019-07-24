@@ -68,10 +68,9 @@
 				<div class="row" id="allVegeC">
 				<c:forEach items="${products}" var="products">
 				    <div class="col-xs-4" align="center">
-				      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>
-				      ${products.product_name}<br>
-				      ${products.product_price}<br>
-				      ${products.product_content}<br><br><br><br>
+				      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      ${products.product_name}&nbsp;찜<br>
+				      ${products.product_price}원<br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>

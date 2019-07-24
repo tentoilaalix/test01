@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.text.*" %>
 <%NumberFormat nf = NumberFormat.getNumberInstance();%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -270,7 +271,6 @@
 			<a href=""><strong>오이맛 고추</strong></a><br>
 			<%=nf.format(990)%>원
 		</div>
-		
 	</div>
 </div>
 <div class="cate2Form" id="mdArea">
