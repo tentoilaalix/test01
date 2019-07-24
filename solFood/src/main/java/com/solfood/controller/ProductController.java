@@ -71,12 +71,32 @@ public class ProductController {
 		return "product/productInfo";
 	}
 
-	// proudcts.jsp 에서 heart 처리 컨트롤러--> heart 테이블로 들어가게 해줌
-	@RequestMapping(value= "/heart.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public void heart(int product_id) throws Exception{
-		productService.insertHeart(product_id);		
+	
+	//------------------------------------------------------------------
+	//	heart 
+	//------------------------------------------------------------------
+	// heart 상태보기--> heart 테이블 불러오기 
+	@RequestMapping(value= "/heartList.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> heartList(Model model) throws Exception{
+		List<TotalVO> heartList= productService.selectHeart();
+		model.addAttribute("heartList", heartList);
+		
+		return heartList;
 	}
 	
+	// insert heart 테이블로 들어가게 해줌
+	@RequestMapping(value= "/changeHeart.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public void insertHeart(int product_id, String state) throws Exception{
+		if(state.equals("click")) {
+			productService.insertHeart(product_id);		
+			System.out.println("===================== 여기는 insertHeart");
+		} else if(state.equals("unclick")) {
+			productService.deleteHeart(product_id);
+			System.out.println("===================== 여기는 deleteHeart");
+		}		
+	}
+	
+
 }
 
 

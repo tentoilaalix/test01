@@ -44,6 +44,10 @@ public class ProductDAOImpl implements ProductDAO{
 		return sqlSession.selectList(Namespace+".selectProduct_category2", product_category2);
 	}
 	
+	@Override
+	public List<TotalVO> selectHeart() throws Exception {
+		return sqlSession.selectList(Namespace+".selectHeart");
+	}
 	//-----------------------------------------------------------------------
 	//	update 
 	//-----------------------------------------------------------------------
@@ -52,11 +56,23 @@ public class ProductDAOImpl implements ProductDAO{
 		sqlSession.update(Namespace+".updateProduct_count_minus", vo);
 	}
 	
+	//-----------------------------------------------------------------------
+	//	insert 
+	//-----------------------------------------------------------------------
 	// heart 누르면 heart 테이블로 들어가게 하기 
 	@Override
 	public void insertHeart(int product_id) throws Exception {
 		sqlSession.insert(Namespace+".insertHeart", product_id);
 	}
+	
+	//-----------------------------------------------------------------------
+	//	delete 
+	//-----------------------------------------------------------------------
+	@Override
+	public void deleteHeart(int product_id) throws Exception {
+		sqlSession.delete(Namespace+".deleteHeart", product_id);
+	}
+
 
 	
 }

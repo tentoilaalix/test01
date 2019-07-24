@@ -52,6 +52,10 @@ public class TotalVO {
 	private String	recipe_keyword;
 	private Date	recipe_date;
 	
+	// HEART
+	private int 	heart_num;
+	
+	
 	
 	// GETTERS AND SETTERS
 	public int getProduct_id() {
@@ -259,7 +263,12 @@ public class TotalVO {
 	public void setRecipe_date(Date recipe_date) {
 		this.recipe_date = recipe_date;
 	}
-	
+	public int getHeart_num() {
+		return heart_num;
+	}
+	public void setHeart_num(int heart_num) {
+		this.heart_num = heart_num;
+	}
 	
 	
 	

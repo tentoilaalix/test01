@@ -11,32 +11,89 @@
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
 	<script>
-		// heart 누르면 빈하트-> 채워진 하트/ heart 테이블로 들어가게 하는 메소드
-		function heart(product_id){			
-			var json= {"product_id":product_id};
-			var html= "";
+		// 페이지가 로드되면 product list 표시하기 
+		/*
+		$(document).ready(function(){
+			heartState();
+		});
 
+		//----------------------------------------------------------------
+		// 	heartState--> heart 상태 표시
+		//----------------------------------------------------------------
+		function heartState{
+			/*
+			var heartImage= document.getElementById('heartImage');
+			if(heartImage.className== 'beforeClick'){	
+			}
+			*/
+
+			/*
+			$("#saleBtn").attr({
+				'href' : '${path}/cart/pay.do?account_user='+ account_user+ '&totalPrice=' +all_total
+			});
+			
+
+			
 			$.ajax({
 				type: "post",
-				url: "/product/heart.do",
-				data: json,
-				success: function(){					
-					$("[name='heartImage"+ product_id +"']").toggleClass("beforeClick afterClick");
+				url: "/product/heartState.do",
+				success: function(data){
+					
+					$("#heartImage").attr({
+						'class' : 'afterClick'
+					});
 				},
 				error: function(){
-					$("[name='heartImage"+ product_id +"']").toggleClass("beforeClick afterClick");
+					
 				}
 			});
-
+			
 		}
-	
-		/*
-		// 이미지 afterlike.png로 바꿔주기
-		var heartImage = $('#heartImage');
-		heartImage.click(function(){
-			heartImage.attr('src','../../resources/image/afterlike.PNG');
-		});
 		*/
+		//----------------------------------------------------------------
+		// 	changeHeart--> heart 상태 변경 및 테이블에서 insert or delete
+		//----------------------------------------------------------------
+		function changeHeart(product_id){	
+			var json;	
+			var state;
+
+			// beforeClick이면 afterClick으로, 아니면 그 반대로 해주는거
+			$("[name='heartImage"+ product_id +"']").toggleClass("beforeClick afterClick");
+
+			// name에 따른 class 이름 구하기
+			var class_by_name= $("[name='heartImage"+ product_id +"']").attr('class');
+
+			// toggleClass하고 나서 afterClick이 되면 heart 테이블에 들어가야하는 거니까 json에 state="click" 보내서 insertHeart가 실행되게 하기
+			if(class_by_name== "afterClick"){
+				state= "click";
+				json= {"product_id":product_id, "state":state};
+				
+				$.ajax({
+					type: "post",
+					url: "/product/changeHeart.do",
+					data: json,
+					success: function(){
+					},
+					error: function(){
+					}
+				});
+
+			// afterClick이었다가 beforeClick으로 바뀌면 state="unclick"으로 보내서 deleteHeart가 실행되게 하기 
+			} else if(class_by_name== "beforeClick"){
+				state= "unclick";
+				json= {"product_id":product_id, "state":state};
+				
+				$.ajax({
+					type: "post",
+					url: "/product/changeHeart.do",
+					data: json,
+					success: function(){
+					},
+					error: function(){
+					}
+				});
+			}
+		}
 
 	</script>
 
@@ -112,7 +169,7 @@
 						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
 				      	${products.product_name}&nbsp;
-				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "heart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
 						${products.product_price}원<br><br><br><br>
 				    </div>
 				</c:forEach>

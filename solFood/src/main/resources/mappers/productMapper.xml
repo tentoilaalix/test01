@@ -37,6 +37,14 @@
 			FROM PRODUCT 
 			WHERE product_category2 = #{product_category2}
 		</select>
+		
+		
+		
+		<!-- heart 테이블 목록 추출 -->
+		<select id="selectHeart" resultType="com.solfood.dto.TotalVO">
+			SELECT * FROM HEART 		
+		</select>
+		
 	<!-- =============================== UPDATE ========================================= -->
 	   <!-- buy로 상품이 넘어가면 product_count를 cart_count 만큼 빼주기 (재고관리) -->
 		<update id="updateProduct_count_minus" parameterType="com.solfood.dto.TotalVO">
@@ -48,6 +56,12 @@
 		<insert id="insertHeart" parameterType="int">
 			INSERT INTO HEART (PRODUCT_ID) VALUES(#{product_id})
 		</insert>
+		
+	<!-- =============================== DELETE ========================================= -->
+		<!-- heart 다시 누르면 heart에서 상품 사라지게 하기 -->
+		<delete id="deleteHeart" parameterType="int">
+			DELETE FROM HEART WHERE PRODUCT_ID= #{product_id}
+		</delete>
 	</mapper>
 	
 	

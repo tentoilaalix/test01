@@ -48,6 +48,11 @@ public class ProductServiceImpl implements ProductService{
 		return dao.selectProduct_category2(product_category2);
 	}
 
+	@Override
+	public List<TotalVO> selectHeart() throws Exception {
+		return dao.selectHeart();
+	}
+	
 	//----------------------------------------------------------
 	//	update
 	//----------------------------------------------------------	
@@ -57,10 +62,19 @@ public class ProductServiceImpl implements ProductService{
 		
 	}
 
+	//----------------------------------------------------------
+	//	insert
+	//----------------------------------------------------------	
 	@Override
 	public void insertHeart(int product_id) throws Exception {
 		dao.insertHeart(product_id);
 	}
-
 	
+	//----------------------------------------------------------
+	//	insert
+	//----------------------------------------------------------	
+	@Override
+	public void deleteHeart(int product_id) throws Exception {
+		dao.deleteHeart(product_id);
+	}
 }
