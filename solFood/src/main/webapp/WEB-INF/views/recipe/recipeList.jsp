@@ -27,7 +27,6 @@
 			</a>
 			</div>
 		</c:forEach>
-		
 	</div>
 	
 	<br><br><br>

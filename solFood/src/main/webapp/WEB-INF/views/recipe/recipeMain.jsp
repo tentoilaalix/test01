@@ -56,11 +56,51 @@
 	<div class="col-xs-offset-2" style="border-bottom: 5px solid #5D5D5D; width: 50px;"></div>
 	<div class="col-xs-offset-2">RECIPE ITEMS</div>
 	<!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 연관상품 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
+	<div class="container">
+		<c:set var="i" value="0"/>
+		<c:set var="j" value="4"/>
+		<table border=1>
+			<c:choose>
+				<c:when test="${recipeList != null && fn:length(recipeList) > 0}">
+					<c:forEach var="resultList" items="${recipeList}">
+						<c:if test="{i%j == 0}">
+							<tr>
+						</c:if>
+								<td>
+									${resultList.product_name}
+									<br>
+									${resultList.product_image}
+								</td>
+						<c:if test="${i%j == j-1 }">
+							</tr>
+						</c:if>
+						<c:set var="i" value="${i+1}"/>
+					</c:forEach>
+				</c:when>
+			</c:choose>
+		</table>
+	</div>
+		
+	<hr>
+	<hr>
+		
+		
 		<c:forEach var="resultList" items="${recipeList}">
-		 ${resultList.product_id}
-		  ${resultList.product_name}
-		   ${resultList.product_image}
+		
+		 	<%-- ${resultList.product_id} --%>
+			<div class="row">
+				
+				<div class=".col-md-1">
+		  		${resultList.product_name}
+				</div>
+				<div class=".col-md-1">
+			  	<img src="/img/${resultList.product_image}" style="width:180px; height:130px;"/><br>
+			  	</div>
+			</div>
+			
 		</c:forEach>
+			   
+		
 		
 	<br><br><br><br><br>
 	
