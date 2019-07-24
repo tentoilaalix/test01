@@ -51,6 +51,12 @@ public class ProductDAOImpl implements ProductDAO{
 	public void updateProduct_count_minus(TotalVO vo) throws Exception {
 		sqlSession.update(Namespace+".updateProduct_count_minus", vo);
 	}
+	
+	// heart 누르면 heart 테이블로 들어가게 하기 
+	@Override
+	public void insertHeart(int product_id) throws Exception {
+		sqlSession.insert(Namespace+".insertHeart", product_id);
+	}
 
 	
 }

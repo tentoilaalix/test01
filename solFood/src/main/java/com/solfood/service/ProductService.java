@@ -11,4 +11,5 @@ public interface ProductService {
 	public List<TotalVO> selectProduct_category1(String product_category1) throws Exception;
 	public List<TotalVO> selectProduct_category2(String product_category2) throws Exception;
 	public void updateProduct_count_minus(TotalVO vo) throws Exception;
+	public void insertHeart (int product_id) throws Exception;
 }

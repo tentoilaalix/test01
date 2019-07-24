@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.solfood.dto.TotalVO;
@@ -70,6 +71,11 @@ public class ProductController {
 		return "product/productInfo";
 	}
 
+	// proudcts.jsp 에서 heart 처리 컨트롤러--> heart 테이블로 들어가게 해줌
+	@RequestMapping(value= "/heart.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public void heart(int product_id) throws Exception{
+		productService.insertHeart(product_id);
+	}
 	
 }
 

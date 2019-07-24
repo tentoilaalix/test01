@@ -10,7 +10,50 @@
 	<link href="../../../resources/css/component.css" rel="stylesheet">
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		// heart 누르면 빈하트-> 채워진 하트/ heart 테이블로 들어가게 하는 메소드
+		function heart(product_id){			
+			var json= {"product_id":product_id};
+			var html= "";
 
+			// heart 테이블로 product_id 넣어주기
+			$.ajax({
+				type: "post",
+				url: "/product/heart.do",
+				data: json,
+				success: function(){
+					alert("heart table success");
+					$("#heartImage").toggleClass("beforeClick afterClick");
+				},
+				error: function(){
+					alert("heart table fail");
+					$("#heartImage").toggleClass("beforeClick afterClick");
+				}
+			});
+		}
+
+		/*
+		// 이미지 afterlike.png로 바꿔주기
+		var heartImage = $('#heartImage');
+		heartImage.click(function(){
+			heartImage.attr('src','../../resources/image/afterlike.PNG');
+		});
+		*/
+
+	</script>
+
+	<style>
+		.afterClick{
+			background-image: url("/resources/image/afterlike.PNG");
+			border: none;
+			background-size: 28px;
+		}
+		.beforeClick{
+			background-image: url("/resources/image/beforelike.PNG");
+			border: none;
+			background-size: 28px;
+		}
+	</style>
 </head>
 <body>
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
@@ -69,8 +112,10 @@
 				<c:forEach items="${products}" var="products">
 				    <div class="col-xs-4" align="center">
 				      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      ${products.product_name}&nbsp;찜<br>
-				      ${products.product_price}원<br><br><br><br>
+				      ${products.product_name}&nbsp;
+				      <input type="button" id='heartImage' onclick= "heart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+					<!--img src="../../../resources/image/beforelike.PNG" -->
+					${products.product_price}원<br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>

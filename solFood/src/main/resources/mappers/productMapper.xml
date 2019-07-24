@@ -43,7 +43,11 @@
 			UPDATE PRODUCT SET PRODUCT_COUNT= PRODUCT_COUNT- #{buy_count} WHERE PRODUCT_ID= #{product_id};
 		</update> 
 				
-		
+	<!-- =============================== INSERT ========================================= -->
+		<!-- heart 누르면 heart 테이블로 상품 들어가게 하기 -->
+		<insert id="insertHeart" parameterType="int">
+			INSERT INTO HEART (PRODUCT_ID) VALUES(#{product_id})
+		</insert>
 	</mapper>
 	
 	

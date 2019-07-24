@@ -57,5 +57,10 @@ public class ProductServiceImpl implements ProductService{
 		
 	}
 
+	@Override
+	public void insertHeart(int product_id) throws Exception {
+		dao.insertHeart(product_id);
+	}
+
 	
 }
