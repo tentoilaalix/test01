@@ -297,13 +297,6 @@ public class ManagerController {
 	}
 	@RequestMapping(value="recipe/recipe_register.do", method = RequestMethod.POST)
 	public String recipe_registerPro(TotalVO vo, MultipartFile file, HttpServletRequest request) throws Exception{
-		String[] param = request.getParameterValues("product_no[]");
-		for (int i = 0; i < param.length; i++) {
-			System.out.println("@@@:"+ param[i]);
-		}
-		
-		System.out.println("###getProduct_id:"+vo.getProduct_no());
-		
 		
 		String imgUploadPath = uploadPath + File.separator + "productImg";
     	String fileName = null;

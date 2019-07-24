@@ -56,7 +56,7 @@ public class TotalVO {
 	// RELATE : Reciepe & Product
 	private int no;
 	private int recipe_no;
-	private int[] product_no;
+	private int product_no;
 	
 	
 	// GETTERS AND SETTERS
@@ -65,10 +65,10 @@ public class TotalVO {
 	public int getProduct_id() {
 		return product_id;
 	}
-	public int[] getProduct_no() {
+	public int getProduct_no() {
 		return product_no;
 	}
-	public void setProduct_no(int[] product_no) {
+	public void setProduct_no(int product_no) {
 		this.product_no = product_no;
 	}
 	public void setProduct_id(int product_id) {

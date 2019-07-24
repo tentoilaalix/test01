@@ -23,33 +23,31 @@
 	file.onchange = function(){
 	    if(file.files.length > 0)
 	    {
-	      document.getElementById('filename').innerHTML = file.files[0].name;
+	      document.getElementById('product_id').innerHTML = file.files[0].name;
 	    }
 	};
 	</script>
 	
 	<script>
-	var rowNum = 0;
-	var oTbl;
+	var table;
 	//Row 추가
 	function insRow() {
-	  oTbl = document.getElementById("addTable");
-	  var oRow = oTbl.insertRow();
-	  oRow.onmouseover=function(){oTbl.clickedRowIndex=this.rowIndex}; //clickedRowIndex - 클릭한 Row의 위치를 확인;
-	  var oCell = oRow.insertCell();
+	  table = document.getElementById("addTable");
+	  var row = table.insertRow();
+	  row.onmouseover=function(){table.clickedRowIndex=this.rowIndex}; //clickedRowIndex - 클릭한 Row의 위치를 확인;
+	  var cell = row.insertCell();
 
 	  //삽입될 Form Tag
 	  rowNum += 1;
-	  var frmTag = "<div class='field is-horizontal'><input type='text' class='input' name='product_id["+rowNum+"]' maxlength='20'><input type=button value='삭제' onClick='removeRow()'></div>";
-	  oCell.innerHTML = frmTag;
+	  var frmTag = "<div class='field is-horizontal'><input type='text' class='input' name='product_id' maxlength='20'><input type=button value='삭제' onClick='removeRow()'></div>";
+	  cell.innerHTML = frmTag;
 	}
 	//Row 삭제
 	function removeRow() {
-	  oTbl.deleteRow(oTbl.clickedRowIndex);
+	  table.deleteRow(table.clickedRowIndex);
 	}
-
-	function frmCheck()
-	{
+	
+	function frmCheck() {
 	  var frm = document.form;
 	 
 	  for( var i = 0; i <= frm.elements.length - 1; i++ ){
@@ -63,6 +61,18 @@
 	      }
 	   }
 	 }
+	$.ajax({
+		url:"recipe_register.do"
+		type: "GET",
+		data: allData,
+		success: function(data){
+			window.opener.location.reload();
+			self.close();
+		},
+		error: function(jqXHR, textStatus, errorTHrowsn)
+		alert ("에러발생" + textStatus + " : " + errorThrown);
+		self.close();
+	})
 	</script>
 	
 	<style>
@@ -188,7 +198,7 @@
 					<div class="field-label is-normal"><label class="label">product_id</label></div>
 					<div class="field-body">
 						<div class="control field is-expanded has-icons-right" id="addedFormDiv">
-							<input type="text" class="input" name="product_id[0]" maxlength="20">
+							<input type="text" class="input" name="product_id" maxlength="20">
 							<table id="addTable">
 								<tr>
 									<td align="left"></td>
