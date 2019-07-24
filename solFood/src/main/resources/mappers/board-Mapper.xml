@@ -7,7 +7,7 @@
 <!-- ============================================================================================================= -->
 
 	<!-- 게시물 작성 -->
-	<insert id="write" parameterType="com.solfood.dto.BoardVO"> <!-- DAO와 매핑을 위한 ID -->
+	<insert id="write" parameterType="com.solfood.dto.BoardVO"> <!-- 매핑을 위한 ID -->
 		insert into
 		board(
 			board_date,
