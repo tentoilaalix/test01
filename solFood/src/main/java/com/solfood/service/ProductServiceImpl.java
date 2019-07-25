@@ -66,15 +66,15 @@ public class ProductServiceImpl implements ProductService{
 	//	insert
 	//----------------------------------------------------------	
 	@Override
-	public void insertHeart(int product_id) throws Exception {
-		dao.insertHeart(product_id);
+	public void insertHeart(TotalVO vo) throws Exception {
+		dao.insertHeart(vo);
 	}
 	
 	//----------------------------------------------------------
 	//	insert
 	//----------------------------------------------------------	
 	@Override
-	public void deleteHeart(int product_id) throws Exception {
-		dao.deleteHeart(product_id);
+	public void deleteHeart(TotalVO vo) throws Exception {
+		dao.deleteHeart(vo);
 	}
 }

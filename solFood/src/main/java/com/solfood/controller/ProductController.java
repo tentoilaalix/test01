@@ -86,12 +86,12 @@ public class ProductController {
 	
 	// change heart--> insert or delete from heart
 	@RequestMapping(value= "/changeHeart.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public void insertHeart(int product_id, String state, String account_user) throws Exception{
+	public void insertHeart(TotalVO vo, String state) throws Exception{
 		if(state.equals("click")) {
-			productService.insertHeart(product_id);		
+			productService.insertHeart(vo);		
 			System.out.println("===================== 여기는 insertHeart");
 		} else if(state.equals("unclick")) {
-			productService.deleteHeart(product_id);
+			productService.deleteHeart(vo);
 			System.out.println("===================== 여기는 deleteHeart");
 		}		
 	}
