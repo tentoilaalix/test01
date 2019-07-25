@@ -20,7 +20,8 @@
 		// 	heartState--> 페이지 로드시 heart 상태 표시
 		//----------------------------------------------------------------
 		function heartList(){
-			var account_user= document.getElementById('account_user').value;
+			/* var account_user= document.getElementById('account_user').value; */
+			var account_user= "1809";
 			var product_id;
 			var heartList;
 			
@@ -194,7 +195,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
 				      	${products.product_name}&nbsp;
 				 
-				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},${account_user})" 
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},1809)" 
 				      	class='beforeClick' style="width:29px; height:23px;"><br>
 						
 						${products.product_price}원<br><br><br><br>
