@@ -61,16 +61,16 @@ public class ProductDAOImpl implements ProductDAO{
 	//-----------------------------------------------------------------------
 	// heart 누르면 heart 테이블로 들어가게 하기 
 	@Override
-	public void insertHeart(int product_id) throws Exception {
-		sqlSession.insert(Namespace+".insertHeart", product_id);
+	public void insertHeart(TotalVO vo) throws Exception {
+		sqlSession.insert(Namespace+".insertHeart", vo);
 	}
 	
 	//-----------------------------------------------------------------------
 	//	delete 
 	//-----------------------------------------------------------------------
 	@Override
-	public void deleteHeart(int product_id) throws Exception {
-		sqlSession.delete(Namespace+".deleteHeart", product_id);
+	public void deleteHeart(TotalVO vo) throws Exception {
+		sqlSession.delete(Namespace+".deleteHeart", vo);
 	}
 
 

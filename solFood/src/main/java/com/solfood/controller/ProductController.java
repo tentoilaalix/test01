@@ -84,9 +84,9 @@ public class ProductController {
 		return heartList;
 	}
 	
-	// insert heart 테이블로 들어가게 해줌
+	// change heart--> insert or delete from heart
 	@RequestMapping(value= "/changeHeart.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public void insertHeart(int product_id, String state) throws Exception{
+	public void insertHeart(int product_id, String state, String account_user) throws Exception{
 		if(state.equals("click")) {
 			productService.insertHeart(product_id);		
 			System.out.println("===================== 여기는 insertHeart");

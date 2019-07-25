@@ -42,7 +42,7 @@
 		
 		<!-- heart 테이블 목록 추출 -->
 		<select id="selectHeart" resultType="com.solfood.dto.TotalVO">
-			SELECT * FROM HEART 		
+			SELECT * FROM HEART WHERE ACCOUNT_USER= #{account_user}		
 		</select>
 		
 	<!-- =============================== UPDATE ========================================= -->
@@ -53,14 +53,14 @@
 				
 	<!-- =============================== INSERT ========================================= -->
 		<!-- heart 누르면 heart 테이블로 상품 들어가게 하기 -->
-		<insert id="insertHeart" parameterType="int">
-			INSERT INTO HEART (PRODUCT_ID) VALUES(#{product_id})
+		<insert id="insertHeart" parameterType="com.solfood.dto.TotalVO">
+			INSERT INTO HEART (PRODUCT_ID, ACCOUNT_USER) VALUES(#{product_id}, #{account_user})
 		</insert>
 		
 	<!-- =============================== DELETE ========================================= -->
 		<!-- heart 다시 누르면 heart에서 상품 사라지게 하기 -->
-		<delete id="deleteHeart" parameterType="int">
-			DELETE FROM HEART WHERE PRODUCT_ID= #{product_id}
+		<delete id="deleteHeart" parameterType="com.solfood.dto.TotalVO">
+			DELETE FROM HEART WHERE PRODUCT_ID= #{product_id} AND ACCOUNT_USER= #{account_user}
 		</delete>
 	</mapper>
 	

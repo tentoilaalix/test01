@@ -11,49 +11,65 @@
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
 	<script>
-		// 페이지가 로드되면 product list 표시하기 
-		/*
+		// 페이지가 로드되면 hear list 표시하기 
 		$(document).ready(function(){
-			heartState();
+			heartList();
 		});
 
 		//----------------------------------------------------------------
-		// 	heartState--> heart 상태 표시
+		// 	heartState--> 페이지 로드시 heart 상태 표시
 		//----------------------------------------------------------------
-		function heartState{
-			/*
-			var heartImage= document.getElementById('heartImage');
-			if(heartImage.className== 'beforeClick'){	
-			}
-			*/
-
-			/*
-			$("#saleBtn").attr({
-				'href' : '${path}/cart/pay.do?account_user='+ account_user+ '&totalPrice=' +all_total
-			});
+		function heartList(){
+			var account_user= document.getElementById('account_user').value;
+			var product_id;
+			var heartList;
 			
-
-			
+			// heart table 데이터 받아오기
 			$.ajax({
 				type: "post",
-				url: "/product/heartState.do",
+				url: "/product/heartList.do",
 				success: function(data){
-					
-					$("#heartImage").attr({
-						'class' : 'afterClick'
-					});
+					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기
+					alert("heartList success");
+					for(var i=0; i<data.length; i++){
+						if(data[i].account_user== account_user){								
+							heartList[i]= data[i].product_id;									 
+						}
+					}
+
+					// product_id 만큼 돌려서 heartList에 있는 번호와 product_id가 일치하면 class를 afterClick으로 바꿔주기
+					for(var i=0; i<document.getElementsByName('product_id').length; i++){
+						if(heartList[i]== document.getElementsByName('product_id')[i].value){
+							$("[name='heartImage"+ i+1 +"']").attr({
+								'class' : 'afterClick'
+							});
+						}
+					}					
 				},
 				error: function(){
-					
+					alert("heartList success");
+					for(var i=0; i<data.length; i++){
+						if(data[i].account_user== account_user){								
+							heartList[i]= data[i].product_id;									 
+						}
+					}
+
+					for(var i=0; i<document.getElementsByName('product_id').length; i++){
+						if(heartList[i]== document.getElementsByName('product_id')[i].value){
+							$("[name='heartImage"+ i+1 +"']").attr({
+								'class' : 'afterClick'
+							});
+						}
+					}					
 				}
 			});
-			
 		}
-		*/
+
+		
 		//----------------------------------------------------------------
 		// 	changeHeart--> heart 상태 변경 및 테이블에서 insert or delete
 		//----------------------------------------------------------------
-		function changeHeart(product_id){	
+		function changeHeart(product_id, account_user){	
 			var json;	
 			var state;
 
@@ -66,7 +82,7 @@
 			// toggleClass하고 나서 afterClick이 되면 heart 테이블에 들어가야하는 거니까 json에 state="click" 보내서 insertHeart가 실행되게 하기
 			if(class_by_name== "afterClick"){
 				state= "click";
-				json= {"product_id":product_id, "state":state};
+				json= {"product_id":product_id, "state":state, "account_user":account_user};
 				
 				$.ajax({
 					type: "post",
@@ -81,7 +97,7 @@
 			// afterClick이었다가 beforeClick으로 바뀌면 state="unclick"으로 보내서 deleteHeart가 실행되게 하기 
 			} else if(class_by_name== "beforeClick"){
 				state= "unclick";
-				json= {"product_id":product_id, "state":state};
+				json= {"product_id":product_id, "state":state, "account_user":account_user};
 				
 				$.ajax({
 					type: "post",
@@ -118,6 +134,12 @@
 	<br><br><br>
 <%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 채소·과일 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
 <div class="container">
+	<!-- account_user 받기 -->
+	<input type="text" hidden="true" value= "${login.account_user}" id="account_user"/> 
+	<c:set value="${login.account_user}" var="account_user"/>
+	
+	
+	<!--  상품 -->
 	<c:set var="cate" value="${param.product_category1}"/>
 	<c:choose>
 	<c:when test="${cate eq '채소·과일'}">
@@ -166,10 +188,15 @@
 				<c:forEach items="${products}" var="products">
 					<div class="col-xs-4" align="center">
 					
-						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<!-- 상품 id, 사진, 이름, 찜하기, 가격 순 -->
+						<input type="text" hidden="true" value= "${products.product_id}" name="product_id"/>
+						
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
 				      	${products.product_name}&nbsp;
-				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+				 
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},${account_user})" 
+				      	class='beforeClick' style="width:29px; height:23px;"><br>
+						
 						${products.product_price}원<br><br><br><br>
 				    </div>
 				</c:forEach>

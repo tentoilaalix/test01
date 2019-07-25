@@ -37,10 +37,10 @@ public interface ProductDAO {
 	//	INSERT 
 	//-------------------------------------------------------------
 		// heart 누르면 heart 테이블로 상품 들어가게 해주기 
-		public void insertHeart (int product_id) throws Exception;
+		public void insertHeart (TotalVO vo) throws Exception;
 		
 	//-------------------------------------------------------------
-	//	INSERT 
+	//	DELETE
 	//-------------------------------------------------------------
-		public void deleteHeart(int product_id) throws Exception;
+		public void deleteHeart(TotalVO vo) throws Exception;
 }
