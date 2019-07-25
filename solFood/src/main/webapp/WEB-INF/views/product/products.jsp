@@ -28,47 +28,35 @@
 			// heart table 데이터 받아오기
 			$.ajax({
 				type: "GET",
+				datatype: "json",
 				url: "/product/heartList.do",
+				
 				success: function(data){
 					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기
 					alert("heartList success"+ data.length);
 					
-					for(var i=0; i<data.length; i++){
-						alert("ddddddddddddddd");
-						
+					for(var i=0; i<data.length; i++){						
 						if(data[i].account_user== account_user){								
-							data[i].product_id= heartList[i];									 
+							// data[i].product_id= heartList[i];	
+							$("[name='heartImage"+ data[i].product_id +"']").attr({
+								'class' : 'afterClick'
+							});							 
 						}
 					}
-
-					// product_id 만큼 돌려서 heartList에 있는 번호와 product_id가 일치하면 class를 afterClick으로 바꿔주기
-					for(var i=0; i<document.getElementsByName('product_id').length; i++){
-						if(heartList[i]== document.getElementsByName('product_id')[i].value){
-							$("[name='heartImage"+ i+1 +"']").attr({
-								'class' : 'afterClick'
-							});
-						}
-					}					
 				},
 				error: function(){
-					alert("heartList success");
-					for(var i=0; i<data.length; i++){
+					alert("heartList fail"+ data.length);
+					for(var i=0; i<data.length; i++){						
 						if(data[i].account_user== account_user){								
-							heartList[i]= data[i].product_id;									 
+							// data[i].product_id= heartList[i];	
+							$("[name='heartImage"+ data[i].product_id +"']").attr({
+								'class' : 'afterClick'
+							});							 
 						}
 					}
-
-					for(var i=0; i<document.getElementsByName('product_id').length; i++){
-						if(heartList[i]== document.getElementsByName('product_id')[i].value){
-							$("[name='heartImage"+ i+1 +"']").attr({
-								'class' : 'afterClick'
-							});
-						}
-					}					
 				}
 			});
 		}
-
 		
 		//----------------------------------------------------------------
 		// 	changeHeart--> heart 상태 변경 및 테이블에서 insert or delete

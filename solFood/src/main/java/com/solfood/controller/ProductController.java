@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.solfood.dto.TotalVO;
@@ -75,11 +76,14 @@ public class ProductController {
 	//------------------------------------------------------------------
 	//	heart 
 	//------------------------------------------------------------------
-	// heart 상태보기--> heart 테이블 불러오기 
+	// heart 상태보기--> heart 테이블 불러오기
+	@ResponseBody
 	@RequestMapping(value= "/heartList.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public List<TotalVO> heartList(Model model) throws Exception{
 		List<TotalVO> heartList= productService.selectHeart();
 		model.addAttribute("heartList", heartList);
+		
+		System.out.println("================ fffffffffffffffffff"+ heartList.size());
 		
 		return heartList;
 	}
