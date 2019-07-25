@@ -42,7 +42,7 @@
 		
 		<!-- heart 테이블 목록 추출 -->
 		<select id="selectHeart" resultType="com.solfood.dto.TotalVO">
-			SELECT * FROM HEART WHERE ACCOUNT_USER= #{account_user}		
+			SELECT * FROM HEART		
 		</select>
 		
 	<!-- =============================== UPDATE ========================================= -->
