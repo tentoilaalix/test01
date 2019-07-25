@@ -174,15 +174,21 @@
 				<c:forEach items="${products}" var="products">
 					<div class="col-xs-4" align="center">
 					
-						<!-- 상품 id, 사진, 이름, 찜하기, 가격 순 -->
+						<!--===================  상품 id, 사진, 이름, 찜하기, 가격 순 ========================-->
 						<input type="text" hidden="true" value= "${products.product_id}" name="product_id"/>
-						
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
 				      	${products.product_name}&nbsp;
 				 
-				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},1809)" 
-				      	class='beforeClick' style="width:29px; height:23px;"><br>
-						
+				 		<!-- login 값이 없으면 하트 안보이게 -->
+				 		<c:choose>
+						    <c:when test="${login.account_user== null}">
+								<br>
+						    </c:when>
+						    <c:otherwise>
+						   		<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},1809)" class='beforeClick' style="width:29px; height:23px;"><br>
+						    </c:otherwise>
+						</c:choose>
+
 						${products.product_price}원<br><br><br><br>
 				    </div>
 				</c:forEach>
