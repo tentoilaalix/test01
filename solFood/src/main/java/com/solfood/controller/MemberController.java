@@ -40,7 +40,7 @@ public class MemberController {
 	//---------------------------------------------
 	// login process
 	//---------------------------------------------
-	@RequestMapping("loginPro.do")
+	@RequestMapping(value="loginPro.do")
 	public String loginProcess(HttpSession session, MemberVO dto){
 	    String returnURL = "";
 	    if ( session.getAttribute("login") != null ){
@@ -61,6 +61,7 @@ public class MemberController {
 	    }    
 	    return returnURL; 										// 위에서 설정한 returnURL 을 반환해서 이동시킴
 	}
+	
 		
 	//---------------------------------------------
 	//	logout form

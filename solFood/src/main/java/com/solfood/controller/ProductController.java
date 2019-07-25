@@ -82,9 +82,7 @@ public class ProductController {
 	public List<TotalVO> heartList(Model model) throws Exception{
 		List<TotalVO> heartList= productService.selectHeart();
 		model.addAttribute("heartList", heartList);
-		
-		System.out.println("================ fffffffffffffffffff"+ heartList.size());
-		
+				
 		return heartList;
 	}
 	

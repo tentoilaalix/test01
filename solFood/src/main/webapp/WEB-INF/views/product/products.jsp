@@ -20,10 +20,9 @@
 		// 	heartState--> 페이지 로드시 heart 상태 표시
 		//----------------------------------------------------------------
 		function heartList(){
-			/* var account_user= document.getElementById('account_user').value; */
-			var account_user= "1809";
+			var account_user = document.getElementsByName("account_user")[0].value;
 			var product_id;
-			var heartList;
+			var html;
 			
 			// heart table 데이터 받아오기
 			$.ajax({
@@ -32,9 +31,7 @@
 				url: "/product/heartList.do",
 				
 				success: function(data){
-					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기
-					alert("heartList success"+ data.length);
-					
+					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기					
 					for(var i=0; i<data.length; i++){						
 						if(data[i].account_user== account_user){								
 							// data[i].product_id= heartList[i];	
@@ -45,7 +42,6 @@
 					}
 				},
 				error: function(){
-					alert("heartList fail"+ data.length);
 					for(var i=0; i<data.length; i++){						
 						if(data[i].account_user== account_user){								
 							// data[i].product_id= heartList[i];	
@@ -127,10 +123,9 @@
 <%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 채소·과일 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
 <div class="container">
 	<!-- account_user 받기 -->
-	<input type="text" hidden="true" value= "${login.account_user}" id="account_user"/> 
-	<c:set value="${login.account_user}" var="account_user"/>
+	<input type='text' hidden='true' value='${login.account_user}' name='account_user'/>
 	
-	
+	 		
 	<!--  상품 -->
 	<c:set var="cate" value="${param.product_category1}"/>
 	<c:choose>
