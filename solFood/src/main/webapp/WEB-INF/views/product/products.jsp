@@ -31,7 +31,8 @@
 				url: "/product/heartList.do",
 				success: function(data){
 					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기
-					alert("heartList success");
+					alert("heartList success"+ data.length);
+					
 					for(var i=0; i<data.length; i++){
 						if(data[i].account_user== account_user){								
 							heartList[i]= data[i].product_id;									 
