@@ -2,6 +2,7 @@
 <%@ page import="java.text.*" %>
 <%NumberFormat nf = NumberFormat.getNumberInstance();%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,41 @@
 	<script src="../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../resources/css/multi.js"></script>
+	
+	<!-- 상품 뿌리기 ajax -->
+	<script>
+	$(document).ready(function(){
+		product_category1();
+	});
+	
+	function product_category1(){	
+		var product_category1= "채소·과일";		
+		var json= {"product_category1":product_category1};
+		var html= "";
+		
+			$.ajax({
+				type: "post",
+				url: "/product/products1_2.do",
+				data: json,
+				success: function(data){
+					for(var i=0; i<4; i++){
+						html+= "<div class='col-xs-3'>";
+						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"'/></a><br><br>";
+						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><strong>"+ data[i].product_name +"</strong></a><br>";
+						html+= data[i].product_price+ "원";
+						html+= "</div>";
+
+						$("#productPart").html(html);
+					}
+				},
+				error: function(){
+					alert("product_category1 fail");
+				}
+			});
+		}
+	</script>
+	
+	
 	<style type="text/css">
 		a { text-decoration: none;}
  		a:link { color: black; text-decoration: none !important;}
@@ -24,7 +60,6 @@
 	<style>
 		html{cursor: url(../resources/image/carrot.png), auto}
 		body {
-		padding: 10px 15px 0px 15px;
 		width: 100%;
 		font-family: 맑은 고딕;
 		font-size: 18px;
@@ -92,35 +127,23 @@
                 <div class="carousel-inner">
                 <div class="item active">
                 	<div class="row">
-                	  <div class="col-md-3"><a href="${path}/product/productList.do?product_id=1" class="thumbnail"><img src="../resources/image/goods1.jpg" style="max-width:100%;"></a><br>
-                	  <a href="${path}/product/productList.do?product_id=1" class="noul"><strong>[신선한특가]식빵+유기농 제주 목초 우유</strong><br>
-						<%=nf.format(5900)%>원</a></div>
-                	 <div class="col-md-3"><a href="#" class="thumbnail"><img src="../resources/image/goods2.jpg" style="max-width:100%;"></a><br>
-                	   <a href="#" class="noul"><strong>[신선한특가] DOLE 실속 바나나</strong><br>
-						<%=nf.format(1900)%>원</a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="../resources/image/goods3.jpg" style="max-width:100%;"></a><br>
-                	   <a href="#" class="noul"><strong>DOLE 스위티오 바나나</strong><br>
-						<%=nf.format(3800)%>원</a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="../resources/image/goods4.jpg" style="max-width:100%;"></a><br>
-                	  <a href="#" class="noul"><strong>GAP 가지</strong><br>
-						<%=nf.format(2100)%>원</a></div> 
+                	 <c:forEach items="${homeProduct}" var="homeProduct" begin="0" end="3">
+	                	<div class="col-md-3">
+	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="thumbnail"><img src="/img/${homeProduct.product_image}" style="max-width:100%;"></a><br>
+	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="noul"><strong>${homeProduct.product_name}</strong><br><fmt:formatNumber value="${homeProduct.product_price}" pattern="#,###.##"/>원</a>
+						</div>
+					</c:forEach>
                 	</div><!--.row-->
                 </div><!--.item-->
                  
                 <div class="item">
                 	<div class="row">
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="../resources/image/goods5.jpg" style="max-width:100%;"></a><br>
-                	  <a href="#" class="noul"><strong>[나탈리스]프리미엄 착즙 오렌지비트 주스</strong><br>
-						<%=nf.format(9900)%>원</a></div>
-                	 <div class="col-md-3"><a href="#" class="thumbnail"><img src="../resources/image/goods6.jpg" style="max-width:100%;"></a><br>
-                	   <a href="#" class="noul"><strong>[콜리탈리] 발사믹 8종 </strong><br>
-						<%=nf.format(10900)%>원</a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="../resources/image/goods7.jpg" style="max-width:100%;"></a><br>
-                	   <a href="#" class="noul"><strong>[얼리키친] 수제 등심 돈까스(냉동)</strong><br>
-						<%=nf.format(10000)%>원</a></div>
-                	  <div class="col-md-3"><a href="#" class="thumbnail"><img src="../resources/image/goods8.jpg" style="max-width:100%;"></a><br>
-                	  <a href="#" class="noul"><strong>[휘태커스] 초콜릿 6종</strong><br>
-						<%=nf.format(4130)%>원</a></div> 
+                	   <c:forEach items="${homeProduct}" var="homeProduct" begin="4" end="7">
+	                	<div class="col-md-3">
+	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="thumbnail"><img src="/img/${homeProduct.product_image}" style="max-width:100%;"></a><br>
+	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="noul"><strong>${homeProduct.product_name}</strong><br><fmt:formatNumber value="${homeProduct.product_price}" pattern="#,###.##"/>원</a>
+						</div>
+					</c:forEach>
                 	</div><!--.row-->
                 </div><!--.item-->
                 </div><!--.carousel-inner-->
@@ -370,8 +393,8 @@
 	</div>
 </div>
 <div class="cate6Form" id="mdArea">
-	<div class="row" align="center">
-		<div class="col-xs-3">
+	<div class="row" align="center" id="productPart">
+		<%-- <div class="col-xs-3">
 			<a href=""><img src="../resources/image/cate6-1.png"></a><br><br>
 			<a href=""><strong>[론소니] 베지 파스타 4종</strong></a><br>
 			<%=nf.format(3500)%>원
@@ -390,7 +413,11 @@
 			<a href=""><img src="../resources/image/cate6-4.png"></a><br><br>
 			<a href=""><strong>[신영]페페로치노 홀 18g</strong></a><br>
 			<%=nf.format(5900)%>원
-		</div>
+		</div> --%>
+		
+		
+		
+		
 	</div>
 </div>
 <div class="cate7Form" id="mdArea">
@@ -543,31 +570,17 @@ $(document).ready(function() {
 <div align="center"><h2>SolFood 레시피</h2></div>
 <br><hr class="recipeHr">
 <div class="row" align="center">
+<c:forEach items="${homeRecipe}" var="recipe" begin="0" end="2">
 <div class="col-xs-4">
 <figure class="snip1436">
-  <img src="../resources/image/dakbokk.png"/>
+  <img src="/img/${recipe.recipe_image}" width="330px" height="220px"/>
   <figcaption>
-    <h3>토종닭 캐슈넛볶음</h3>
-    <p>토종닭 1팩, 캐슈넛 1/2컵, 마늘종 10대, 마늘 10알, 양파 1/2개, 베트남 고추 10개, 다진생강 1/4 작은술</p><a href="#" class="read-more">자세히 보기</a>
+    <h3>${recipe.recipe_name}</h3>
+    <p></p><a href="${path}/recipe.do?recipe_id=${recipe.recipe_id}" class="read-more">자세히 보기</a>
   </figcaption>
 </figure>
 </div>
-<div class="col-xs-4">
-<figure class="snip1436"><img src="../resources/image/gomtang.png"/>
-  <figcaption>
-    <h3>꼬리곰탕</h3>
-    <p>한우 꼬리 1kg, 마늘 10알, 대파 1/2대, 양파 1개, 월계수잎 3장, 통후추 1작은술</p><a href="#" class="read-more">자세히 보기</a>
-  </figcaption>
-</figure>
-</div>
-<div class="col-xs-4">
-<figure class="snip1436"><img src="../resources/image/meat.png"/>
-  <figcaption>
-    <h3>우족수육</h3>
-    <p>우족 1kg, 마늘 10알, 대파 1대, 양파 1개, 부추 50g, 월계수잎 3장, 통후추 1작은술, 연겨자 1작은술</p><a href="#" class="read-more">자세히 보기</a>
-  </figcaption>
-</figure>
-</div>
+</c:forEach>
 </div>
 </div><br><br><br>
 <div class="container" id="recipeInfo">

@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.solfood.dto.TotalVO;
@@ -47,6 +48,7 @@ public class ProductController {
 		return "product/productList";
 	}
 	
+	// product category1 
 	@RequestMapping(value = "/products1.do")
 	public String selectProduct_category1(Model model, String product_category1) throws Exception{		
 		List<TotalVO> products= productService.selectProduct_category1(product_category1);						
@@ -54,7 +56,16 @@ public class ProductController {
 				
 		return "product/products";
 	}
+	@ResponseBody
+	@RequestMapping(value = "/products1_2.do")
+	public List<TotalVO> selectProduct_category1(String product_category1) throws Exception{		
+		List<TotalVO> productList= productService.selectProduct_category1(product_category1);						
+				
+		return productList;
+	}
 	
+
+	// product_category2
 	@RequestMapping(value = "/products2.do")
 	public String selectProduct_category2(Model model, String product_category2) throws Exception{		
 		List<TotalVO> products= productService.selectProduct_category2(product_category2);						

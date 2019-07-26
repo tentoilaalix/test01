@@ -222,10 +222,10 @@
 			<div class="row" id="koFruitC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			    	${products.product_image}<br>
-			    	${products.product_name}<br>
-			      	${products.product_price}<br>
-			      	${products.product_content}<br><br><br><br>
+			    	<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -277,9 +277,10 @@
 			<div class="row" id="foFruitC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -331,9 +332,10 @@
 			<div class="row" id="basicVegeC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -385,9 +387,10 @@
 			<div class="row" id="simpleVegeC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -439,9 +442,10 @@
 			<div class="row" id="mushroomC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -493,9 +497,10 @@
 			<div class="row" id="onionC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -556,9 +561,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -607,9 +613,10 @@
 			<div class="row" id="stewC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -657,9 +664,10 @@
 			<div class="row" id="sideDishC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -707,9 +715,10 @@
 			<div class="row" id="kimchiC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -757,9 +766,10 @@
 			<div class="row" id="tofuC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -807,9 +817,10 @@
 			<div class="row" id="mainDishC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -818,6 +829,319 @@
 </div>
 <%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 국·반찬·요리 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
 
+	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 면·양념·오일 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
+	<div class="container">
+	<c:set var="cate" value="${param.product_category1}"/>
+	<c:choose>
+	<c:when test="${cate eq '면·양념·오일'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/noodle.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+			<div class="row">
+				<div class="col-xs-offset-2">
+					<button class="bttn-stretch bttn-md bttn-primary" id="allNoodle">전체보기</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="pasta">파스타·면류</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="flour">밀가루·가루·믹스</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="source">향신료·소스·드레싱</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="seasoning">양념·액젓·장류</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="salt">소금·설탕·식초</button>
+				</div>
+			</div>
+			<br><br><br>
+			<%-- Category 분류 jQuery 접어두는걸 추천 --%>
+			<script>
+			$('#allNoodle').click(function(){
+				$('#allNoodleC').load('http://localhost:8080/product/products1.do?product_category1=면·양념·오일 #allNoodleC');
+			});
+			$('#pasta').click(function(){
+				$('#allNoodleC').load('http://localhost:8080/product/products2.do?product_category2=파스타·면류 #pastaC');
+			});
+			$('#flour').click(function(){
+				$('#allNoodleC').load('http://localhost:8080/product/products2.do?product_category2=밀가루·가루·믹스 #flourC');
+			});
+			$('#source').click(function(){
+				$('#allNoodleC').load('http://localhost:8080/product/products2.do?product_category2=향신료·소스·드레싱 #sourceC');
+			});
+			$('#seasoning').click(function(){
+				$('#allNoodleC').load('http://localhost:8080/product/products2.do?product_category2=양념·액젓·장류 #seasoningC');
+			});
+			$('#salt').click(function(){
+				$('#allNoodleC').load('http://localhost:8080/product/products2.do?product_category2=소금·설탕·식초 #saltC');
+			});
+			</script>
+	
+				<div class="row" id="allNoodleC">
+				<c:forEach items="${products}" var="products">
+					<div class="col-xs-4" align="center">
+					
+						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+				    </div>
+				</c:forEach>
+			  	</div>
+		</c:when>
+	</c:choose>
+
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '파스타·면류'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/noodle.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allNoodle">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="pasta">파스타·면류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="flour">밀가루·가루·믹스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="source">향신료·소스·드레싱</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seasoning">양념·액젓·장류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="salt">소금·설탕·식초</button>
+			</div>
+		</div>
+		<script>
+		$('#allNoodle').click(function(){
+			$('#pastaC').load('http://localhost:8080/product/products1.do?product_category1=면·양념·오일 #allNoodleC');
+		});
+		$('#pasta').click(function(){
+			$('#pastaC').load('http://localhost:8080/product/products2.do?product_category2=파스타·면류 #pastaC');
+		});
+		$('#flour').click(function(){
+			$('#pastaC').load('http://localhost:8080/product/products2.do?product_category2=밀가루·가루·믹스 #flourC');
+		});
+		$('#source').click(function(){
+			$('#pastaC').load('http://localhost:8080/product/products2.do?product_category2=향신료·소스·드레싱 #sourceC');
+		});
+		$('#seasoning').click(function(){
+			$('#pastaC').load('http://localhost:8080/product/products2.do?product_category2=양념·액젓·장류 #seasoningC');
+		});
+		$('#salt').click(function(){
+			$('#pastaC').load('http://localhost:8080/product/products2.do?product_category2=소금·설탕·식초 #saltC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="pastaC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			    	<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '밀가루·가루·믹스'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/noodle.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allNoodle">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="pasta">파스타·면류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="flour">밀가루·가루·믹스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="source">향신료·소스·드레싱</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seasoning">양념·액젓·장류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="salt">소금·설탕·식초</button>
+			</div>
+		</div>
+		<script>
+		$('#allNoodle').click(function(){
+			$('#flourC').load('http://localhost:8080/product/products1.do?product_category1=면·양념·오일 #allNoodleC');
+		});
+		$('#pasta').click(function(){
+			$('#flourC').load('http://localhost:8080/product/products2.do?product_category2=파스타·면류 #pastaC');
+		});
+		$('#flour').click(function(){
+			$('#flourC').load('http://localhost:8080/product/products2.do?product_category2=밀가루·가루·믹스 #flourC');
+		});
+		$('#source').click(function(){
+			$('#flourC').load('http://localhost:8080/product/products2.do?product_category2=향신료·소스·드레싱 #sourceC');
+		});
+		$('#seasoning').click(function(){
+			$('#flourC').load('http://localhost:8080/product/products2.do?product_category2=양념·액젓·장류 #seasoningC');
+		});
+		$('#salt').click(function(){
+			$('#flourC').load('http://localhost:8080/product/products2.do?product_category2=소금·설탕·식초 #saltC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="flourC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '향신료·소스·드레싱'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/noodle.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allNoodle">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="pasta">파스타·면류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="flour">밀가루·가루·믹스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="source">향신료·소스·드레싱</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seasoning">양념·액젓·장류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="salt">소금·설탕·식초</button>
+			</div>
+		</div>
+		<script>
+		$('#allNoodle').click(function(){
+			$('#sourceC').load('http://localhost:8080/product/products1.do?product_category1=면·양념·오일 #allNoodleC');
+		});
+		$('#pasta').click(function(){
+			$('#sourceC').load('http://localhost:8080/product/products2.do?product_category2=파스타·면류 #pastaC');
+		});
+		$('#flour').click(function(){
+			$('#sourceC').load('http://localhost:8080/product/products2.do?product_category2=밀가루·가루·믹스 #flourC');
+		});
+		$('#source').click(function(){
+			$('#sourceC').load('http://localhost:8080/product/products2.do?product_category2=향신료·소스·드레싱 #sourceC');
+		});
+		$('#seasoning').click(function(){
+			$('#sourceC').load('http://localhost:8080/product/products2.do?product_category2=양념·액젓·장류 #seasoningC');
+		});
+		$('#salt').click(function(){
+			$('#sourceC').load('http://localhost:8080/product/products2.do?product_category2=소금·설탕·식초 #saltC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="sourceC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '양념·액젓·장류'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/noodle.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allNoodle">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="pasta">파스타·면류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="flour">밀가루·가루·믹스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="source">향신료·소스·드레싱</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seasoning">양념·액젓·장류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="salt">소금·설탕·식초</button>
+			</div>
+		</div>
+		<script>
+		$('#allNoodle').click(function(){
+			$('#seasoningC').load('http://localhost:8080/product/products1.do?product_category1=면·양념·오일 #allNoodleC');
+		});
+		$('#pasta').click(function(){
+			$('#seasoningC').load('http://localhost:8080/product/products2.do?product_category2=파스타·면류 #pastaC');
+		});
+		$('#flour').click(function(){
+			$('#seasoningC').load('http://localhost:8080/product/products2.do?product_category2=밀가루·가루·믹스 #flourC');
+		});
+		$('#source').click(function(){
+			$('#seasoningC').load('http://localhost:8080/product/products2.do?product_category2=향신료·소스·드레싱 #sourceC');
+		});
+		$('#seasoning').click(function(){
+			$('#seasoningC').load('http://localhost:8080/product/products2.do?product_category2=양념·액젓·장류 #seasoningC');
+		});
+		$('#salt').click(function(){
+			$('#seasoningC').load('http://localhost:8080/product/products2.do?product_category2=소금·설탕·식초 #saltC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="seasoningC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '소금·설탕·식초'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/noodle.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allNoodle">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="pasta">파스타·면류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="flour">밀가루·가루·믹스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="source">향신료·소스·드레싱</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seasoning">양념·액젓·장류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="salt">소금·설탕·식초</button>
+			</div>
+		</div>
+		<script>
+		$('#allNoodle').click(function(){
+			$('#saltC').load('http://localhost:8080/product/products1.do?product_category1=면·양념·오일 #allNoodleC');
+		});
+		$('#pasta').click(function(){
+			$('#saltC').load('http://localhost:8080/product/products2.do?product_category2=파스타·면류 #pastaC');
+		});
+		$('#flour').click(function(){
+			$('#saltC').load('http://localhost:8080/product/products2.do?product_category2=밀가루·가루·믹스 #flourC');
+		});
+		$('#source').click(function(){
+			$('#saltC').load('http://localhost:8080/product/products2.do?product_category2=향신료·소스·드레싱 #sourceC');
+		});
+		$('#seasoning').click(function(){
+			$('#saltC').load('http://localhost:8080/product/products2.do?product_category2=양념·액젓·장류 #seasoningC');
+		});
+		$('#salt').click(function(){
+			$('#saltC').load('http://localhost:8080/product/products2.do?product_category2=소금·설탕·식초 #saltC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="saltC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+</div>
+<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 면·양념·오일 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
 
 <%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 정육·계란 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
 <div class="container">
@@ -865,9 +1189,10 @@
 			<div class="row" id="allMeatC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -915,9 +1240,10 @@
 			<div class="row" id="beafC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -965,9 +1291,10 @@
 			<div class="row" id="porkC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1015,9 +1342,10 @@
 			<div class="row" id="lambC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1065,9 +1393,10 @@
 			<div class="row" id="chickenC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1115,9 +1444,10 @@
 			<div class="row" id="eggC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1125,6 +1455,325 @@
 		</c:choose>
 </div>
 <%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 정육·계란 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
+
+	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 수산·해산 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
+	<div class="container">
+	<c:set var="cate" value="${param.product_category1}"/>
+	<c:choose>
+	<c:when test="${cate eq '수산·해산'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/fishery.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+			<div class="row">
+				<div class="col-xs-offset-2">
+					<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="fishes">생선류</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="squid">오징어·낙지·문어</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="clam">해산물·조개류</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="seaweed">김·미역</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="driedFish">건어물·다시팩</button>
+				</div>
+			</div>
+			<br><br><br>
+			<%-- Category 분류 jQuery 접어두는걸 추천 --%>
+			<script>
+			$('#allFish').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products1.do?product_category1=수산·해산 #allFishC');
+			});
+			$('#fishes').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=생선류 #fishesC');
+			});
+			$('#squid').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=오징어·낙지·문어 #squidC');
+			});
+			$('#clam').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=해산물·조개류 #clamC');
+			});
+			$('#seaweed').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=김·미역 #seaweedC');
+			});
+			$('#driedFish').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=건어물·다시팩 #driedFishC');
+			});
+			</script>
+	
+				<div class="row" id="allFishC">
+				<c:forEach items="${products}" var="products">
+					<div class="col-xs-4" align="center">
+					
+						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+				    </div>
+				</c:forEach>
+			  	</div>
+		</c:when>
+	</c:choose>
+
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '생선류'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/fishery.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="fishes">생선류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="squid">오징어·낙지·문어</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="clam">해산물·조개류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seaweed">김·미역</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="driedFish">건어물·다시팩</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#fishesC').load('http://localhost:8080/product/products1.do?product_category1=수산·해산 #allFishC');
+		});
+		$('#fishes').click(function(){
+			$('#fishesC').load('http://localhost:8080/product/products2.do?product_category2=생선류 #fishesC');
+		});
+		$('#squid').click(function(){
+			$('#fishesC').load('http://localhost:8080/product/products2.do?product_category2=오징어·낙지·문어 #squidC');
+		});
+		$('#clam').click(function(){
+			$('#fishesC').load('http://localhost:8080/product/products2.do?product_category2=해산물·조개류 #clamC');
+		});
+		$('#seaweed').click(function(){
+			$('#fishesC').load('http://localhost:8080/product/products2.do?product_category2=김·미역 #seaweedC');
+		});
+		$('#driedFish').click(function(){
+			$('#fishesC').load('http://localhost:8080/product/products2.do?product_category2=건어물·다시팩 #driedFishC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="fishesC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			    	<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '오징어·낙지·문어'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/fishery.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="fishes">생선류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="squid">오징어·낙지·문어</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="clam">해산물·조개류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seaweed">김·미역</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="driedFish">건어물·다시팩</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#squidC').load('http://localhost:8080/product/products1.do?product_category1=수산·해산 #allFishC');
+		});
+		$('#fishes').click(function(){
+			$('#squidC').load('http://localhost:8080/product/products2.do?product_category2=생선류 #fishesC');
+		});
+		$('#squid').click(function(){
+			$('#squidC').load('http://localhost:8080/product/products2.do?product_category2=오징어·낙지·문어 #squidC');
+		});
+		$('#clam').click(function(){
+			$('#squidC').load('http://localhost:8080/product/products2.do?product_category2=해산물·조개류 #clamC');
+		});
+		$('#seaweed').click(function(){
+			$('#squidC').load('http://localhost:8080/product/products2.do?product_category2=김·미역 #seaweedC');
+		});
+		$('#driedFish').click(function(){
+			$('#squidC').load('http://localhost:8080/product/products2.do?product_category2=건어물·다시팩 #driedFishC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="squidC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			      <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '해산물·조개류'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/fishery.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="fishes">생선류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="squid">오징어·낙지·문어</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="clam">해산물·조개류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seaweed">김·미역</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="driedFish">건어물·다시팩</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#clamC').load('http://localhost:8080/product/products1.do?product_category1=수산·해산 #allFishC');
+		});
+		$('#fishes').click(function(){
+			$('#clamC').load('http://localhost:8080/product/products2.do?product_category2=생선류 #fishesC');
+		});
+		$('#squid').click(function(){
+			$('#clamC').load('http://localhost:8080/product/products2.do?product_category2=오징어·낙지·문어 #squidC');
+		});
+		$('#clam').click(function(){
+			$('#clamC').load('http://localhost:8080/product/products2.do?product_category2=해산물·조개류 #clamC');
+		});
+		$('#seaweed').click(function(){
+			$('#clamC').load('http://localhost:8080/product/products2.do?product_category2=김·미역 #seaweedC');
+		});
+		$('#driedFish').click(function(){
+			$('#clamC').load('http://localhost:8080/product/products2.do?product_category2=건어물·다시팩 #driedFishC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="clamC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '김·미역'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/fishery.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="fishes">생선류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="squid">오징어·낙지·문어</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="clam">해산물·조개류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seaweed">김·미역</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="driedFish">건어물·다시팩</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#seaweedC').load('http://localhost:8080/product/products1.do?product_category1=수산·해산 #allFishC');
+		});
+		$('#fishes').click(function(){
+			$('#seaweedC').load('http://localhost:8080/product/products2.do?product_category2=생선류 #fishesC');
+		});
+		$('#squid').click(function(){
+			$('#seaweedC').load('http://localhost:8080/product/products2.do?product_category2=오징어·낙지·문어 #squidC');
+		});
+		$('#clam').click(function(){
+			$('#seaweedC').load('http://localhost:8080/product/products2.do?product_category2=해산물·조개류 #clamC');
+		});
+		$('#seaweed').click(function(){
+			$('#seaweedC').load('http://localhost:8080/product/products2.do?product_category2=김·미역 #seaweedC');
+		});
+		$('#driedFish').click(function(){
+			$('#seaweedC').load('http://localhost:8080/product/products2.do?product_category2=건어물·다시팩 #driedFishC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="seaweedC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '건어물·다시팩'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/fishery.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="fishes">생선류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="squid">오징어·낙지·문어</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="clam">해산물·조개류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="seaweed">김·미역</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="driedFish">건어물·다시팩</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products1.do?product_category1=수산·해산 #allFishC');
+		});
+		$('#fishes').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=생선류 #fishesC');
+		});
+		$('#squid').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=오징어·낙지·문어 #squidC');
+		});
+		$('#clam').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=해산물·조개류 #clamC');
+		});
+		$('#seaweed').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=김·미역 #seaweedC');
+		});
+		$('#driedFish').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=건어물·다시팩 #driedFishC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="driedFishC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			  <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+</div>
+<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 수산·해산 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
 
 
 <%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 샐러드·간편식 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
@@ -1170,9 +1819,10 @@
 			<div class="row" id="allFreshC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1216,9 +1866,10 @@
 			<div class="row" id="saladC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1262,9 +1913,10 @@
 			<div class="row" id="frozenFoodC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1308,9 +1960,10 @@
 			<div class="row" id="soupC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1354,9 +2007,10 @@
 			<div class="row" id="cerealC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1364,6 +2018,598 @@
 		</c:choose>
 </div>
 <%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 샐러드·간편식 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
+
+	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 음료·우유·간식 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
+	<div class="container">
+	<c:set var="cate" value="${param.product_category1}"/>
+	<c:choose>
+	<c:when test="${cate eq '음료·우유·간식'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/coffee-cup.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+			<div class="row">
+				<div class="col-xs-offset-2">
+					<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="candy">초콜릿·젤리·캔디</button>
+				</div>
+			</div>
+			<br><br><br>
+			<%-- Category 분류 jQuery 접어두는걸 추천 --%>
+			<script>
+			$('#allFish').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
+			});
+			$('#drinks').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
+			});
+			$('#coffee').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
+			});
+			$('#milk').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
+			});
+			$('#candy').click(function(){
+				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
+			});
+			</script>
+	
+				<div class="row" id="allFishC">
+				<c:forEach items="${products}" var="products">
+					<div class="col-xs-4" align="center">
+					
+						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+				    </div>
+				</c:forEach>
+			  	</div>
+		</c:when>
+	</c:choose>
+
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '생수·음료·주스'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/coffee-cup.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="candy">초콜릿·젤리·캔디</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#drinksC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
+		});
+		$('#drinks').click(function(){
+			$('#drinksC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
+		});
+		$('#coffee').click(function(){
+			$('#drinksC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
+		});
+		$('#milk').click(function(){
+			$('#drinksC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
+		});
+		$('#candy').click(function(){
+			$('#drinksC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="drinksC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			    	<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '커피·차'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/coffee-cup.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="candy">초콜릿·젤리·캔디</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#coffeeC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
+		});
+		$('#drinks').click(function(){
+			$('#coffeeC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
+		});
+		$('#coffee').click(function(){
+			$('#coffeeC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
+		});
+		$('#milk').click(function(){
+			$('#coffeeC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
+		});
+		$('#candy').click(function(){
+			$('#coffeeC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="coffeeC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			      <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '우유·두유'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/coffee-cup.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="candy">초콜릿·젤리·캔디</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#milkC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
+		});
+		$('#drinks').click(function(){
+			$('#milkC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
+		});
+		$('#coffee').click(function(){
+			$('#milkC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
+		});
+		$('#milk').click(function(){
+			$('#milkC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
+		});
+		$('#candy').click(function(){
+			$('#milkC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="milkC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '초콜릿·젤리·캔디'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/coffee-cup.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="candy">초콜릿·젤리·캔디</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#candyC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
+		});
+		$('#drinks').click(function(){
+			$('#candyC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
+		});
+		$('#coffee').click(function(){
+			$('#candyC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
+		});
+		$('#milk').click(function(){
+			$('#candyC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
+		});
+		$('#candy').click(function(){
+			$('#candyC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="candyC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '건어물·다시팩'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/coffee-cup.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="candy">초콜릿·젤리·캔디</button>
+			</div>
+		</div>
+		<script>
+		$('#allFish').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
+		});
+		$('#drinks').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
+		});
+		$('#coffee').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
+		});
+		$('#milk').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
+		});
+		$('#candy').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="driedFishC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			  <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+</div>
+<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 음료·우유·간식 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
+
+	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 베이커리·델리 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
+	<div class="container">
+	<c:set var="cate" value="${param.product_category1}"/>
+	<c:choose>
+	<c:when test="${cate eq '베이커리·델리'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/bread.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+			<div class="row">
+				<div class="col-xs-offset-2">
+					<button class="bttn-stretch bttn-md bttn-primary" id="allBakery">전체보기</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="breads">식빵·빵류</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="jam">잼·버터·스프레드</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="cake">케이크·파이·디저트</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="olive">올리브·피클·델리</button>
+				</div>
+			</div>
+			<br><br><br>
+			<%-- Category 분류 jQuery 접어두는걸 추천 --%>
+			<script>
+			$('#allBakery').click(function(){
+				$('#allBakeryC').load('http://localhost:8080/product/products1.do?product_category1=베이커리·델리 #allBakeryC');
+			});
+			$('#breads').click(function(){
+				$('#allBakeryC').load('http://localhost:8080/product/products2.do?product_category2=식빵·빵류 #breadsC');
+			});
+			$('#jam').click(function(){
+				$('#allBakeryC').load('http://localhost:8080/product/products2.do?product_category2=잼·버터·스프레드 #jamC');
+			});
+			$('#cake').click(function(){
+				$('#allBakeryC').load('http://localhost:8080/product/products2.do?product_category2=케이크·파이·디저트 #cakeC');
+			});
+			$('#olive').click(function(){
+				$('#allBakeryC').load('http://localhost:8080/product/products2.do?product_category2=올리브·피클·델리 #oliveC');
+			});
+			</script>
+	
+				<div class="row" id="allBakeryC">
+				<c:forEach items="${products}" var="products">
+					<div class="col-xs-4" align="center">
+					
+						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+				    </div>
+				</c:forEach>
+			  	</div>
+		</c:when>
+	</c:choose>
+
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '식빵·빵류'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/bread.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allBakery">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="breads">식빵·빵류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="jam">잼·버터·스프레드</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="cake">케이크·파이·디저트</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="olive">올리브·피클·델리</button>
+			</div>
+		</div>
+		<script>
+		$('#allBakery').click(function(){
+			$('#breadsC').load('http://localhost:8080/product/products1.do?product_category1=베이커리·델리 #allBakeryC');
+		});
+		$('#breads').click(function(){
+			$('#breadsC').load('http://localhost:8080/product/products2.do?product_category2=식빵·빵류 #breadsC');
+		});
+		$('#jam').click(function(){
+			$('#breadsC').load('http://localhost:8080/product/products2.do?product_category2=잼·버터·스프레드 #jamC');
+		});
+		$('#cake').click(function(){
+			$('#breadsC').load('http://localhost:8080/product/products2.do?product_category2=케이크·파이·디저트 #cakeC');
+		});
+		$('#olive').click(function(){
+			$('#breadsC').load('http://localhost:8080/product/products2.do?product_category2=올리브·피클·델리 #oliveC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="breadsC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			    	<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '잼·버터·스프레드'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/bread.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allBakery">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="breads">식빵·빵류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="jam">잼·버터·스프레드</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="cake">케이크·파이·디저트</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="olive">올리브·피클·델리</button>
+			</div>
+		</div>
+		<script>
+		$('#allBakery').click(function(){
+			$('#jamC').load('http://localhost:8080/product/products1.do?product_category1=베이커리·델리 #allBakeryC');
+		});
+		$('#breads').click(function(){
+			$('#jamC').load('http://localhost:8080/product/products2.do?product_category2=식빵·빵류 #breadsC');
+		});
+		$('#jam').click(function(){
+			$('#jamC').load('http://localhost:8080/product/products2.do?product_category2=잼·버터·스프레드 #jamC');
+		});
+		$('#cake').click(function(){
+			$('#jamC').load('http://localhost:8080/product/products2.do?product_category2=케이크·파이·디저트 #cakeC');
+		});
+		$('#olive').click(function(){
+			$('#jamC').load('http://localhost:8080/product/products2.do?product_category2=올리브·피클·델리 #oliveC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="jamC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			      <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '케이크·파이·디저트'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/bread.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allBakery">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="breads">식빵·빵류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="jam">잼·버터·스프레드</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="cake">케이크·파이·디저트</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="olive">올리브·피클·델리</button>
+			</div>
+		</div>
+		<script>
+		$('#allBakery').click(function(){
+			$('#cakeC').load('http://localhost:8080/product/products1.do?product_category1=베이커리·델리 #allBakeryC');
+		});
+		$('#breads').click(function(){
+			$('#cakeC').load('http://localhost:8080/product/products2.do?product_category2=식빵·빵류 #breadsC');
+		});
+		$('#jam').click(function(){
+			$('#cakeC').load('http://localhost:8080/product/products2.do?product_category2=잼·버터·스프레드 #jamC');
+		});
+		$('#cake').click(function(){
+			$('#cakeC').load('http://localhost:8080/product/products2.do?product_category2=케이크·파이·디저트 #cakeC');
+		});
+		$('#olive').click(function(){
+			$('#cakeC').load('http://localhost:8080/product/products2.do?product_category2=올리브·피클·델리 #oliveC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="cakeC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '올리브·피클·델리'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/bread.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allBakery">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="breads">식빵·빵류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="jam">잼·버터·스프레드</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="cake">케이크·파이·디저트</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="olive">올리브·피클·델리</button>
+			</div>
+		</div>
+		<script>
+		$('#allBakery').click(function(){
+			$('#oliveC').load('http://localhost:8080/product/products1.do?product_category1=베이커리·델리 #allBakeryC');
+		});
+		$('#breads').click(function(){
+			$('#oliveC').load('http://localhost:8080/product/products2.do?product_category2=식빵·빵류 #breadsC');
+		});
+		$('#jam').click(function(){
+			$('#oliveC').load('http://localhost:8080/product/products2.do?product_category2=잼·버터·스프레드 #jamC');
+		});
+		$('#cake').click(function(){
+			$('#oliveC').load('http://localhost:8080/product/products2.do?product_category2=케이크·파이·디저트 #cakeC');
+		});
+		$('#olive').click(function(){
+			$('#oliveC').load('http://localhost:8080/product/products2.do?product_category2=올리브·피클·델리 #oliveC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="oliveC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+		
+		<c:set var="cate" value="${param.product_category2}"/>
+		<c:choose>
+		<c:when test="${cate eq '건어물·다시팩'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/bread.png">&nbsp;&nbsp;${param.product_category1}</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-xs-offset-2">
+				<button class="bttn-stretch bttn-md bttn-primary" id="allBakery">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="breads">식빵·빵류</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="jam">잼·버터·스프레드</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="cake">케이크·파이·디저트</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="olive">올리브·피클·델리</button>
+			</div>
+		</div>
+		<script>
+		$('#allBakery').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products1.do?product_category1=베이커리·델리 #allBakeryC');
+		});
+		$('#breads').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=식빵·빵류 #breadsC');
+		});
+		$('#jam').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=잼·버터·스프레드 #jamC');
+		});
+		$('#cake').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=케이크·파이·디저트 #cakeC');
+		});
+		$('#olive').click(function(){
+			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=올리브·피클·델리 #oliveC');
+		});
+		</script>
+		<br><br><br>
+			<div class="row" id="driedFishC">
+			<c:forEach items="${products}" var="products">
+			    <div class="col-xs-4" align="center">
+			  <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
+						${products.product_price}원<br><br><br><br>
+			    </div>
+			</c:forEach>
+		  	</div>
+		</c:when>
+		</c:choose>
+</div>
+<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 베이커리·델리 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
+
+
 
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Footer ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<footer>

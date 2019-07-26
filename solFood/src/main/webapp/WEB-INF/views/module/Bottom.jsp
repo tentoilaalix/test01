@@ -14,6 +14,9 @@
  		a:active { color: black !important; text-decoration: none !important;}
 		a:visited { color: black !important; text-decoration: none !important;}
  		a:hover { color: black !important; text-decoration: none !important;}
+ 		.row {
+ 			margin-right: 0px !important;
+ 		}
 	</style>
 </head>
 <!--■■■■■■■■■■■■■■■■■■■■■■ Bottom ■■■■■■■■■■■■■■■■■■■■■■■■-->

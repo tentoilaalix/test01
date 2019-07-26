@@ -95,7 +95,7 @@
 
                 	<c:forEach items="${allList}" var="product" >
 	                	<div class="col-md-3">
-	                		<img src="/img/${product.product_image}" style="max-width:100%;"></a><br>
+	                		<a><img src="/img/${product.product_image}" style="max-width:100%;"></a><br>
 	                		<%-- <a href="${path}/product/productInfo.do?product_id=${product.product_id}" class="noul"><strong>${product.product_name}</strong><br>${product.product_price}원</a> --%>
 						</div>
 					</c:forEach>

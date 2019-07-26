@@ -74,8 +74,12 @@
 							  <select multiple size="4" name="product_category1">
 							    <option value="채소·과일">채소·과일</option>
 							    <option value="국·반찬·요리">국·반찬·요리</option>
+							    <option value="면·양념·오일">면·양념·오일</option>
 							    <option value="정육·계란">정육·계란</option>
+							    <option value="수산·해산">수산·해산</option>
 							    <option value="샐러드·간편식">샐러드·간편식</option>
+							    <option value="음료·우유·간식">음료·우유·간식</option>
+							    <option value="베이커리·델리">베이커리·델리</option>
 							  </select>
 							</div>
 						</div>
@@ -97,16 +101,38 @@
 							    <option value="두부·어묵">두부·어묵</option>
 							    <option value="메인요리">메인요리</option>
 							    
+							    <option value="파스타·면류">파스타·면류</option>
+							    <option value="밀가루·가루·믹스">밀가루·가루·믹스</option>
+							    <option value="향신료·소스·드레싱">향신료·소스·드레싱</option>
+							    <option value="양념·액젓·장류">양념·액젓·장류</option>
+							    <option value="소금·설탕·식초">소금·설탕·식초</option>
+							    
 							    <option value="소고기">소고기</option>
 							    <option value="돼지고기">돼지고기</option>
 							    <option value="양고기">양고기</option>
 							    <option value="닭·오리고기">닭·오리고기</option>
 							    <option value="계란·돈까스">계란·돈까스</option>
 							    
+							    <option value="생선류">생선류</option>
+							    <option value="오징어·낙지·문어">오징어·낙지·문어</option>
+							    <option value="해산물·조개류">해산물·조개류</option>
+							    <option value="김·미역">김·미역</option>
+							    <option value="건어물·다시팩">건어물·다시팩</option>
+							    
 							    <option value="샐러드·도시락">샐러드·도시락</option>
 							    <option value="간편식·냉동식품">간편식·냉동식품</option>
 							    <option value="죽·수프">죽·수프</option>
 							  	<option value="선식·시리얼·그래놀라">죽·선식·시리얼·그래놀라</option>
+							    
+							    <option value="생수·음료·주스">생수·음료·주스</option>
+							    <option value="커피·차">커피·차</option>
+							    <option value="우유·두유">우유·두유</option>
+							  	<option value="초콜릿·젤리·캔디">초콜릿·젤리·캔디</option>
+							    
+							    <option value="식빵·뻥류">식빵·빵류</option>
+							    <option value="잼·버터·스프레드">잼·버터·스프레드</option>
+							    <option value="케이크·파이·디저트">케이크·파이·디저트</option>
+							  	<option value="올리브·피클·델리">올리브·피클·델리</option>
 							    
 							  </select>
 							</div>
