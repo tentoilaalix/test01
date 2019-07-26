@@ -9,7 +9,7 @@ public interface RecentDAO {
 	//---------------------------------------------------
 	//	select 
 	//---------------------------------------------------
-	public List<TotalVO> selectRecent(int recent_num) throws Exception;
+	public List<TotalVO> selectRecent(String account_user) throws Exception;
 	
 	//---------------------------------------------------
 	//	insert 

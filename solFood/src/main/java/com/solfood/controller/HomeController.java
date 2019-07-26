@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.solfood.dto.MemberVO;
+import com.solfood.dto.TotalVO;
 import com.solfood.service.MemberService;
+import com.solfood.service.RecentService;
  
 /**
  * Handles requests for the application home page.
@@ -23,7 +25,9 @@ public class HomeController {
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
     
     @Inject
-    private MemberService service;
+    private MemberService memberService; 
+    @Inject
+    private RecentService recentService;
     
     /**
      * Simply selects the home view to render by returning its name.
@@ -33,7 +37,7 @@ public class HomeController {
  
         logger.info("home");
         
-        List<MemberVO> memberList = service.selectMember();
+        List<MemberVO> memberList = memberService.selectMember();
         
         model.addAttribute("memberList", memberList);
  
@@ -65,10 +69,15 @@ public class HomeController {
 	public String guide() {
 		return "company/guide";
 	}
+	
+	
 	//최근본상품
-	@RequestMapping("/recentList2.do")
-	public String recent2() {
-		return "recentView/recentList2";
+	@RequestMapping("/recentList.do")
+	public String recentList(String account_user) throws Exception {
+		List<TotalVO> recentList= recentService.selectRecent(account_user);
+		
+		
+		return "recentView/recentList";
 	}
 	
 

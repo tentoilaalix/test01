@@ -43,8 +43,17 @@ public class TotalVO {
 	private String 	buy_date;
 	private int 	buy_count;
 	
+	//recent
+	
+	private int recent_num;
 	
 	
+	public int getRecent_num() {
+		return recent_num;
+	}
+	public void setRecent_num(int recent_num) {
+		this.recent_num = recent_num;
+	}
 	// GETTERS AND SETTERS
 	public int getProduct_id() {
 		return product_id;

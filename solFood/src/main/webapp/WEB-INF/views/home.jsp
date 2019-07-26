@@ -56,6 +56,8 @@
 <jsp:include page="recentView/recentList.jsp" flush="false"/>
 <br><br>
 
+<h2>${login.account_user}</h2>
+
 <!--■■■■■■■■■■■■■■■■■■■■■■ 상단 배너 ■■■■■■■■■■■■■■■■■■■■■■■■-->
 	
 	<div id="myCarousel" class="carousel slide text-center" data-ride ="carousel">

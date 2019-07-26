@@ -16,8 +16,8 @@ public class RecentDAOImpl implements RecentDAO{
 	//	select
 	//--------------------------------------------------------------
 	@Override
-	public List<TotalVO> selectRecent(int recent_num) throws Exception {
-		return sqlSession.selectList(Namespace+".selectRecent", recent_num);
+	public List<TotalVO> selectRecent(String account_user) throws Exception {
+		return sqlSession.selectList(Namespace+".selectRecent", account_user);
 	}
 	
 	

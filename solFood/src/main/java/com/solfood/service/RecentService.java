@@ -4,7 +4,7 @@ import com.solfood.dto.CartVO;
 import com.solfood.dto.TotalVO;
 
 public interface RecentService {
-	public List<TotalVO> selectRecent(int recent_num) throws Exception;	
+	public List<TotalVO> selectRecent(String account_user) throws Exception;	
 	
 	public void insertRecent(int recent_num) throws Exception;
 	

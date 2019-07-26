@@ -6,10 +6,10 @@
 	<mapper namespace="com.solfood.mapper.recentMapper">
 		<!-- =============================== SELECT ======================================https://s.pstatic.net/static/www/mobile/edit/2017/0324/mobile_184353754426.gif=== -->		
 		<!-- 상위 3개만 옆에 최근본 상품으로 뜨게 -->
-		<select id="selectRecent" parameterType="int" resultType="com.solfood.dto.TotalVO">
-			SELECT P.PRODUCT_NAME, R.PRODUCT_ID, R.RECENT_NUM, P.PRODUCT_IMAGE 
-			FROM PRODUCT P, RECENT R 
-			WHERE P.PRODUCT_ID= R.PRODUCT_ID LIMIT 3 
+		<select id="selectRecent" parameterType="String" resultType="com.solfood.dto.TotalVO">
+			SELECT P.PRODUCT_NAME, P.PRODUCT_IMAGE, R.PRODUCT_ID, R.RECENT_NUM,  A.ACCOUNT_USER
+			FROM PRODUCT P, RECENT R, ACCOUNT A
+			WHERE P.PRODUCT_ID= R.PRODUCT_ID AND R.ACCOUNT_USER = A.ACCOUNT_USER AND R.ACCOUNT_USER= #{account_user} LIMIT 3 
 		</select>
 		
 		<!-- =============================== INSERT ========================================= -->
