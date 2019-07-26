@@ -65,5 +65,11 @@ public class HomeController {
 	public String guide() {
 		return "company/guide";
 	}
+	//최근본상품
+	@RequestMapping("/recentList2.do")
+	public String recent2() {
+		return "recentView/recentList2";
+	}
 	
+
 }

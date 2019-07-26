@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.text.*" %>
+<%@ page import="java.net.URLDecoder" %>
+<%@ page import="java.net.URLEncoder" %>
 <%NumberFormat nf = NumberFormat.getNumberInstance();%>
-<!DOCTYPE html>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
 <title>SolFood doyoon</title>
 	<link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../resources/css/carouselMulti.css" rel="stylesheet">
@@ -50,6 +53,7 @@
 <!--■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■-->
 
 <jsp:include page="module/Top.jsp" flush="false"/>
+<jsp:include page="recentView/recentList.jsp" flush="false"/>
 <br><br>
 
 <!--■■■■■■■■■■■■■■■■■■■■■■ 상단 배너 ■■■■■■■■■■■■■■■■■■■■■■■■-->
@@ -257,12 +261,12 @@
 			<%=nf.format(2850)%>원
 		</div>
 		<div class="col-xs-3">
-			<a href=""><img src="../resources/image/cate1-2.png"></a><br><br>
-			<a href=""><strong>GAP 오이 2입</strong></a><br>
+			<a href="${path}/product/productInfo.do?product_id=41"><img src="../resources/image/cate1-2.png"></a><br><br>
+			<a href="${path}/product/productInfo.do?product_id=41"><strong>GAP 오이 2입</strong></a><br>
 			<%=nf.format(1270)%>원	
 		</div>
 		<div class="col-xs-3">
-			<a href=""><img src="../resources/image/cate1-3.png"></a><br><br>
+			<a href="${path}/three.do"><img src="../resources/image/cate1-3.png"></a><br><br>
 			<a href=""><strong>밤고구마 800g/봉</strong></a><br>
 			<%=nf.format(5900)%>원
 		</div>

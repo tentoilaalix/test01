@@ -7,7 +7,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>SolFood</title>
 	<link href="../../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
@@ -27,14 +27,16 @@
 
 </style>
 <body>
-
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<header>
 		<%@ include file = "../module/Top.jsp" %>
-		
 	</header>
 	<br><br><br><br>
 	<c:set var="id" value="${param.product_id}"/>
+	
+	
+
+	
 		
 	<div class="container">
 		<div class="row">
@@ -94,28 +96,27 @@
 					<hr>
 					구매수량
 				</c:forEach>
-						<%
-	String cp = request.getContextPath();
-	request.setCharacterEncoding("UTF-8");
+				
+			</div>
+		</div>
+	</div>
+	
+	<%
+
 	//상품에 대한 정보를 쿠키에 담기.
 	//쿠키에 한글은 저장되지 않으므로 encode함수로 인코딩 해야 한다.
-	Cookie cook = new Cookie("product41", URLEncoder.encode("감자", "UTF-8")); //최근본상품에 넘겨줄 이름
+	Cookie cook = new Cookie("product1", URLEncoder.encode("냉장고", "UTF-8")); //최근본상품에 넘겨줄 이름
 	cook.setMaxAge(20); // 쿠키 유지 시간/ 초
 	response.addCookie(cook);
 	
 	
 %>
-			</div>
-		</div>
-	</div>
 	
-
+	
+	
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Footer ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<footer>
 	<%@ include file = "../module/Bottom.jsp" %>
-	
-	
 	</footer>
-
 </body>
 </html>
