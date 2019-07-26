@@ -57,8 +57,10 @@ public class ProductController {
 		return "product/products";
 	}
 	@ResponseBody
-	@RequestMapping(value = "/products1_2.do")
+	@RequestMapping(value = "/products1_2.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public List<TotalVO> selectProduct_category1(String product_category1) throws Exception{		
+		System.out.println("======================== products1_2 "+ product_category1);
+		
 		List<TotalVO> productList= productService.selectProduct_category1(product_category1);						
 				
 		return productList;

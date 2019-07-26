@@ -18,12 +18,7 @@
 	
 	<!-- 상품 뿌리기 ajax -->
 	<script>
-	$(document).ready(function(){
-		product_category1();
-	});
-	
-	function product_category1(){	
-		var product_category1= "채소·과일";		
+	function product_category1(product_category1){	
 		var json= {"product_category1":product_category1};
 		var html= "";
 		
@@ -33,13 +28,13 @@
 				data: json,
 				success: function(data){
 					for(var i=0; i<4; i++){
-						html+= "<div class='col-xs-3'>";
+						html+= "<div class='row' align='center'><div class='col-xs-3'>";
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"'/></a><br><br>";
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><strong>"+ data[i].product_name +"</strong></a><br>";
 						html+= data[i].product_price+ "원";
 						html+= "</div>";
 
-						$("#productPart").html(html);
+						$("#mdArea").html(html);
 					}
 				},
 				error: function(){
@@ -261,7 +256,8 @@
 <hr class="recipeHr">
 <br><br>
 <div class="container" align="center">
-	<button type="button" class="bttn-fill cate1">채소</button>&nbsp;&nbsp;
+	<input type="button" class="bttn-fill cate1" onclick= "product_category1('채소·과일')" value="채소.과일"/>&nbsp;&nbsp;
+	
 	<button type="button" class="bttn-fill cate2">수산·해산</button>&nbsp;&nbsp;
 	<button type="button" class="bttn-fill cate3">정육·계란</button>&nbsp;&nbsp;
 	<button type="button" class="bttn-fill cate4">국·반찬·요리</button>&nbsp;&nbsp;
@@ -273,7 +269,7 @@
 <br><br><br><br>
 <div class="container">
 <div class="cate1Form" id="mdArea">
-	<div class="row" align="center">
+	<%-- <div class="row" align="center">
 		<div class="col-xs-3">
 			<a href="${path}/product/productInfo.do?product_id=1"><img src="../resources/image/cate1-1.png"></a><br><br>
 			<a href="${path}/product/productInfo.do?product_id=1"><strong>감자 1kg/봉</strong></a><br>
@@ -294,14 +290,18 @@
 			<a href=""><strong>오이맛 고추</strong></a><br>
 			<%=nf.format(990)%>원
 		</div>
-	</div>
+	</div> --%>
+	
+	
 </div>
+
+<%--
 <div class="cate2Form" id="mdArea">
 	<div class="row" align="center">
 		<div class="col-xs-3">
 			<a href=""><img src="../resources/image/cate2-1.png"></a><br><br>
 			<a href=""><strong>참치회덮밥</strong></a><br>
-			<%=nf.format(11000)%>원
+			<%=nf.format(11000)원
 		</div>
 		<div class="col-xs-3">
 			<a href=""><img src="../resources/image/cate2-2.png"></a><br><br>
@@ -413,7 +413,7 @@
 			<a href=""><img src="../resources/image/cate6-4.png"></a><br><br>
 			<a href=""><strong>[신영]페페로치노 홀 18g</strong></a><br>
 			<%=nf.format(5900)%>원
-		</div> --%>
+		</div>
 		
 		
 		
@@ -468,9 +468,12 @@
 		</div>
 	</div>
 </div>
+--%>
+
 </div>
 </div>
 <br><br><br>
+
 <script>
 $(document).ready(function() {
 	$('.cate1').click();
