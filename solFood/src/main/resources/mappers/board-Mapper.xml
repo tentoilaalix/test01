@@ -300,8 +300,7 @@
 	</select>
 	
 
-	<insert id="commentInsert"
-		parameterType="com.solfood.dto.CommentVO">
+	<insert id="commentInsert" parameterType="com.solfood.dto.CommentVO">
 		INSERT INTO
 		comment(reply_num, 
 				board_num, 

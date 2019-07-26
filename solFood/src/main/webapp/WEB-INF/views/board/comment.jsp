@@ -88,6 +88,8 @@
 
 	//댓글 작성 테스트
 	function cm_insert(board_num) { // 
+		var json
+		
 		$.ajax({
 			type : 'POST', //POST방식으로 
 			url : '/board/commentInsert', //url주소는 클라이언트가 HTTP요청을 보낼 서버의 주소
@@ -164,13 +166,17 @@
 <body>
 	<div class="container">
 		<form id="commentForm" name="commentForm" method="post">
+			<input type="text" hidden="true" value="${login.account_user}" name="account_user"/>
+			
+			<h2>${login.account_user}</h2>
+			
 			<br>
 			<br>
 			<div>
 				<div>
 					<span><strong>Comments</strong></span>
 					<p>게시판번호 : ${view.board_num}</p>
-					<p>writer : ${view.account_user}</p>
+				
 					댓글수 : <span id="commentCount"></span> <input type="hidden" id="board_num" name="board_num" value="${view.board_num}" />
 				</div>
 				<div>

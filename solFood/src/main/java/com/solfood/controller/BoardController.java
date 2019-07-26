@@ -210,6 +210,7 @@ public class BoardController {
 		HttpSession session = request.getSession();
 		// LoginVO loginVO = (LoginVO)session.getAttribute("loginVO");
 	
+		
 		/*
 		 * commentvo.setAccount_user(memberVo.getAccount_user());
 		 * 
@@ -218,6 +219,7 @@ public class BoardController {
 		 * System.out.println("###commentvogetAccount_user:" +
 		 * commentvo.getAccount_user());
 		 */
+		
 
 		try {
 			

@@ -61,6 +61,7 @@
 					href="/board/delete?board_num=${view.board_num}"
 					class="btn btn-danger">삭제</a> <a href="/board/listPage"
 					class="btn btn-info"> 리스트</a>
+			
 
 			</div>
 		</form>

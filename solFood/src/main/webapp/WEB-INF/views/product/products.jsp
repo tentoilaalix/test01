@@ -10,7 +10,108 @@
 	<link href="../../../resources/css/component.css" rel="stylesheet">
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		// 페이지가 로드되면 hear list 표시하기 
+		$(document).ready(function(){
+			heartList();
+		});
 
+		//----------------------------------------------------------------
+		// 	heartState--> 페이지 로드시 heart 상태 표시
+		//----------------------------------------------------------------
+		function heartList(){
+			var account_user = document.getElementsByName("account_user")[0].value;
+			var product_id;
+			var html;
+			
+			// heart table 데이터 받아오기
+			$.ajax({
+				type: "GET",
+				datatype: "json",
+				url: "/product/heartList.do",
+				
+				success: function(data){
+					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기					
+					for(var i=0; i<data.length; i++){						
+						if(data[i].account_user== account_user){								
+							$("[name='heartImage"+ data[i].product_id +"']").attr({
+								'class' : 'afterClick'
+							});							 
+						}
+					}
+				},
+				error: function(){
+					for(var i=0; i<data.length; i++){						
+						if(data[i].account_user== account_user){								
+							// data[i].product_id= heartList[i];	
+							$("[name='heartImage"+ data[i].product_id +"']").attr({
+								'class' : 'afterClick'
+							});							 
+						}
+					}
+				}
+			});
+		}
+		
+		//----------------------------------------------------------------
+		// 	changeHeart--> heart 상태 변경 및 테이블에서 insert or delete
+		//----------------------------------------------------------------
+		function changeHeart(product_id, account_user){	
+			var json;	
+			var state;
+
+			// beforeClick이면 afterClick으로, 아니면 그 반대로 해주는거
+			$("[name='heartImage"+ product_id +"']").toggleClass("beforeClick afterClick");
+
+			// name에 따른 class 이름 구하기
+			var class_by_name= $("[name='heartImage"+ product_id +"']").attr('class');
+
+			// toggleClass하고 나서 afterClick이 되면 heart 테이블에 들어가야하는 거니까 json에 state="click" 보내서 insertHeart가 실행되게 하기
+			if(class_by_name== "afterClick"){
+				state= "click";
+				json= {"product_id":product_id, "state":state, "account_user":account_user};
+				
+				$.ajax({
+					type: "post",
+					url: "/product/changeHeart.do",
+					data: json,
+					success: function(){
+					},
+					error: function(){
+					}
+				});
+
+			// afterClick이었다가 beforeClick으로 바뀌면 state="unclick"으로 보내서 deleteHeart가 실행되게 하기 
+			} else if(class_by_name== "beforeClick"){
+				state= "unclick";
+				json= {"product_id":product_id, "state":state, "account_user":account_user};
+				
+				$.ajax({
+					type: "post",
+					url: "/product/changeHeart.do",
+					data: json,
+					success: function(){
+					},
+					error: function(){
+					}
+				});
+			}
+		}
+
+	</script>
+
+	<style>
+		.afterClick{
+			background-image: url("/resources/image/afterlike.PNG");
+			border: none;
+			background-size: 28px;
+		}
+		.beforeClick{
+			background-image: url("/resources/image/beforelike.PNG");
+			border: none;
+			background-size: 28px;
+		}
+	</style>
 </head>
 <body>
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
@@ -20,64 +121,81 @@
 	<br><br><br>
 <%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 채소·과일 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
 <div class="container">
-<c:set var="cate" value="${param.product_category1}"/>
-<c:choose>
-<c:when test="${cate eq '채소·과일'}">
+	<!-- account_user 받기 -->
+	<input type='text' hidden='true' value='${login.account_user}' name='account_user'/>
 	
-	<div class="col-xs-offset-1">
-	<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/vegetables.png">&nbsp;&nbsp;${param.product_category1}</div>
-	</div>
-	<br>
-		<div class="row">
-			<div class="col-xs-offset-2">
-				<button class="bttn-stretch bttn-md bttn-primary" id="allVege">전체보기</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="koFruit">국산과일</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="foFruit">수입과일</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="basicVege">기본채소</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="simpleVege">쌈·간편채소</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="mushroom">콩나물·버섯류</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="onion">양파·마늘·생강·파</button>
-			</div>
+	 		
+	<!--  상품 -->
+	<c:set var="cate" value="${param.product_category1}"/>
+	<c:choose>
+	<c:when test="${cate eq '채소·과일'}">
+		<div class="col-xs-offset-1">
+		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/vegetables.png">&nbsp;&nbsp;${param.product_category1}</div>
 		</div>
-		<br><br><br>
-		<%-- Category 분류 jQuery 접어두는걸 추천 --%>
-		<script>
-		$('#allVege').click(function(){
-			$('#allVegeC').load('http://localhost:8080/product/products1.do?product_category1=채소·과일 #allVegeC');
-		});
-		$('#koFruit').click(function(){
-			$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=국산과일 #koFruitC');
-		});
-		$('#foFruit').click(function(){
-			$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=수입과일 #foFruitC');
-		});
-		$('#basicVege').click(function(){
-			$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=기본채소 #basicVegeC');
-		});
-		$('#simpleVege').click(function(){
-			$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=쌈·간편채소 #simpleVegeC');
-		});
-		$('#mushroom').click(function(){
-			$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=콩나물·버섯류 #mushroomC');
-		});
-		$('#onion').click(function(){
-			$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=양파·마늘·생강·파 #onionC');
-		});
-		</script>
+		<br>
+			<div class="row">
+				<div class="col-xs-offset-2">
+					<button class="bttn-stretch bttn-md bttn-primary" id="allVege">전체보기</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="koFruit">국산과일</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="foFruit">수입과일</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="basicVege">기본채소</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="simpleVege">쌈·간편채소</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="mushroom">콩나물·버섯류</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="onion">양파·마늘·생강·파</button>
+				</div>
+			</div>
+			<br><br><br>
+			<%-- Category 분류 jQuery 접어두는걸 추천 --%>
+			<script>
+			$('#allVege').click(function(){
+				$('#allVegeC').load('http://localhost:8080/product/products1.do?product_category1=채소·과일 #allVegeC');
+			});
+			$('#koFruit').click(function(){
+				$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=국산과일 #koFruitC');
+			});
+			$('#foFruit').click(function(){
+				$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=수입과일 #foFruitC');
+			});
+			$('#basicVege').click(function(){
+				$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=기본채소 #basicVegeC');
+			});
+			$('#simpleVege').click(function(){
+				$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=쌈·간편채소 #simpleVegeC');
+			});
+			$('#mushroom').click(function(){
+				$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=콩나물·버섯류 #mushroomC');
+			});
+			$('#onion').click(function(){
+				$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=양파·마늘·생강·파 #onionC');
+			});
+			</script>
+	
+				<div class="row" id="allVegeC">
+				<c:forEach items="${products}" var="products">
+					<div class="col-xs-4" align="center">
+					
+						<!--===================  상품 id, 사진, 이름, 찜하기, 가격 순 ========================-->
+						<input type="text" hidden="true" value= "${products.product_id}" name="product_id"/>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
+				      	${products.product_name}&nbsp;
+				 
+				 		<!-- login 값이 없으면 하트 안보이게 -->
+				 		<c:choose>
+						    <c:when test="${login.account_user== null}">
+								<br>
+						    </c:when>
+						    <c:otherwise>
+						   		<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},1809)" class='beforeClick' style="width:29px; height:23px;"><br>
+						    </c:otherwise>
+						</c:choose>
 
+						${products.product_price}원<br><br><br><br>
+				    </div>
+				</c:forEach>
+			  	</div>
+		</c:when>
+	</c:choose>
 
-			<div class="row" id="allVegeC">
-			<c:forEach items="${products}" var="products">
-			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
-			    </div>
-			</c:forEach>
-		  	</div>
-	</c:when>
-</c:choose>
-		
 		<c:set var="cate" value="${param.product_category2}"/>
 		<c:choose>
 		<c:when test="${cate eq '국산과일'}">
@@ -123,9 +241,10 @@
 			<div class="row" id="koFruitC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      ${products.product_name}<br>
-			      ${products.product_price}<br>
-			      ${products.product_content}<br><br><br><br>
+			    	${products.product_image}<br>
+			    	${products.product_name}<br>
+			      	${products.product_price}<br>
+			      	${products.product_content}<br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -455,6 +574,7 @@
 			<div class="row" id="allFoodC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
+			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>
 			      ${products.product_name}<br>
 			      ${products.product_price}<br>
 			      ${products.product_content}<br><br><br><br>

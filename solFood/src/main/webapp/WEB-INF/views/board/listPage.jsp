@@ -8,17 +8,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시판 목록</title>
-<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<script src="/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/resources/bootstrap/bootstrap/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<title>게시판 목록</title>
+	<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+		type="text/css" />
+	<script src="/resources/js/jquery-3.3.1.min.js"></script>
+	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 게시물 리스트 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
 <body>
-	<%-- top --%>
-	<%@ include file="../module/Top.jsp"%>
-	
+<%@ include file="../module/Top.jsp"%>
 	<br>
 	<br>
 	<br>
@@ -70,6 +68,7 @@
 
 					<button type="button" id='searchBtn' class="btn btn-primary">검색</button>
 				</div>
+				
 				<!-- ============================================================================================================= -->
 				<!-- <table class="table table-bordered table-striped nanum table-hover"> -->
 				<table class="table table-hover">

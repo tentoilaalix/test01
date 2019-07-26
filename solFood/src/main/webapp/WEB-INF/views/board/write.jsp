@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시글 등록</title>
-<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<script src="/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<title>게시글 등록</title>
+	<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+		type="text/css" />
+	<script src="/resources/js/jquery-3.3.1.min.js"></script>
+	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <%@ include file="../module/Top.jsp"%>
