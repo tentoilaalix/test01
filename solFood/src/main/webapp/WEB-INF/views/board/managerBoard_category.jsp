@@ -46,7 +46,7 @@
 					href="/board/managerBoard_category?board_category=question"
 					style="color: #3273dc"><span
 						class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q&A</a></li>
-				<li><a href="/board/managerBoard_listPage"
+				<li><a href="/board/managerBoard_category?board_category=manager_notice"
 					style="color: #3273dc"><span
 						class="glyphicon glyphicon-eye-open"></span>관리자게시판</a></li>
 			</ul>

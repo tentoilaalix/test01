@@ -94,7 +94,7 @@
 								<td>${list.board_num}</td>
 								<td>${list.board_category}</td>
 								<td><a
-									href="/board/view${pageMaker.makeSearch(pageMaker.cri.page)}&board_num=${list.board_num}">${list.board_title}</a>
+									href="/board/view${pageMaker.makeSearch(pageMaker.cri.page)}&board_num=${list.board_num}"><span style="color:#F361A6">${list.board_title}</span></a>
 								</td>
 								<td>${list.account_user}</td>
 								<td><fmt:formatDate value="${list.board_date}"

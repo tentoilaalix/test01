@@ -31,6 +31,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.solfood.dto.BoardVO;
 import com.solfood.dto.CommentVO;
+import com.solfood.dto.MemberVO;
+
 //페이징 테스트
 import com.solfood.dto.Criteria;
 import com.solfood.dto.PageMaker;
@@ -192,6 +194,9 @@ public class BoardController {
 	@ResponseBody // ajax쓸때 필요
 	public List<CommentVO> commentList(Model model, int board_num) throws Exception {
 		List<CommentVO> list = service.commentList(board_num);
+		
+		// 삭제하기
+		System.out.println("====================== commentlist  "+ list.size());
 
 		return list;
 	}
@@ -200,12 +205,23 @@ public class BoardController {
 	// 댓글 작성
 	@RequestMapping("/commentInsert")
 	@ResponseBody
-	public String commentInsert(@ModelAttribute("commentVO") CommentVO commentvo, HttpServletRequest request)
+	public String commentInsert(@ModelAttribute("commentVO") CommentVO commentvo, MemberVO memberVo, HttpServletRequest request)
 			throws Exception {
 		HttpSession session = request.getSession();
 		// LoginVO loginVO = (LoginVO)session.getAttribute("loginVO");
+	
+		/*
+		 * commentvo.setAccount_user(memberVo.getAccount_user());
+		 * 
+		 * System.out.println("###memberVogetaccount_user:" +
+		 * memberVo.getAccount_user());
+		 * System.out.println("###commentvogetAccount_user:" +
+		 * commentvo.getAccount_user());
+		 */
 
 		try {
+			
+				
 			service.commentInsert(commentvo);
 
 		} catch (Exception e) {

@@ -283,20 +283,36 @@
 		FROM comment
 	</select>
 
-	<select id="commentList" resultType="com.solfood.dto.CommentVO"
+<!-- 	<select id="commentList" resultType="com.solfood.dto.CommentVO"
 		parameterType="int">
-		SELECT co.board_num, co.reply_content, co.reply_writer, co.reply_num
+		SELECT co.board_num, co.reply_content, a.account_user, co.reply_num
 		FROM
-		comment AS co, board AS bo
+		comment AS co, board AS bo, account a
 		WHERE CO.BOARD_NUM= BO.BOARD_NUM AND co.board_num = #{board_num};
 	</select>
+ -->
 
+	<!-- 영민 수정한거 -->
+	<select id="commentList" parameterType="int" resultType="com.solfood.dto.CommentVO">
+		SELECT co.board_num, co.reply_content, co.account_user, co.reply_num, bo.board_title 
+		FROM comment AS co, board AS bo   
+		WHERE co.BOARD_NUM= bo.BOARD_NUM AND co.board_num = #{board_num};
+	</select>
+	
 
 	<insert id="commentInsert"
 		parameterType="com.solfood.dto.CommentVO">
 		INSERT INTO
-		comment (reply_num, board_num, reply_content, reply_writer, reply_date)
-		VALUES(#{reply_num},#{board_num},#{reply_content},#{reply_writer},now())
+		comment(reply_num, 
+				board_num, 
+				reply_content, 
+				account_user, 
+				reply_date)
+		VALUES( #{reply_num}, 
+				#{board_num}, 
+				#{reply_content}, 
+				#{account_user}, 
+				now())
 	</insert>
 
 	<update id="commentUpdate"
@@ -330,11 +346,21 @@
 
 	<insert id="managerBoard_write"
 		parameterType="com.solfood.dto.BoardVO">
-		insert into
-		board(board_title, board_content, account_user, board_category,
-		board_readcount)
-		values(#{board_title}, #{board_content},
-		#{account_user}, #{board_category}, '0')
+	insert into
+		board(
+			board_date,
+			board_title, 
+			board_content, 
+			account_user, 
+			board_category, 
+			board_readcount)
+		values(
+			now(),
+			#{board_title}, 
+			#{board_content}, 
+			#{account_user}, 
+			#{board_category}, 
+			'0') 
 	</insert>
 	<!-- ============매니저보드조회================================================================================================= -->
 

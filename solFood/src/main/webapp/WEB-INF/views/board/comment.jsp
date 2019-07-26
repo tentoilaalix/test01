@@ -30,8 +30,11 @@
 
 	function getCommentList() {
 		var board_num = document.getElementsByName("board_num")[0].value;
+		
 		var json = {
 			"board_num" : board_num
+			
+			
 		};
 
 		$.ajax({
@@ -49,7 +52,7 @@
 						if (data.length > 0) {
 							for (i = 0; i < data.length; i++) {
 								html += "<table class='table'><h6><strong>"
-										+ data[i].reply_writer
+										+ data[i].account_user
 										+ "</strong></h6>";
 								html += data[i].reply_num + "  ";
 								html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
@@ -167,6 +170,7 @@
 				<div>
 					<span><strong>Comments</strong></span>
 					<p>게시판번호 : ${view.board_num}</p>
+					<p>writer : ${view.account_user}</p>
 					댓글수 : <span id="commentCount"></span> <input type="hidden" id="board_num" name="board_num" value="${view.board_num}" />
 				</div>
 				<div>
@@ -185,7 +189,7 @@
 			</div>
 			<input type="hidden" id="board_num" name="board_num"
 				value="${view.board_num }" />
-			<%--  <input type="hidden" id="reply_num" name="reply_num" value="${comment.reply_num}"/>이걸 쓰면 작성이 안된다	 --%>
+		
 		</form>
 	</div>
 	<div class="container">
@@ -193,37 +197,5 @@
 			<div id="commentList"></div>
 		</form>
 	</div>
-
-	<!-- 모달창 테스트 -->
-	<%-- <div class="modal fade" id ="modifyModal" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">댓글 수정창</h4>
-			</div>
-			<div class="modal-body">
-				<div class="form-group">
-					<label for="reply_writer">댓글 작성자</label>
-					<input class="form-control" id="reply_writer" name="reply_writer" readonly>
-				</div>
-				
-				<div class="form-group">
-					<label for="reply_content">수정할 댓글 내용</label>
-					<input class="form-control" id="newReply_content" name ="newReply_content" placeholder="수정할 댓글 내용을 입력해주세요">
-					댓글값 : ${reply_num}
-				</div>
-			
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">닫기</button>
-				<a href='#' onClick="cm_update('${reply_num}')" class="btn pull-right btn-success">수정</a>
-				<button type="button" class="btn btn-danger modalDelBtn">삭제</button>
-			</div>
-		</div>
-	</div>
-</div> --%>
-
-
 </body>
 </html>

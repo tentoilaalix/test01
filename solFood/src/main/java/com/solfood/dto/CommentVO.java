@@ -9,7 +9,14 @@ public class CommentVO {
     private String reply_content;	//댓글내용
     private String reply_writer;	//댓글 작성자
     private Date reply_date;		//댓글 작성시간
+    private String account_user;
     
+	public String getReply_writer() {
+		return reply_writer;
+	}
+	public void setReply_writer(String reply_writer) {
+		this.reply_writer = reply_writer;
+	}
 	public int getReply_num() {
 		return reply_num;
 	}
@@ -29,10 +36,10 @@ public class CommentVO {
 		this.reply_content = reply_content;
 	}
 	public String getAccount_user() {
-		return reply_writer;
+		return account_user;
 	}
 	public void setAccount_user(String account_user) {
-		this.reply_writer = account_user;
+		this.account_user = account_user;
 	}
 	public Date getReply_date() {
 		return reply_date;
@@ -43,7 +50,7 @@ public class CommentVO {
 	@Override
 	public String toString() {
 		return "CommentVO [reply_num=" + reply_num + ", board_num=" + board_num + ", reply_content=" + reply_content
-				+ ", reply_writer=" + reply_writer + ", reply_date=" + reply_date + "]";
+				+ ", account_user=" + account_user + ", reply_date=" + reply_date + "]";
 	}
 
 

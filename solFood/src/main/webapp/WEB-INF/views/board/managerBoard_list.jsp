@@ -36,7 +36,7 @@
 			<br>
 			<br>
 			<ul class="nav nav-sidebar" align="center">
-				<li class="active"><a href="/board/listPage"
+				<li class="active"><a href="/board/managerBoard_listPage"
 					style="color: #3273dc">BOARD CATEGORY<span class="sr-only">(current)</span></a></li>
 				<li><a
 					href="/board/managerBoard_category?board_category=notice"
@@ -49,7 +49,7 @@
 				<li><a
 					href="/board/managerBoard_category?board_category=question"
 					style="color: #3273dc">Q&A</a></li>
-				<li><a href="/board/managerBoard_listPage"
+				<li><a href="/board/managerBoard_category?board-category=manager_notice"
 					style="color: #3273dc"><span
 						class="glyphicon glyphicon-eye-open"></span>관리자게시판</a></li>
 			</ul>
@@ -141,7 +141,7 @@
 							» </a>
 					</c:if>
 				</div>
-				<br> <a href="write" class="btn btn-info" aria-pressed="true">
+				<br> <a href="write" class="btn btn-primary" aria-pressed="true">
 					<span class="glyphicon glyphicon-pencil"></span> 작성
 				</a>
 				<!-- ================검색function======================================================================================= -->

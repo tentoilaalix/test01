@@ -24,6 +24,8 @@
 				<div class="col-sm-3">
 					<select class="form-control" name="board_category">
 						<option value="" hidden></option>
+						<option value="notice" >공지사항</option>
+						<option value="event">이벤트</option>
 						<option value="proposal">상품제안</option>
 						<option value="question">Q&A</option>
 					</select>
@@ -42,7 +44,7 @@
 				<label class="control-label col-sm-2">작성자</label>
 				<div class="col-sm-3">
 					<input type="text" class="form-control" name="account_user"
-						maxlength="50" placeholder="Enter Writer">
+						maxlength="50" value="${login.account_user}" readonly="readonly">
 				</div>
 			</div>
 
