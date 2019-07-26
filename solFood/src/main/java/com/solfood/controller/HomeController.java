@@ -2,6 +2,8 @@ package com.solfood.controller;
 
 import java.util.List;
 import java.util.Locale;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.solfood.dto.MemberVO;
@@ -74,25 +77,18 @@ public class HomeController {
 	
 	
 	//최근본상품
-	@RequestMapping("/recentList.do")
+	@RequestMapping(value= "/recentList.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public String recentList() throws Exception {
 		return "recentView/recentList";
 	}
 	
-	@RequestMapping("/recentList2.do")
-	public List<TotalVO> recentList2(HttpServletRequest request, Model model) throws Exception {
-		// String account_user= request.getParameter("account_user");
-		
+	@ResponseBody
+	@RequestMapping(value= "/recentList2.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> recentList2(String account_user) throws Exception {		
 		// 삭제하기
 		System.out.println("============================ recentList2");
-		
-		String account_user= "1";
-		
+
 		List<TotalVO> recentList= recentService.selectRecent(account_user);
-		model.addAttribute("recentList", recentList);
-		
-		//삭제하기
-		System.out.println("==============================="+ recentList.get(0));
 		
 		return recentList;
 	}
