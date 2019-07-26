@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -191,7 +192,9 @@ display:inline-block;
 	<div id="right_zzim">
 		<div  class="recTit">최근본상품 <span id=recentCnt></span></div>
 			<ul>	
-			
+				<c:forEach var="recent" items="${recentList}" varStatus="status">
+					<li>${recent.product_name}</li>
+				</c:forEach>
 			
 			</ul>    <!-- 본 상품이 뿌려질 부분  -->
 		<div id="paging"><a class="btn_prev" style="cursor:pointer" >이전</a><span  id="currentPage"></span><span id="totalPageCount"></span><a class="btn_next" style="cursor:pointer" >다음</a></div>

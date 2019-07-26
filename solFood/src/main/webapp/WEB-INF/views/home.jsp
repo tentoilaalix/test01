@@ -54,9 +54,10 @@
 
 <jsp:include page="module/Top.jsp" flush="false"/>
 <jsp:include page="recentView/recentList.jsp" flush="false"/>
+
 <br><br>
 
-<h2>${login.account_user}</h2>
+
 
 <!--■■■■■■■■■■■■■■■■■■■■■■ 상단 배너 ■■■■■■■■■■■■■■■■■■■■■■■■-->
 	
@@ -90,7 +91,7 @@
 <!--■■■■■■■■■■■■■■■■■■■■■■ 카테고리별 품목들 ■■■■■■■■■■■■■■■■■■■■■■■■-->
 
 <div class="container">
-<div align="center"><h2>인기 상품</h2></div><br><br><br>
+<div align="center"><h2>인기 상품 ${login.account_user}</h2></div><br><br><br>
     <div class="row">
 		<div class="col-md-12">
                 <div id="Carousel" class="carousel slide">

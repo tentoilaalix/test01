@@ -3,6 +3,8 @@ package com.solfood.controller;
 import java.util.List;
 import java.util.Locale;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -73,11 +75,26 @@ public class HomeController {
 	
 	//최근본상품
 	@RequestMapping("/recentList.do")
-	public String recentList(String account_user) throws Exception {
-		List<TotalVO> recentList= recentService.selectRecent(account_user);
-		
-		
+	public String recentList() throws Exception {
 		return "recentView/recentList";
+	}
+	
+	@RequestMapping("/recentList2.do")
+	public List<TotalVO> recentList2(HttpServletRequest request, Model model) throws Exception {
+		// String account_user= request.getParameter("account_user");
+		
+		// 삭제하기
+		System.out.println("============================ recentList2");
+		
+		String account_user= "1";
+		
+		List<TotalVO> recentList= recentService.selectRecent(account_user);
+		model.addAttribute("recentList", recentList);
+		
+		//삭제하기
+		System.out.println("==============================="+ recentList.get(0));
+		
+		return recentList;
 	}
 	
 
