@@ -77,17 +77,9 @@ public class HomeController {
 	
 	
 	//최근본상품
-	@RequestMapping(value= "/recentList.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public String recentList() throws Exception {
-		return "recentView/recentList";
-	}
-	
 	@ResponseBody
-	@RequestMapping(value= "/recentList2.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public List<TotalVO> recentList2(String account_user) throws Exception {		
-		// 삭제하기
-		System.out.println("============================ recentList2");
-
+	@RequestMapping(value= "/recentList.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> recentList(String account_user) throws Exception {		
 		List<TotalVO> recentList= recentService.selectRecent(account_user);
 		
 		return recentList;

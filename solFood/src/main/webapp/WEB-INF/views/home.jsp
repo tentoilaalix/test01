@@ -261,10 +261,6 @@ display:inline-block;
 <!--■■■■■■■■■■■■■■■■■■■■■■ 카테고리별 품목들 ■■■■■■■■■■■■■■■■■■■■■■■■-->
 
 <div class="container">
-
-	<%-- 영민수정 --%>
-	<a href="recentList2.do?account_user=1">fffff</a>
-
 <div align="center"><h2>인기 상품 ${login.account_user}</h2></div><br><br><br>
     <div class="row">
 		<div class="col-md-12">
