@@ -86,7 +86,7 @@ margin-left: 510px;
 
 border:1px solid #B0B5BD;
 
-width:114px;
+width:130px;
 
 height:343px;
 

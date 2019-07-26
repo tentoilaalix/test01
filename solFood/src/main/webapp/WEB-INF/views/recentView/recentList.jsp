@@ -19,18 +19,17 @@
 		function recentList(){
 			var account_user= document.getElementsByName("account_user")[0].value;
 			var json= {"account_user":account_user};
-			var a="";
+			var html="";
 			
 			$.ajax({
 				type: "post",
 				url: "/recentList.do",
 				data: json,
 				success: function(data){
-					alert("recentList ajax success");
 					for(var i=0; i<data.length; i++){
-						a= data[i].product_name+ "<br>";
+						html+= "<h5>"+ data[i].product_name+ "</h5><br>";
+						$("#recent").html(html);
 					}
-					$("#recent").html(a);
 				},
 				error: function(){
 					alert("recentList ajax fail");
@@ -41,22 +40,21 @@
 	</script>
 </head>	
 <body>
-<%-- account_user 값 받기 --%>
-<%-- <input type="text" hidden="true" value="${login.account_user}" name="account_user"> --%>
-<input type="text" hidden="true" value="1" name="account_user">
-
-<h2>최근 본 상품 페이지 뭐야</h2>
-	<div id="rightSide">
-	<div id="right_zzim">
-		<div  class="recTit">최근본상품 <span id=recentCnt></span></div>
-			<ul>	
-				<li id="recent">
-					
-				</li>
-			</ul>    <!-- 본 상품이 뿌려질 부분  -->
-		<div id="paging"><a class="btn_prev" style="cursor:pointer" >이전</a><span  id="currentPage"></span><span id="totalPageCount"></span><a class="btn_next" style="cursor:pointer" >다음</a></div>
-	</div>
-</div> 
+	<%-- account_user 값 받기 --%>
+	<input type="text" hidden="true" value="${login.account_user}" name="account_user">
+	
+	<h2>최근 본 상품 페이지 뭐야</h2>
+		<div id="rightSide">
+		<div id="right_zzim">
+			<div  class="recTit">최근본상품 <span id=recentCnt></span></div>
+				<ul>	
+					<li id="recent">
+						
+					</li>
+				</ul>    <!-- 본 상품이 뿌려질 부분  -->
+			<div id="paging"><a class="btn_prev" style="cursor:pointer" >이전</a><span  id="currentPage"></span><span id="totalPageCount"></span><a class="btn_next" style="cursor:pointer" >다음</a></div>
+		</div>
+	</div> 
 </body>
 </html>
 
