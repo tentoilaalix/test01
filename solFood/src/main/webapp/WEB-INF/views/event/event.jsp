@@ -147,7 +147,7 @@
 								<br>
 						    </c:when>
 						    <c:otherwise>
-						   		<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},1809)" class='beforeClick' style="width:29px; height:23px;"><br>
+						   		<input type="button" id='heartImage' name='heartImage${event.product_id}' onclick= "changeHeart(${event.product_id},${account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
 						    </c:otherwise>
 						</c:choose>
 
@@ -175,7 +175,7 @@
 								<br>
 						    </c:when>
 						    <c:otherwise>
-						   		<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},1809)" class='beforeClick' style="width:29px; height:23px;"><br>
+						   		<input type="button" id='heartImage' name='heartImage${event.product_id}' onclick= "changeHeart(${event.product_id},${account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
 						    </c:otherwise>
 						</c:choose>
 
@@ -202,7 +202,7 @@
 								<br>
 						    </c:when>
 						    <c:otherwise>
-						   		<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id},1809)" class='beforeClick' style="width:29px; height:23px;"><br>
+						   		<input type="button" id='heartImage' name='heartImage${event.product_id}' onclick= "changeHeart(${event.product_id},${account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
 						    </c:otherwise>
 						</c:choose>
 
