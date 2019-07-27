@@ -48,6 +48,11 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<TotalVO> selectHeart() throws Exception {
 		return sqlSession.selectList(Namespace+".selectHeart");
 	}
+	
+	@Override
+	public List<TotalVO> selectEvent(int product_event) throws Exception {
+		return sqlSession.selectList(Namespace+".selectEvent", product_event);
+	}
 	//-----------------------------------------------------------------------
 	//	update 
 	//-----------------------------------------------------------------------
@@ -72,6 +77,7 @@ public class ProductDAOImpl implements ProductDAO{
 	public void deleteHeart(TotalVO vo) throws Exception {
 		sqlSession.delete(Namespace+".deleteHeart", vo);
 	}
+	
 
 
 	

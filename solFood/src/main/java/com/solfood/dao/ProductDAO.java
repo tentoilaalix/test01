@@ -27,6 +27,9 @@ public interface ProductDAO {
 		
 		// heart에 있는 목록 보기 
 		public List<TotalVO> selectHeart() throws Exception;
+		
+		// event 숫자에 해당하는 상품 목록 보기
+		public List<TotalVO> selectEvent(int product_event) throws Exception;
 	//-------------------------------------------------------------
 	//	UPDATE 
 	//-------------------------------------------------------------

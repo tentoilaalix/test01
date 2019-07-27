@@ -20,6 +20,7 @@ public class TotalVO {
     private int 	product_ea;
     private String 	product_content;
     private Date 	product_date;
+    private int 	product_event;
     
     // ACCOUNT 
     private String account_user;
@@ -268,6 +269,12 @@ public class TotalVO {
 	}
 	public void setHeart_num(int heart_num) {
 		this.heart_num = heart_num;
+	}
+	public int getProduct_event() {
+		return product_event;
+	}
+	public void setProduct_event(int product_event) {
+		this.product_event = product_event;
 	}
 	
 	

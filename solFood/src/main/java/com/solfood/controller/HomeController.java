@@ -25,26 +25,30 @@ public class HomeController {
     @Inject
     private MemberService service;
     
-    /**
-     * Simply selects the home view to render by returning its name.
-     */
+    //-----------------------------------------------------
+    //	home
+    //-----------------------------------------------------
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Locale locale, Model model) throws Exception{
- 
         logger.info("home");
-        
+   
         List<MemberVO> memberList = service.selectMember();
-        
         model.addAttribute("memberList", memberList);
  
         return "home";
     }
     
+    //-----------------------------------------------------
+    //	chat
+    //-----------------------------------------------------
 	@RequestMapping("/chat")
 	public String chat() {
 		return "module/chat";
 	}
 	
+	//-----------------------------------------------------
+    //	solfood- extra
+    //-----------------------------------------------------
 	//회사소개
 	@RequestMapping("/intro.do")
 	public String intro() {
@@ -67,10 +71,7 @@ public class HomeController {
 	}
 	
 	
-	// test2
-	@RequestMapping("/test.do")
-	public String test() {
-		return "test";
-	}
+	
+	
 	
 }

@@ -277,7 +277,7 @@
   <a href="#" id="topMenu">공 지 사 항</a>
   </div>
   <div class="col-xs-2">
-  <a href="../event/eventMain.jsp" id="topMenu">이 벤 트</a>
+  <a href="product/eventMain.do" id="topMenu">이 벤 트</a>
   </div>
   <div class="col-xs-2">
   <a href="#" id="topMenu">게 시 판</a>

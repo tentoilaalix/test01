@@ -45,6 +45,12 @@
 			SELECT * FROM HEART		
 		</select>
 		
+		
+		
+		<!-- event_id 따라 상품 목록 추출 -->
+		<select id="selectEvent" parameterType="int" resultType="com.solfood.dto.TotalVO">
+			SELECT * FROM PRODUCT WHERE PRODUCT_EVENT= #{product_event}
+		</select>
 	<!-- =============================== UPDATE ========================================= -->
 	   <!-- buy로 상품이 넘어가면 product_count를 cart_count 만큼 빼주기 (재고관리) -->
 		<update id="updateProduct_count_minus" parameterType="com.solfood.dto.TotalVO">

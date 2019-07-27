@@ -30,7 +30,7 @@ public class ProductController {
 	private ProductService productService;	
 	
 	//============================================================
-	//	selectProduct
+	//	PRODUCT 
 	//============================================================
 	@RequestMapping(value="/productListAll.do")
 	public List<TotalVO> selectProduct_all(Model model) throws Exception{
@@ -73,9 +73,9 @@ public class ProductController {
 	}
 
 	
-	//------------------------------------------------------------------
-	//	heart 
-	//------------------------------------------------------------------
+	//============================================================
+	//	HEART 
+	//============================================================
 	// heart 상태보기--> heart 테이블 불러오기
 	@ResponseBody
 	@RequestMapping(value= "/heartList.do", method= {RequestMethod.GET, RequestMethod.POST})
@@ -98,7 +98,25 @@ public class ProductController {
 		}		
 	}
 	
-
+	
+	//============================================================
+	//	EVENT 
+	//============================================================
+	// 이벤트 
+	@RequestMapping(value="/eventMain.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public String eventMain() {
+		return "event/eventMain";
+	}
+	@RequestMapping(value="/event.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public String event(int product_event, Model model) throws Exception{
+		model.addAttribute("product_event", product_event);
+		
+		// 해당 이벤트 id의 상품 목록 추출
+		List<TotalVO> eventList= productService.selectEvent(product_event);
+		model.addAttribute("eventList", eventList);
+		
+		return "event/event";
+	}
 }
 
 
