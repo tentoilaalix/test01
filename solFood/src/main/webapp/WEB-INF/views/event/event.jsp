@@ -123,16 +123,25 @@
 	<div class="container">
 		<!-- account_user 받기 -->
 		<input type='text' hidden='true' value='${login.account_user}' name='account_user'/>
-	
-		<!--============================= event ==============================-->
-		<c:choose>
-		
-			<%-- event_id 1	--%>
-	       	<c:when test="${product_event== 1}">
+
+	       	<%-- product_event에 따라 제목 바꿔주기 --%>
+	       	<c:choose>
+		       <c:when test="${product_event== 1}">
+		           <h2>EVENT PRICE!</h2>
+		       </c:when>
+		       <c:when test="${product_event== 2}">
+		           <h2>GOURMET FOOD</h2>
+		       </c:when>
+		       <c:when test="${product_event== 3}">
+		           <h2>PLATTER FOOD</h2>
+		       </c:when>
+		       <c:otherwise>
+		       		<h2>NO EVENT</h2>
+		       </c:otherwise>
+		   </c:choose>
 	       	
-	       	<h2>${product_event}</h2>
-	       	
-	           <div class="row" id="allVegeC">
+	       	<%-- 상품 뿌리기 --%>
+	        <div class="row" id="allVegeC">
 				<c:forEach items="${eventList}" var="event">
 					<div class="col-xs-4" align="center">
 					
@@ -147,83 +156,14 @@
 								<br>
 						    </c:when>
 						    <c:otherwise>
-						   		<input type="button" id='heartImage' name='heartImage${event.product_id}' onclick= "changeHeart(${event.product_id},${account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
+						   		<input type="button" id='heartImage' name='heartImage${event.product_id}' onclick= "changeHeart(${event.product_id},${login.account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
 						    </c:otherwise>
 						</c:choose>
 						
 						${event.product_price}원<br><br><br><br>
 				    </div>
 				</c:forEach>
-			  	</div>
-	       	</c:when>
-	       	
-	       	
-	      <%-- event_id 1	--%>
-	       	<c:when test="${product_event== 2}">
-	       	
-	       	<h2>${product_event}</h2>
-	       	
-	           <div class="row" id="allVegeC">
-				<c:forEach items="${eventList}" var="event">
-					<div class="col-xs-4" align="center">
-					
-						<%-- ============= 상품 id, 사진, 이름, 찜하기, 가격 순 =============--%>
-						<input type="text" hidden="true" value= "${event.product_id}" name="product_id"/>
-						<a href="${path}/product/productInfo.do?product_id=${event.product_id}"><img src="/img/${event.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${event.product_name}&nbsp;
-				 
-						<%-- login 값이 없으면 하트 안보이게 --%>
-				 		<c:choose>
-						    <c:when test="${login.account_user== null}">
-								<br>
-						    </c:when>
-						    <c:otherwise>
-						   		<input type="button" id='heartImage' name='heartImage${event.product_id}' onclick= "changeHeart(${event.product_id},${account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
-						    </c:otherwise>
-						</c:choose>
-
-						${event.product_price}원<br><br><br><br>
-				    </div>
-				</c:forEach>
-			  	</div>
-	       	</c:when>
-	       	
-	       	<%-- event_id 1	--%>
-	       	<c:when test="${product_event== 1}">
-	       	
-	       	<h2>${product_event}</h2>
-	       	
-	           <div class="row" id="allVegeC">
-				<c:forEach items="${eventList}" var="event">
-					<div class="col-xs-4" align="center">
-					
-						<%-- ============= 상품 id, 사진, 이름, 찜하기, 가격 순 =============--%>
-						<input type="text" hidden="true" value= "${event.product_id}" name="product_id"/>
-						<a href="${path}/product/productInfo.do?product_id=${event.product_id}"><img src="/img/${event.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${event.product_name}&nbsp;
-				 
-						<%-- login 값이 없으면 하트 안보이게 --%>
-				 		<c:choose>
-						    <c:when test="${login.account_user== null}">
-								<br>
-						    </c:when>
-						    <c:otherwise>
-						   		<input type="button" id='heartImage' name='heartImage${event.product_id}' onclick= "changeHeart(${event.product_id},${account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
-						    </c:otherwise>
-						</c:choose>
-
-						${event.product_price}원<br><br><br><br>
-				    </div>
-				</c:forEach>
-			  	</div>
-	       	</c:when>
-	       	<c:otherwise>
-	           이벤트가 없습니다.
-	       	</c:otherwise>
-   		</c:choose>
-
-	
-	
+			</div>
 	</div>
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Footer ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<footer>
