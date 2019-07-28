@@ -57,6 +57,7 @@
 			<mapping path="/board/list.do" />
 			<mapping path="/cart/cartList.do" />
 			<mapping path="/cart/cartInsert.do"/>
+			<mapping path="/heart/heartList.do"/>
 			<beans:bean id="FirstInterceptor" class="com.solfood.interceptor.FirstInterceptor" />
 		</interceptor>
 	</interceptors>

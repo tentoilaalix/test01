@@ -34,11 +34,11 @@
 					if(cnt> 0){	
 						for(i=0; i<cnt; i++){
 							html+= "<tr height='50' class='info'>";
-							html+= "<td align='center' width='100'><input type='button' value='삭제' onclick='insertToHeart("+ data[i].product_id +","+ account_user +")'></td>";
-							html+= "<td align='center' width='100'><input type='button' value='삭제' onclick='deleteFromheart("+ data[i].product_id +","+ account_user +")'></td>";
-							html+= "<td align='center' width='100'><img src='/img/"+ data[i].product_image +"' style='width:120px; height:auto;'/></td>";
-							html+= "<td align='center' width='100'>"+ data[i].product_name+ "</td>";
-							html+= "<td align='center' width='100'>"+ data[i].product_price+ "</td>";
+							html+= "<td align='center' width='30'><input type='button' value='장바구니담기' onclick='insertToHeart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-primary'></td>";
+							html+= "<td align='center' width='30'><input type='button' value='삭제' onclick='deleteFromheart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-success'></td>";
+							html+= "<td align='center' width='100'><a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"' style='width:120px; height:auto;'/></a></td>";
+							html+= "<td align='center' width='100'><a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'>"+ data[i].product_name+ "</a></td>";
+							html+= "<td align='center' width='100'>"+ data[i].product_price+ "원</td>";
 							html+= "</tr>";		
 						}
 						$("#heartList").html(html);
@@ -72,8 +72,6 @@
 			});
 		}
 		
-		
-		
 		//----------------------------------------------
 		//	deleteFromHeart()
 		//----------------------------------------------
@@ -106,11 +104,13 @@
 	<input type="text" hidden="true" value="${login.account_user}" name="account_user">
 
 	<%-- 찜한 상품 목록 --%>
-	<div class="container">
+	<h2 align="center">찜한 상품</h2>
+	
+	<div class="container" style="margin-top:30px">
 		<table class="table">
 			<tr height="50" class="info">
-				<td align= "center" width="50">장바구니 담기</td>
-				<td align= "center" width="50">삭제</td>
+				<td align= "center" width="30">장바구니 담기</td>
+				<td align= "center" width="30">삭제</td>
 				<td align= "center" width="50">사진</td>
 				<td align= "center" width="50">상품명</td>
 				<td align= "center" width="50">가격</td>
@@ -123,11 +123,12 @@
 			
 		</table>
 	</div>
+	<br><br><br>
 	
 	<%-- 버튼--%>
-	<div class="container">
-		<a href="${path}/"><input type="button" value="메인으로 가기"></a>
-		<a href="${path}/cart/cartList.do"><input type="button" value="장바구니로 가기"></a>
+	<div class="container" align="center">
+		<a href="${path}/"><input type="button" value="메인으로 가기" class="btn btn-md btn-warning"></a>
+		<a href="${path}/cart/cartList.do"><input type="button" value="장바구니로 가기" class="btn btn-md btn-primary"></a>
 	</div>
 	<br><br><br><br>
 

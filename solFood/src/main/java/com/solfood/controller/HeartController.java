@@ -34,7 +34,6 @@ public class HeartController {
 	//	HEART 
 	//============================================================
 	// heart 상태보기--> heart 테이블 불러오기
-	@ResponseBody
 	@RequestMapping(value= "/heartList.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public String heartList(String account_user, Model model) throws Exception{
 		model.addAttribute("account_user", account_user);
@@ -52,6 +51,7 @@ public class HeartController {
 	}
 	
 	// change heart--> insert to heart or delete from heart
+	@ResponseBody
 	@RequestMapping(value= "/changeHeart.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public void insertHeart(TotalVO vo, String state) throws Exception{
 		if(state.equals("click")) {
