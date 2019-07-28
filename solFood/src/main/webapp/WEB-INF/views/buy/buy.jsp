@@ -33,7 +33,7 @@
 					for(i=0; i<cnt; i++){
 						html+= "<tr height='50' class='info'>";
 						html+= "<td align='center' width='100'>"+ data[i].buy_date+ "</td>";
-						html+= "<td align='center' width='100'>"+ data[i].product_image+ "</td>";
+						html+= "<td align='center' width='100'><img src='/img/"+ data[i].product_image +"' style='width:120px; height:auto;'/></td>";
 						html+= "<td align='center' width='100'>"+ data[i].product_name+ "</td>";
 						html+= "<td align='center' width='100'>"+ data[i].buy_count+ "</td>";
 						html+= "<td align='center' width='100'>"+ data[i].product_price+ "</td>";
@@ -107,7 +107,7 @@
 	<c:set var= "account_user" value="${account_user}"/>
 	<input type="text" hidden="true" value="${account_user}" name="account_user">
 	
-	<%--===================================== 구매 목록 ==========================================--%>
+	<%-- 구매 목록 --%>
 	<div class="container">
 		<table class="table">
 			<tr height="50" class="info">
@@ -128,12 +128,17 @@
 		</table>
 	</div>
 	
-	<%--===================================== 버튼 ==========================================--%>
+	<%-- 버튼 --%>
 	<div class="container">
 		<a href="${path}/"><input type="button" value="메인으로 가기"></a>
 		<a href="${path}/cart/cartList.do"><input type="button" value="장바구니로 가기"></a>
 	</div>
 	<br><br><br><br>
+	
+	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ bottom ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
+	<footer>
+		<jsp:include page="../module/Bottom.jsp" flush="false"/>
+	</footer>
 </body>
 </html>
 

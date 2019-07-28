@@ -28,7 +28,7 @@
 			$.ajax({
 				type: "GET",
 				datatype: "json",
-				url: "/product/heartList.do",
+				url: "/heart/heartList.do",
 				
 				success: function(data){
 					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기					
@@ -73,7 +73,7 @@
 				
 				$.ajax({
 					type: "post",
-					url: "/product/changeHeart.do",
+					url: "/heart/changeHeart.do",
 					data: json,
 					success: function(){
 					},
@@ -88,7 +88,7 @@
 				
 				$.ajax({
 					type: "post",
-					url: "/product/changeHeart.do",
+					url: "/heart/changeHeart.do",
 					data: json,
 					success: function(){
 					},

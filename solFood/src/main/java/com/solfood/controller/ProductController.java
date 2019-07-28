@@ -73,31 +73,6 @@ public class ProductController {
 	}
 
 	
-	//============================================================
-	//	HEART 
-	//============================================================
-	// heart 상태보기--> heart 테이블 불러오기
-	@ResponseBody
-	@RequestMapping(value= "/heartList.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public List<TotalVO> heartList(Model model) throws Exception{
-		List<TotalVO> heartList= productService.selectHeart();
-		model.addAttribute("heartList", heartList);
-				
-		return heartList;
-	}
-	
-	// change heart--> insert or delete from heart
-	@RequestMapping(value= "/changeHeart.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public void insertHeart(TotalVO vo, String state) throws Exception{
-		if(state.equals("click")) {
-			productService.insertHeart(vo);		
-			System.out.println("===================== 여기는 insertHeart");
-		} else if(state.equals("unclick")) {
-			productService.deleteHeart(vo);
-			System.out.println("===================== 여기는 deleteHeart");
-		}		
-	}
-	
 	
 	//============================================================
 	//	EVENT 

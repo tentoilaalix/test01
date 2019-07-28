@@ -40,12 +40,6 @@
 		
 		
 		
-		<!-- heart 테이블 목록 추출 -->
-		<select id="selectHeart" resultType="com.solfood.dto.TotalVO">
-			SELECT * FROM HEART		
-		</select>
-		
-		
 		
 		<!-- event_id 따라 상품 목록 추출 -->
 		<select id="selectEvent" parameterType="int" resultType="com.solfood.dto.TotalVO">
@@ -57,17 +51,7 @@
 			UPDATE PRODUCT SET PRODUCT_COUNT= PRODUCT_COUNT- #{buy_count} WHERE PRODUCT_ID= #{product_id};
 		</update> 
 				
-	<!-- =============================== INSERT ========================================= -->
-		<!-- heart 누르면 heart 테이블로 상품 들어가게 하기 -->
-		<insert id="insertHeart" parameterType="com.solfood.dto.TotalVO">
-			INSERT INTO HEART (PRODUCT_ID, ACCOUNT_USER) VALUES(#{product_id}, #{account_user})
-		</insert>
-		
-	<!-- =============================== DELETE ========================================= -->
-		<!-- heart 다시 누르면 heart에서 상품 사라지게 하기 -->
-		<delete id="deleteHeart" parameterType="com.solfood.dto.TotalVO">
-			DELETE FROM HEART WHERE PRODUCT_ID= #{product_id} AND ACCOUNT_USER= #{account_user}
-		</delete>
+	
 	</mapper>
 	
 	
