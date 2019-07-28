@@ -145,7 +145,7 @@
 	<%-- 버튼--%>
 	<div class="container" align="center">
 		<a href="${path}/"><input type="button" value="메인으로 가기" class="btn btn-md btn-warning"></a>
-		<a href="${path}/cart/cartList.do"><input type="button" value="장바구니로 가기" class="btn btn-md btn-primary"></a>
+		<a href="${path}/cart/cartList.do?account_user=${login.account_user}"><input type="button" value="장바구니로 가기" class="btn btn-md btn-primary"></a>
 	</div>
 	<br><br><br><br>
 
