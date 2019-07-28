@@ -42,12 +42,21 @@ public class HeartController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value= "/heartList2.do", method= {RequestMethod.GET, RequestMethod.POST})
-	public List<TotalVO> heartList2(Model model, String account_user) throws Exception{
-		List<TotalVO> heartList= heartService.selectHeart(account_user);
-		model.addAttribute("heartList", heartList);
+	@RequestMapping(value= "/heartListForHeartList.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> heartListForHeartList(Model model, String account_user) throws Exception{
+		List<TotalVO> heartList_heartList= heartService.selectHeartForHeartList(account_user);
+		model.addAttribute("heartList_heartList", heartList_heartList);
 				
-		return heartList;
+		return heartList_heartList;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value= "/heartListForProductList.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> heartListForProductList(Model model) throws Exception{
+		List<TotalVO> heartList_productList= heartService.selectHeartForProductList();
+		model.addAttribute("heartList_productList", heartList_productList);
+				
+		return heartList_productList;
 	}
 	
 	// change heart--> insert to heart or delete from heart

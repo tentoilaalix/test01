@@ -16,8 +16,12 @@ public class HeartDAOImpl implements HeartDAO{
 	//	select 
 	//-----------------------------------------------------------------------
 	@Override
-	public List<TotalVO> selectHeart(String account_user) throws Exception {
-		return sqlSession.selectList(Namespace+".selectHeart", account_user);
+	public List<TotalVO> selectHeartForHeartList(String account_user) throws Exception {
+		return sqlSession.selectList(Namespace+".selectHeartForHeartList", account_user);
+	}
+	@Override
+	public List<TotalVO> selectHeartForProductList() throws Exception {
+		return sqlSession.selectList(Namespace+".selectHeartForProductList");
 	}
 	
 	//-----------------------------------------------------------------------

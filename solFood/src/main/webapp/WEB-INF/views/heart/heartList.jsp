@@ -24,7 +24,7 @@
 			
 			$.ajax({
 				type: "post",
-				url: "/heart/heartList2.do",
+				url: "/heart/heartListForHeartList.do",
 				data: json,
 				success: function(data){
 					var html= "";
@@ -34,7 +34,7 @@
 					if(cnt> 0){	
 						for(i=0; i<cnt; i++){
 							html+= "<tr height='50' class='info'>";
-							html+= "<td align='center' width='30'><input type='button' value='장바구니담기' onclick='insertToHeart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-primary'></td>";
+							html+= "<td align='center' width='30'><input type='button' value='장바구니담기' onclick='insertToCart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-primary'></td>";
 							html+= "<td align='center' width='30'><input type='button' value='삭제' onclick='deleteFromheart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-success'></td>";
 							html+= "<td align='center' width='100'><a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"' style='width:120px; height:auto;'/></a></td>";
 							html+= "<td align='center' width='100'><a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'>"+ data[i].product_name+ "</a></td>";
@@ -48,25 +48,32 @@
 					}
 				},
 				error: function(){
+					alert("heartList error");
 				}
 			});
 		}
 		
 		//----------------------------------------------
-		//	insertToHeart()
+		//	insertToCart()
 		//----------------------------------------------
-		function insertToHeart(product_id, account_user){
-			var state= "click";
-			var json= {"account_user":account_user, "product_id":product_id, "state":state};
+		function insertToCart(product_id, account_user){		
+			var purchase_count= -1;
+			var json= {"product_id":product_id, "account_user":account_user, "purchase_count":purchase_count};
 			
 			$.ajax({
 				type: "post",
-				url: "/heart/changeHeart.do",
+				url: "/cart/cartInsert.do",
 				data: json,
-				success: function(){
-					heartList();
+				beforeSend: function(xmlHttpRequest){
+					xmlHttpRequest.setRequestHeader("AJAX", "true");
+				},
+				success: function(data){		
+					deleteFromHeart(product_id, account_user);
+					heartList();	
 				},
 				error: function(){
+					alert("insertToCart error");
+					deleteFromHeart(product_id, account_user);
 					heartList();
 				}
 			});
@@ -87,6 +94,7 @@
 					heartList();
 				},
 				error: function(){
+					alert("deleteFromHeart error");
 					heartList();
 				}
 			});

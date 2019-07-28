@@ -9,8 +9,11 @@ public interface HeartDAO {
 	//-------------------------------------------------------------
 	//	SELECT 
 	//-------------------------------------------------------------
-		// heart에 있는 목록 보기 
-		public List<TotalVO> selectHeart(String account_user) throws Exception;
+		// heart에 있는 목록 보기 for heartList
+		public List<TotalVO> selectHeartForHeartList(String account_user) throws Exception;
+		
+		// heart에 있는 목록 보기 for productList
+		public List<TotalVO> selectHeartForProductList() throws Exception;
 		
 	//-------------------------------------------------------------
 	//	INSERT 

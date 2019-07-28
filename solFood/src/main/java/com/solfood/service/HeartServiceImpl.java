@@ -17,9 +17,15 @@ public class HeartServiceImpl implements HeartService{
 	//	select
 	//----------------------------------------------------------
 	@Override
-	public List<TotalVO> selectHeart(String account_user) throws Exception {
-		return dao.selectHeart(account_user);
+	public List<TotalVO> selectHeartForHeartList(String account_user) throws Exception {
+		return dao.selectHeartForHeartList(account_user);
 	}
+	
+	@Override
+	public List<TotalVO> selectHeartForProductList() throws Exception {
+		return dao.selectHeartForProductList();
+	}
+
 
 	//----------------------------------------------------------
 	//	insert

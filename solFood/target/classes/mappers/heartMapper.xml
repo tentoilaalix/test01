@@ -6,10 +6,15 @@
 	<mapper namespace="com.solfood.mapper.heartMapper">
 	<!-- =============================== SELECT ========================================= -->
 		<!-- heart 테이블 목록 추출 -->
-		<select id="selectHeart" parameterType="String" resultType="com.solfood.dto.TotalVO">
+		<select id="selectHeartForHeartList" parameterType="String" resultType="com.solfood.dto.TotalVO">
 			SELECT P.PRODUCT_ID, P.PRODUCT_NAME, P.PRODUCT_IMAGE, P.PRODUCT_PRICE, H.HEART_NUM, H.ACCOUNT_USER 
 			FROM PRODUCT P, HEART H
 			WHERE P.PRODUCT_ID= H.PRODUCT_ID AND H.ACCOUNT_USER= #{account_user};	
+		</select>
+		
+		<!-- heart 테이블 목록 추출 -->
+		<select id="selectHeartForProductList" resultType="com.solfood.dto.TotalVO">
+			SELECT * FROM HEART;
 		</select>
 		
 	<!-- =============================== INSERT ========================================= -->

@@ -92,6 +92,10 @@ public class CartController {
 		vo.setProduct_id(product_id);
 		vo.setAccount_user(account_user);		
 
+		// heartList에서 온거면(heartList에서 purchase_count= -1로 지정함) 그냥 insertCart하기 
+		if(purchase_count== -1) {
+			cartService.insertCart(vo);
+		}
 		
 		// product_id에 해당하는 product_count 알아보기
 		List<TotalVO> result= productService.selectProduct(product_id);
