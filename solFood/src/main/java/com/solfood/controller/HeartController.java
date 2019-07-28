@@ -51,7 +51,7 @@ public class HeartController {
 		return heartList;
 	}
 	
-	// change heart--> insert or delete from heart
+	// change heart--> insert to heart or delete from heart
 	@RequestMapping(value= "/changeHeart.do", method= {RequestMethod.GET, RequestMethod.POST})
 	public void insertHeart(TotalVO vo, String state) throws Exception{
 		if(state.equals("click")) {
