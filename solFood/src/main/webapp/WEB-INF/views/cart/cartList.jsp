@@ -74,15 +74,17 @@
 					//----------------------------------------------------------
 					html= "";
 					var total= 0;
+					var discountTotal= 0;
 
 					html+= "<input type='button' onclick='show()' id='show' value='상세보기'>";
 					html+= "<h5 id='temp' hidden='true' style='display:none;'>";
 					
 					for(i=0; i<cnt; i++){
 						html+= data[i].product_name + " : " +data[i].product_discountrate+ "% 할인= "+ (data[i].product_price* 0.01* data[i].product_discountrate) +"가 할인됨<br>";				
-						total+= (data[i].product_price* 0.01* data[i].product_discountrate);
+						discountTotal+= (data[i].product_price* 0.01* data[i].product_discountrate)
+						total+= ((data[i].product_price* (1- 0.01*data[i].product_discountrate)) *data[i].cart_count);
 					}
-					html+= "</h5><h4>"+ total +"</h4>";
+					html+= "</h5><h4>할인된 금액: "+ discountTotal +"</h4>";
 					
 					$("#discountPrice").html(html);
 
