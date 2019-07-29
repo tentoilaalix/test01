@@ -16,7 +16,7 @@ public class TotalVO {
     private int 	product_discountrate;
     private int 	product_count;
     private String 	product_image;
-    private int 	product_package;
+    private String 	product_package;
     private int 	product_ea;
     private String 	product_content;
     private Date 	product_date;
@@ -103,10 +103,10 @@ public class TotalVO {
 	public void setProduct_image(String product_image) {
 		this.product_image = product_image;
 	}
-	public int getProduct_package() {
+	public String getProduct_package() {
 		return product_package;
 	}
-	public void setProduct_package(int product_package) {
+	public void setProduct_package(String product_package) {
 		this.product_package = product_package;
 	}
 	public int getProduct_ea() {

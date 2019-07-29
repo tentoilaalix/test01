@@ -29,6 +29,8 @@
 					for(var i=0; i<data.length; i++){
 						html+= "<a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'><h5>"+ data[i].product_name+ "</h5></a><br>";
 						html+= "<a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/" + data[i].product_image + "' style='width:50px; height:auto;'/></a>";
+						// <img src="/img/${productList.product_image}" width="350px" height="500px;">
+
 						$("#recent").html(html);
 					}
 				},
