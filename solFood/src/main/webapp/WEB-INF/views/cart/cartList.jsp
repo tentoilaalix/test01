@@ -31,7 +31,9 @@
 					var html= "";
 					var cnt= data.length;
 					
-					// table에 cart list 붙이기
+					//----------------------------------------------------------
+					//	table에 붙일 cartlist 
+					//----------------------------------------------------------
 					if(cnt> 0){	
 						for(i=0; i<cnt; i++){
 							html+= "<tr height='50' class='info'>";
@@ -52,8 +54,9 @@
 						$("#cartList").html(html);
 					}
 					
-					
-					// selectedPrice--> 각각의 상품 금액 표시 
+					//----------------------------------------------------------
+					//	selectedPrice--> 상품 정가 표시 
+					//----------------------------------------------------------
 					html= "";
 					var total= 0;
 					
@@ -64,9 +67,30 @@
 					html+= "<h4>"+ total +"</h4>" 
 					
 					$("#selectedPrice").html(html);
+
+
+					//----------------------------------------------------------
+					//	discountPrice--> 상품 discount rate적용해서 가격 표시
+					//----------------------------------------------------------
+					html= "";
+					var total= 0;
+
+					html+= "<input type='button' onclick='show()' id='show' value='상세보기'>";
+					html+= "<h5 id='temp' hidden='true' style='display:none;'>";
+					
+					for(i=0; i<cnt; i++){
+						html+= data[i].product_name + " : " +data[i].product_discountrate+ "% 할인= "+ (data[i].product_price* 0.01* data[i].product_discountrate) +"가 할인됨<br>";				
+						total+= (data[i].product_price* 0.01* data[i].product_discountrate);
+					}
+					html+= "</h5><h4>"+ total +"</h4>";
+					
+					$("#discountPrice").html(html);
+
 					
 					
-					// totalPrice--> 총 금액 표시
+					//----------------------------------------------------------
+					//	totalPrice--> discountPrice+ 배송비 가격 표시== 총 결제할 금액
+					//----------------------------------------------------------
 					html= "";
 					var all_total= total+ 10;
 					html+= "<h4>"+ all_total +"</h4>"; 
@@ -84,6 +108,17 @@
 				} 
 			});
 		}
+
+		// show()
+		function show(){
+			$("#temp").attr({
+				'style' : 'display:block;'
+			});
+		}
+		
+
+
+
 		
 		//------------------------------------------------------------------
 		//	deleteFromCart--> cart에서 상품 삭제하는 메소드
@@ -231,7 +266,7 @@
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<div align="center"><h2><label><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;장바구니</label></h2></div><br>
 	<div align="center">
-		<h5>
+		<h5 id='ttt'>
 			**주문하실 상품명 및 수량을 정확하게 확인해 주세요.**<br><br>
 			**구매하기 버튼을 누를 때, 품절 상품은 구매되지 않습니다**
 		</h5>
@@ -306,7 +341,7 @@
 		<div class="col-md-2">
 			<label id="price"><br><br>할인금액</label>
 			<p id="discountPrice">
-				<h5>0</h5>
+				
 			</p>
 		</div>
 		<div class="col-sm-1">

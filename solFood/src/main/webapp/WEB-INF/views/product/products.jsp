@@ -110,6 +110,9 @@
 			border: none;
 			background-size: 28px;
 		}
+		
+		
+		
 	</style>
 </head>
 <body>
@@ -172,7 +175,7 @@
 				<div class="row" id="allVegeC">
 				<c:forEach items="${products}" var="products">
 					<div class="col-xs-4" align="center">
-					
+				
 						<!--===================  상품 id, 사진, 이름, 찜하기, 가격 순 ========================-->
 						<input type="text" hidden="true" value= "${products.product_id}" name="product_id"/>
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
@@ -189,9 +192,9 @@
 						</c:choose>
 
 						${products.product_price}원<br><br><br><br>
-				    </div>
+					</div>
 				</c:forEach>
-			  	</div>
+				</div>
 		</c:when>
 	</c:choose>
 

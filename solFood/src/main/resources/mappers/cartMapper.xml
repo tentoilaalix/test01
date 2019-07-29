@@ -7,7 +7,7 @@
 		<!-- =============================== SELECT ========================================= -->		
 		<!-- account_user별로 cart에 있는 상품 보여주기 -->
 		<select id="selectCart" parameterType="String" resultType="com.solfood.dto.TotalVO">
-			SELECT C.CART_DATE, C.CART_COUNT, C.PRODUCT_ID, P.PRODUCT_NAME, P.PRODUCT_COUNT, P.PRODUCT_PRICE, P.PRODUCT_IMAGE, C.ACCOUNT_USER 
+			SELECT C.CART_DATE, C.CART_COUNT, C.PRODUCT_ID, P.PRODUCT_NAME, P.PRODUCT_COUNT, P.PRODUCT_DISCOUNTRATE, P.PRODUCT_PRICE, P.PRODUCT_IMAGE, C.ACCOUNT_USER 
 			FROM CART C, PRODUCT P
 			WHERE C.PRODUCT_ID= P.PRODUCT_ID 
 				AND ACCOUNT_USER= #{account_user};
