@@ -28,6 +28,7 @@
 				success: function(data){
 					for(var i=0; i<data.length; i++){
 						html+= "<h5>"+ data[i].product_name+ "</h5><br>";
+						html+= "<img src='/img/" + data[i].product_image + "' style='width:50px; height:auto;'/>";
 						$("#recent").html(html);
 					}
 				},
