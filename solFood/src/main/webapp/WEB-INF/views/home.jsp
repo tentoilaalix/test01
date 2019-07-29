@@ -31,9 +31,8 @@
 						html+= "<div class='col-xs-3'>";
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"' width='250px' height='320px'/></a><br><br>";
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><strong>"+ data[i].product_name +"</strong></a><br>";
-						html+= data[i].product_price+ "원";
+						html+= nf.format(data[i].product_price) +"원";
 						html+= "</div>";
-
 						$("#mdArea").html(html);
 					}
 				},
@@ -124,7 +123,7 @@
                 	<div class="row">
                 	 <c:forEach items="${homeProduct}" var="homeProduct" begin="0" end="3">
 	                	<div class="col-md-3">
-	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="thumbnail"><img src="/img/${homeProduct.product_image}" style="max-width:100%;"></a><br>
+	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="thumbnail"><img src="/img/${homeProduct.product_image}" style="max-width:100%; height: 315px;"></a><br>
 	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="noul"><strong>${homeProduct.product_name}</strong><br><fmt:formatNumber value="${homeProduct.product_price}" pattern="#,###.##"/>원</a>
 						</div>
 					</c:forEach>

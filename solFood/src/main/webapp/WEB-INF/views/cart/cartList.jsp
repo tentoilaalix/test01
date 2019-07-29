@@ -1,8 +1,9 @@
-<%@page import="java.text.NumberFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%NumberFormat nf = NumberFormat.getNumberInstance();%>    
 <%@ page import="java.text.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -17,7 +18,16 @@
 		$(document).ready(function(){
 			cartList();
 		});
-				
+		
+		// 숫자에 콤마 넣는 함수
+		function addComma(num)
+		{
+		var regexp = /\B(?=(\d{3})+(?!\d))/g;
+		return num.toString().replace(regexp, ',');
+		}
+
+		var nData = addComma(nData);
+
 		//------------------------------------------------------------------
 		//	cartList--> 해당 유저의 cart list 불러오는 메소드
 		//------------------------------------------------------------------
@@ -42,7 +52,7 @@
 							html+= "<td align='center' width='100'>"+ data[i].product_name+ "</td>";
 							html+= "<td align='center' width='100'>"+ data[i].cart_count+ "</td>";
 							html+= "<td align='center' width='100'>"+ data[i].product_count+ "</td>";
-							html+= "<td align='center' width='100'>"+ data[i].product_price+ "</td>";
+							html+= "<td align='center' width='100'>"+ addComma(data[i].product_price) + " 원</td>";
 							html+= "<td align='center' width='100'><img src='/img/"+ data[i].product_image +"' style='width:90px; height:auto;'/></td>";
 							html+= "</tr>";		
 						}
@@ -58,18 +68,18 @@
 					var total= 0;
 					
 					for(i=0; i<cnt; i++){
-						html+= "<h5>"+ data[i].product_name +" X "+ data[i].cart_count +"="+ (data[i].product_price* data[i].cart_count) +"</h5> ";				
-						total+= (data[i].product_price* data[i].cart_count);
+						html+= "<h5>"+ data[i].product_name +" X "+ data[i].cart_count +"="+ addComma(data[i].product_price* data[i].cart_count) +"</h5> ";				
+						total+= (data[i].product_price * data[i].cart_count);
 					}
-					html+= "<h4>"+ total +"</h4>" 
+					html+= "<h4>"+ addComma(total) +" 원</h4>" 
 					
 					$("#selectedPrice").html(html);
 					
 					
 					// totalPrice--> 총 금액 표시
 					html= "";
-					var all_total= total+ 10;
-					html+= "<h4>"+ all_total +"</h4>"; 
+					var all_total= total;
+					html+= "<h4>"+ addComma(all_total) +" 원</h4>"; 
 					html+= "<c:set var='all_total' value='"+ all_total +"'/>";
 					
 					$("#saleBtn").attr({
@@ -207,6 +217,9 @@
 		outline: 0;
 		background: #FFFFFF;
 	}
+	.info {
+		margin-bottom: 10px;
+	}
 	<%--
 	#price {
 		width: 150px;
@@ -229,6 +242,7 @@
 	</header>
 
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
+	<br><br>
 	<div align="center"><h2><label><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;장바구니</label></h2></div><br>
 	<div align="center">
 		<h5>
@@ -243,11 +257,11 @@
 			<c:forEach items="${cartList}" var="cart" >
 				<c:set var= "account_user" value="${cart.account_user}"/>
 			</c:forEach>
-			
+			<br>
 			<input type="button" id="deleteOutOfStock" value="품절 상품 삭제" onClick="deleteOutOfStock(${account_user})"/>
 		</div>
 	</div>
-	<br><br><br>
+	<br><br>
 	
 	<%-- ================================== cartList column ==================================== --%>
 	<div class="container">
@@ -281,6 +295,7 @@
 			<input type="text" hidden="true" id="product_count" name="product_count" value="${cart.product_count}">
 			<input type="text" hidden="true" id="product_price" name="product_price" value="${cart.product_price}">
 			<input type="text" hidden="true" id="product_image" name="product_image" value="${cart.product_image}">
+			<br>
 		</c:forEach>
 		
 		<table id = "cartList" class="table">
@@ -318,7 +333,7 @@
 		<div class="col-md-2">
 			<label id="price"><br><br>배송비</label>
 			<p id="shippingPrice">
-				<h5>2500</h5>
+				<h5>2,500</h5>
 			</p>
 		</div>
 		<div class="col-sm-1">

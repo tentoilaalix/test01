@@ -101,11 +101,13 @@
 		.afterClick{
 			background-image: url("/resources/image/afterlike.PNG");
 			border: none;
+			outline: none;
 			background-size: 28px;
 		}
 		.beforeClick{
 			background-image: url("/resources/image/beforelike.PNG");
 			border: none;
+			outline: none;
 			background-size: 28px;
 		}
 	</style>
@@ -161,19 +163,19 @@
 				$('#allVegeC').load('http://localhost:8080/product/products2.do?product_category2=양파·마늘·생강·파 #onionC');
 			});
 			</script>
-	
-				<div class="row" id="allVegeC">
+				<div class="container" id="allVegeC">
 				<c:forEach items="${products}" var="products">
+			
 					<div class="col-xs-4" align="center">
-					
 						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
-				    </div>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+				    </div>	
+				
 				</c:forEach>
-			  	</div>
+			</div>
 		</c:when>
 	</c:choose>
 
@@ -222,10 +224,10 @@
 			<div class="row" id="koFruitC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			    	<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -277,10 +279,10 @@
 			<div class="row" id="foFruitC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -332,10 +334,10 @@
 			<div class="row" id="basicVegeC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -387,10 +389,10 @@
 			<div class="row" id="simpleVegeC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -442,10 +444,10 @@
 			<div class="row" id="mushroomC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -497,10 +499,10 @@
 			<div class="row" id="onionC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -560,11 +562,10 @@
 			<div class="row" id="allFoodC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -613,10 +614,10 @@
 			<div class="row" id="stewC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -664,10 +665,10 @@
 			<div class="row" id="sideDishC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -715,10 +716,10 @@
 			<div class="row" id="kimchiC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -766,10 +767,10 @@
 			<div class="row" id="tofuC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -817,10 +818,10 @@
 			<div class="row" id="mainDishC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -876,10 +877,10 @@
 					<div class="col-xs-4" align="center">
 					
 						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
@@ -927,10 +928,10 @@
 			<div class="row" id="pastaC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			    	<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -978,10 +979,10 @@
 			<div class="row" id="flourC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1029,10 +1030,10 @@
 			<div class="row" id="sourceC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1080,10 +1081,10 @@
 			<div class="row" id="seasoningC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1131,10 +1132,10 @@
 			<div class="row" id="saltC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1189,10 +1190,10 @@
 			<div class="row" id="allMeatC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1240,10 +1241,10 @@
 			<div class="row" id="beafC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1291,10 +1292,10 @@
 			<div class="row" id="porkC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1342,10 +1343,10 @@
 			<div class="row" id="lambC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1393,10 +1394,10 @@
 			<div class="row" id="chickenC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1444,10 +1445,10 @@
 			<div class="row" id="eggC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1503,10 +1504,10 @@
 					<div class="col-xs-4" align="center">
 					
 						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
@@ -1555,10 +1556,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			    	<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1607,10 +1608,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			      <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1659,10 +1660,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1711,10 +1712,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1763,10 +1764,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			  <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1819,10 +1820,10 @@
 			<div class="row" id="allFreshC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1866,10 +1867,10 @@
 			<div class="row" id="saladC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1913,10 +1914,10 @@
 			<div class="row" id="frozenFoodC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1960,10 +1961,10 @@
 			<div class="row" id="soupC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			     <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2007,10 +2008,10 @@
 			<div class="row" id="cerealC">
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
-			      <a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2030,7 +2031,7 @@
 		<br>
 			<div class="row">
 				<div class="col-xs-offset-2">
-					<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+					<button class="bttn-stretch bttn-md bttn-primary" id="allDrink">전체보기</button>
 					<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
 					<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
 					<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
@@ -2040,32 +2041,32 @@
 			<br><br><br>
 			<%-- Category 분류 jQuery 접어두는걸 추천 --%>
 			<script>
-			$('#allFish').click(function(){
-				$('#allFishC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
+			$('#allDrink').click(function(){
+				$('#allDrinkC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
 			});
 			$('#drinks').click(function(){
-				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
+				$('#allDrinkC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
 			});
 			$('#coffee').click(function(){
-				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
+				$('#allDrinkC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
 			});
 			$('#milk').click(function(){
-				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
+				$('#allDrinkC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
 			});
 			$('#candy').click(function(){
-				$('#allFishC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
+				$('#allDrinkC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
 			});
 			</script>
 	
-				<div class="row" id="allFishC">
+				<div class="row" id="allDrinkC">
 				<c:forEach items="${products}" var="products">
 					<div class="col-xs-4" align="center">
 					
 						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
@@ -2081,7 +2082,7 @@
 		<br>
 		<div class="row">
 			<div class="col-xs-offset-2">
-				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="allDrink">전체보기</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
@@ -2089,7 +2090,7 @@
 			</div>
 		</div>
 		<script>
-		$('#allFish').click(function(){
+		$('#allDrink').click(function(){
 			$('#drinksC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
 		});
 		$('#drinks').click(function(){
@@ -2110,10 +2111,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			    	<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2129,7 +2130,7 @@
 		<br>
 		<div class="row">
 			<div class="col-xs-offset-2">
-				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="allDrink">전체보기</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
@@ -2137,7 +2138,7 @@
 			</div>
 		</div>
 		<script>
-		$('#allFish').click(function(){
+		$('#allDrink').click(function(){
 			$('#coffeeC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
 		});
 		$('#drinks').click(function(){
@@ -2158,10 +2159,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			      <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2177,7 +2178,7 @@
 		<br>
 		<div class="row">
 			<div class="col-xs-offset-2">
-				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="allDrink">전체보기</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
@@ -2185,7 +2186,7 @@
 			</div>
 		</div>
 		<script>
-		$('#allFish').click(function(){
+		$('#allDrink').click(function(){
 			$('#milkC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
 		});
 		$('#drinks').click(function(){
@@ -2206,10 +2207,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2225,7 +2226,7 @@
 		<br>
 		<div class="row">
 			<div class="col-xs-offset-2">
-				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
+				<button class="bttn-stretch bttn-md bttn-primary" id="allDrink">전체보기</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
 				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
@@ -2233,7 +2234,7 @@
 			</div>
 		</div>
 		<script>
-		$('#allFish').click(function(){
+		$('#allDrink').click(function(){
 			$('#candyC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
 		});
 		$('#drinks').click(function(){
@@ -2254,58 +2255,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
-			    </div>
-			</c:forEach>
-		  	</div>
-		</c:when>
-		</c:choose>
-		
-		<c:set var="cate" value="${param.product_category2}"/>
-		<c:choose>
-		<c:when test="${cate eq '건어물·다시팩'}">
-		<div class="col-xs-offset-1">
-		<div style="font-size: 20px; font-weight: bold;"><img src="../../../resources/image/coffee-cup.png">&nbsp;&nbsp;${param.product_category1}</div>
-		</div>
-		<br>
-		<div class="row">
-			<div class="col-xs-offset-2">
-				<button class="bttn-stretch bttn-md bttn-primary" id="allFish">전체보기</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="drinks">생수·음료·주스</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="coffee">커피·차</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="milk">우유·두유</button>
-				<button class="bttn-stretch bttn-md bttn-primary" id="candy">초콜릿·젤리·캔디</button>
-			</div>
-		</div>
-		<script>
-		$('#allFish').click(function(){
-			$('#driedFishC').load('http://localhost:8080/product/products1.do?product_category1=음료·우유·간식 #allDrinkC');
-		});
-		$('#drinks').click(function(){
-			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=생수·음료·주스 #drinksC');
-		});
-		$('#coffee').click(function(){
-			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=커피·차 #coffeeC');
-		});
-		$('#milk').click(function(){
-			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=우유·두유 #milkC');
-		});
-		$('#candy').click(function(){
-			$('#driedFishC').load('http://localhost:8080/product/products2.do?product_category2=초콜릿·젤리·캔디 #candyC');
-		});
-		</script>
-		<br><br><br>
-			<div class="row" id="driedFishC">
-			<c:forEach items="${products}" var="products">
-			    <div class="col-xs-4" align="center">
-			  <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
-				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2357,10 +2310,10 @@
 					<div class="col-xs-4" align="center">
 					
 						<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
@@ -2405,10 +2358,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			    	<!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2453,10 +2406,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			      <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2501,10 +2454,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2549,10 +2502,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			     <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2597,10 +2550,10 @@
 			<c:forEach items="${products}" var="products">
 			    <div class="col-xs-4" align="center">
 			  <!-- 상품 사진, 이름, 찜하기, 가격 순 -->
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
-				      	${products.product_name}&nbsp;
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
+				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						${products.product_price}원<br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
