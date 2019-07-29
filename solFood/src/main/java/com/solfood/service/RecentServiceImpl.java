@@ -28,8 +28,8 @@ public class RecentServiceImpl implements RecentService{
 	//	insert
 	//------------------------------------------------------------------
 	@Override
-	public void insertRecent(int recent_num) throws Exception {
-		dao.insertRecent(recent_num);
+	public void insertRecent(TotalVO vo) throws Exception {
+		dao.insertRecent(vo);
 	}
 
 	//------------------------------------------------------------------

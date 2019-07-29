@@ -5,24 +5,18 @@
  
 	<mapper namespace="com.solfood.mapper.recentMapper">
 		<!-- =============================== SELECT ======================================https://s.pstatic.net/static/www/mobile/edit/2017/0324/mobile_184353754426.gif=== -->		
-		<!-- 상위 3개만 옆에 최근본 상품으로 뜨게
+		<!-- 상위 3개만 옆에 최근본 상품으로 뜨게 -->
 		<select id="selectRecent" parameterType="String" resultType="com.solfood.dto.TotalVO">
-			SELECT P.PRODUCT_NAME, P.PRODUCT_IMAGE, R.PRODUCT_ID, R.RECENT_NUM,  A.ACCOUNT_USER
+			SELECT P.PRODUCT_ID, P.PRODUCT_NAME, P.PRODUCT_IMAGE, R.RECENT_NUM,  A.ACCOUNT_USER
 			FROM PRODUCT P, RECENT R, ACCOUNT A
 			WHERE P.PRODUCT_ID= R.PRODUCT_ID AND R.ACCOUNT_USER = A.ACCOUNT_USER AND R.ACCOUNT_USER= #{account_user} LIMIT 3 
 		</select>
-		 -->
 		 
-		 <select id="selectRecent" parameterType="String" resultType="com.solfood.dto.TotalVO">
-			SELECT P.PRODUCT_ID, P.PRODUCT_IMAGE, R.RECENT_NUM, R.ACCOUNT_USER 
-			FROM PRODUCT P, RECENT R 
-			WHERE P.PRODUCT_ID= R.PRODUCT_ID AND P.PRODUCT_ID= 41 AND R.ACCOUNT_USER= 1; 
-		</select>
 		
 		<!-- =============================== INSERT ========================================= -->
 		<!-- 상품 상세페이지를 누르면 RECENT 테이블에 PRODUCT_ID 가 들어가게 -->
-		<insert id="insertRecent" parameterType="int">
-			INSERT INTO Recent (PRODUCT_ID) VALUES (#{product_id}) 
+		<insert id="insertRecent" parameterType="com.solfood.dto.TotalVO">
+			INSERT INTO Recent (PRODUCT_ID, ACCOUNT_USER) VALUES (#{product_id}, #{account_user}) 
 		</insert>
 	</mapper>
 	

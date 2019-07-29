@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.solfood.dto.TotalVO;
 import com.solfood.service.CartService;
 import com.solfood.service.ProductService;
+import com.solfood.service.RecentService;
 
 @Controller
 @RequestMapping("/product/")
@@ -28,7 +29,8 @@ public class ProductController {
 	
 	@Inject
 	private ProductService productService;	
-	
+	@Inject
+	private RecentService recentService;
 	//============================================================
 	//	selectProduct--> 상품 정보 불러오기// SELECT * FROM PRODUCT WHERE PRODUCT_ID= ?
 	//============================================================
@@ -57,9 +59,20 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/productInfo.do")
-	public String productInfo(Model model, int product_id) throws Exception {
+	public String productInfo(Model model, int product_id, String account_user) throws Exception {
+		// 상품 정보 추출
 		List<TotalVO> productList = productService.selectProduct(product_id);
 		model.addAttribute("productList", productList);
+		
+		// 상품을 누르는 순간 recent table에 들어가게
+		TotalVO vo= new TotalVO();
+		vo.setAccount_user(account_user);
+		vo.setProduct_id(product_id);
+		
+		// 삭제하기
+		System.out.println("====================== insertrecent");
+		
+		recentService.insertRecent(vo);
 		
 		return "product/productInfo";
 	}

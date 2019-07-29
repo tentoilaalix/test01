@@ -14,7 +14,7 @@ public interface RecentDAO {
 	//---------------------------------------------------
 	//	insert 
 	//---------------------------------------------------
-	public void insertRecent(int recent_num) throws Exception;
+	public void insertRecent(TotalVO vo) throws Exception;
 	
 	
 	//---------------------------------------------------

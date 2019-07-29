@@ -6,6 +6,6 @@ import com.solfood.dto.TotalVO;
 public interface RecentService {
 	public List<TotalVO> selectRecent(String account_user) throws Exception;	
 	
-	public void insertRecent(int recent_num) throws Exception;
+	public void insertRecent(TotalVO vo) throws Exception;
 	
 }

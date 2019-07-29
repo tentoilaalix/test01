@@ -26,8 +26,8 @@ public class RecentDAOImpl implements RecentDAO{
 	//	insert
 	//--------------------------------------------------------------
 	@Override
-	public void insertRecent(int recent_num) throws Exception {
-		sqlSession.insert(Namespace+".insertRecent", recent_num);		
+	public void insertRecent(TotalVO vo) throws Exception {
+		sqlSession.insert(Namespace+".insertRecent", vo);		
 	}
 
 	//--------------------------------------------------------------

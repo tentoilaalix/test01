@@ -434,8 +434,8 @@ display:inline-block;
 			<%=nf.format(2850)%>원
 		</div>
 		<div class="col-xs-3">
-			<a href="${path}/product/productInfo.do?product_id=41"><img src="../resources/image/cate1-2.png"></a><br><br>
-			<a href="${path}/product/productInfo.do?product_id=41"><strong>GAP 오이 2입</strong></a><br>
+			<a href="${path}/product/productInfo.do?product_id=41&account_user=${login.account_user}"><img src="../resources/image/cate1-2.png"></a><br><br>
+			<a href="${path}/product/productInfo.do?product_id=41&account_user=${login.account_user}"><strong>GAP 오이 2입</strong></a><br>
 			<%=nf.format(1270)%>원	
 		</div>
 		<div class="col-xs-3">

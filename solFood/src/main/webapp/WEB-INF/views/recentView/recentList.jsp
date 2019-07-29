@@ -27,8 +27,8 @@
 				data: json,
 				success: function(data){
 					for(var i=0; i<data.length; i++){
-						html+= "<h5>"+ data[i].product_name+ "</h5><br>";
-						html+= "<img src='/img/" + data[i].product_image + "' style='width:50px; height:auto;'/>";
+						html+= "<a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'><h5>"+ data[i].product_name+ "</h5></a><br>";
+						html+= "<a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/" + data[i].product_image + "' style='width:50px; height:auto;'/></a>";
 						$("#recent").html(html);
 					}
 				},
@@ -36,7 +36,7 @@
 					alert("recentList ajax fail");
 				}
 			});
-
+																
 		}
 	</script>
 </head>	
@@ -44,13 +44,12 @@
 	<%-- account_user 값 받기 --%>
 	<input type="text" hidden="true" value="${login.account_user}" name="account_user">
 	
-	<h2>최근 본 상품 페이지 뭐야</h2>
+	
 		<div id="rightSide">
 		<div id="right_zzim">
 			<div  class="recTit">최근본상품 <span id=recentCnt></span></div>
 				<ul>	
 					<li id="recent">
-						
 					</li>
 				</ul>    <!-- 본 상품이 뿌려질 부분  -->
 			<div id="paging"><a class="btn_prev" style="cursor:pointer" >이전</a><span  id="currentPage"></span><span id="totalPageCount"></span><a class="btn_next" style="cursor:pointer" >다음</a></div>
@@ -59,26 +58,3 @@
 </body>
 </html>
 
-
-			
-	
-			
-			
-
-
-
-
-
-
-
-
-
-	
-	
-
-
-
-<%-- <jsp:include page="../module/Bottom.jsp" flush="false"/> --%>
-
-</body>
-</html>

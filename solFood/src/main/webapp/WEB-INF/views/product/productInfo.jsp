@@ -1,10 +1,10 @@
-<%@ page import="java.net.URLEncoder" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
@@ -94,17 +94,7 @@
 					<hr>
 					구매수량
 				</c:forEach>
-						<%
-	String cp = request.getContextPath();
-	request.setCharacterEncoding("UTF-8");
-	//상품에 대한 정보를 쿠키에 담기.
-	//쿠키에 한글은 저장되지 않으므로 encode함수로 인코딩 해야 한다.
-	Cookie cook = new Cookie("product41", URLEncoder.encode("감자", "UTF-8")); //최근본상품에 넘겨줄 이름
-	cook.setMaxAge(20); // 쿠키 유지 시간/ 초
-	response.addCookie(cook);
-	
-	
-%>
+
 			</div>
 		</div>
 	</div>
