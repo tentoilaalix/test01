@@ -140,9 +140,13 @@ public class MemberController {
 		session.setAttribute("login", afterUpdate);								// 그 결과값을 다시 login attribute에 넣기
 		session.setAttribute("account_grade", afterUpdate.getAccount_grade());
 	
-		return "member/mypageComp";
+		return "mypageComp.do";
 	}
 	
+	@RequestMapping(value="/mypageComp.do")
+	public String mypageComp() throws Exception{
+		return "/member/mypageComp";
+	}
 	//===============================================================
 	// 회원정보 탈퇴
 	//===============================================================
