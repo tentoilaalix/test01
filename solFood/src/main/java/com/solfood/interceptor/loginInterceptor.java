@@ -16,8 +16,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  
-public class FirstInterceptor extends HandlerInterceptorAdapter{
-	private static final Logger logger = LoggerFactory.getLogger(FirstInterceptor.class);
+public class loginInterceptor extends HandlerInterceptorAdapter{
+	private static final Logger logger = LoggerFactory.getLogger(loginInterceptor.class);
  
 	//---------------------------------------------------
 	// preHandle--> interceptor 시작될 때 실행되는 메소드
