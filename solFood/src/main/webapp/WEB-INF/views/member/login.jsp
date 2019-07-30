@@ -44,7 +44,11 @@
 		<div class="form-group">
 			<label for="joinformID" class="col-md-4 control-label">아이디</label>
 			<div class="col-md-4">
+<<<<<<< HEAD
 				<input id="account_user"type="text" class="form-control" name="account_user" maxlength="20" placeholder="Enter ID" style="border-radius: 0px;">
+=======
+				<input id="account_user" type="text" class="form-control" name="account_user" maxlength="20" placeholder="Enter ID" style="border-radius: 0px;">
+>>>>>>> refs/remotes/origin/mergeWithDY
 			</div>
 		</div>
 		<div class="form-group">

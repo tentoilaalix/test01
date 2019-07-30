@@ -43,6 +43,7 @@
 
 		<div class="navbar-menu">
 			<div class="navbar-start">
+<<<<<<< HEAD
 				<div class="navbar-item has-dropdown is-hoverable">
 					<a class="navbar-link" href="${path}/manager/product/product_list.do">
 						상품관리
@@ -101,6 +102,90 @@
 						ADMIN
 					</p>
 					<div class="navbar-dropdown">
+=======
+				<%--============================== 상품 관리 ===============================--%>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link" href="${path}/manager/product/product_page.do">
+						상품관리
+					</a>
+					<div class="navbar-dropdown " data-style="width: 18rem;">
+						<a class="navbar-item" href="${path}/manager/product/product_page.do">
+							상품현황
+						</a>
+						<a class="navbar-item" href="${path}/manager/product/product_register.do">
+							상품등록
+						</a>
+					</div>
+				</div>
+				
+				<%--============================== 게시판 관리 ===============================--%>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link" href="">
+						게시판관리
+					</a>
+					<div class="navbar-dropdown " data-style="width: 18rem;">
+						<a class="navbar-item" href="">
+							사용자게시판관리
+						</a>
+						<a class="navbar-item" href="${path}/manager/recipe/recipe_list.do">
+							콘텐츠(레시피)관리
+						</a>
+					</div>
+				</div>
+				
+				<%--============================== 회원 관리 ===============================--%>
+				<a class="navbar-item" href="${path}/manager/account/account_page.do">
+					회원관리
+				</a>
+				
+				
+				<%--============================== 구매 관리 ===============================--%>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link" href="">
+						구매관리
+					</a>
+					<div class="navbar-dropdown " data-style="width: 18rem;">
+						<a class="navbar-item" href="">
+							주문내역
+						</a>
+						<a class="navbar-item" href="">
+							배송관리
+						</a>
+					</div>
+				</div>
+				
+				<%--============================== 통계 관리 ===============================--%>
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link " href="http://bulma.io/blog/">
+						통계자료
+					</a>
+					<div class="navbar-dropdown " data-style="width: 18rem;">
+						<a class="navbar-item" href="/">
+							월간통계
+						</a>
+		
+						<a class="navbar-item" href="/">
+							상품통계
+						</a>
+					</div>
+				</div>
+			</div>
+
+	<%--================================= 관리자 메뉴 ========================================--%>
+			<div class="navbar-end">
+				<a class="navbar-item" href="${path}/">
+					SHOP
+					&ensp;
+					<span class="icon"><i class="fas fa-home fa-lg"></i></span>
+				</a>
+				
+				<div class="navbar-item has-dropdown is-hoverable">
+					
+					<p class="navbar-link">
+						ADMIN
+					</p>
+					<div class="navbar-dropdown is-right">
+>>>>>>> refs/remotes/origin/mergeWithDY
 						<p class="navbar-item">관리자 : ${login.account_name}</p>
 				        <p class="navbar-item">관리등급 : ${login.account_grade}</p>
 				        

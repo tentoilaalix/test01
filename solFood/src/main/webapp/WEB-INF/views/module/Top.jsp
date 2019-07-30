@@ -7,6 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>top top</title>
+<<<<<<< HEAD
 	<link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../resources/css/animate.css" rel="stylesheet">
 	<link href="../resources/css/wickedcss.min.css" rel="stylesheet">
@@ -61,6 +62,73 @@
 			    </c:otherwise>
 			</c:choose>
 		 	<a class="navbar-item" href="${path}/manager/managerMain.do">관리자 페이지@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+=======
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:700" rel="stylesheet">
+
+	<link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../resources/css/animate.css" rel="stylesheet">
+	<link href="../resources/css/wickedcss.min.css" rel="stylesheet">
+	<script src="../resources/js/jquery-3.3.1.min.js"></script>
+	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		a { text-decoration: none;}
+ 		a:link { color: black; text-decoration: none !important;}
+ 		a:active { color: black !important; text-decoration: none !important;}
+		a:visited { color: black !important; text-decoration: none !important;}
+ 		a:hover { color: black !important; text-decoration: none !important;}
+	</style>
+	<style>
+		.logo {
+			position: absolute;
+			top: 22px;
+			left: 45% !important;
+			display:block;
+			z-index: 10;
+		}
+	 	body{
+	 		font-family: 'Nanum Gothic Coding';
+	 		font-size: ;
+	 	}
+	 	p{
+	 		vertical-align: middle;
+	 	}
+	</style>
+
+
+
+</head>
+<body>
+
+<!-- 
+	<a href="/member/login.do">로그인1</a>
+	<a href="${path}/member/login.do">로그인2</a>
+	
+	<a href="../">메인메뉴 1</a>
+	<a href="../${path}">메인메뉴 2</a>
+	<a href="../../${path}">메인메뉴 3</a>
+	똑같이 연결됨
+ -->
+	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Top ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
+	<div class="row">
+			   
+			<c:choose>
+			    <c:when test="${login.account_user == null}">
+			    <div class="col-sm-offset-10">
+			        <a href="${path}/member/login.do"><strong>로그인&nbsp;</strong></a>&nbsp;｜&nbsp;
+			        <a href="${path}/member/joinMember.do"><strong>회원가입&nbsp;</strong></a>
+			    </div>
+			    </c:when>
+			    <c:otherwise>
+			    <div class="col-sm-offset-9">
+			        <a href="${path}/member/mypage.do?account_user=${login.account_user}"><strong>마이페이지&nbsp;</strong></a>&nbsp;｜&nbsp;
+			        <a href="${path}/cart/cartList.do?account_user=${login.account_user}"><strong>장바구니&nbsp;</strong></a>&nbsp;｜&nbsp;  
+			        <a href="${path}/buy/buy.do?account_user=${login.account_user}"><strong>구매이력&nbsp;</strong></a>&nbsp;｜&nbsp;  
+			        <a href="${path}/member/logout.do"><strong>로그아웃&nbsp;</strong></a>
+			    </div>
+			    </c:otherwise>
+			</c:choose>
+		 	<a class="navbar-item" href="${path}/manager/managerMain.do">관리자 페이지
+>>>>>>> refs/remotes/origin/mergeWithDY
 				<img src="${path}/resources/image/logo0.png" width="95" height="35">
 			</a>
 	</div>

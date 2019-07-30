@@ -210,6 +210,7 @@
                   </ul>
                </li>
                <li class="dropdown-submenu">
+<<<<<<< HEAD
                   <a href="${path}/product/products1.do?product_category1=정육·계란"><strong>정육·계란</strong></a>
                   <ul class="dropdown-menu">
                      <li><a href="${path}/product/products2.do?product_category2=소고기">소고기</a></li>
@@ -246,6 +247,82 @@
   </div>
   <div class="col-xs-2">
   <a href="#" id="topMenu">레 시 피</a>
+=======
+                  <a href="${path}/product/products1.do?product_category1=면·양념·오일"><strong>면·양념·오일</strong></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="${path}/product/products2.do?product_category2=파스타·면류">파스타·면류</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=밀가루·가루·믹스">밀가루·가루·믹스</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=향신료·소스·드레싱">향신료·소스·드레싱</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=양념·액젓·장류">양념·액젓·장류</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=소금·설탕·식초">소금·설탕·식초</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown-submenu">
+                  <a href="${path}/product/products1.do?product_category1=정육·계란"><strong>정육·계란</strong></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="${path}/product/products2.do?product_category2=소고기">소고기</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=돼지고기">돼지고기</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=양고기">양고기</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=닭·오리고기">닭·오리고기</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=계란·돈까스">계란·돈까스</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown-submenu">
+                  <a href="${path}/product/products1.do?product_category1=수산·해산"><strong>수산·해산</strong></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="${path}/product/products2.do?product_category2=생선류">생선류</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=오징어·낙지·문어">오징어·낙지·문어</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=해산물·조개류">해산물·조개류</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=김·미역">김·미역</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=건어물·다시팩">건어물·다시팩</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown-submenu">
+                  <a href="${path}/product/products1.do?product_category1=샐러드·간편식"><strong>샐러드·간편식</strong></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="${path}/product/products2.do?product_category2=샐러드·도시락">샐러드·도시락</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=간편식·냉동식품">간편식·냉동식품</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=죽·수프">죽·수프</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=선식·시리얼·그래놀라">선식·시리얼·그래놀라</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown-submenu">
+                  <a href="${path}/product/products1.do?product_category1=음료·우유·간식"><strong>음료·우유·간식</strong></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="${path}/product/products2.do?product_category2=생수·음료·주스">생수·음료·주스</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=커피·차">커피·차</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=우유·두유">우유·두유</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=초콜릿·젤리·캔디">초콜릿·젤리·캔디</a></li>
+                  </ul>
+               </li>
+               <li class="dropdown-submenu">
+                  <a href="${path}/product/products1.do?product_category1=베이커리·델리"><strong>베이커리·델리</strong></a>
+                  <ul class="dropdown-menu">
+                     <li><a href="${path}/product/products2.do?product_category2=식빵·빵류">식빵·빵류</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=잼·버터·스프레드">잼·버터·스프레드</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=케이크·파이·디저트">케이크·파이·디저트</a></li>
+                     <li><a href="${path}/product/products2.do?product_category2=올리브·피클·델리">올리브·피클·델리</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </li>
+      </ul>
+   </div>
+</nav>
+
+  </div>
+  <div class="col-xs-2">
+  <a href="#" id="topMenu">공 지 사 항</a>
+  </div>
+  <div class="col-xs-2">
+  <a href="product/eventMain.do" id="topMenu">이 벤 트</a>
+  </div>
+  <div class="col-xs-2">
+  <a href="#" id="topMenu">게 시 판</a>
+  </div>
+  <div class="col-xs-2">
+  <a href="${path}/recipeList.do" id="topMenu">레 시 피</a>
+>>>>>>> refs/remotes/origin/mergeWithDY
   </div>
   <div class="col-xs-2">
 <div class="d3">

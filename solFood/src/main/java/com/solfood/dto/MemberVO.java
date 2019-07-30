@@ -16,6 +16,7 @@ public class MemberVO {
 	private String account_email;
 	private String account_email1;
 	private String account_email2;
+<<<<<<< HEAD
 	
 	
 	@Override
@@ -27,6 +28,26 @@ public class MemberVO {
 				+ ", account_email1=" + account_email1 + ", account_email2=" + account_email2 + "]";
 	}
 	
+=======
+	private int RNUM;
+
+	
+	@Override
+	public String toString() {
+		return "MemberVO [account_user=" + account_user + ", account_password=" + account_password + ", account_name="
+				+ account_name + ", account_date=" + account_date + ", account_tel=" + account_tel
+				+ ", account_address=" + account_address + ", account_grade=" + account_grade + ", account_age="
+				+ account_age + ", account_gender=" + account_gender + ", account_email=" + account_email
+				+ ", account_email1=" + account_email1 + ", account_email2=" + account_email2 + ", RNUM=" + RNUM + "]";
+	}
+	
+	public int getRNUM() {
+		return RNUM;
+	}
+	public void setRNUM(int rNUM) {
+		RNUM = rNUM;
+	}
+>>>>>>> refs/remotes/origin/mergeWithDY
 	public String getAccount_email1() {
 		return account_email1;
 	}

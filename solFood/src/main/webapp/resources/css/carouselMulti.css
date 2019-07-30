@@ -4,9 +4,15 @@
 }
 .slide-control {
   position: absolute;
+<<<<<<< HEAD
   top: 0;
   bottom: 0;
   left: 0;
+=======
+  top: -28px;
+  bottom: 0;
+  left: -15px;
+>>>>>>> refs/remotes/origin/mergeWithDY
   width: 1%;
   font-size: 30px;
   color: #fff !important;

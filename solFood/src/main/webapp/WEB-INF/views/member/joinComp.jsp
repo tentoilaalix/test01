@@ -13,6 +13,7 @@
 	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
 <h1>회원가입 완료</h1>
 
 	<c:if test="${msg == 'success'}">
@@ -22,5 +23,18 @@
 
 
 
+=======
+	<div class="container" align="center">
+		<br><br>
+		<h2>회원가입 완료</h2>
+	
+    	<h3>${account_name}님 환영합니다.</h3><br>
+    	<button type="button" class="btn-md btn-success">로그인하기</button>
+		<button type="button" class="btn-md btn-primary">메인으로</button>
+		<br><br>
+	</div>
+	<%--========================= bottom ========================= --%>
+	<%@ include file = "../module/Bottom.jsp" %>
+>>>>>>> refs/remotes/origin/mergeWithDY
 </body>
 </html>

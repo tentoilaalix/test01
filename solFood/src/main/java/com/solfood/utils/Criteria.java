@@ -6,8 +6,24 @@ public class Criteria
  private int perPageNum;
  private int rowStart;
  private int rowEnd;
+<<<<<<< HEAD
  
  public Criteria()
+=======
+
+ private String column;
+ 
+ 
+ public String getColumn() {
+	return column;
+}
+
+public void setColumn(String column) {
+	this.column = column;
+}
+
+public Criteria()
+>>>>>>> refs/remotes/origin/mergeWithDY
  {
   this.page = 1;
   this.perPageNum = 10;

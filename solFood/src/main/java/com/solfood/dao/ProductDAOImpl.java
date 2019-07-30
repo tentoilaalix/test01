@@ -16,6 +16,7 @@ public class ProductDAOImpl implements ProductDAO{
 	//	select 
 	//-----------------------------------------------------------------------
 	@Override
+<<<<<<< HEAD
 	public List<TotalVO> selectProduct(int product_id) throws Exception {
 		return sqlSession.selectList(Namespace+".selectProduct", product_id);
 	}
@@ -47,4 +48,48 @@ public class ProductDAOImpl implements ProductDAO{
 	public void updateProduct_count_minus(TotalVO vo) throws Exception {
 		sqlSession.update(Namespace+".updateProduct_count_minus", vo);
 	}
+=======
+	public List<TotalVO> selectProduct_all() throws Exception {
+		return sqlSession.selectList(Namespace+".selectProduct_all");
+	}
+	@Override
+	public List<TotalVO> selectProduct(int product_id) throws Exception {
+		return sqlSession.selectList(Namespace+".selectProduct", product_id);
+	}
+
+	@Override
+	public List<TotalVO> selectProduct_count() throws Exception {
+		return sqlSession.selectList(Namespace+".selectProduct_count");
+	}
+
+	@Override
+	public int selectProduct_count_individually(int product_id) throws Exception {
+		return sqlSession.selectOne(Namespace+".selectProduct_count_individually", product_id);
+	}
+	
+	@Override
+	public List<TotalVO> selectProduct_category1(String product_category1) throws Exception {
+		return sqlSession.selectList(Namespace+".selectProduct_category1", product_category1);
+	}
+	
+	@Override
+	public List<TotalVO> selectProduct_category2(String product_category2) throws Exception {
+		return sqlSession.selectList(Namespace+".selectProduct_category2", product_category2);
+	}
+	
+	@Override
+	public List<TotalVO> selectEvent(int product_event) throws Exception {
+		return sqlSession.selectList(Namespace+".selectEvent", product_event);
+	}
+	//-----------------------------------------------------------------------
+	//	update 
+	//-----------------------------------------------------------------------
+	@Override
+	public void updateProduct_count_minus(TotalVO vo) throws Exception {
+		sqlSession.update(Namespace+".updateProduct_count_minus", vo);
+	}
+
+
+	
+>>>>>>> refs/remotes/origin/mergeWithDY
 }

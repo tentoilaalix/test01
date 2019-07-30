@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: ahn
 Build-Jdk: 1.8.0_211
+=======
+Built-By: soldesk
+Build-Jdk: 1.8.0_202
+>>>>>>> refs/remotes/origin/mergeWithDY
 Created-By: Maven Integration for Eclipse
 

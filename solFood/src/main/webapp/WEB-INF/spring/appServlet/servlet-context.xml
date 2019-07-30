@@ -50,6 +50,7 @@
     	<websocket:sockjs />
 	</websocket:handlers>
 	
+<<<<<<< HEAD
 	<!-- Interceptor 설정 -->
 	<interceptors>
 		<interceptor>
@@ -61,6 +62,27 @@
 		</interceptor>
 	</interceptors>
 	
+=======
+	<!-- login Interceptor 설정 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/mypage.do" />
+			<mapping path="/board/list.do" />
+			<mapping path="/cart/cartList.do" />
+			<mapping path="/cart/cartInsert.do"/>
+			<mapping path="/heart/heartList.do"/>
+			<beans:bean id="loginInterceptor" class="com.solfood.interceptor.loginInterceptor" />
+		</interceptor>
+	</interceptors>
+	
+	<!-- managerMain url Interceptor 설정 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/manager/managerMain.do" />
+			<beans:bean id="managerMainInterceptor" class="com.solfood.interceptor.managerMainInterceptor" />
+		</interceptor>
+	</interceptors>
+>>>>>>> refs/remotes/origin/mergeWithDY
 	
 	<context:component-scan base-package="com.solfood.controller" />
 	

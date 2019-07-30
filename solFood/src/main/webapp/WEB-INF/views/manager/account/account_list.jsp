@@ -14,6 +14,12 @@
 	td {
 		vertical-align: middle !important;
 	}
+<<<<<<< HEAD
+=======
+	table {
+		font-family: 'SpoqaHanSans-kr';
+	}
+>>>>>>> refs/remotes/origin/mergeWithDY
 	</style>
 
 </head>

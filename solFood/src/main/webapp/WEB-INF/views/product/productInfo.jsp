@@ -1,17 +1,77 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"  %>
 
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>SolFood</title>
 	<link href="../../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
+	<script>
+		function insertToCart(product_id, account_user){							
+			var purchase_count= document.getElementsByName("purchase_count")[0].value;
+			var json= {"product_id":product_id, "account_user":account_user, "purchase_count":purchase_count};
+			
+			$.ajax({
+				type: "post",
+				url: "/cart/cartInsert.do",
+				data: json,
+				beforeSend: function(xmlHttpRequest){
+					xmlHttpRequest.setRequestHeader("AJAX", "true");
+				},
+				success: function(data){		
+					if(data== "outOfStock"){
+						alert("이 상품은 품절입니다");
+					} else if(data== "success"){
+						alert("장바구니 넣기 완료되었습니다");
+						var result= confirm("장바구니로 이동하시겠습니까?");
+						if(result){
+							window.location.href= "${path}/cart/cartList.do?account_user="+ account_user;
+						}	
+					} else if(data== "replace"){
+						alert("기존에 장바구니에 있는 상품입니다. 장바구니에서 수량 조정 가능합니다");
+						var result= confirm("장바구니로 이동하시겠습니까?");
+						if(result){
+							window.location.href= "${path}/cart/cartList.do?account_user="+ account_user;
+						}
+					} else if(data== "overStock"){
+						alert("선택하신 수량만큼 구매할 수 없습니다.");
+					}		
+				},
+				error: function(){
+					alert("장바구니 넣기 실패- 로그인을 하고 다시 시도하세요");
+				}
+			});
+		}
+
+		/*
+		// 재고 수량 알아보는 메소드
+		function searchProductCount(product_id){
+			var json= {"product_id":product_id};
+			var availableProductCount;
+			var html;
+
+			$.ajax({
+				type: "post",
+				url: "/cart/searchProductCount.do",
+				data: json,
+				success: function(data){		
+					availableProductCount= data;
+					alert(availableProductCount);
+					
+					html= "<c:set var= 'productCount' value='"+ availableProductCount +"'/>";
+					$("#setProductCount").html(html);
+				}, 
+				error: function(){
+				}
+			});
+		}
+		*/
+	</script>
 </head>
 <style>
 	.name {
@@ -27,85 +87,94 @@
 
 </style>
 <body>
-
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<header>
 		<%@ include file = "../module/Top.jsp" %>
-		
 	</header>
 	<br><br><br><br>
 	<c:set var="id" value="${param.product_id}"/>
-		
+	
+	<%--======================== 상품 정보 ===========================--%>
 	<div class="container">
 		<div class="row">
+			<c:forEach items="${productList}" var="productList">
 			<div class="col-xs-offset-1 col-xs-3">
-				<img src="../resources/image/cate1-1.png" width="350px" height="500px;">
+				<img src="/img/${productList.product_image}" width="350px" height="500px;">
 			</div>
 			
 			<div class="col-xs-offset-2 col-xs-4" align="left">
-				<c:forEach items="${productList}" var="productList">
-					<div class="name">${productList.product_name}</div><br>
-					<div class="content">
-					${productList.product_category1} -> ${productList.product_category2}<br><br><br>
-					</div>
-					<table class="productInfo">
+				<div class="name">${productList.product_name}</div><br>
+				<div class="content">${productList.product_category1} -> ${productList.product_category2}<br><br><br></div>
+					
+				<table class="productInfo">
 					<tr>
-					<th width="120px" height="30px">판매가</th>
-					<td width="200px" height="30px" align="right"><b><del><fmt:formatNumber>${productList.product_price}</fmt:formatNumber> 원</del> → <fmt:formatNumber>${productList.product_price - (productList.product_price * productList.product_discountrate / 100)}</fmt:formatNumber> 원</b></td>
+						<th width="120px" height="30px">판매가</th>
+						<td width="200px" height="30px" align="right"><b><del><fmt:formatNumber>${productList.product_price}</fmt:formatNumber> 원</del> → <fmt:formatNumber>${productList.product_price - (productList.product_price * productList.product_discountrate / 100)}</fmt:formatNumber> 원</b></td>
 					</tr>
 					<tr>
-					<th width="120px" height="30px">할인금액</th>
-					<td width="200px" height="30px" align="right"><fmt:formatNumber>${productList.product_price * productList.product_discountrate / 100}</fmt:formatNumber> 원</td>
+						<th width="120px" height="30px">할인금액</th>
+						<td width="200px" height="30px" align="right"><fmt:formatNumber>${productList.product_price * productList.product_discountrate / 100}</fmt:formatNumber> 원</td>
 					</tr>
-					</table>
-					<hr>
-					<table>
+				</table>
+				<hr>
+				<table>
 					<tr>
-					<th width="120px" height="30px">재고</th>
-					<td width="200px" height="30px" align="right">${productList.product_count}</td>
+						<th width="120px" height="30px">재고</th>
+						<td width="200px" height="30px" align="right">${productList.product_count}</td>
 					</tr>
-					</table>
-					<hr>
-					<table>
+				</table>
+				<hr>
+				<table>
 					<tr>
-					<th width="120px" height="30px">product_ea</th>
-					<td width="200px" height="30px" align="right">${productList.product_ea}</td>
+						<th width="120px" height="30px">개입</th>
+						<td width="200px" height="30px" align="right">${productList.product_ea}</td>
 					</tr>
 					<tr>
-					<th width="120px" height="30px">product_package</th>
-					<td width="200px" height="30px" align="right">${productList.product_package}</td>
+						<th width="120px" height="30px">보관</th>
+						<td width="200px" height="30px" align="right">${productList.product_package}</td>
 					</tr>
-					</table>
-					<hr>
-					<table>
+				</table>
+				<hr>
+				<table>
 					<tr>
-					<th width="120px" height="30px">상품설명</th>
-					<td width="200px" height="30px" align="right">${productList.product_content}</td>
+						<th width="120px" height="30px">유통기한</th>
+						<td width="200px" height="30px" align="right">${productList.product_date}</td>
 					</tr>
-					</table>
-					<hr>
-					<table>
+				</table>
+				<hr>
+				
+				<div id= "setProductCount">
+					
+				</div>
+				<table>
 					<tr>
-					<th width="120px" height="30px">product_date</th>
-					<td width="200px" height="30px" align="right">${productList.product_date}</td>
+						<th width="120px" height="30px">구매수량</th>
+						<td width="100px" height="30px" align="right">
+							<input type="number" min="1" max="100" value="1" name="purchase_count">
+						</td>
+						
+						<%--======================== 장바구니 버튼 ===========================--%>
+						<td width="200px" height="30px" align="right"><input type="button" class="btn btn-md btn-success" onClick="insertToCart(${productList.product_id},${login.account_user})" value="장바구니"></td>
 					</tr>
-					</table>
-					<br>
-					<hr>
-					구매수량
-				</c:forEach>
-
+				</table>
 			</div>
+			</c:forEach>
 		</div>
 	</div>
+	<br><br><br><hr>
 	
-
+	<h2 align="center">상품설명</h2>
+	<div class="container" align="center">
+		<c:forEach items="${productList}" var="productList">
+			${productList.product_content}
+		</c:forEach>
+	</div>
+	<br><br><br>
+	
+	
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Footer ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<footer>
 	<%@ include file = "../module/Bottom.jsp" %>
-	
-	
 	</footer>
-
 </body>
 </html>

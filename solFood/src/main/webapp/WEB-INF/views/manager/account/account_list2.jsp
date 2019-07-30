@@ -17,7 +17,11 @@
 	</style>
 </head>
 <body>
+<<<<<<< HEAD
 	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
+=======
+	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menuﾁﾁﾁﾁﾁ ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
+>>>>>>> refs/remotes/origin/mergeWithDY
 	<jsp:include page="../../module/managerTop.jsp"/>
 	<br><br><br><br>
 	

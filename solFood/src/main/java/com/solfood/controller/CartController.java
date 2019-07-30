@@ -120,6 +120,107 @@ public class CartController {
 		return returnURI;
 	}
 		
+	private BuyService 		buyService;
+	
+	//============================================================
+	//	selectCart--> account_user 별로 cart에 있는 상품 모두 불러오기
+	//============================================================	
+	@RequestMapping(value = "/cartList.do")
+	public List<TotalVO> selectCart(Model model, String account_user) throws Exception{		
+		
+		List<TotalVO> cartList= cartService.selectCart(account_user);						
+		model.addAttribute("cartList", cartList);
+	
+		return cartList;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/cartList2.do")
+	public List<TotalVO> selectCart2(Model model, String account_user) throws Exception{		
+		
+		List<TotalVO> cartList= cartService.selectCart(account_user);						
+		model.addAttribute("cartList", cartList);
+	
+		return cartList;
+	}
+	
+	//============================================================
+	//	deleteCart--> account_user별로, cart에서 선택한 상품 삭제하기
+	//============================================================
+	@RequestMapping(value = "/cartDelete.do")
+	public void deleteCart(String account_user, int product_id, HttpServletRequest request) throws Exception{		
+		// 삭제하기
+		System.out.println("====================================== 여기는 cartDelete.do");
+		
+		// cartList에서 account_user, product_id 받아와서 vo에 넣어주기	
+		account_user= request.getParameter("account_user");								
+		product_id= Integer.parseInt(request.getParameter("product_id"));
+				
+		TotalVO vo= new TotalVO();
+		vo.setAccount_user(account_user);
+		vo.setProduct_id(product_id);		
+		
+		
+		// 쿼리문: DELETE FROM CART WHERE ACCOUNT_USER= ? AND PRODUCT_ID= ?
+		cartService.deleteCart(vo);
+		
+		
+		// 해당 account_user의 cartList로 redirect로 새로고침해서 보내주기
+		// String returnURI= "redirect:/cart/cartList.do?account_user="+ account_user;
+		// return  returnURI;
+	}
+	
+	
+	//============================================================
+	//	insertCart--> cart에 상품 넣기// cart_id, cart_date는 자동으로 들어가게 해둠
+	//============================================================
+	@ResponseBody
+	@RequestMapping(value = "/cartInsert.do")
+	public String insertCart(int product_id, String account_user, int purchase_count, HttpServletRequest request) throws Exception{	
+		TotalVO vo= new TotalVO();
+		vo.setProduct_id(product_id);
+		vo.setAccount_user(account_user);		
+		
+		// product_id에 해당하는 product_count 알아보기
+		List<TotalVO> result= productService.selectProduct(product_id);
+		int product_count= result.get(0).getProduct_count();	
+		
+		// cart에 있는 해당 상품의 count 수 구하기 
+		int cart_count= cartService.selectCart_alreadyInOrNot(vo);
+		
+
+		// cart_count 수량이 product_count 수량을 넘지 않는 선에서 수량 + ---> cart_count가 product_count 안넘게가 지금 안돼서 걍 일단 했어여
+		if(product_count== 0) {
+			return "outOfStock";
+		
+		} else if(cart_count== 0) {
+			if(purchase_count> product_count) {
+				return "overStock";
+			} else {
+				vo.setCart_count(purchase_count);
+				cartService.insertCart(vo);
+				return "success";
+			}
+			
+		} else if(cart_count> 0) {
+			if(cart_count< product_count) {
+				return "replace";
+			}
+		}
+		return "";
+	}
+		
+	//============================================================
+	//	searchProductCount()--> product count 불러다주기
+	//============================================================
+	@ResponseBody
+	@RequestMapping(value = "/searchProductCount.do")
+	public int searchProductCount(int product_id) throws Exception{	
+		int result= productService.selectProduct_count_individually(product_id);
+		
+		return result;
+	}
+
 	
 	//============================================================
 	//	cartDeleteOutOfStock--> cart에 있는 상품 중 product_count가 0인거는 삭제해줌 
