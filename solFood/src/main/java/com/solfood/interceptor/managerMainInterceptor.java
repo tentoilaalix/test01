@@ -30,13 +30,16 @@ public class managerMainInterceptor extends HandlerInterceptorAdapter{
         Object account_grade= session.getAttribute("account_grade");
         
         // login.account_grade== 1이면 다시 메인으로 가게 하기/ 0이면 return true;
-        if (account_grade.equals("1")){
-       		response.sendRedirect("${path}/manager/managerMainFailPage.do");						
+        if(account_grade== null) {
+       		response.sendRedirect("/manager/managerMainFailPage.do");						
+            return false; 
+        } else if (account_grade.equals(Integer.valueOf(1))){
+       		response.sendRedirect("/manager/managerMainFailPage.do");						
             return false; 											
-        } else if(account_grade.equals("0")) {
+        } else if(account_grade.equals(Integer.valueOf(0))) {
             return true;		
         } else {
-        	response.sendRedirect("${path}/manager/managerMainFailPage.do");						
+        	response.sendRedirect("/manager/managerMainFailPage.do");						
             return false; 
         }
     }
