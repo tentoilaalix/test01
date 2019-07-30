@@ -137,13 +137,6 @@
 				<hr>
 				<table>
 					<tr>
-						<th width="120px" height="30px">상품설명</th>
-						<td width="200px" height="30px" align="right">${productList.product_content}</td>
-					</tr>
-				</table>
-				<hr>
-				<table>
-					<tr>
 						<th width="120px" height="30px">유통기한</th>
 						<td width="200px" height="30px" align="right">${productList.product_date}</td>
 					</tr>
@@ -166,18 +159,17 @@
 				</table>
 			</div>
 			</c:forEach>
-			</div>
 		</div>
-	<hr>
-	
-	<h2 align="center">여기부터 상세 설명</h2>
-	<div class="container">
-		곤약무침 곤약무침 
-	 	존맛탱구리
-	
-	
-	
 	</div>
+	<br><br><br><hr>
+	
+	<h2 align="center">상품설명</h2>
+	<div class="container" align="center">
+		<c:forEach items="${productList}" var="productList">
+			${productList.product_content}
+		</c:forEach>
+	</div>
+	<br><br><br>
 	
 	
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Footer ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
