@@ -189,6 +189,18 @@ public class BoardController {
 	@SuppressWarnings("unchecked")
 
 //================================================================================================================	
+	/*
+	 * // 영민 수정
+	 * 
+	 * @RequestMapping(value = "/comment.do", method = {RequestMethod.GET,
+	 * RequestMethod.POST}) public void comment() throws Exception {
+	 * 
+	 * }
+	 */
+	
+	
+	
+	
 	// 댓글 리스트인데 더 간단하게 만든버전
 	@RequestMapping("/commentList") // 댓글 리스트
 	@ResponseBody // ajax쓸때 필요
@@ -202,8 +214,22 @@ public class BoardController {
 	}
 
 //================================================================================================================		
+	/*
+	 // 게시물 작성
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	public void getWrite() throws Exception {
+	}
+
+	// 게시물 작성
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	public String postWrite(BoardVO vo) throws Exception {
+		service.write(vo);
+		return "redirect:/board/listPage";
+	}
+
+	 */
 	// 댓글 작성
-	@RequestMapping("/commentInsert")
+	@RequestMapping(value="/commentInsert", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
 	public String commentInsert(@ModelAttribute("commentVO") CommentVO commentvo, MemberVO memberVo, HttpServletRequest request)
 			throws Exception {
@@ -222,8 +248,6 @@ public class BoardController {
 		
 
 		try {
-			
-				
 			service.commentInsert(commentvo);
 
 		} catch (Exception e) {
@@ -267,6 +291,9 @@ public class BoardController {
 	public void commentDelete(int reply_num) throws Exception {
 		CommentVO vo = new CommentVO();
 		vo.setReply_num(reply_num);
+		
+		
+		
 		service.commentDelete(vo);
 	}
 	// =========================매니저보드테스트==================================================================================

@@ -56,6 +56,7 @@
 			<mapping path="/member/mypage.do" />
 			
 			<mapping path="/board/write" />
+			 <mapping path="/board/commentInsert" /> 
 			
 			<mapping path="/cart/cartList.do" />
 			<mapping path="/cart/cartInsert.do"/>

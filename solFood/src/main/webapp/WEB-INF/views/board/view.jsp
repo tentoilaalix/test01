@@ -17,7 +17,7 @@
 <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file="../module/Top.jsp"%>
+<jsp:include page="../module/Top.jsp" flush="false"/>
 	<!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 게시물 내용 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
 	<div class="container">
 		<h1 align="center">${view.board_title}의게시글뷰</h1>
@@ -38,6 +38,7 @@
 						value="${view.account_user}" readonly="readonly" />
 				</div>
 			</div>
+			
 
 			<div class="form-group">
 				<label class="control-label col-sm-2">작성날짜</label>
@@ -71,7 +72,7 @@
 	<%-- <input type="text" hidden="true" value="${view.board_num}" id="board_num" name="board_num" class="board_num"> --%>
 
 	<!--=================================== 댓글 테스트 ===================================================-->
-	<jsp:include page="comment.jsp" />
+	<jsp:include page="./comment.jsp" />
 	<%@ include file="../module/Bottom.jsp"%>
 </body>
 </html>

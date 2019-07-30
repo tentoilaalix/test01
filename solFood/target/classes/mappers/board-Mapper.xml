@@ -283,22 +283,20 @@
 		FROM comment
 	</select>
 
-<!-- 	<select id="commentList" resultType="com.solfood.dto.CommentVO"
-		parameterType="int">
-		SELECT co.board_num, co.reply_content, a.account_user, co.reply_num
-		FROM
-		comment AS co, board AS bo, account a
-		WHERE CO.BOARD_NUM= BO.BOARD_NUM AND co.board_num = #{board_num};
-	</select>
- -->
 
-	<!-- 영민 수정한거 -->
+	<!-- 원래거 
 	<select id="commentList" parameterType="int" resultType="com.solfood.dto.CommentVO">
 		SELECT co.board_num, co.reply_content, co.account_user, co.reply_num, bo.board_title 
 		FROM comment AS co, board AS bo   
 		WHERE co.BOARD_NUM= bo.BOARD_NUM AND co.board_num = #{board_num};
 	</select>
+	-->
 	
+	<select id="commentList" parameterType="int" resultType="com.solfood.dto.CommentVO">
+		SELECT co.board_num, co.reply_content, co.account_user, co.reply_num, bo.board_title
+		FROM comment AS co, board AS bo   
+		WHERE co.BOARD_NUM= bo.BOARD_NUM AND co.board_num = #{board_num};
+	</select>
 
 	<insert id="commentInsert" parameterType="com.solfood.dto.CommentVO">
 		INSERT INTO

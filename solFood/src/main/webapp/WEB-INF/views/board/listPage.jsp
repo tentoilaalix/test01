@@ -16,7 +16,7 @@
 	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<%@ include file="../module/Top.jsp"%>
+<jsp:include page="../module/Top.jsp" flush="false"/>
 	<br>
 	<br>
 	<br>

@@ -1,26 +1,13 @@
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> --%>
-<%-- <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> --%>
-
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ page session="false"%>
-<!DOCTYPE >
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/css/bootstrap.css">
-<link href="../resources/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet" type="text/css" />
+<meta charset="UTF-8">
+<title>mypage</title>
+
 <script src="../resources/js/jquery-3.3.1.min.js"></script>
 <script src="../resources/bootstrap/bootstrap/js/bootstrap.min.js"></script>
 <script>
@@ -29,15 +16,16 @@
 	});
 
 	function getCommentList() {
+		var account_user= document.getElementsByName("account_user")[0].value;	
 		var board_num = document.getElementsByName("board_num")[0].value;
-		
+
 		var json = {
 			"board_num" : board_num
-			
-			
+
 		};
 
-		$.ajax({
+		$
+				.ajax({
 					type : 'post',
 					url : '/board/commentList', //boardControlller에 commentList
 					data : json,
@@ -50,6 +38,7 @@
 						//console.log(data);
 
 						if (data.length > 0) {
+							/*
 							for (i = 0; i < data.length; i++) {
 								html += "<table class='table'><h6><strong>"
 										+ data[i].account_user
@@ -66,6 +55,34 @@
 								html += "</div>";
 								html += "</table>";
 							}
+							*/
+							
+								// 영민수정
+								for(var i=0; i<data.length; i++){
+									if(data[i].account_user== account_user){ //data[i].account_user는 리플을 단 아이디, 그냥account_user는 로그인한 아이디 둘이 같으면 수정삭제가 보여진다 
+										html += "<table class='table'><h6><strong>"+ data[i].account_user+ "</strong></h6>";
+										html += data[i].reply_num+ "  ";
+										html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
+										html += data[i].reply_content;
+										html += "<button class='btn btn-xs btn-link' onClick= 'cm_updateForm("
+												+ data[i].reply_num + ")'>수정</button>";
+										html += "<button  class ='btn btn-xs btn-link' onClick= 'cm_delete("
+												+ data[i].reply_num + ")'>삭제</button>";
+										html += "<tr><td>";
+										html += "</td></tr>";
+										html += "</div>";
+										html += "</table>";
+									} else {
+										html += "<table class='table'><h6><strong>"+ data[i].account_user+ "</strong></h6>";
+										html += data[i].reply_num+ "  ";
+										html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
+										html += data[i].reply_content;
+										html += "<tr><td>";
+										html += "</td></tr>";
+										html += "</div>";
+										html += "</table>";
+									}
+								}
 						} else {
 
 							html += "<div>";
@@ -89,11 +106,15 @@
 	//댓글 작성 테스트
 	function cm_insert(board_num) { // 
 		var json
-		
+
 		$.ajax({
 			type : 'POST', //POST방식으로 
 			url : '/board/commentInsert', //url주소는 클라이언트가 HTTP요청을 보낼 서버의 주소
 			data : $("#commentForm").serialize(), // 데이터 HTTP요청과 함께 서버로 보낼 데이터를 전달합니다
+			//ajax를 사용할때 인터셉터를 발동할려면 밑에 두줄을 써주고 sevlet-context.xml에도 board/commentInsert를 써줘야 한다
+			beforeSend: function(xmlHttpRequest){
+				xmlHttpRequest.setRequestHeader("AJAX", "true");
+			},
 			success : function(data) { //HTTP요청이 성공했을때 실행할 함수를 정의
 				if (data == "success") //성공하면 
 				{
@@ -102,6 +123,7 @@
 				}
 			},
 			error : function(request, status, error) {
+				alert("댓글은 로그인한 상태에서만 가능합니다 로그인해주십시오");
 				//alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 			}
 		});
@@ -130,6 +152,7 @@
 			type : 'POST',
 			url : '/board/commentUpdate',
 			data : json,
+			
 			success : function() {
 				alert("reply_reComment 성공");
 				getCommentList();
@@ -162,22 +185,29 @@
 		}
 	}
 </script>
+
+
+<%-- =============================== top =========================================--%>
+
 </head>
 <body>
 	<div class="container">
 		<form id="commentForm" name="commentForm" method="post">
-			<input type="text" hidden="true" value="${login.account_user}" name="account_user"/>
-			
-			<h2>${login.account_user}</h2>
-			
-			<br>
-			<br>
+			 <input  type="hidden" class="form-control"
+				name="account_user" maxlength="50" value="${login.account_user}"> 
+		<%-- 	<input type="hidden" id="board_num" name="board_num"
+				value="${view.board_num }" /> --%>
+				
+		<%-- 	<c:set var="account_user" value="${login.account_user}" /> --%>
+
+			<br> <br>
 			<div>
 				<div>
 					<span><strong>Comments</strong></span>
-					<p>게시판번호 : ${view.board_num}</p>
 				
-					댓글수 : <span id="commentCount"></span> <input type="hidden" id="board_num" name="board_num" value="${view.board_num}" />
+
+					댓글수 : <span id="commentCount"></span> <input type="hidden"
+						id="board_num" name="board_num" value="${view.board_num}" />
 				</div>
 				<div>
 					<table class="table">
@@ -186,7 +216,7 @@
 									id="reply_content" name="reply_content" placeholder="댓글을 입력하세요"></textarea>
 								<br>
 								<div>
-									<a href='#' onClick="cm_insert('${view.board_num}')"
+									<a href='#' onClick="cm_insert('${view.board_num}')"			
 										class="btn pull-right btn-success">등록</a>
 								</div></td>
 						</tr>
@@ -195,7 +225,7 @@
 			</div>
 			<input type="hidden" id="board_num" name="board_num"
 				value="${view.board_num }" />
-		
+
 		</form>
 	</div>
 	<div class="container">
