@@ -16,6 +16,15 @@
 		var account_user = document.getElementsByName("account_user")[0].value;
 		buyList(account_user);
 	});
+
+	// 숫자에 콤마 넣는 함수
+	function addComma(num)
+	{
+	var regexp = /\B(?=(\d{3})+(?!\d))/g;
+	return num.toString().replace(regexp, ',');
+	}
+
+	var nData = addComma(nData);
 	
 	function buyList(account_user){
 		var json= {"account_user":account_user}
@@ -32,11 +41,11 @@
 				if(cnt> 0){	
 					for(i=0; i<cnt; i++){
 						html+= "<tr height='50' class='info'>";
-						html+= "<td align='center' width='100'>"+ data[i].buy_date+ "</td>";
-						html+= "<td align='center' width='100'>"+ data[i].product_image+ "</td>";
-						html+= "<td align='center' width='100'>"+ data[i].product_name+ "</td>";
-						html+= "<td align='center' width='100'>"+ data[i].buy_count+ "</td>";
-						html+= "<td align='center' width='100'>"+ data[i].product_price+ "</td>";
+						html+= "<td align='center' width='100' height='140'>"+ data[i].buy_date+ "</td>";
+						html+= "<td align='center' width='100' height='140'><img src='/img/"+ data[i].product_image+"' width='100px' height='120px'></td>";
+						html+= "<td align='center' width='100' height='140'>"+ data[i].product_name+ "</td>";
+						html+= "<td align='center' width='100' height='140'>"+ data[i].buy_count+ "</td>";
+						html+= "<td align='center' width='100' height='140'>"+ addComma(data[i].product_price)+ " 원</td>";
 						html+= "</tr>";		
 					}
 					$("#buyList").html(html);
@@ -93,15 +102,30 @@
 	}
 	--%>
 	</script>
+	<style>
+	.tableHead {
+		background-color: white;
+		border-top: 2px solid #003399;
+	}
+	#subBtn {
+		border: 1px solid;
+		border-color: #003399;
+		width: 120px;
+		height: 40px;
+		outline: none;
+		background-color: white;
+		font-weight: normal;
+	}
+	</style>
 </head>
 <body>
 	<%-- ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ --%>
 	<header>
 		<jsp:include page="../module/Top.jsp" flush="false"/>
 	</header>
-	
+	<br><br><br>
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
-	<div align="center"><h2><label><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;구매 완료</label></h2></div><br>
+	<div align="center"><h2><label><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;구매 완료</label></h2></div><br><br>
 	
 	<%-- account_user 받기 --%>
 	<c:set var= "account_user" value="${account_user}"/>
@@ -110,7 +134,7 @@
 	<%--===================================== 구매 목록 ==========================================--%>
 	<div class="container">
 		<table class="table">
-			<tr height="50" class="info">
+			<tr height="50" class="tableHead">
 			
 				<%-- cart 상품 list --%>
 				<td align= "center" width="50">일시</td>
@@ -127,13 +151,16 @@
 			
 		</table>
 	</div>
-	
+	<hr><br>
 	<%--===================================== 버튼 ==========================================--%>
 	<div class="container">
-		<a href="${path}/"><input type="button" value="메인으로 가기"></a>
-		<a href="${path}/cart/cartList.do"><input type="button" value="장바구니로 가기"></a>
+		<a href="${path}/"><input type="button" id="subBtn" value="메인으로 가기"></a>&nbsp;&nbsp;&nbsp;
+		<a href="${path}/cart/cartList.do"><input type="button" id="subBtn" value="장바구니로 가기"></a>
 	</div>
 	<br><br><br><br>
+	<footer>
+		<jsp:include page="../module/Bottom.jsp" flush="false"/>
+	</footer>
 </body>
 </html>
 

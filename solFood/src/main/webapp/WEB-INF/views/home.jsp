@@ -18,6 +18,16 @@
 	
 	<!-- 상품 뿌리기 ajax -->
 	<script>
+	
+	// 숫자에 콤마 넣는 함수
+	function addComma(num)
+	{
+	var regexp = /\B(?=(\d{3})+(?!\d))/g;
+	return num.toString().replace(regexp, ',');
+	}
+
+	var nData = addComma(nData);
+	
 	function product_category1(product_category1){	
 		var json= {"product_category1":product_category1};
 		var html= "";
@@ -31,7 +41,7 @@
 						html+= "<div class='col-xs-3'>";
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"' width='250px' height='320px'/></a><br><br>";
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><strong>"+ data[i].product_name +"</strong></a><br>";
-						html+= nf.format(data[i].product_price) +"원";
+						html+= addComma(data[i].product_price) +"원";
 						html+= "</div>";
 						$("#mdArea").html(html);
 					}

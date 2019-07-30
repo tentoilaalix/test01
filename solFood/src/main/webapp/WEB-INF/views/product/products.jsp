@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -171,7 +172,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 				    </div>	
 				
 				</c:forEach>
@@ -227,7 +228,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -282,7 +283,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -337,7 +338,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -392,7 +393,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -447,7 +448,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -502,7 +503,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -565,7 +566,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -617,7 +618,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -668,7 +669,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -719,7 +720,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -770,7 +771,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -821,7 +822,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -880,7 +881,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
@@ -931,7 +932,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -982,7 +983,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1033,7 +1034,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1084,7 +1085,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1135,7 +1136,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1193,7 +1194,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1244,7 +1245,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1295,7 +1296,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1346,7 +1347,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1397,7 +1398,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1448,7 +1449,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1507,7 +1508,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
@@ -1559,7 +1560,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1611,7 +1612,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1663,7 +1664,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1715,7 +1716,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1767,7 +1768,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1823,7 +1824,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1870,7 +1871,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1917,7 +1918,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -1964,7 +1965,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2011,7 +2012,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2066,7 +2067,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
@@ -2114,7 +2115,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2162,7 +2163,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2210,7 +2211,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2258,7 +2259,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2313,7 +2314,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 				    </div>
 				</c:forEach>
 			  	</div>
@@ -2361,7 +2362,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2409,7 +2410,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2457,7 +2458,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2505,7 +2506,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
@@ -2553,7 +2554,7 @@
 						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><img src="/img/${products.product_image}" style="width:220px; height:280px;"/></a><br><br>				     
 				      	<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_name}</a>
 				      	<input type="button" id='heartImage' name='heartImage${products.product_id}' onclick= "changeHeart(${products.product_id})" class='beforeClick' style="width:29px; height:23px;"><br>
-						<a href="${path}/product/productInfo.do?product_id=${products.product_id}">${products.product_price}원</a><br><br><br><br>
+						<a href="${path}/product/productInfo.do?product_id=${products.product_id}"><fmt:formatNumber value="${products.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
 			    </div>
 			</c:forEach>
 		  	</div>
