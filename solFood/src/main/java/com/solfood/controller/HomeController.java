@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.solfood.dto.MemberVO;
-import com.solfood.service.MemberService;
+import com.solfood.dto.TotalVO;
+import com.solfood.service.ProductService;
+import com.solfood.service.RecipeService;
  
 /**
  * Handles requests for the application home page.
@@ -21,20 +21,24 @@ import com.solfood.service.MemberService;
 public class HomeController {
     
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+      
+    @Inject
+    private ProductService productService;
     
     @Inject
-    private MemberService service;
+    private RecipeService recipeService;
     
     //-----------------------------------------------------
     //	home
     //-----------------------------------------------------
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Locale locale, Model model) throws Exception{
-        logger.info("home");
-   
-        List<MemberVO> memberList = service.selectMember();
-        model.addAttribute("memberList", memberList);
- 
+        List<TotalVO> homeProduct = productService.selectProduct_all();
+        model.addAttribute("homeProduct", homeProduct);
+        
+        List<TotalVO> homeRecipe = recipeService.allRecipe();
+        model.addAttribute("homeRecipe", homeRecipe);
+        
         return "home";
     }
     
@@ -69,9 +73,5 @@ public class HomeController {
 	public String guide() {
 		return "company/guide";
 	}
-	
-	
-	
-	
-	
+
 }

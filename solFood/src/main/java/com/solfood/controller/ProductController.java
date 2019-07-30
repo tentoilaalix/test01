@@ -48,6 +48,7 @@ public class ProductController {
 		return "product/productList";
 	}
 	
+	// product category1 
 	@RequestMapping(value = "/products1.do")
 	public String selectProduct_category1(Model model, String product_category1) throws Exception{		
 		List<TotalVO> products= productService.selectProduct_category1(product_category1);						
@@ -55,7 +56,18 @@ public class ProductController {
 				
 		return "product/products";
 	}
+	@ResponseBody
+	@RequestMapping(value = "/products1_2.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> selectProduct_category1(String product_category1) throws Exception{		
+		System.out.println("======================== products1_2 "+ product_category1);
+		
+		List<TotalVO> productList= productService.selectProduct_category1(product_category1);						
+				
+		return productList;
+	}
 	
+
+	// product_category2
 	@RequestMapping(value = "/products2.do")
 	public String selectProduct_category2(Model model, String product_category2) throws Exception{		
 		List<TotalVO> products= productService.selectProduct_category2(product_category2);						
