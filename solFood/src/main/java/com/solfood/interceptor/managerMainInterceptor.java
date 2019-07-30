@@ -35,8 +35,10 @@ public class managerMainInterceptor extends HandlerInterceptorAdapter{
             return false; 											
         } else if(account_grade.equals("0")) {
             return true;		
+        } else {
+        	response.sendRedirect("${path}/manager/managerMainFailPage.do");						
+            return false; 
         }
-        return true;
     }
 	
 	//---------------------------------------------------
