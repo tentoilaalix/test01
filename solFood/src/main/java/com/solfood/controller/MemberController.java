@@ -140,7 +140,7 @@ public class MemberController {
 		session.setAttribute("login", afterUpdate);								// 그 결과값을 다시 login attribute에 넣기
 		session.setAttribute("account_grade", afterUpdate.getAccount_grade());
 	
-		return "mypageComp.do";
+		return "mypageComp.do"; 
 	}
 	
 	@RequestMapping(value="/mypageComp.do")
