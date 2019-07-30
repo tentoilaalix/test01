@@ -132,13 +132,15 @@ public class MemberController {
 	
 	@ResponseBody
 	@RequestMapping(value="/updateMyAccount.do", method= {RequestMethod.POST, RequestMethod.GET})
-	public void updateMyAccount(MemberVO memberVo, HttpSession session) throws Exception{
+	public String updateMyAccount(MemberVO memberVo, HttpSession session) throws Exception{
 		memberService.updateMyAccount(memberVo);								
 		
 		MemberVO afterUpdate= new MemberVO();									// 새로운 memberVO 객체 생성
 		afterUpdate= memberService.login(memberVo);								// select * from account where account_user=? 의 결과값 넣기
 		session.setAttribute("login", afterUpdate);								// 그 결과값을 다시 login attribute에 넣기
 		session.setAttribute("account_grade", afterUpdate.getAccount_grade());
+	
+		return "member/mypageComp";
 	}
 	
 	//===============================================================

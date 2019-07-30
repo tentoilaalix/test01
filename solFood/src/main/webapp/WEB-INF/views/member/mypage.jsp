@@ -88,13 +88,12 @@
 					url: "/member/updateMyAccount.do",
 					data: json,
 					success: function(){
-						window.location.href= "redirect:/"; 
 					},
 					error: function(){
 					}
 				});
 			} else {
-				alert("마이페이지 정보 수정이 실패하였습니다");
+				alert("result fail");
 				return false;
 			}
         }
@@ -108,7 +107,7 @@
 <%-- =================================== CONTENT =======================================--%>
 	<div class="container">
 		<h1 align="center" style= "font: sans-serif;">MY PAGE</h1><br><br>
-		<form class="form-horizontal" method="post">
+		<form class="form-horizontal" method="post" action="${path}/member/updateMyAccount.do">
 		
 			<%-- INFO --%>
 			<div class="form-group">
@@ -171,7 +170,7 @@
 			
 			<%-- BUTTON --%>		
 			<div class="form-group" align="center">
-				<input type="submit" onclick="finalCheck()" class="btn btn-info btn-md" value="수정">
+				<button type="submit" onclick="finalCheck() return false;" class="btn btn-success btn-md"><b>수정</b></button>
 				<input type="button" id="btnLogin" class="btn btn-danger btn-md" onclick="location.href='dismiss.do?account_user=${login.account_user}'" value="탈퇴"/>			
 			</div>	
 		</form>
