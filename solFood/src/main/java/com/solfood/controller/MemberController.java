@@ -121,40 +121,34 @@ public class MemberController {
 		}
 	}
 	
-	
+	//===============================================================
 	// 회원정보 수정
-	@RequestMapping(value="/mypage.do", method=RequestMethod.POST)
-	public String getModifyByUser(MemberVO memberVo, HttpSession session) throws Exception{
-		memberService.updateMyAccount(memberVo);					// update query
+	//===============================================================
+	// 마이페이지 이동
+	@RequestMapping(value="/mypage.do")
+	public String mypage() throws Exception{
+		return "/member/mypage";
+	}	
+	
+	@ResponseBody
+	@RequestMapping(value="/updateMyAccount.do", method= {RequestMethod.POST, RequestMethod.GET})
+	public void updateMyAccount(MemberVO memberVo, HttpSession session) throws Exception{
+		memberService.updateMyAccount(memberVo);								
 		
-		// 영민 수정
-		MemberVO afterUpdate= new MemberVO();						// 새로운 memberVO 객체 생성
-		afterUpdate= memberService.login(memberVo);					// select * from account where account_user=? 의 결과값 넣기
-		session.setAttribute("login", afterUpdate);					// 그 결과값을 다시 login attribute에 넣기
-		
-		//목록으로 리다이렉트
-		return "redirect:mypage.do";
-		
+		MemberVO afterUpdate= new MemberVO();									// 새로운 memberVO 객체 생성
+		afterUpdate= memberService.login(memberVo);								// select * from account where account_user=? 의 결과값 넣기
+		session.setAttribute("login", afterUpdate);								// 그 결과값을 다시 login attribute에 넣기
+		session.setAttribute("account_grade", afterUpdate.getAccount_grade());
 	}
 	
-	// 회원정보 탈퇴 
+	//===============================================================
+	// 회원정보 탈퇴
+	//===============================================================
 	@RequestMapping(value="/dismiss.do")
 	public String getDeleteByUser(MemberVO memberVo) throws Exception{
 		memberService.deleteMyAccount(memberVo);
 		
 		return "redirect:logout.do";
 	}
-	
-
-	//============================================================
-    //	mypage--> *** servlet-context.xml에서, mypage로 이동하기 전에 로그인이 되었는지 intercept하게 설정해두었음 ***	6/24 기준 수정 필요 by 영민
-	//============================================================
-    // 마이페이지 이동
-	@RequestMapping(value="/mypage.do")
-	public String mypage() throws Exception{
-		return "/member/mypage";
-	}	
-	
-	
 	
 }

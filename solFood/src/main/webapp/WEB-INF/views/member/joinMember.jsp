@@ -59,6 +59,7 @@
 			var account_tel= document.getElementsByName("account_tel")[0];
 			var account_address= document.getElementsByName("account_address")[0];
 			var account_age= document.getElementsByName("account_age")[0];
+			var account_email= document.getElementsByName("account_email")[0];
 			
 			var temp = document.getElementsByName('account_gender');
 			var account_gender;
@@ -69,10 +70,9 @@
 					account_gender= '';
 				}
 			}
-			
-			var account_email= document.getElementsByName("account_email")[0];
-			var result= "";
 
+			var result= "";
+			
 			
 			// 비밀번호 4자리 미만 체크
 			if(account_password.value.length< 4){
@@ -139,10 +139,6 @@
 					error: function(){
 					}
 				});
-				
-				alert("success 실행");
-				// document.joinMemberForm.submit();
-				// return true;
 			} else {
 				alert("form submit fail 다시 작성하기");
 				return false;
