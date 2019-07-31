@@ -4,21 +4,30 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 	<mapper namespace="com.solfood.mapper.chartMapper">
-		<!-- =============================== SELECT ======================================https://s.pstatic.net/static/www/mobile/edit/2017/0324/mobile_184353754426.gif=== -->		
-		<!-- BUY 테이블 데이터 모두 보기_ 구매한 직후(cart에서 list 사라지기 전) -->
-		<select id="selectBuy" parameterType="String" resultType="com.solfood.dto.TotalVO">
-			SELECT B.BUY_ID, B.BUY_DATE, B.PRODUCT_ID, B.BUY_COUNT, P.PRODUCT_PRICE, P.PRODUCT_IMAGE, P.PRODUCT_NAME 
-			FROM BUY B, PRODUCT P 
-			WHERE B.PRODUCT_ID= P.PRODUCT_ID AND B.ACCOUNT_USER= #{account_user};
+		<!-- 2019년 7월 최다 판매 제품  -->
+		<select id="chart_mostSelllingProducts_2019-07" resultType="com.solfood.dto.TotalVO">
+			SELECT product_id, buy_id, BUY_DATE, SUM(buy_count)
+			FROM buy
+			WHERE BUY_DATE LIKE '2019-07%'
+			GROUP BY product_id
+			ORDER BY SUM(buy_count) DESC;
 		</select>
 		
-		
-		<!-- BUY한 사람의 정보 불러오기// PAY에서 사용함 -->
-		<select id="selectBuyInfo" parameterType="String" resultType="com.solfood.dto.TotalVO">
-			SELECT B.BUY_ID, B.BUY_COUNT, A.ACCOUNT_NAME, A.ACCOUNT_TEL, A.ACCOUNT_ADDRESS, A.ACCOUNT_EMAIL, A.ACCOUNT_USER 
-			FROM ACCOUNT A, PRODUCT P, BUY B 
-			WHERE B.PRODUCT_ID= P.PRODUCT_ID AND A.ACCOUNT_USER= B.ACCOUNT_USER AND A.ACCOUNT_USER= #{account_user};
+		<!-- -- 7월 카테고리별 판매수량  -->
+		<select id="chart_sellingProductsByCategory_2019-07" resultType="com.solfood.dto.TotalVO">
+			SELECT p.product_id, p.product_category1, p.product_category2, b.buy_id, b.BUY_DATE, SUM(b.buy_count)
+			FROM buy b, product p 
+			WHERE b.product_id= p.product_id AND b.BUY_DATE LIKE '2019-07%'
+			GROUP BY p.product_category1
+			ORDER BY SUM(b.buy_count) DESC;
 		</select>
+		
+		<!-- 찜한 상품 -->
+		<select id="chart_mostLikedProducts" resultType="com.solfood.dto.TotalVO">
+			SELECT PRODUCT_ID, COUNT(PRODUCT_ID)
+			FROM HEART 
+			GROUP BY PRODUCT_ID
+			ORDER BY COUNT(PRODUCT_ID) DESC;
 	</mapper>
 	
 	
