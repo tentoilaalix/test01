@@ -4,17 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 	<mapper namespace="com.solfood.mapper.chartMapper">
-		<!-- 2019년 7월 최다 판매 제품  -->
-		<select id="chart_mostSelllingProducts_2019-07" resultType="com.solfood.dto.TotalVO">
-			SELECT product_id, buy_id, BUY_DATE, SUM(buy_count)
-			FROM buy
-			WHERE BUY_DATE LIKE '2019-07%'
-			GROUP BY product_id
-			ORDER BY SUM(buy_count) DESC;
+		<!-- 2019년 최다 판매 제품  -->
+		<select id="chart_mostSelllingProducts_201907" resultType="com.solfood.dto.TotalVO">
+			SELECT p.product_id, p.product_name, b.buy_id, b.BUY_DATE, SUM(b.buy_count)
+			FROM buy b, product p
+			WHERE p.product_id= b.product_id AND b.BUY_DATE LIKE '2019%'
+			GROUP BY p.product_id
+			ORDER BY SUM(b.buy_count) DESC;
 		</select>
 		
-		<!-- -- 7월 카테고리별 판매수량  -->
-		<select id="chart_sellingProductsByCategory_2019-07" resultType="com.solfood.dto.TotalVO">
+		<!-- 7월 카테고리별 판매수량  -->
+		<select id="chart_sellingProductsByCategory_201907" resultType="com.solfood.dto.TotalVO">
 			SELECT p.product_id, p.product_category1, p.product_category2, b.buy_id, b.BUY_DATE, SUM(b.buy_count)
 			FROM buy b, product p 
 			WHERE b.product_id= p.product_id AND b.BUY_DATE LIKE '2019-07%'
@@ -28,6 +28,7 @@
 			FROM HEART 
 			GROUP BY PRODUCT_ID
 			ORDER BY COUNT(PRODUCT_ID) DESC;
+		</select>
 	</mapper>
 	
 	

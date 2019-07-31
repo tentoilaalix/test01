@@ -74,13 +74,7 @@ public class HomeController {
 	public String guide() {
 		return "company/guide";
 	}
-	
-	//차트
-	@RequestMapping("/Chart.do")
-	public String Chart() {
-		return "chart/Chart";
-	}
-	
+		
 	
 	//최근본상품
 	@ResponseBody

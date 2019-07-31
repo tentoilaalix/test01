@@ -7,37 +7,23 @@ import com.solfood.dto.CartVO;
 import com.solfood.dto.TotalVO;
 
 @Repository
-public class ChartDAOImpl implements RecentDAO{
+public class ChartDAOImpl implements ChartDAO{
 	@Inject
 	private SqlSession sqlSession;
-	private static final String Namespace= "com.solfood.mapper.recentMapper";
+	private static final String Namespace= "com.solfood.mapper.chartMapper";
 	
-	//--------------------------------------------------------------
-	//	select
-	//--------------------------------------------------------------
 	@Override
-	public List<TotalVO> selectRecent(String account_user) throws Exception {
-		return sqlSession.selectList(Namespace+".selectRecent", account_user);
+	public List<TotalVO> chart_mostSelllingProducts_201907() throws Exception {
+		return sqlSession.selectList(Namespace+".chart_mostSelllingProducts_201907");
 	}
-	
-	
-	
-	//--------------------------------------------------------------
-	//	insert
-	//--------------------------------------------------------------
 	@Override
-	public void insertRecent(TotalVO vo) throws Exception {
-		sqlSession.insert(Namespace+".insertRecent", vo);		
+	public List<TotalVO> chart_sellingProductsByCategory_201907() throws Exception {
+		return sqlSession.selectList(Namespace+".chart_sellingProductsByCategory_201907");
+	}
+	@Override
+	public List<TotalVO> chart_mostLikedProducts() throws Exception {
+		return sqlSession.selectList(Namespace+".chart_mostLikedProducts");
 	}
 
-	//--------------------------------------------------------------
-	//	delete
-	//--------------------------------------------------------------
 	
-
-	//--------------------------------------------------------------
-	//	update
-	//--------------------------------------------------------------
-	
-
 }

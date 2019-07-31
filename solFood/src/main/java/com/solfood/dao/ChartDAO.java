@@ -6,26 +6,14 @@ import com.solfood.dto.TotalVO;
 
 @Repository
 public interface ChartDAO {
-	//---------------------------------------------------
-	//	select 
-	//---------------------------------------------------
-	public List<TotalVO> selectRecent(String account_user) throws Exception;
+	// 2019년 7월 최다 판매 제품
+	public List<TotalVO> chart_mostSelllingProducts_201907() throws Exception;
 	
-	//---------------------------------------------------
-	//	insert 
-	//---------------------------------------------------
-	public void insertRecent(TotalVO vo) throws Exception;
+	// 2019년 7월 최다 판매 카테고리
+	public List<TotalVO> chart_sellingProductsByCategory_201907() throws Exception;
 	
-	
-	//---------------------------------------------------
-	//	delete 
-	//---------------------------------------------------
-	
-	
-	//---------------------------------------------------
-	//	update 
-	//---------------------------------------------------
-	
+	// 찜한 상품
+	public List<TotalVO> chart_mostLikedProducts() throws Exception;
 	
 }
 

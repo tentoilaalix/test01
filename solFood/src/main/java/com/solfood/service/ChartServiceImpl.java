@@ -6,40 +6,28 @@ import org.springframework.stereotype.Service;
 
 import com.solfood.dao.BuyDAO;
 import com.solfood.dao.CartDAO;
+import com.solfood.dao.ChartDAO;
 import com.solfood.dao.RecentDAO;
 import com.solfood.dto.CartVO;
 import com.solfood.dto.TotalVO;
 
 @Service
-public class ChartServiceImpl implements RecentService{
+public class ChartServiceImpl implements ChartService{
 	@Inject
-	private RecentDAO dao;
+	private ChartDAO dao;
 
-	//------------------------------------------------------------------
-	//	select
-	//------------------------------------------------------------------
 	@Override
-	public List<TotalVO> selectRecent(String account_user) throws Exception {
-		return dao.selectRecent(account_user);
+	public List<TotalVO> chart_mostSelllingProducts_201907() throws Exception {
+		return dao.chart_mostSelllingProducts_201907();
 	}
 
-
-	//------------------------------------------------------------------
-	//	insert
-	//------------------------------------------------------------------
 	@Override
-	public void insertRecent(TotalVO vo) throws Exception {
-		dao.insertRecent(vo);
+	public List<TotalVO> chart_sellingProductsByCategory_201907() throws Exception {
+		return dao.chart_sellingProductsByCategory_201907();
 	}
 
-	//------------------------------------------------------------------
-	//	delete
-	//------------------------------------------------------------------
-	
-
-	//------------------------------------------------------------------
-	//	update
-	//------------------------------------------------------------------
-	
-	
+	@Override
+	public List<TotalVO> chart_mostLikedProducts() throws Exception {
+		return dao.chart_mostLikedProducts();
+	}
 }
