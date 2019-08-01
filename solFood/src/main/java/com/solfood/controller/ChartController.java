@@ -44,7 +44,7 @@ public class ChartController {
 	public List<TotalVO> chart_mostSelllingProducts_201907(Model model) throws Exception{
 		List<TotalVO> productList= chartService.chart_mostSelllingProducts_201907();
 		model.addAttribute("productList", productList);
-		
+				
 		return productList;
 	}
 }
