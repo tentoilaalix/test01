@@ -10,15 +10,18 @@
 	<script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
 	<%--a 스타일 --%>
 	<style type="text/css">
- 		a { text-decoration: none;}
- 		a:link { color: black; text-decoration: none !important;}
- 		a:active { color: black !important; text-decoration: none !important;}
-		a:visited { color: black !important; text-decoration: none !important;}
- 		a:hover { color: black !important; text-decoration: none !important;}
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+ 		a { text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+ 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
 	</style>
     <style>
+    	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
       body {
         font-weight: bold;
+        font-family: 'Nanum Myeongjo', serif;
       }
       .jbTitle {
         text-align: center;

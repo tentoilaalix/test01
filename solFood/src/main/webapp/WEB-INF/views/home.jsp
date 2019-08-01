@@ -12,9 +12,10 @@
 	<link href="../resources/css/carouselMulti.css" rel="stylesheet">
 	<link href="../resources/css/animate.css" rel="stylesheet">
 	<link href="../resources/css/wickedcss.min.css" rel="stylesheet">
+	<script src="../resources/css/multi.js"></script>
 	<script src="../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
-	<script src="../resources/css/multi.js"></script>
+	
 	
 	<!-- 상품 뿌리기 ajax -->
 	<script>
@@ -55,21 +56,40 @@
 	
 	
 	<style type="text/css">
-		a { text-decoration: none;}
- 		a:link { color: black; text-decoration: none !important;}
- 		a:active { color: black !important; text-decoration: none !important;}
-		a:visited { color: black !important; text-decoration: none !important;}
- 		a:hover { color: black !important; text-decoration: none !important;}
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+		a { text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+ 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
 	</style>
 	<style>
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
 		html{cursor: url(../resources/image/carrot.png), auto}
 		body {
-		width: 100%;
-		font-family: 맑은 고딕;
-		font-size: 18px;
-		align: center !important;
+			width: 100%;
+			font-family: 'Nanum Myeongjo', serif;
+			font-size: 18px;
+			align: center !important;
 		}
-
+		h2{
+			font-family: 'Nanum Myeongjo', serif !important;
+		}
+		h3{
+			font-family: 'Nanum Myeongjo', serif !important;
+		}
+		h4{
+			font-family: 'Nanum Myeongjo', serif !important;
+		}
+		p{
+			font-family: 'Nanum Myeongjo', serif !important;
+		}
+		input{
+			font-family: 'Nanum Myeongjo', serif !important;
+		}
+		#mdArea{
+			font-family: 'Nanum Myeongjo', serif !important;
+		}
 		#thumb {
 			border: 0;
 		}
@@ -123,7 +143,7 @@
 <!--■■■■■■■■■■■■■■■■■■■■■■ 카테고리별 품목들 ■■■■■■■■■■■■■■■■■■■■■■■■-->
 
 <div class="container">
-<div align="center"><h2>인기 상품</h2></div><br><br><br>
+<div align="center"><h2><strong>인기 상품</strong></h2></div><br><br><br>
     <div class="row">
 		<div class="col-md-12">
                 <div id="Carousel" class="carousel slide">
@@ -162,7 +182,7 @@
 
 <div class="container" id="eventArea">
 	<div class="col-md-12"><br><br>
-		<div align="center"><h1><a href="#">이벤트</a></h1></div>
+		<div align="center"><h2><a href="#"><strong>이벤트</strong></a></h2></div>
 		<br><br><br>
 <div class="col-md-12" align="center">
 	<div class="row">
@@ -259,9 +279,9 @@
 <br><br><br><br>
 <%--■■■■■■■■■■■■■■■■■■■■■■ MD추천 ■■■■■■■■■■■■■■■■■■■■■■■■■--%>
 <div class="container">
-<div align="center"><h2>MD 추천</h2></div>
+<div align="center"><h2><strong>MD 추천</strong></h2></div>
 <br>
-<div align="center"><h5>오늘의 MD 추천 상품은 무엇일까요 ?</h5></div>
+<div align="center"><h4>오늘의 MD 추천 상품은 무엇일까요 ?</h4></div>
 <hr class="recipeHr">
 <br><br>
 <div class="container" align="center">
@@ -290,7 +310,7 @@
 <br><br><br><br>
 <%--■■■■■■■■■■■■■■■■■■■■■■ 레시피 ■■■■■■■■■■■■■■■■■■■■■■■■■--%>
 <div class="container">
-<div align="center"><h2>SolFood 레시피</h2></div>
+<div align="center"><h2><strong>SolFood 레시피</strong></h2></div>
 <br><hr class="recipeHr">
 <div class="row" align="center">
 <c:forEach items="${homeRecipe}" var="recipe" begin="0" end="2">

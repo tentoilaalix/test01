@@ -113,9 +113,6 @@
 			outline: none;
 			background-size: 28px;
 		}
-		
-		
-		
 	</style>
 </head>
 <body>

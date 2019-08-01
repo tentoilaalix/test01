@@ -223,8 +223,15 @@
 	</script>
 </head>
 <style>
+	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
 	body {
-		font-family: 맑은 고딕;
+		font-family: 'Nanum Myeongjo', serif;
+	}
+	input{
+		font-family: 'Nanum Myeongjo', serif;
+	}
+	h5{
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	.tableHead {
 		background-color: white;
@@ -233,6 +240,7 @@
 	#cartList {
 		position: relative;
 		top: -40px;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	#line {
 		border: 0;
@@ -245,11 +253,13 @@
 	#count {
 		width: 30px;
 		text-align: center;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	#plusminus {
 		border: 0;
 		outline: 0;
 		background: #FFFFFF;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	#deleteOutOfStock {
 		border: 1px solid;
@@ -259,6 +269,7 @@
 		outline: none;
 		background-color: white;
 		font-weight: normal;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	
 	#price {
@@ -267,12 +278,14 @@
 		width: 230px;
 		height: 180px;
 		overflow: auto;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	#buyInfo {
 		width: 450px;
 		height: 65px;
 		border: 0;
 		background: #E7E7E7;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	.glyphicon {
 		position: relative;
@@ -288,6 +301,7 @@
 		background-color: white;
 		font-weight: normal;
 		font-size: 15px;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	#show {
 		border: 1px solid #003399;
@@ -298,6 +312,7 @@
 		background-color: white;
 		font-weight: normal;
 		font-size: 15px;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	.saleBtn {
 		border: 1px solid #003399;
@@ -307,6 +322,7 @@
 		background-color: white;
 		font-weight: normal;
 		font-size: 15px;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 </style>
 <body>
@@ -427,7 +443,7 @@
 	<%--=================================== 구매버튼// 누르고 장바구니 비우기 ========================================== --%>
 	<div align="center">
 		<%-- <a href="${path}/cart/pay.do?account_user=${account_user}&totalPrice="><input type="button" class="btn btn-primary" onClick="cartToBuy(${account_user})" value="구매구매"></a> --%>
-		<a id="saleBtn"><input type="button" class="saleBtn" onClick="cartToBuy(${account_user})" value="결제하기"></a>
+		<a id="saleBtn"><input type="button" class="saleBtn" onClick="cartToBuy(${account_user})" value="결제하기" style="font-weight:bold"></a>
 	</div>
 	<br>
 	

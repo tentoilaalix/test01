@@ -9,10 +9,11 @@
 	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 	<script src="../resources/js/sockjs.min.js"/></script>
 	<style type="text/css">
-		a { text-decoration: none;}
- 		a:link { color: black; text-decoration: none !important;}
- 		a:active { color: black !important; text-decoration: none !important;}
-		a:visited { color: black !important; text-decoration: none !important;}
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+		a {text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
  		.quickMenu a:hover {
  				background-image: url('../resources/image/check.png');
  				background-repeat: no-repeat;
@@ -45,17 +46,20 @@
 	</script>
 	
 	<style>
+	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
 	.quickMenu { 
 			position:absolute !important; 
 			top:30px; 
 			right:1%; 
    			z-index: 10;
+   			font-family: 'Nanum Myeongjo', serif;
 		}
 	.quickChat { 
 			position:absolute !important; 
 			top:400px; 
 			right:1%; 
    			z-index: 10;
+   			font-family: 'Nanum Myeongjo', serif;
 		}
 	.goTop {
 		width: 50px;
@@ -64,22 +68,22 @@
 		border-radius: 50px;
 		background: #47C83E;
 		text-align: center;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	#caption {
 		font-family: sans-serif;
 		font-size: 10px;
 		width: 77px;
 		display: block;
+		font-family: 'Nanum Myeongjo', serif;
 	}
-	
 	.chatArea {
 		position: fixed;
 		right: 20px;
 		bottom: 1px;	
+		font-family: 'Nanum Myeongjo', serif;
 	}
-	
 	</style>
-	
 </head>
 <body>
 	<div class="quickMenu" align="right">

@@ -47,42 +47,26 @@
 				}
 			});
 		}
-
-		/*
-		// 재고 수량 알아보는 메소드
-		function searchProductCount(product_id){
-			var json= {"product_id":product_id};
-			var availableProductCount;
-			var html;
-
-			$.ajax({
-				type: "post",
-				url: "/cart/searchProductCount.do",
-				data: json,
-				success: function(data){		
-					availableProductCount= data;
-					alert(availableProductCount);
-					
-					html= "<c:set var= 'productCount' value='"+ availableProductCount +"'/>";
-					$("#setProductCount").html(html);
-				}, 
-				error: function(){
-				}
-			});
-		}
-		*/
 	</script>
 </head>
 <style>
+	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+	h2{
+		font-family: 'Nanum Myeongjo', serif !important;
+	}
+	
 	.name {
 		font-size: 25px;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	.content {
 		font-weight: normal;
 		font-size: 12px;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 	.productInfo {
 		font-weight: normal;
+		font-family: 'Nanum Myeongjo', serif;
 	}
 
 </style>
@@ -153,7 +137,7 @@
 							<input type="number" min="1" max="100" value="1" name="purchase_count">
 						</td>
 						
-						<%--======================== 장바구니 버튼 ===========================--%>
+						<%-- 장바구니 버튼 --%>
 						<td width="200px" height="30px" align="right"><input type="button" class="btn btn-md btn-success" onClick="insertToCart(${productList.product_id},${login.account_user})" value="장바구니"></td>
 					</tr>
 				</table>
@@ -163,6 +147,7 @@
 	</div>
 	<br><br><br><hr>
 	
+	<%--======================== 상품 설명 ===========================--%>
 	<h2 align="center">상품설명</h2>
 	<div class="container" align="center">
 		<c:forEach items="${productList}" var="productList">

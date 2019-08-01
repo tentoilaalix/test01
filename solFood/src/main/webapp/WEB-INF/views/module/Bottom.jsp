@@ -9,11 +9,15 @@
 	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
 
 	<style type="text/css">
- 		a { text-decoration: none;}
- 		a:link { color: black; text-decoration: none !important;}
- 		a:active { color: black !important; text-decoration: none !important;}
-		a:visited { color: black !important; text-decoration: none !important;}
- 		a:hover { color: black !important; text-decoration: none !important;}
+		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+ 		a { text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+ 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+ 		div{
+ 			font-family: 'Nanum Myeongjo', serif;
+ 		}
  		.row {
  			margin-right: 0px !important;
  		}
@@ -21,7 +25,7 @@
  			outline: none;
  		}
  		#kakao {
- 			
+ 			font-family: 'Nanum Myeongjo', serif;
  		}
 	</style>
 </head>
@@ -29,7 +33,7 @@
 <body>
 <hr>
 <div class="row">
-	<div class="col-md-2 col-md-offset-1"><h3>SolFood</h3></div>
+	<div class="col-md-2 col-md-offset-1"><h3><strong>SolFood</strong></h3></div>
 </div>
 <br>
 <div class="row" style="position: relative; font-size: 12px; font-weight: normal; color: #8C8C8C;">
