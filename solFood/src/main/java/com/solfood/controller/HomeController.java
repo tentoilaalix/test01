@@ -32,7 +32,7 @@ public class HomeController {
     //-----------------------------------------------------
     //	home
     //-----------------------------------------------------
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
     public String home(Locale locale, Model model) throws Exception{
         List<TotalVO> homeProduct = productService.selectProduct_all();
         model.addAttribute("homeProduct", homeProduct);
