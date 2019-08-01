@@ -23,9 +23,6 @@ import com.solfood.service.ChartService;
 import com.solfood.service.MemberService;
 import com.solfood.service.RecentService;
  
-/**
- * Handles requests for the application home page.
- */
 @Controller
 @RequestMapping("/chart/")
 public class ChartController {

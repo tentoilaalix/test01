@@ -4,7 +4,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Highcharts data from JSON Response</title>
+    <title>CHART</title>
 		<style>
 		body{
 			margin-top: 30px;
@@ -28,7 +28,7 @@
                         type: "column"
                     },
                     title: {
-                        text: "2019년 최다 판매량"
+                        text: "2019년 최다 판매 상품 TOP 5"
                     },
                     xAxis: {
                         type: 'category',
@@ -39,11 +39,11 @@
                     },
                     yAxis: {
                         title: {
-                            text: "Scores"
+                            text: "총 판매개수"
                         }
                     },
                     series: [{
-	                    name: 'Subjects',
+	                    name: '제품명',
                         data: processed_json
                     }]
                 }); 
