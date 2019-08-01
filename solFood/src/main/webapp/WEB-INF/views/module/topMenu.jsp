@@ -19,6 +19,7 @@
 	</style>
     <style>
     	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+    	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
       body {
         font-weight: bold;
         font-family: 'Nanum Myeongjo', serif;
@@ -45,6 +46,7 @@
       	height: 40px;
       	text-align: center;
       	line-height: 48px;
+      	font-family: 'Noto Sans KR', sans-serif;
       }
       #topCate {
       	display: inline-block;
@@ -52,6 +54,7 @@
       	height: 40px;
       	text-align: center;
       	line-height: 48px;
+      	font-family: 'Noto Sans KR', sans-serif; 
       }
       
       
