@@ -346,9 +346,10 @@
 		width: 90px;
 		height: 40px;
 		outline: none;
-		background-color: #363636; 
+		background-color: #f0f0f0;  
+		border-color: #f0f0f0;
 		font-weight: normal;
-		color: #f0f0f0;
+		color: #363636;
 		text-align: center;
 		border-radius: 0;
 		font-weight: normal;
@@ -473,8 +474,8 @@
 	<%--=================================== 결제/ 취소 버튼 ========================================== --%>
 	<div align="center">
 		<%-- <a href="${path}/cart/pay.do?account_user=${account_user}&totalPrice="><input type="button" class="btn btn-primary" onClick="cartToBuy(${account_user})" value="구매구매"></a> --%>
-		<a id="payBtn"><input type="button" class="payBtn" onClick="cartToBuy(${account_user})" value="결제하기" style="font-weight:bold"></a>
 		<a id="toMainBtn" href="${path}/"><input type="button" class="toMainBtn" value="메인으로" style="font-weight:bold"></a>
+		<a id="payBtn"><input type="button" class="payBtn" onClick="cartToBuy(${account_user})" value="결제하기" style="font-weight:bold"></a>
 	</div>
 	<br><br>
 	

@@ -83,19 +83,25 @@
 	--%>
 	</script>
 	<style>
-	.tableHead {
-		background-color: white;
-		border-top: 2px solid #003399;
-	}
-	#subBtn {
-		border: 1px solid;
-		border-color: #003399;
-		width: 120px;
-		height: 40px;
-		outline: none;
-		background-color: white;
-		font-weight: normal;
-	}
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+		.tableHead {
+			background-color: white;
+			border-top: 2px solid #003399;
+		}
+		#subBtn {
+			border: 1px solid;
+			border-color: #f0f0f0;
+			width: 120px;
+			height: 40px;
+			outline: none;
+			background-color: #f0f0f0;
+			font-weight: normal;
+			color: #363636;
+			text-align: center;
+			border-radius: 0;
+			font-size: 15px;
+			font-family: 'Noto Sans KR', sans-serif !important;
+		}
 	</style>
 </head>
 <body>
@@ -135,7 +141,7 @@
 	
 	<hr><br>
 	<%--===================================== 버튼 ==========================================--%>
-	<div class="container">
+	<div class="container" align="center">
 		<a href="${path}/"><input type="button" id="subBtn" value="메인으로 가기"></a>&nbsp;&nbsp;&nbsp;
 		<a href="${path}/cart/cartList.do"><input type="button" id="subBtn" value="장바구니로 가기"></a>
 	</div>

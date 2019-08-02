@@ -111,6 +111,7 @@
 	</script>
 	
 	<style>
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 		.tableHead {
 			background-color: white;
 			border-top: 2px solid #363636;
@@ -126,6 +127,9 @@
 			color: #363636;
 			text-align: center;
 			border-radius: 0;
+			font-weight: normal;
+			font-size: 15px;
+			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 		#subBtn2 {
 			border: 1px solid;
@@ -136,7 +140,11 @@
 			background-color: #f0f0f0;
 			font-weight: normal;
 			color: #363636;
+			text-align: center;
 			border-radius: 0;
+			font-weight: normal;
+			font-size: 15px;
+			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 	</style>
 </head>
