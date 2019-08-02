@@ -43,6 +43,7 @@ public class TotalVO {
 	private int 	buy_id;
 	private String 	buy_date;
 	private int 	buy_count;
+	private String	buy_delivery;
 	
 	
 	// RECIPE
@@ -275,6 +276,12 @@ public class TotalVO {
 	}
 	public void setProduct_event(int product_event) {
 		this.product_event = product_event;
+	}
+	public String getBuy_delivery() {
+		return buy_delivery;
+	}
+	public void setBuy_delivery(String buy_delivery) {
+		this.buy_delivery = buy_delivery;
 	}
 	
 	

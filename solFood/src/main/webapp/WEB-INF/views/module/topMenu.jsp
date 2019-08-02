@@ -11,23 +11,28 @@
 	<%--a 스타일 --%>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
- 		a { text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
- 		a:link { color: black; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
- 		a:active { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
-		a:visited { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
- 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+ 		a { text-decoration: none; font-family: 'Noto Sans KR', sans-serif;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
 	</style>
     <style>
     	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+    	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
       body {
         font-weight: bold;
-        font-family: 'Nanum Myeongjo', serif;
+        font-family: 'Noto Sans KR', sans-serif !important;
+      }
+      input{
+      	font-family: 'Noto Sans KR', sans-serif !important;
       }
       .jbTitle {
         text-align: center;
       }
       .jbMenu {
-        background-color: #FAE0D4;
+        background-color: #ffe3d6;
         width: 100%;
         z-index: 10;
         font-size: 18px;
@@ -45,6 +50,8 @@
       	height: 40px;
       	text-align: center;
       	line-height: 48px;
+      	font-family: 'Noto Sans KR', sans-serif !important;
+      	color: #6e6e6e !important;
       }
       #topCate {
       	display: inline-block;
@@ -52,6 +59,8 @@
       	height: 40px;
       	text-align: center;
       	line-height: 48px;
+      	font-family: 'Noto Sans KR', sans-serif !important;
+      	color: #6e6e6e !important;
       }
       
       
@@ -189,7 +198,7 @@
    <div>
       <ul>
          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="topCate"><img src="../resources/image/list.png">&nbsp;&nbsp;카테고리</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="topCate"><img src="../resources/image/list_grey.png" width="20px;" height="auto">&nbsp;&nbsp;카테고리</a>
             <ul class="dropdown-menu" id="middleCate">
                <li class="dropdown-submenu">
                   <a href="${path}/product/products1.do?product_category1=채소·과일"><strong>채소·과일</strong></a>
@@ -291,7 +300,7 @@
   <div class="col-xs-2">
 <div class="d3">
 <form>
-  <input type="text" placeholder="검색어 입력" style="font-size: 15px !important;">
+  <input type="text" placeholder="검색어 입력" style="font-size: 12px !important;">
   <button type="submit"><strong><span class="glyphicon glyphicon-search"></span></strong></button>
 </form>
 </div>

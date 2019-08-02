@@ -34,11 +34,11 @@
 					if(cnt> 0){	
 						for(i=0; i<cnt; i++){
 							html+= "<tr height='50' class='info'>";
-							html+= "<td align='center' width='30'><input type='button' value='장바구니담기' onclick='insertToCart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-primary'></td>";
-							html+= "<td align='center' width='30'><input type='button' value='삭제' onclick='deleteFromHeart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-success'></td>";
-							html+= "<td align='center' width='100'><a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"' style='width:120px; height:auto;'/></a></td>";
-							html+= "<td align='center' width='100'><a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'>"+ data[i].product_name+ "</a></td>";
-							html+= "<td align='center' width='100'>"+ data[i].product_price+ "원</td>";
+							html+= "<td align='center' width='30' height='170'><input type='button' id='subBtn1' value='장바구니담기' onclick='insertToCart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-primary'></td>";
+							html+= "<td align='center' width='30' height='170'><input type='button' id='subBtn1' value='삭제' onclick='deleteFromHeart("+ data[i].product_id +","+ account_user +")' class='btn btn-sm btn-success'></td>";
+							html+= "<td align='center' width='100' height='170'><a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"' style='width:120px; height:auto;'/></a></td>";
+							html+= "<td align='center' width='100' height='170'><a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'>"+ data[i].product_name+ "</a></td>";
+							html+= "<td align='center' width='100' height='170'>"+ data[i].product_price+ "원</td>";
 							html+= "</tr>";		
 						}
 						$("#heartList").html(html);
@@ -110,6 +110,35 @@
 		}
 	</script>
 	
+	<style>
+		.tableHead {
+			background-color: white;
+			border-top: 2px solid #363636;
+		}
+		#subBtn1 {
+			border: 1px solid;
+			border-color: #f0f0f0;
+			width: 90px;
+			height: 40px;
+			outline: none;
+			background-color: #f0f0f0;
+			font-weight: normal;
+			color: #363636;
+			text-align: center;
+			border-radius: 0;
+		}
+		#subBtn2 {
+			border: 1px solid;
+			border-color: #f0f0f0;
+			width: 130px;
+			height: 40px;
+			outline: none;
+			background-color: #f0f0f0;
+			font-weight: normal;
+			color: #363636;
+			border-radius: 0;
+		}
+	</style>
 </head>
 <body>
 <%--============================== header =================================--%>
@@ -126,7 +155,7 @@
 	
 	<div class="container" style="margin-top:30px">
 		<table class="table">
-			<tr height="50" class="info">
+			<tr height="50" class="tableHead">
 				<td align= "center" width="30">장바구니 담기</td>
 				<td align= "center" width="30">삭제</td>
 				<td align= "center" width="50">사진</td>
@@ -145,8 +174,8 @@
 	
 	<%-- 버튼--%>
 	<div class="container" align="center">
-		<a href="${path}/"><input type="button" value="메인으로 가기" class="btn btn-md btn-warning"></a>
-		<a href="${path}/cart/cartList.do?account_user=${login.account_user}"><input type="button" value="장바구니로 가기" class="btn btn-md btn-primary"></a>
+		<a href="${path}/"><input type="button" id="subBtn2" value="메인으로 가기" class="btn btn-md btn-warning"></a>
+		<a href="${path}/cart/cartList.do?account_user=${login.account_user}"><input type="button" id="subBtn2" value="장바구니로 가기" class="btn btn-md btn-primary"></a>
 	</div>
 	<br><br><br><br>
 

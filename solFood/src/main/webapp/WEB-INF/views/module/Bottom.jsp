@@ -10,13 +10,14 @@
 
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
- 		a { text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
- 		a:link { color: black; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
- 		a:active { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
-		a:visited { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
- 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+ 		a { text-decoration: none; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
  		div{
- 			font-family: 'Nanum Myeongjo', serif;
+ 			font-family: 'Noto Sans KR', sans-serif !important;
  		}
  		.row {
  			margin-right: 0px !important;
@@ -25,7 +26,7 @@
  			outline: none;
  		}
  		#kakao {
- 			font-family: 'Nanum Myeongjo', serif;
+ 			font-family: 'Noto Sans KR', sans-serif !important;
  		}
 	</style>
 </head>

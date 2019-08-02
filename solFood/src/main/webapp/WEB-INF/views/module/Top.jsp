@@ -15,13 +15,15 @@
 	<script src="../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
 	<style type="text/css">
-		a { text-decoration: none;}
- 		a:link { color: black; text-decoration: none !important;}
- 		a:active { color: black !important; text-decoration: none !important;}
-		a:visited { color: black !important; text-decoration: none !important;}
- 		a:hover { color: black !important; text-decoration: none !important;}
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+		a { text-decoration: none; font-family: 'Noto Sans KR', sans-serif;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
 	</style>
 	<style>
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 		.logo {
 			position: absolute;
 			top: 22px;
@@ -30,11 +32,14 @@
 			z-index: 10;
 		}
 	 	body{
-	 		font-family: 'Nanum Gothic Coding';
+	 		font-family: 'Noto Sans KR', sans-serif;
 	 		font-size: ;
 	 	}
 	 	p{
 	 		vertical-align: middle;
+	 	}
+	 	div{
+	 		font-family: 'Noto Sans KR', sans-serif;
 	 	}
 	</style>
 
@@ -58,16 +63,16 @@
 			<c:choose>
 			    <c:when test="${login.account_user == null}">
 			    <div class="col-sm-offset-10">
-			        <a href="${path}/member/login.do"><strong>로그인&nbsp;</strong></a>&nbsp;｜&nbsp;
-			        <a href="${path}/member/joinMember.do"><strong>회원가입&nbsp;</strong></a>
+			        <a href="${path}/member/login.do">로그인&nbsp;</a>&nbsp;｜&nbsp;
+			        <a href="${path}/member/joinMember.do">회원가입&nbsp;</a>
 			    </div>
 			    </c:when>
 			    <c:otherwise>
 			    <div class="col-sm-offset-9">
-			        <a href="${path}/member/mypage.do?account_user=${login.account_user}"><strong>마이페이지&nbsp;</strong></a>&nbsp;｜&nbsp;
-			        <a href="${path}/cart/cartList.do?account_user=${login.account_user}"><strong>장바구니&nbsp;</strong></a>&nbsp;｜&nbsp;  
-			        <a href="${path}/buy/buy.do?account_user=${login.account_user}"><strong>구매이력&nbsp;</strong></a>&nbsp;｜&nbsp;  
-			        <a href="${path}/member/logout.do"><strong>로그아웃&nbsp;</strong></a>
+			        <a href="${path}/member/mypage.do?account_user=${login.account_user}">마이페이지&nbsp;</a>&nbsp;｜&nbsp;
+			        <a href="${path}/cart/cartList.do?account_user=${login.account_user}">장바구니&nbsp;</a>&nbsp;｜&nbsp;  
+			        <a href="${path}/buy/buy.do?account_user=${login.account_user}">구매이력&nbsp;</a>&nbsp;｜&nbsp;  
+			        <a href="${path}/member/logout.do">로그아웃&nbsp;</a>
 			    </div>
 			    </c:otherwise>
 			</c:choose>
@@ -78,7 +83,7 @@
 	
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<!-- 메인 로고 : 클릭시 메인으로 이동 -->
-		<a href="../../${path}" class="logo"><img src="../resources/image/logo.png"></a>
+		<a href="../../${path}" class="logo"><img src="../resources/image/solfoodLogo.png"></a>
 	
 	<!-- 로고 애니메이션 : 클릭시 메인으로 이동 -->
 	<div class="row">

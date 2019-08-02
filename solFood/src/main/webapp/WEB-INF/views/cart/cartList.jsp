@@ -219,23 +219,23 @@
 				}
 			});
 		}
-		
 	</script>
 </head>
 <style>
 	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 	body {
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
-	input{
-		font-family: 'Nanum Myeongjo', serif;
+	table{
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	h5{
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	.tableHead {
 		background-color: white;
-		border-top: 2px solid #003399;
+		border-top: 2px solid #363636;
 	}
 	#cartList {
 		position: relative;
@@ -253,55 +253,67 @@
 	#count {
 		width: 30px;
 		text-align: center;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	#plusminus {
 		border: 0;
 		outline: 0;
 		background: #FFFFFF;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	#deleteOutOfStock {
 		border: 1px solid;
-		border-color: #003399;
+		border-color: #f0f0f0;
 		width: 120px;
 		height: 40px;
 		outline: none;
-		background-color: white;
+		background-color: #f0f0f0;
 		font-weight: normal;
-		font-family: 'Nanum Myeongjo', serif;
+		color: #363636;
+		text-align: center;
+		border-radius: 0;
+		font-weight: normal;
+		font-size: 15px;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
-	
 	#price {
-		border: 2px solid  #003399;
-		border-radius: 3px;
-		width: 230px;
-		height: 180px;
+		border: 2px solid;
+		border-color: #f0f0f0;
+		width: 220px;
+		height: 180;
 		overflow: auto;
-		font-family: 'Nanum Myeongjo', serif;
+		background-color: #f0f0f0;
+		color: #363636;
+		text-align: center;
+		border-radius: 30px;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	#buyInfo {
 		width: 450px;
 		height: 65px;
 		border: 0;
-		background: #E7E7E7;
-		font-family: 'Nanum Myeongjo', serif;
+		background: white;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	.glyphicon {
 		position: relative;
 		top: 15px;
 		font-size: 25px;
 	}
-	#subBtn {
-		border: 1px solid #003399;
-		border-radius: 3px;
+	#subBtn {		
+		border: 1px solid;
+		border-color: #f0f0f0;
 		width: 60px;
 		height: 35px;
 		outline: none;
-		background-color: white;
+		background-color: #f0f0f0;
+		font-weight: normal;
+		color: #363636;
+		text-align: center;
+		border-radius: 0;
 		font-weight: normal;
 		font-size: 15px;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	#show {
 		border: 1px solid #003399;
@@ -312,17 +324,22 @@
 		background-color: white;
 		font-weight: normal;
 		font-size: 15px;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	.saleBtn {
-		border: 1px solid #003399;
-		width: 80px;
+		border: 1px solid;
+		border-color: lightgrey;
+		width: 90px;
 		height: 40px;
 		outline: none;
-		background-color: white;
+		background-color: #f0f0f0;
+		font-weight: normal;
+		color: #363636;
+		text-align: center;
+		border-radius: 0;
 		font-weight: normal;
 		font-size: 15px;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 </style>
 <body>
@@ -339,7 +356,7 @@
 			**주문하실 상품명 및 수량을 정확하게 확인해 주세요.**<br><br>
 			**구매하기 버튼을 누를 때, 품절 상품은 구매되지 않습니다**
 		</h5>
-	</div><br><hr id="line">
+	</div><br>
 	
 	<%--  ================================== 품절상품 삭제 버튼 ================================ --%>
 	<div class="row">
@@ -350,8 +367,7 @@
 			<br>
 			<input type="button" id="deleteOutOfStock" value="품절 상품 삭제" onClick="deleteOutOfStock(${account_user})"/>
 		</div>
-	</div>
-	<br><br>
+	</div><br>
 	
 	<%-- ================================== cartList column ==================================== --%>
 	<div class="container">
@@ -440,20 +456,16 @@
 	</div>
 	<br><br><br>
 	
-	<%--=================================== 구매버튼// 누르고 장바구니 비우기 ========================================== --%>
+	<%--=================================== 결제/ 취소 버튼 ========================================== --%>
 	<div align="center">
 		<%-- <a href="${path}/cart/pay.do?account_user=${account_user}&totalPrice="><input type="button" class="btn btn-primary" onClick="cartToBuy(${account_user})" value="구매구매"></a> --%>
 		<a id="saleBtn"><input type="button" class="saleBtn" onClick="cartToBuy(${account_user})" value="결제하기" style="font-weight:bold"></a>
+		<a id="saleBtn" href="${path}/"><input type="button" class="saleBtn" value="메인으로" style="font-weight:bold"></a>
 	</div>
-	<br>
+	<br><br>
 	
 	
 	<%--======================================= 부가설명 ========================================== --%>
-	<div class="col-md-offset-8">
-		<h5><span class="glyphicon glyphicon-hand-right"></span>&nbsp;쿠폰, 적립금은 다음화면인'주문서'에서 확인가능합니다.</h5>
-	</div>
-	<br><br>
-		
 	<div align="center">
 		<label id="buyInfo">
 			<h6 align="center">

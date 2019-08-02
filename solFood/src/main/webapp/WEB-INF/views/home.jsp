@@ -16,10 +16,7 @@
 	<script src="../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
 	
-	
-	<!-- 상품 뿌리기 ajax -->
 	<script>
-	
 	// 숫자에 콤마 넣는 함수
 	function addComma(num)
 	{
@@ -57,38 +54,40 @@
 	
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
-		a { text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
- 		a:link { color: black; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
- 		a:active { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
-		a:visited { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
- 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+		a { text-decoration: none; font-family: 'Noto Sans KR', sans-serif;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif;}
+ 		a:hover { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif;}
 	</style>
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 		html{cursor: url(../resources/image/carrot.png), auto}
 		body {
 			width: 100%;
-			font-family: 'Nanum Myeongjo', serif;
+			font-family: 'Noto Sans KR', sans-serif !important;
 			font-size: 18px;
 			align: center !important;
 		}
 		h2{
-			font-family: 'Nanum Myeongjo', serif !important;
+			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 		h3{
-			font-family: 'Nanum Myeongjo', serif !important;
+			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 		h4{
-			font-family: 'Nanum Myeongjo', serif !important;
+			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 		p{
-			font-family: 'Nanum Myeongjo', serif !important;
+			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 		input{
-			font-family: 'Nanum Myeongjo', serif !important;
+			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 		#mdArea{
-			font-family: 'Nanum Myeongjo', serif !important;
+			font-family: 'Noto Sans KR', sans-serif !important; 
 		}
 		#thumb {
 			border: 0;
@@ -106,13 +105,10 @@
 </head>
 <body>
 
-<!--■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■222-->
-
-<jsp:include page="module/Top.jsp" flush="false"/>
-<br><br>
-
-<!--■■■■■■■■■■■■■■■■■■■■■■ 상단 배너 ■■■■■■■■■■■■■■■■■■■■■■■■-->
+	<!--■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■222-->
+	<jsp:include page="module/Top.jsp" flush="false"/>
 	
+	<!--■■■■■■■■■■■■■■■■■■■■■■ 상단 배너 ■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<div id="myCarousel" class="carousel slide text-center" data-ride ="carousel">
 		<ol class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>

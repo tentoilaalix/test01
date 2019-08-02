@@ -46,6 +46,7 @@
 						html+= "<td align='center' width='100' height='140'>"+ data[i].product_name+ "</td>";
 						html+= "<td align='center' width='100' height='140'>"+ data[i].buy_count+ "</td>";
 						html+= "<td align='center' width='100' height='140'>"+ addComma(data[i].product_price)+ " 원</td>";
+						html+= "<td align='center' width='100' height='140'>"+ data[i].buy_delivery+ "</td>";
 						html+= "</tr>";		
 					}
 					$("#buyList").html(html);
@@ -53,28 +54,7 @@
 				} else{
 					$("#buyList").html(html);
 				}
-				
-				<%--
-				// selectedPrice--> 각각의 상품 금액 표시 
-				html= "";
-				var total= 0;
-				
-				for(i=0; i<cnt; i++){
-					html+= "<h5>"+ data[i].product_name +" X "+ data[i].cart_count +"="+ (data[i].product_price* data[i].cart_count) +"</h5> ";				
-					total+= (data[i].product_price* data[i].cart_count);
-				}
-				html+= "<h4>"+ total +"</h4>" 
-				$("#selectedPrice").html(html);
-				
-				
-				// totalPrice--> 총 금액 표시
-				html= "";
-				var all_total= total+ 2500;
-				html+= "<h4>"+ all_total +"</h4>"; 
-				$("#totalPrice").html(html);
-				--%>
 			},
-			
 			error: function(request, status, error){
 				alert("데이터 cartList 뿌리기 실패");
 			} 
@@ -142,6 +122,7 @@
 				<td align= "center" width="50">상품명</td>
 				<td align= "center" width="50">구매 수량</td>
 				<td align= "center" width="50">가격</td>
+				<td align= "center" width="50">배송상태</td>
 			</tr>
 		</table>
 	</div>

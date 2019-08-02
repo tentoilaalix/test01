@@ -10,10 +10,11 @@
 	<script src="../resources/js/sockjs.min.js"/></script>
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
-		a {text-decoration: none; font-family: 'Nanum Myeongjo', serif;}
- 		a:link { color: black; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
- 		a:active { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
-		a:visited { color: black !important; text-decoration: none !important; font-family: 'Nanum Myeongjo', serif;}
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+		a {text-decoration: none; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:link { color: black; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+ 		a:active { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
+		a:visited { color: black !important; text-decoration: none !important; font-family: 'Noto Sans KR', sans-serif !important;}
  		.quickMenu a:hover {
  				background-image: url('../resources/image/check.png');
  				background-repeat: no-repeat;
@@ -47,19 +48,20 @@
 	
 	<style>
 	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 	.quickMenu { 
 			position:absolute !important; 
 			top:30px; 
 			right:1%; 
    			z-index: 10;
-   			font-family: 'Nanum Myeongjo', serif;
+   			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 	.quickChat { 
 			position:absolute !important; 
 			top:400px; 
 			right:1%; 
    			z-index: 10;
-   			font-family: 'Nanum Myeongjo', serif;
+   			font-family: 'Noto Sans KR', sans-serif !important;
 		}
 	.goTop {
 		width: 50px;
@@ -68,20 +70,20 @@
 		border-radius: 50px;
 		background: #47C83E;
 		text-align: center;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	#caption {
 		font-family: sans-serif;
 		font-size: 10px;
 		width: 77px;
 		display: block;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	.chatArea {
 		position: fixed;
 		right: 20px;
 		bottom: 1px;	
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	</style>
 </head>

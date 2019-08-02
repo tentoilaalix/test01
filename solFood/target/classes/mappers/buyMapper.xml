@@ -7,7 +7,7 @@
 		<!-- =============================== SELECT ======================================https://s.pstatic.net/static/www/mobile/edit/2017/0324/mobile_184353754426.gif=== -->		
 		<!-- BUY 테이블 데이터 모두 보기_ 구매한 직후(cart에서 list 사라지기 전) -->
 		<select id="selectBuy" parameterType="String" resultType="com.solfood.dto.TotalVO">
-			SELECT B.BUY_ID, B.BUY_DATE, B.PRODUCT_ID, B.BUY_COUNT, P.PRODUCT_PRICE, P.PRODUCT_IMAGE, P.PRODUCT_NAME 
+			SELECT B.BUY_ID, B.BUY_DATE, B.PRODUCT_ID, B.BUY_COUNT, B.BUY_DELIVERY, P.PRODUCT_PRICE, P.PRODUCT_IMAGE, P.PRODUCT_NAME 
 			FROM BUY B, PRODUCT P 
 			WHERE B.PRODUCT_ID= P.PRODUCT_ID AND B.ACCOUNT_USER= #{account_user};
 		</select>
@@ -25,13 +25,6 @@
 		<insert id="insertBuy" parameterType="com.solfood.dto.TotalVO">
 			INSERT INTO BUY(BUY_DATE, BUY_COUNT, ACCOUNT_USER, PRODUCT_ID) VALUES(current_date(), #{buy_count}, #{account_user}, #{product_id}) 
 		</insert>
-		
-		
-		<!-- =============================== DELETE ========================================= -->
-		
-	    
-	    
-	    <!-- =============================== UPDATE ========================================= -->
 	    
 	</mapper>
 	

@@ -51,22 +51,23 @@
 </head>
 <style>
 	@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 	h2{
-		font-family: 'Nanum Myeongjo', serif !important;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	
 	.name {
 		font-size: 25px;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	.content {
 		font-weight: normal;
 		font-size: 12px;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	.productInfo {
 		font-weight: normal;
-		font-family: 'Nanum Myeongjo', serif;
+		font-family: 'Noto Sans KR', sans-serif !important;
 	}
 
 </style>
