@@ -333,11 +333,10 @@
 		height: 40px;
 		outline: none;
 		background-color: #363636; 
-		font-weight: normal;
 		color: #f0f0f0;
 		text-align: center;
 		border-radius: 0;
-		font-weight: normal;
+		font-weight: bold;
 		font-size: 15px;
 		font-family: 'Noto Sans KR', sans-serif !important;
 	}
@@ -348,11 +347,10 @@
 		outline: none;
 		background-color: #f0f0f0;  
 		border-color: #f0f0f0;
-		font-weight: normal;
 		color: #363636;
 		text-align: center;
 		border-radius: 0;
-		font-weight: normal;
+		font-weight: bold;
 		font-size: 15px;
 		font-family: 'Noto Sans KR', sans-serif !important;
 	}

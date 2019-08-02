@@ -148,11 +148,13 @@
 	</script>
 	
 	<style>
-	.button {
-	  background-color: #4CAF50; /* Green */
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+	#checkBtn {
+	  width: 100px;
+	  height: auto;
+	  background-color: #f0f0f0; 
 	  border: none;
-	  color: white;
-	  padding: 12px 22px;
+	  color: #363636;
 	  text-align: center;
 	  text-decoration: none;
 	  display: inline-block;
@@ -161,8 +163,31 @@
 	  -webkit-transition-duration: 0.4s; /* Safari */
 	  transition-duration: 0.4s;
 	  cursor: pointer;
+	  border-radius: 0;
+	  font-weight: normal;
+	  font-family: 'Noto Sans KR', sans-serif !important;
+	}
+	#joinBtn {
+	  width: 100px;
+	  height: auto;
+	  background-color: #363636; 
+	  border: none;
+	  color: #f0f0f0; 
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 17px;
+	  margin: 0px 0px;
+	  -webkit-transition-duration: 0.4s; /* Safari */
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	  border-radius: 0;
+	  font-weight: bold;
+	  font-family: 'Noto Sans KR', sans-serif !important;
 	}
 	
+	
+	/*
 	.button1 {
 	  background-color: white; 
 	  color: black; 
@@ -173,6 +198,7 @@
 	  background-color: #4CAF50;
 	  color: white;
 	}
+	*/
 
 	</style>
 	
@@ -195,7 +221,7 @@
 					<label for="" class="col-md-4 control-label">아이디</label>
 					<div class="col-md-4">
 						<input type="text" class="form-control" id="account_user" name="account_user" maxlength="20" placeholder="Enter ID"><br>
-						<button type="button" onclick="idCheck()" class="btn btn-danger"><b>id 중복체크</b></button>
+						<button type="button" onclick="idCheck()" class="btn" id="checkBtn"><b>id 중복체크</b></button>
 						<p id="check1">
 						
 						</p>
@@ -251,9 +277,10 @@
 						<input type="text" class="form-control" name="account_email" maxlength="100" placeholder="Enter E-mail" aria-label="Amount (to the nearest dollar)"  aria-describedby="basic-addon2">
 					</div>
 				</div> 
+				<br>
 				
 				<div class="form-group" align="center">
-					<button type="submit" onclick="finalCheck() return false;" class="btn btn-success"><b>회원가입</b></button>
+					<button type="submit" onclick="finalCheck() return false;" class="btn" id="joinBtn"><b>회원가입</b></button>
 				</div>		
 			</form>
 		</div>

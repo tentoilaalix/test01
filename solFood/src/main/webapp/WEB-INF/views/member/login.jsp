@@ -31,6 +31,27 @@
         });
     });
 	</script>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+		#btnJoin, #btnLogin {
+		  width: 100px;
+		  height: auto;
+		  background-color: #f0f0f0; 
+		  border: none;
+		  color: #363636; 
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 14px;
+		  margin: 0px 0px;
+		  -webkit-transition-duration: 0.4s; /* Safari */
+		  transition-duration: 0.4s;
+		  cursor: pointer;
+		  border-radius: 0;
+		  font-weight: bold;
+		  font-family: 'Noto Sans KR', sans-serif !important;
+		}
+	</style>
 
 </head>
 <body>
@@ -55,8 +76,8 @@
 		</div>
 		<br>
 		
-		<button type="button" id="btnLogin" class="btn btn-info" style="border-radius: 0px;">로그인</button>
-		<a href="${path}/member/joinMember.do"><button type="button" id="btnLogin" class="btn btn-success" style="border-radius: 0px;">회원가입</button></a>
+		<button type="button" id="btnLogin" class="btn" style="border-radius: 0px;">로그인</button>
+		<a href="${path}/member/joinMember.do"><button type="button" id="btnJoin" class="btn" style="border-radius: 0px;">회원가입</button></a>
 	
 		<table border="1" width="400px">
 		

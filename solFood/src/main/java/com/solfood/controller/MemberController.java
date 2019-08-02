@@ -130,9 +130,13 @@ public class MemberController {
 		return "/member/mypage";
 	}	
 	
-	@ResponseBody
+	//***************************************************
+	//	mypage 수정 고쳐야함!!!- 8/2 영민 기준
+	//***************************************************
 	@RequestMapping(value="/updateMyAccount.do", method= {RequestMethod.POST, RequestMethod.GET})
-	public String updateMyAccount(MemberVO memberVo, HttpSession session) throws Exception{
+	public String updateMyAccount(HttpServletRequest request, HttpSession session) throws Exception{
+		MemberVO memberVo= new MemberVO();
+		
 		memberService.updateMyAccount(memberVo);								
 		
 		MemberVO afterUpdate= new MemberVO();									// 새로운 memberVO 객체 생성
@@ -140,7 +144,7 @@ public class MemberController {
 		session.setAttribute("login", afterUpdate);								// 그 결과값을 다시 login attribute에 넣기
 		session.setAttribute("account_grade", afterUpdate.getAccount_grade());
 	
-		return "mypageComp.do"; 
+		return "member/mypageComp"; 
 	}
 	
 	@RequestMapping(value="/mypageComp.do")
