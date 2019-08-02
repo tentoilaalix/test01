@@ -83,19 +83,20 @@
 					//	discountPrice--> 상품 discount rate적용해서 가격 표시
 					//----------------------------------------------------------
 					html= "";
-					var total= 0;
+					// var total= 0;
 					var discountTotal= 0;
+					var temp= 0;
 
 					html+= "<input type='button' onclick='show()' id='show' value='상세'>";
 					html+= "<h6 id='temp' hidden='true' style='display:none;'>";
 					
 					for(i=0; i<cnt; i++){
 						html+= data[i].product_name + " : " +data[i].product_discountrate+ "% 할인= "+ (data[i].product_price* 0.01* data[i].product_discountrate) +"원<br><br>";				
-						discountTotal+= (data[i].product_price* 0.01* data[i].product_discountrate)
-						total+= ((data[i].product_price* (1- 0.01*data[i].product_discountrate)) *data[i].cart_count);
+						discountTotal+= (data[i].product_price* 0.01* data[i].product_discountrate)						
 					}
-					html+= "</h6><h4>할인된 금액: "+ addComma(discountTotal) +"원</h4>";
+					total= total- discountTotal+ 2500;
 					
+					html+= "</h6><h4>할인된 금액: "+ addComma(discountTotal) +"원</h4><br>";
 					$("#discountPrice").html(html);
 
 					
@@ -104,10 +105,10 @@
 					//----------------------------------------------------------
 					html= "";
 					var all_total= total;
-					html+= "<h4>"+ addComma(all_total) +" 원</h4>"; 
+					html+= "<h4>"+ addComma(all_total) +" 원</h4><br>"; 
 					html+= "<c:set var='all_total' value='"+ all_total +"'/>";
 					
-					$("#saleBtn").attr({
+					$("#payBtn").attr({
 						'href' : '${path}/cart/pay.do?account_user='+ account_user+ '&totalPrice=' +all_total
 					});
 					
@@ -279,7 +280,7 @@
 	#price {
 		border: 2px solid;
 		border-color: #f0f0f0;
-		width: 220px;
+		width: 200px;
 		height: 180;
 		overflow: auto;
 		background-color: #f0f0f0;
@@ -326,15 +327,28 @@
 		font-size: 15px;
 		font-family: 'Noto Sans KR', sans-serif !important;
 	}
-	.saleBtn {
+	.payBtn {
 		border: 1px solid;
-		border-color: lightgrey;
 		width: 90px;
 		height: 40px;
 		outline: none;
-		background-color: #f0f0f0;
+		background-color: #363636; 
 		font-weight: normal;
-		color: #363636;
+		color: #f0f0f0;
+		text-align: center;
+		border-radius: 0;
+		font-weight: normal;
+		font-size: 15px;
+		font-family: 'Noto Sans KR', sans-serif !important;
+	}
+	.toMainBtn {
+		border: 1px solid;
+		width: 90px;
+		height: 40px;
+		outline: none;
+		background-color: #363636; 
+		font-weight: normal;
+		color: #f0f0f0;
 		text-align: center;
 		border-radius: 0;
 		font-weight: normal;
@@ -438,7 +452,7 @@
 		<div class="col-md-2" id="price" align="center">
 			<label><br><br><h4><b>배송비</b></h4></label>
 			<p id="shippingPrice">
-				<h4>2,500 원</h4>
+				<h4>2,500 원</h4><br>
 			</p>
 		</div>
 		<div class="col-sm-1" align="center">
@@ -459,8 +473,8 @@
 	<%--=================================== 결제/ 취소 버튼 ========================================== --%>
 	<div align="center">
 		<%-- <a href="${path}/cart/pay.do?account_user=${account_user}&totalPrice="><input type="button" class="btn btn-primary" onClick="cartToBuy(${account_user})" value="구매구매"></a> --%>
-		<a id="saleBtn"><input type="button" class="saleBtn" onClick="cartToBuy(${account_user})" value="결제하기" style="font-weight:bold"></a>
-		<a id="saleBtn" href="${path}/"><input type="button" class="saleBtn" value="메인으로" style="font-weight:bold"></a>
+		<a id="payBtn"><input type="button" class="payBtn" onClick="cartToBuy(${account_user})" value="결제하기" style="font-weight:bold"></a>
+		<a id="toMainBtn" href="${path}/"><input type="button" class="toMainBtn" value="메인으로" style="font-weight:bold"></a>
 	</div>
 	<br><br>
 	
