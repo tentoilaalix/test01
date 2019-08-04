@@ -76,9 +76,12 @@
 			    </div>
 			    </c:otherwise>
 			</c:choose>
+			
+			<%-- 
 		 	<a class="navbar-item" href="${path}/manager/managerMain.do">관리자 페이지
 				<img src="${path}/resources/image/logo0.png" width="95" height="35">
 			</a>
+			--%>
 	</div>
 	
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
@@ -88,7 +91,6 @@
 	<!-- 로고 애니메이션 : 클릭시 메인으로 이동 -->
 	<div class="row">
 		<div class="col-md-6 col-md-offset-1">
-			
 			<div style="position: relative; top: 10px; left: 40px !important;"><a href="../../${path}"><img src="../resources/image/trees.png"></a></div>
 			<div style="position: absolute; top: 20px; left: 80px;"><img src="../resources/image/sun.png" class="rotation">	</div>
 			<div style="position: absolute; top: 110px; left: 67px;"><img src="../resources/image/cheese.png" class=floating></div>
@@ -98,10 +100,9 @@
 			<div style="position: absolute; top: 110px; left: 126px;"><img src="../resources/image/orange.png" class=floating></div>
 			<div style="position: absolute; top: 120px; left: 141px;"><img src="../resources/image/strawberry.png" class=floating></div>
 			<div style="position: absolute; top: 110px; left: 152px;"><img src="../resources/image/tomato.png" class=floating></div>
-	
 		</div>	
 	</div>
-	<br>	
+	<br><br><br>
 <%--■■■■■■■■■■■■■■■■■■■■■■ Top ■■■■■■■■■■■■■■■■■■■■■■■■--%>
 </body>
 	<%@ include file = "topMenu.jsp" %>

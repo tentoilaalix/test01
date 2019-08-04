@@ -322,6 +322,8 @@
 </c:forEach>
 </div>
 </div><br><br><br>
+
+
 <div class="container" id="recipeInfo">
 <div align="center">
 	<div class="wiggle">

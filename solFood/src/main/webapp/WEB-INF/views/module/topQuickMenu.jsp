@@ -95,10 +95,16 @@
 		<a href="${path}/heart/heartList.do?account_user=${login.account_user}" id="caption"><img src="../resources/image/like.png" alt="찜한 상품"><br>찜한 상품</a><br><br>
 		<a href=""><img src="../resources/image/top.png" id="MOVE_TOP_BTN" alt="맨 위로"></a><br><br>
 		<br><br>
-	</div><!-- 퀵메뉴 -->
+	</div>
+	
+	<%-- 
+	<!-- 퀵메뉴 -->
 	<div class="quickChat" align="right">
 		<div class="chatMenu"><iframe id="chat" src="http://172.16.1.122:8080/chat" style="width: 220px; height: 320px; border: 0;"></iframe></div>
 	</div>
+	--%>
+
+
 <%-- Top 기능 jQuery --%>
 <script>
     $(function() {
