@@ -59,7 +59,7 @@
  -->
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Top ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<div class="row">
-			   
+		<br>   
 			<c:choose>
 			    <c:when test="${login.account_user == null}">
 			    <div class="col-sm-offset-10">
