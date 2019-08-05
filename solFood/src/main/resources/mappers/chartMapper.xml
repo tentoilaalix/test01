@@ -17,17 +17,18 @@
 		<select id="chart_sellingProductsByCategory_201907" resultType="com.solfood.dto.TotalVO">
 			SELECT p.product_id, p.product_category1, p.product_category2, b.buy_id, b.BUY_DATE, SUM(b.buy_count) AS BUY_COUNT
 			FROM buy b, product p 
-			WHERE b.product_id= p.product_id AND b.BUY_DATE LIKE '2019-07%'
+			WHERE b.product_id= p.product_id AND b.BUY_DATE LIKE '2019%'
 			GROUP BY p.product_category1
 			ORDER BY SUM(b.buy_count) DESC;
 		</select>
 		
 		<!-- 찜한 상품 -->
 		<select id="chart_mostLikedProducts" resultType="com.solfood.dto.TotalVO">
-			SELECT PRODUCT_ID, COUNT(PRODUCT_ID) 
-			FROM HEART 
-			GROUP BY PRODUCT_ID
-			ORDER BY COUNT(PRODUCT_ID) DESC;
+			SELECT H.PRODUCT_ID, P.PRODUCT_NAME, COUNT(P.PRODUCT_ID) PRODUCT_COUNT 
+			FROM HEART H, PRODUCT P
+			WHERE P.PRODUCT_ID = H.PRODUCT_ID
+			GROUP BY P.PRODUCT_ID
+			ORDER BY COUNT(P.PRODUCT_ID) DESC LIMIT 5;
 		</select>
 	</mapper>
 	

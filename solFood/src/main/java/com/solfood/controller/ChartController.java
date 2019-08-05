@@ -46,4 +46,24 @@ public class ChartController {
 				
 		return productList;
 	}
+	
+	//카테고리별 판매 수량
+	@ResponseBody
+	@RequestMapping(value="/chart_sellingProductsByCategory_201907", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> chart_sellingProductsByCategory_201907(Model model) throws Exception{
+		List<TotalVO> categoryList= chartService.chart_sellingProductsByCategory_201907();
+	//model.addAttribute("productList", productList);
+				
+		return categoryList;
+	}
+	
+	//카테고리별 판매 수량
+	@ResponseBody
+	@RequestMapping(value="/chart_mostLikedProducts", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> chart_mostLikedProducts(Model model) throws Exception{
+		List<TotalVO> mostLikedProducts= chartService.chart_mostLikedProducts();
+	//model.addAttribute("productList", productList);
+					
+		return mostLikedProducts;
+	}
 }
