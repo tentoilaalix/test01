@@ -32,6 +32,8 @@ public class ChartController {
 	//차트
 	@RequestMapping("/chart.do")
 	public String Chart() {
+		System.out.println("------------------------------------------@");
+		
 		return "chart/chart";
 	}
 	
