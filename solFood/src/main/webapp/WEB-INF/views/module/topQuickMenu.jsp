@@ -97,12 +97,10 @@
 		<br><br>
 	</div>
 	
-	<%-- 
 	<!-- 퀵메뉴 -->
 	<div class="quickChat" align="right">
 		<div class="chatMenu"><iframe id="chat" src="http://172.16.1.122:8080/chat" style="width: 220px; height: 320px; border: 0;"></iframe></div>
 	</div>
-	--%>
 
 
 <%-- Top 기능 jQuery --%>

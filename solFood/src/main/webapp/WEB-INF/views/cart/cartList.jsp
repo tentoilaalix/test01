@@ -94,7 +94,7 @@
 						html+= data[i].product_name + " : " +data[i].product_discountrate+ "% 할인= "+ (data[i].product_price* 0.01* data[i].product_discountrate) +"원<br><br>";				
 						discountTotal+= (data[i].product_price* 0.01* data[i].product_discountrate)						
 					}
-					total= total- discountTotal+ 2500;
+					total= total- discountTotal+ 10;
 					
 					html+= "</h6><h4>할인된 금액: "+ addComma(discountTotal) +"원</h4><br>";
 					$("#discountPrice").html(html);
