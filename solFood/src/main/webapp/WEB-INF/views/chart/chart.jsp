@@ -5,13 +5,59 @@
 <head>
     <meta charset="UTF-8">
     <title>CHART</title>
-		<style>
-		body{
-			margin-top: 30px;
-			margin-left:40px;
-		}
+    
+    
+<style>
 
-		</style>
+body{
+  margin-top: 100px;
+  font-family: 'Trebuchet MS', serif;
+  line-height: 1.6
+}
+.container{
+  width: 1000px;
+  margin: 0 auto;
+}
+ 
+ 
+#chart_title{
+	  width: 800px;
+	  margin: 2em auto; 
+	  padding: 1em;
+	  border: 1px solid red; 
+	  border-radius: 0.5em;
+	  align: center;	
+	
+}
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+ul.tabs li{
+  background: none;
+  color: #222;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+ 
+ul.tabs li.current{
+  background: #ededed;
+  color: #222;
+}
+ 
+.tab-content{
+  display: none;
+  background: #ededed;
+  padding: 15px;
+}
+ 
+.tab-content.current{
+  display: inherit;
+}
+
+</style>
 		
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>		
 	<script src="http://code.highcharts.com/highcharts.js"></script>
@@ -126,7 +172,7 @@
                     }
                 },
                 title: {
-                    text: "Zzim King Top.5"
+                    text: "찜 Top.5"
                 },
                 plotOptions: {
                     pie: {
@@ -157,27 +203,78 @@
     </script>
 </head>
 <body>
- 	<%-- 2019최다 판매 제품 --%>
-   	<div style="width: 800px; margin: 2em auto; padding: 1em; border: 1px solid red; border-radius: 0.5em">
-		2019년 최다 판매 제품 top 5
+
+
+<!-- ■■■■■■■■■■■ 탭 메뉴 시작 ■■■■■■■■■■■ -->
+ <div class="container">
+ 
+  <ul class="tabs">
+    <li class="tab-link current" data-tab="tab-1">최다 판매 상품</li>
+    <li class="tab-link" data-tab="tab-2">카테고리별 </li>
+    <li class="tab-link" data-tab="tab-3">찜찜찜</li>
+  </ul>
+ 
+ 
+ <!--  ■■■■■■■■■ 1번탭 메뉴 ■■■■■■■■■ -->
+  <div id="tab-1" class="tab-content current">
+  
+  <%-- 2019최다 판매 제품 --%>
+   	<div id="chart_title">
+		<p>2019년 최다 판매 제품 top 5</p>
 	</div>
     <div id="container1" style="height: 400px">
     </div>
     
-    
-    <%-- 2019카테고리별 판매 수량 --%>
-   	<div style="width: 800px; margin: 2em auto; padding: 1em; border: 1px solid red; border-radius: 0.5em">
-		2019카테고리별 판매 수량 ㅌㅊ
+  </div>
+  
+  <!--  ■■■■■■■■■ 2번탭 메뉴 ■■■■■■■■■ -->
+  <div id="tab-2" class="tab-content">
+   <%-- 2019카테고리별 판매 수량 --%>
+	<div id="chart_title">
+		<p>2019카테고리별 판매 수량</p>
 	</div>
     <div id="container2" style="height: 400px">
     </div>
-    
-    <%-- 가장 많이 찜한 상품 --%>
-   	<div style="width: 800px; margin: 2em auto; padding: 1em; border: 1px solid red; border-radius: 0.5em">
-		가장 많이 찜한 상품
+  </div>
+  
+  <!--  ■■■■■■■■■ 3번탭 메뉴 ■■■■■■■■■ -->
+  <div id="tab-3" class="tab-content">
+  <%-- 가장 많이 찜한 상품 --%>
+   	<div id="chart_title">
+		<p>가장 많이 찜한 상품</p>
 	</div>
     <div id="container3" style="height: 400px">
     </div>
+  </div>
+ 
+</div>
 
+
+ 	
+    
+    
+   
+    
+    
+
+
+<%-- 텝 메뉴 --%>
+<script>
+
+$(document).ready(function(){
+	   
+	  $('ul.tabs li').click(function(){
+	    var tab_id = $(this).attr('data-tab');
+	 
+	    $('ul.tabs li').removeClass('current');
+	    $('.tab-content').removeClass('current');
+	 
+	    $(this).addClass('current');
+	    $("#"+tab_id).addClass('current');
+	  })
+	 
+	})
+	
+</script>
 </body>
 </html>
