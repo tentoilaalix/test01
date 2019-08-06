@@ -41,6 +41,13 @@
 																
 		}
 	</script>
+	
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+	.recTit{
+	font-family: 'Noto Sans KR', sans-serif !important;
+	}
+	</style>
 </head>	
 <body>
 	<%-- account_user 값 받기 --%>
