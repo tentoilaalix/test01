@@ -266,6 +266,17 @@
 	                	<div class="col-md-3">
 	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="thumbnail"><img src="/img/${homeProduct.product_image}" style="max-width:100%; height: 315px;"></a><br>
 	                		<a href="${path}/product/productInfo.do?product_id=${homeProduct.product_id}" class="noul"><strong>${homeProduct.product_name}</strong><br><fmt:formatNumber value="${homeProduct.product_price}" pattern="#,###.##"/>원</a>
+							
+							<!-- login 값이 없으면 하트 안보이게 -->
+					 		<c:choose>
+							    <c:when test="${login.account_user== null}">
+									<br>
+							    </c:when>
+							    <c:otherwise>
+							   		<input type="button" id='heartImage' name='heartImage${homeProduct.product_id}' onclick= "changeHeart(${homeProduct.product_id},${login.account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
+							    </c:otherwise>
+							</c:choose>
+						
 						</div>
 					</c:forEach>
                 	</div><!--.row-->
