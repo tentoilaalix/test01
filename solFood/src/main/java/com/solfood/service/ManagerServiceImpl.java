@@ -135,9 +135,6 @@ public class ManagerServiceImpl implements ManagerService {
 	public void deleteRecipe(int recipe_id) throws Exception {
 		dao.deleteRecipe(recipe_id);
 	}
-
-
-
 }
 
 

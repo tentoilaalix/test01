@@ -57,57 +57,29 @@
 <body>
 
 <div class="container">
-<h1>login</h1>
-<div align="center">
-	<hr>
-	<br><br>
-	<form name="loginForm" class="form-horizontal" autocomplete="off" method="post">
-		<div class="form-group">
-			<label for="joinformID" class="col-md-4 control-label">아이디</label>
-			<div class="col-md-4">
-				<input id="account_user" type="text" class="form-control" name="account_user" maxlength="20" placeholder="Enter ID" style="border-radius: 0px;">
+	<h1>login</h1>
+	<div align="center">
+		<hr>
+		<br><br>
+		<form name="loginForm" class="form-horizontal" autocomplete="off" method="post">
+			<div class="form-group">
+				<label for="joinformID" class="col-md-4 control-label">아이디</label>
+				<div class="col-md-4">
+					<input id="account_user" type="text" class="form-control" name="account_user" maxlength="20" placeholder="Enter ID" style="border-radius: 0px;">
+				</div>
 			</div>
-		</div>
-		<div class="form-group">
-			<label for="" class="col-md-4 control-label">비밀번호</label>
-			<div class="col-md-4">
-				<input id="account_password" type="text" class="form-control" name="account_password" maxlength="20" placeholder="Enter Password" style="border-radius: 0px;">
+			<div class="form-group">
+				<label for="" class="col-md-4 control-label">비밀번호</label>
+				<div class="col-md-4">
+					<input id="account_password" type="text" class="form-control" name="account_password" maxlength="20" placeholder="Enter Password" style="border-radius: 0px;">
+				</div>
 			</div>
-		</div>
-		<br>
-		
-		<button type="button" id="btnLogin" class="btn" style="border-radius: 0px;">로그인</button>
-		<a href="${path}/member/joinMember.do"><button type="button" id="btnJoin" class="btn" style="border-radius: 0px;">회원가입</button></a>
-	
-		<table border="1" width="400px">
-		
-		
-            <%-- <tr>
-                <td>아이디</td>
-                <td><input name="account_user" id="account_user"></td>
-            </tr>
-            <tr>
-                <td>비밀번호</td>
-                <td><input type="text" name="account_password" id="account_password"></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <button type="button" id="btnLogin">로그인</button>
-                <c:if test="${msg == 'failure'}">
-                    <div style="color: red">
-                        아이디 또는 비밀번호가 일치하지 않습니다.
-                    </div>
-                </c:if>
-                <c:if test="${msg == 'logout'}">
-                    <div style="color: red">
-                        로그아웃되었습니다.
-                    </div>
-                </c:if>
-                </td>
-            </tr> --%>
-        </table>
-	</form>
-</div>
+			<br>
+			
+			<button type="button" id="btnLogin" class="btn" style="border-radius: 0px;">로그인</button>
+			<a href="${path}/member/joinMember.do"><button type="button" id="btnJoin" class="btn" style="border-radius: 0px;">회원가입</button></a>
+		</form>
+	</div>
 	<br><br><br>
 </div>
 

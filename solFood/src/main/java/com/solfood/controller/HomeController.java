@@ -10,9 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.solfood.dto.TotalVO;
 import com.solfood.service.ProductService;
+import com.solfood.service.RecentService;
 import com.solfood.service.RecipeService;
  
 /**
@@ -28,6 +28,9 @@ public class HomeController {
     
     @Inject
     private RecipeService recipeService;
+    
+    @Inject
+    private RecentService recentService;
     
     //-----------------------------------------------------
     //	home
@@ -73,6 +76,19 @@ public class HomeController {
 	@RequestMapping("/guide.do")
 	public String guide() {
 		return "company/guide";
+	}
+
+	
+	//-----------------------------------------------------
+    //	recent
+    //-----------------------------------------------------
+	//최근본상품
+	@ResponseBody
+	@RequestMapping(value= "/recentList.do", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> recentList(String account_user) throws Exception {		
+		List<TotalVO> recentList= recentService.selectRecent(account_user);
+		
+		return recentList;
 	}
 
 }

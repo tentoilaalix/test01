@@ -38,9 +38,6 @@
 			WHERE product_category2 = #{product_category2}
 		</select>
 		
-		
-		
-		
 		<!-- event_id 따라 상품 목록 추출 -->
 		<select id="selectEvent" parameterType="int" resultType="com.solfood.dto.TotalVO">
 			SELECT * FROM PRODUCT WHERE PRODUCT_EVENT= #{product_event}
@@ -51,7 +48,6 @@
 			UPDATE PRODUCT SET PRODUCT_COUNT= PRODUCT_COUNT- #{buy_count} WHERE PRODUCT_ID= #{product_id};
 		</update> 
 				
-	
 	</mapper>
 	
 	

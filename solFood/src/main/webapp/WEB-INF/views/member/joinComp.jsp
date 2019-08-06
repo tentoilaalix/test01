@@ -43,6 +43,7 @@
 		<button type="button">메인으로</button>
 		<br><br>
 	</div>
+	
 	<%--========================= bottom ========================= --%>
 	<%@ include file = "../module/Bottom.jsp" %>
 </body>

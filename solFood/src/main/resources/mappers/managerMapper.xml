@@ -10,8 +10,7 @@
 		<select id="selectProduct" resultType="com.solfood.dto.ProductVO">
 	        SELECT * FROM product
 	    </select>    
-	    
-	    
+	    	    
 	    <!-- 상품페이지 -->
 	    <select id="pageProduct" resultType="com.solfood.dto.ProductVO" parameterType="com.solfood.utils.Criteria">
 		    SELECT * 
@@ -260,7 +259,6 @@
 	    	DELETE FROM RECIPE 
 	    	WHERE RECIPE_ID= #{recipe_id} 
 	    </delete>
-	    
 	</mapper>
 
 	

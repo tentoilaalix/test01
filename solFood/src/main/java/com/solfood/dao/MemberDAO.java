@@ -1,11 +1,8 @@
 package com.solfood.dao;
 
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Repository;
-
 import com.solfood.dto.MemberVO;
  
 @Repository
@@ -22,9 +19,6 @@ public interface MemberDAO {
 	 public List<MemberVO> selectMember() throws Exception;				//회원정보 조회
 	 public void updateMyAccount(MemberVO memberVo) throws Exception;	//회원정보 수정
 	 public void deleteMyAccount(MemberVO memberVo) throws Exception;	//회원탈퇴
-	 
-		
-
 }
     
 

@@ -1,7 +1,6 @@
 package com.solfood.service;
 
 import java.util.List;
-
 import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.MemberVO;

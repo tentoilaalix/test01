@@ -160,7 +160,7 @@
 	
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Footer ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<footer>
-	<%@ include file = "../module/Bottom.jsp" %>
+		<%@ include file = "../module/Bottom.jsp" %>
 	</footer>
 </body>
 </html>

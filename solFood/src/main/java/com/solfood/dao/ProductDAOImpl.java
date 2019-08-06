@@ -55,7 +55,4 @@ public class ProductDAOImpl implements ProductDAO{
 	public void updateProduct_count_minus(TotalVO vo) throws Exception {
 		sqlSession.update(Namespace+".updateProduct_count_minus", vo);
 	}
-
-
-	
 }

@@ -69,7 +69,6 @@
 						
 						<td align="center">${product.product_package}</td>
 						<td align="center">${product.product_ea}</td>
-						<%-- <td align="center">${product.product_content}</td> --%>
 						<td align="center">${product.product_date}</td>
 						
 						<td align="center">

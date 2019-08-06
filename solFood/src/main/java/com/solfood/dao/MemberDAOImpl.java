@@ -67,5 +67,5 @@ public class MemberDAOImpl implements MemberDAO {
 	public void deleteMyAccount(MemberVO memberVo) throws Exception {
 		sqlSession.delete(Namespace+".deleteMember", memberVo);
 	}
-
+    
 }

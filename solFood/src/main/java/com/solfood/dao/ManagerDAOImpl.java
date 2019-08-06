@@ -2,10 +2,8 @@ package com.solfood.dao;
 
 import java.util.List;
 import javax.inject.Inject;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
 import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.MemberVO;
@@ -18,7 +16,6 @@ public class ManagerDAOImpl implements ManagerDAO {
     @Inject
     private SqlSession sqlSession;
     private static final String Namespace = "com.solfood.mapper.managerMapper";
-    
     
 	
   	//===================================================================================================
@@ -139,6 +136,4 @@ public class ManagerDAOImpl implements ManagerDAO {
 	public void deleteRecipe(int recipe_id) throws Exception {
 		sqlSession.delete(Namespace+".deleteRecipe", recipe_id);
 	}
-
-	
 }

@@ -14,6 +14,7 @@ public class ProductVO {
     private int product_ea;
     private String product_content;
     private Date product_date;
+    
 	public int getProduct_id() {
 		return product_id;
 	}
@@ -86,9 +87,5 @@ public class ProductVO {
 	public void setProduct_date(Date product_date) {
 		this.product_date = product_date;
 	}
-    
-    
-	
-	
 	
 }

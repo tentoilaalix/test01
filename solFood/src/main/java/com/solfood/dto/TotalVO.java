@@ -284,7 +284,4 @@ public class TotalVO {
 		this.buy_delivery = buy_delivery;
 	}
 	
-	
-	
-	
 }

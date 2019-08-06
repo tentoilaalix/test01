@@ -151,6 +151,7 @@ public class MemberController {
 	public String mypageComp() throws Exception{
 		return "/member/mypageComp";
 	}
+	
 	//===============================================================
 	// 회원정보 탈퇴
 	//===============================================================

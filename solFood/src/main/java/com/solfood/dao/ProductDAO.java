@@ -34,5 +34,4 @@ public interface ProductDAO {
 		// buy로 상품 넘어가면, product 테이블에서 그만큼 숫자 빼주기 (재고 관리)
 		public void updateProduct_count_minus(TotalVO vo) throws Exception;
 	
-	
 }

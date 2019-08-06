@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -259,19 +258,6 @@ public class ManagerController {
 		return "redirect:product_page.do";
 	}
 	
-	/*
-	 * @RequestMapping("product/productUpdateForm") public String
-	 * productUpdateForm(int product_id, Model model) throws Exception{ ProductVO
-	 * productById= service.productDetail(product_id);
-	 * model.addAttribute("productById", productById);
-	 * 
-	 * return "/manager/product/productUpdateForm"; }
-	 * 
-	 * @RequestMapping("product/productUpdatePro") public String
-	 * productUpdatePro(ProductVO vo) throws Exception{ service.updateProduct(vo);
-	 * 
-	 * return "redirect:/product_list"; }
-	 */
 	
 	/* 상품정보 삭제 */
 	@RequestMapping(value="product/productDelete.do")

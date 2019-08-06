@@ -25,7 +25,6 @@
 		<insert id="insertBuy" parameterType="com.solfood.dto.TotalVO">
 			INSERT INTO BUY(BUY_DATE, BUY_COUNT, ACCOUNT_USER, PRODUCT_ID) VALUES(current_date(), #{buy_count}, #{account_user}, #{product_id}) 
 		</insert>
-	    
 	</mapper>
 	
 	

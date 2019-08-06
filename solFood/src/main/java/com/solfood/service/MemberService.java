@@ -1,9 +1,7 @@
 package com.solfood.service;
 
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import com.solfood.dto.MemberVO;
 
 public interface MemberService {
@@ -19,8 +17,6 @@ public interface MemberService {
 	public int check_email(String account_email) throws Exception;		// 이메일 체크
 	public void updateMyAccount(MemberVO memberVo) throws Exception;	// 회원 정보수정
 	public void deleteMyAccount(MemberVO memberVo) throws Exception; 	// 회원 탈퇴
-    
-    
 	
 }
 

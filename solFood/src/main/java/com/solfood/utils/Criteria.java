@@ -6,7 +6,6 @@ public class Criteria
  private int perPageNum;
  private int rowStart;
  private int rowEnd;
-
  private String column;
  
  

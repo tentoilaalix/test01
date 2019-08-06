@@ -3,7 +3,6 @@ package com.solfood.service;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Service;
 import com.solfood.dao.MemberDAO;
 import com.solfood.dto.MemberVO;
@@ -72,7 +71,6 @@ public class MemberServiceImpl implements MemberService {
 	public void deleteMyAccount(MemberVO memberVo) throws Exception {
 		dao.deleteMyAccount(memberVo);
 	}
-
 }
 
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%NumberFormat nf = NumberFormat.getNumberInstance();%>    
+<%	NumberFormat nf = NumberFormat.getNumberInstance();	%>    
 <%@ page import="java.text.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 

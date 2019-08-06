@@ -52,6 +52,7 @@ public class ProductServiceImpl implements ProductService{
 	public List<TotalVO> selectEvent(int product_event) throws Exception {
 		return dao.selectEvent(product_event);
 	}
+
 	//----------------------------------------------------------
 	//	update
 	//----------------------------------------------------------	

@@ -82,6 +82,7 @@
 	}
 	--%>
 	</script>
+	
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 		.tableHead {
