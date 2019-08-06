@@ -82,13 +82,17 @@
 	</script>
 	
 	<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+	 
 		a { text-decoration: none;}
  		a:link { color: black; text-decoration: none !important;}
  		a:active { color: black !important; text-decoration: none !important;}
 		a:visited { color: black !important; text-decoration: none !important;}
  		a:hover { color: black !important; text-decoration: none !important;}
  		
- 		.intro-text{ color: gray!important; text-decoration: none !important; font-size:"12px"}
+ 		.intro-text{ color: gray!important; text-decoration: none !important; font-size:"12px";
+ 		font-family: 'Noto Sans KR', sans-serif !important;
+ 		}
  		
  		#intro_page{ align: center; font-size:19px; } 
  		

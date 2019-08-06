@@ -1,33 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
+    
     <title>CHART</title>
     
     
 <style>
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 
 body{
   margin-top: 100px;
-  font-family: 'Trebuchet MS', serif;
+  font-family: 'Noto Sans KR', sans-serif !important;
   line-height: 1.6
 }
 .container{
   width: 1000px;
   margin: 0 auto;
+  font-family: 'Noto Sans KR', sans-serif !important;
 }
  
- 
+
 #chart_title{
 	  width: 800px;
+	  hight: 500px;
 	  margin: 2em auto; 
 	  padding: 1em;
 	  border: 1px solid red; 
-	  border-radius: 0.5em;
-	  align: center;	
-	
+	  border-radius: 0.5em;	
+	  font-family: 'Noto Sans KR', sans-serif !important;
+	  align: center;
+	  font-size: 30px;
 }
 ul.tabs{
   margin: 0px;
@@ -80,7 +87,7 @@ ul.tabs li.current{
                         type: "column"
                     },
                     title: {
-                        text: "2019년 최다 판매 상품 TOP 5"
+                        text: ""
                     },
                     xAxis: {
                         type: 'category',
@@ -121,7 +128,7 @@ ul.tabs li.current{
                     }
                 },
                 title: {
-                    text: "2019년 카테고리별 판매 수량"
+                    text: ""
                 },
                 plotOptions: {
                     pie: {
@@ -172,7 +179,8 @@ ul.tabs li.current{
                     }
                 },
                 title: {
-                    text: "찜 Top.5"
+                    text: ""
+                    
                 },
                 plotOptions: {
                     pie: {
@@ -219,7 +227,7 @@ ul.tabs li.current{
   <div id="tab-1" class="tab-content current">
   
   <%-- 2019최다 판매 제품 --%>
-   	<div id="chart_title">
+   	<div id="chart_title" align="center">
 		<p>2019년 최다 판매 제품 top 5</p>
 	</div>
     <div id="container1" style="height: 400px">
@@ -228,7 +236,7 @@ ul.tabs li.current{
   </div>
   
   <!--  ■■■■■■■■■ 2번탭 메뉴 ■■■■■■■■■ -->
-  <div id="tab-2" class="tab-content">
+  <div id="tab-2" class="tab-content" align="center">
    <%-- 2019카테고리별 판매 수량 --%>
 	<div id="chart_title">
 		<p>2019카테고리별 판매 수량</p>
@@ -240,7 +248,7 @@ ul.tabs li.current{
   <!--  ■■■■■■■■■ 3번탭 메뉴 ■■■■■■■■■ -->
   <div id="tab-3" class="tab-content">
   <%-- 가장 많이 찜한 상품 --%>
-   	<div id="chart_title">
+   	<div id="chart_title" align="center">
 		<p>가장 많이 찜한 상품</p>
 	</div>
     <div id="container3" style="height: 400px">
