@@ -99,7 +99,6 @@
 		}
 
 	</script>
-
 	<style>
 		.afterClick{
 			background-image: url("/resources/image/afterlike.PNG");
@@ -110,6 +109,21 @@
 			background-image: url("/resources/image/beforelike.PNG");
 			border: none;
 			background-size: 28px;
+		}
+	</style>
+	
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+		h2{
+			font-family: 'Noto Sans KR', sans-serif !important;
+			font-weight: bold;
+		}
+		div{
+			font-family: 'Noto Sans KR', sans-serif !important;
+		}
+		.eventTitle{
+			font-family: 'Noto Sans KR', sans-serif !important;
+			font-weight: bold;
 		}
 	</style>
 </head>
@@ -127,16 +141,25 @@
 	       	<%-- product_event에 따라 제목 바꿔주기 --%>
 	       	<c:choose>
 		       <c:when test="${product_event== 1}">
-		           <h2>EVENT PRICE!</h2>
+		           <h2 class="eventTitle">한식 제품 특가</h2><br><br>
 		       </c:when>
 		       <c:when test="${product_event== 2}">
-		           <h2>GOURMET FOOD</h2>
+		           <h2 class="eventTitle">유제품 특가</h2><br><br>
 		       </c:when>
 		       <c:when test="${product_event== 3}">
-		           <h2>PLATTER FOOD</h2>
+		           <h2 class="eventTitle">삼진어묵 특가</h2><br><br>
+		       </c:when>
+		        <c:when test="${product_event== 4}">
+		           <h2 class="eventTitle">따끈따끈 브레드</h2><br><br>
+		       </c:when>
+		        <c:when test="${product_event== 5}">
+		           <h2 class="eventTitle">다이어트의 계절</h2><br><br>
+		       </c:when>
+		        <c:when test="${product_event== 6}">
+		           <h2 class="eventTitle">프리미엄 요거트</h2><br><br>
 		       </c:when>
 		       <c:otherwise>
-		       		<h2>NO EVENT</h2>
+		       		<h2 class="eventTitle">NO EVENT</h2>
 		       </c:otherwise>
 		   </c:choose>
 	       	

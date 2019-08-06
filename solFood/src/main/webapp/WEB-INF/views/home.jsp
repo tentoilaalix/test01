@@ -304,96 +304,101 @@
 
 <div class="container" id="eventArea">
 	<div class="col-md-12"><br><br>
-		<div align="center"><h2><a href="#"><strong>이벤트</strong></a></h2></div>
+		<div align="center"><h2><strong>이벤트</strong></h2></div>
 		<br><br><br>
 <div class="col-md-12" align="center">
 	<div class="row">
-	<div class="col-md-4">
-  	<figure class="snip1132">
- 		 <img src="../resources/image/event1.jpg" alt="sample22" />
-  	<figcaption>
-    	<div class="heading">
-      		<h3><span>한식 레스토랑</span></h3>
-    	</div>
-    	<div class="caption">
-      		<p><strong>불고기·국물요리 최대 15% 할인</strong></p>
-    	</div>
-  	</figcaption>
-  		<a href="#"></a>
-	</figure>
-	</div>
-	<div class="col-md-4">
-  	<figure class="snip1132">
- 		 <img src="../resources/image/event2.jpg" alt="sample22" />
-  	<figcaption>
-    	<div class="heading">
-      		<h3><span>정직·신뢰 제품</span></h3>
-    	</div>
-    	<div class="caption">
-      		<p><strong>서강유업 최대 20% 할인</strong></p>
-    	</div>
-  	</figcaption>
-  		<a href="#"></a>
-	</figure>
-	</div>
-	<div class="col-md-4">
-  	<figure class="snip1132">
- 		 <img src="../resources/image/event3.jpg" alt="sample22" />
-  	<figcaption>
-    	<div class="heading">
-      		<h3><span>삼진어묵 특가전</span></h3>
-    	</div>
-    	<div class="caption">
-      		<p><strong>어묵 5% 할인 & GIFT</strong></p>
-    	</div>
-  	</figcaption>
-  		<a href="#"></a>
-	</figure>
-	</div>
+		<div class="col-md-4">
+  		<figure class="snip1132">
+	 		<img src="../resources/image/event1.jpg" alt="sample22" />
+		  	<figcaption>
+		    	<div class="heading">
+		      		<h3><span>한식 제품 특가</span></h3>
+		    	</div>
+		    	<div class="caption">
+		      		<p><strong>불고기·국물요리 최대 15% 할인</strong></p>
+		    	</div>
+		  	</figcaption>
+		  	<a href="${path}/product/event.do?product_event=1"></a>
+		</figure>
+		</div>
+		
+		<div class="col-md-4">
+	  	<figure class="snip1132">
+	 		 <img src="../resources/image/event2.jpg" alt="sample22" />
+	  		<figcaption>
+	    		<div class="heading">
+		      		<h3><span>유제품 특가</span></h3>
+		    	</div>
+		    	<div class="caption">
+		      		<p><strong>서강유업 최대 20% 할인</strong></p>
+		    	</div>
+	  		</figcaption>
+	  		<a href="${path}/product/event.do?product_event=2"></a>
+		</figure>
+		</div>
+		
+		<div class="col-md-4">
+	  	<figure class="snip1132">
+	 		 <img src="../resources/image/event3.jpg" alt="sample22" />
+	  		<figcaption>
+		    	<div class="heading">
+			      	<h3><span>삼진어묵 특가</span></h3>
+			    </div>
+		    	<div class="caption">
+		      		<p><strong>어묵 5% 할인 & GIFT</strong></p>
+		    	</div>
+		  	</figcaption>
+	  		<a href="${path}/product/event.do?product_event=3"></a>
+		</figure>
+		</div>
 	</div><%-- div row --%><br><br><br>
+	
 	<div class="row">
-	<div class="col-md-4">
-  	<figure class="snip1132">
- 		 <img src="../resources/image/event4.jpg" alt="sample22" />
-  	<figcaption>
-    	<div class="heading">
-      		<h3><span>따끈따끈 브레드</span></h3>
-    	</div>
-    	<div class="caption">
-      		<p><strong>바게트·식빵 최대 30% 할인</strong></p>
-    	</div>
-  	</figcaption>
-  		<a href="#"></a>
-	</figure>
-	</div>
-	<div class="col-md-4">
-  	<figure class="snip1132">
- 		 <img src="../resources/image/event5.jpg" alt="sample22" />
-  	<figcaption>
-    	<div class="heading">
-      		<h3><span>다이어트의 계절</span></h3>
-    	</div>
-    	<div class="caption">
-      		<p><strong>샐러드·다이어트 식품 30% 할인</strong></p>
-    	</div>
-  	</figcaption>
-  		<a href="#"></a>
-	</figure>
-	</div>
-	<div class="col-md-4">
-  	<figure class="snip1132">
- 		 <img src="../resources/image/event6.jpg" alt="sample22" />
-  	<figcaption>
-    	<div class="heading">
-      		<h3><span>프리미엄 요거트</span></h3>
-    	</div>
-    	<div class="caption">
-      		<p><strong>요거트·유산균 음료 15% 할인</strong></p>
-    	</div>
-  	</figcaption>
-  		<a href="#"></a>
-	</figure>
-	</div>
+		<div class="col-md-4">
+	  	<figure class="snip1132">
+	 		<img src="../resources/image/event4.jpg" alt="sample22" />
+		  	<figcaption>
+		    	<div class="heading">
+		      		<h3><span>따끈따끈 브레드</span></h3>
+		    	</div>
+		    	<div class="caption">
+		      		<p><strong>바게트·식빵 최대 30% 할인</strong></p>
+		    	</div>
+		  	</figcaption>
+	  		<a href="${path}/product/event.do?product_event=4"></a>
+		</figure>
+		</div>
+		
+		<div class="col-md-4">
+	  	<figure class="snip1132">
+	 		 <img src="../resources/image/event5.jpg" alt="sample22" />
+		  	<figcaption>
+		    	<div class="heading">
+		      		<h3><span>다이어트의 계절</span></h3>
+		    	</div>
+		    	<div class="caption">
+		      		<p><strong>샐러드·다이어트 식품 30% 할인</strong></p>
+		    	</div>
+		  	</figcaption>
+	  		<a href="${path}/product/event.do?product_event=5"></a>
+		</figure>
+		</div>
+		
+		<div class="col-md-4">
+	  	<figure class="snip1132">
+	 		<img src="../resources/image/event6.jpg" alt="sample22" />
+		  	<figcaption>
+		    	<div class="heading">
+		      		<h3><span>프리미엄 요거트</span></h3>
+		    	</div>
+		    	<div class="caption">
+		      		<p><strong>요거트·유산균 음료 15% 할인</strong></p>
+		    	</div>
+		  	</figcaption>
+	  		<a href="${path}/product/event.do?product_event=6"></a>
+		</figure>
+		</div>
 	</div><%-- div row --%><br><br><br>
 </div>
 </div>
