@@ -54,6 +54,7 @@ public class MemberController {
 	        
 	        // account_grade를 managerMainInterceptor에서 사용하기 위해 session으로 넣어주기
 	        session.setAttribute("account_grade", vo.getAccount_grade());	   
+	        session.setAttribute("account_user", vo.getAccount_user());
 	        
 	        System.out.println("==============================로그인 성공");
 	        returnURL = "redirect:/"; 							// 로그인 성공시 메인으로 바로 이동

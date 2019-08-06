@@ -5,6 +5,9 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.solfood.dto.TotalVO;
 import com.solfood.service.CartService;
 import com.solfood.service.ProductService;
+import com.solfood.service.RecentService;
 
 @Controller
 @RequestMapping("/product/")
@@ -26,7 +30,8 @@ public class ProductController {
 	
 	@Inject
 	private ProductService productService;	
-	
+	@Inject
+	private RecentService recentService;
 	//============================================================
 	//	PRODUCT 
 	//============================================================
@@ -75,14 +80,26 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/productInfo.do")
-	public String productInfo(Model model, int product_id) throws Exception {
+	public String productInfo(Model model, int product_id, HttpSession session) throws Exception {
+		// 상품 정보 추출
 		List<TotalVO> productList = productService.selectProduct(product_id);
 		model.addAttribute("productList", productList);
+				
+		// 상품을 누르는 순간 recent table에 들어가게
+		TotalVO vo= new TotalVO();
 		
+		String account_user= (String)session.getAttribute("account_user");
+		vo.setAccount_user(account_user);
+		vo.setProduct_id(product_id);
+			
+		// 삭제하기
+		System.out.println("====================== insertrecent");
+		
+		recentService.insertRecent(vo);
+			
 		return "product/productInfo";
 	}
 
-	
 	
 	//============================================================
 	//	EVENT 

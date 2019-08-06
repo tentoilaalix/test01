@@ -164,7 +164,6 @@
 	</style>
 	
 	
-	
 	<style type="text/css">
 		@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo&display=swap');
 		@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
@@ -213,6 +212,93 @@
 			border: 0;
     		height: 2px;
     		background: #EAEAEA;
+		}
+	</style>
+	
+	<%-- recent style --%>
+	<style type="text/css">
+		a { text-decoration: none;}
+ 		a:link { color: black; text-decoration: none !important;}
+ 		a:active { color: black !important; text-decoration: none !important;}
+		a:visited { color: black !important; text-decoration: none !important;}
+ 		a:hover { color: black !important; text-decoration: none !important;}
+ 		.intro-text{ color: gray!important; text-decoration: none !important;}
+ 		.sidebar{	font-size: 20px;  }
+ 		.sub-menu-li{ margin: 10px;}
+	</style>
+
+	<style>
+		#rightSide{
+			z-index: 99;
+			position: absolute;
+			top: 547px;
+			left: 50%;
+			margin: 0 0 0 100px;
+		}
+		#rightSide #right_zzim {
+			z-index: 99;
+			position: fixed;
+			top: 126px;
+			left: 50%;
+			margin-left: 510px;
+			border:1px solid #B0B5BD;
+			width:130px;
+			height: auto;
+			background-color: #FFFFF8;
+		}
+		#rightSide #right_zzim  div {text-align:center;}
+		#rightSide #right_zzim  div.recTit{line-height:1.5em; padding:5px; color:white; background-color:#505A69;}
+		#right_zzim #recentCnt {color:yellow;}
+		#rightSide #right_zzim ul {min-height:495px;}
+		#rightSide #right_zzim  li{text-align:center; padding:5px; position:relative;} 
+		#rightSide #right_zzim ul li img {border:1px solid #ccc}
+		#right_zzim .detail {
+			display: none;
+			position: absolute;
+			top: 3px;
+			right: 20px;
+			xheight: 40px;
+			xpadding: 15px 11px 0;
+			xbackground: #404a59;
+			color: #fff;
+			xtext-align: left;
+			white-space: nowrap;
+		}
+		#right_zzim li:hover .detail {display:block}
+		#right_zzim li .btn_delete {
+			position: absolute;
+			top: 3px;
+			right: -1px;
+			width: 11px;
+			height: 11px;
+			background: url(/img/sp.png) no-repeat -193px -111px;
+			text-indent: -9000px;
+		}
+		#right_zzim  #currentPage {color:#505A69;font-weight:bold}
+		#right_zzim  #totalPageCount {color:#CBC8D2;font-weight:bold}
+		.noData {color:#ccc;text-align:center;margin-top:223px;}
+		#paging {display:;position:relative;line-height:1em;}
+		#paging .btn_prev {
+			position: absolute;
+			top: 526px;
+			left: 4px;
+			width: 13px;
+			height: 11px;
+			background: url(/images/ico_arrow.png)  no-repeat ;
+			text-indent: -9000px;
+			border:1px solid #CCC;
+			display:inline-block;
+		}
+		#paging .btn_next {
+			position: absolute;
+			top: 526px;
+			right: 4px;
+			width: 13px;
+			height: 11px;
+			background: url(/images/ico_arrow.png) -11px 0px;
+			text-indent: -9000px;
+			border:1px solid #CCC;
+			display:inline-block;
 		}
 	</style>
 </head>
