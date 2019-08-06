@@ -18,18 +18,18 @@
 	
 	<script>
 	// 숫자에 콤마 넣는 함수
-	function addComma(num)
-	{
-	var regexp = /\B(?=(\d{3})+(?!\d))/g;
-	return num.toString().replace(regexp, ',');
+	function addComma(num){
+		var regexp = /\B(?=(\d{3})+(?!\d))/g;
+		return num.toString().replace(regexp, ',');
 	}
-
 	var nData = addComma(nData);
-	
+
+	// 홈에 상품 뿌리는 함수
 	function product_category1(product_category1){	
 		var json= {"product_category1":product_category1};
 		var html= "";
-		
+		var account_user= document.getElementsByName("account_user")[0].value;
+
 			$.ajax({
 				type: "post",
 				url: "/product/products1_2.do",
@@ -38,7 +38,15 @@
 					for(var i=0; i<4; i++){
 						html+= "<div class='col-xs-3'>";
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"' width='250px' height='320px'/></a><br><br>";
-						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><strong>"+ data[i].product_name +"</strong></a><br>";
+						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><strong>"+ data[i].product_name +"</strong></a>";
+
+						// account_user null이면 하트안보이게, 로그인 했으면 하트보이게
+						if(account_user==""){
+							html+= "";
+						} else{
+							html+= "<input type='button' id='heartImage' name='heartImage"+ data[i].product_id +"' onclick= 'changeHeart("+ data[i].product_id +",1809)' class='beforeClick' style='width:29px; height:23px;'><br>";
+						}
+			
 						html+= addComma(data[i].product_price) +"원";
 						html+= "</div>";
 						$("#mdArea").html(html);
@@ -50,6 +58,111 @@
 			});
 		}
 	</script>
+	
+	<%-- 하트 보이게하는 함수 --%>
+	<script>
+		// 페이지가 로드되면 hear list 표시하기 
+		$(document).ready(function(){
+			heartList();
+		});
+
+		//----------------------------------------------------------------
+		// 	heartState--> 페이지 로드시 heart 상태 표시
+		//----------------------------------------------------------------
+		function heartList(){
+			var account_user = document.getElementsByName("account_user")[0].value;
+			var product_id;
+			var html;
+			
+			// heart table 데이터 받아오기
+			$.ajax({
+				type: "get",
+				datatype: "json",
+				url: "/heart/heartListForProductList.do",
+				
+				success: function(data){
+					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기					
+					for(var i=0; i<data.length; i++){						
+						if(data[i].account_user== account_user){								
+							$("[name='heartImage"+ data[i].product_id +"']").attr({
+								'class' : 'afterClick'
+							});							 
+						}
+					}
+				},
+				error: function(){
+					for(var i=0; i<data.length; i++){						
+						if(data[i].account_user== account_user){								
+							$("[name='heartImage"+ data[i].product_id +"']").attr({
+								'class' : 'afterClick'
+							});							 
+						}
+					}
+				}
+			});
+		}
+		
+		//----------------------------------------------------------------
+		// 	changeHeart--> heart 상태 변경 및 테이블에서 insert or delete
+		//----------------------------------------------------------------
+		function changeHeart(product_id, account_user){	
+			var json;	
+			var state;
+
+			// beforeClick이면 afterClick으로, 아니면 그 반대로 해주는거
+			$("[name='heartImage"+ product_id +"']").toggleClass("beforeClick afterClick");
+
+			// name에 따른 class 이름 구하기
+			var class_by_name= $("[name='heartImage"+ product_id +"']").attr('class');
+
+			// toggleClass하고 나서 afterClick이 되면 heart 테이블에 들어가야하는 거니까 json에 state="click" 보내서 insertHeart가 실행되게 하기
+			if(class_by_name== "afterClick"){
+				state= "click";
+				json= {"product_id":product_id, "state":state, "account_user":account_user};
+				
+				$.ajax({
+					type: "post",
+					url: "/heart/changeHeart.do",
+					data: json,
+					success: function(){
+					},
+					error: function(){
+					}
+				});
+
+			// afterClick이었다가 beforeClick으로 바뀌면 state="unclick"으로 보내서 deleteHeart가 실행되게 하기 
+			} else if(class_by_name== "beforeClick"){
+				state= "unclick";
+				json= {"product_id":product_id, "state":state, "account_user":account_user};
+				
+				$.ajax({
+					type: "post",
+					url: "/heart/changeHeart.do",
+					data: json,
+					success: function(){
+					},
+					error: function(){
+					}
+				});
+			}
+		}
+
+	</script>
+	<style>
+		.afterClick{
+			background-image: url("/resources/image/afterlike.PNG");
+			border: none;
+			outline: none;
+			background-size: 28px;
+		}
+		.beforeClick{
+			background-image: url("/resources/image/beforelike.PNG");
+			border: none;
+			outline: none;
+			background-size: 28px;
+		}
+	</style>
+	
 	
 	
 	<style type="text/css">
@@ -104,9 +217,11 @@
 	</style>
 </head>
 <body>
-
 	<!--■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■222-->
 	<jsp:include page="module/Top.jsp" flush="false"/>
+	
+	<%-- account_user 값 받아오기 --%>
+	<input type="text" hidden="true" value="${login.account_user}" name="account_user" id="account_user">
 	
 	<!--■■■■■■■■■■■■■■■■■■■■■■ 상단 배너 ■■■■■■■■■■■■■■■■■■■■■■■■-->
 	<div id="myCarousel" class="carousel slide text-center" data-ride ="carousel">
