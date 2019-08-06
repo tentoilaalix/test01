@@ -8,7 +8,7 @@
 </head>
 <body>
 	<c:choose>
-	    <c:when test="${sessionScope.userGrade == null}">
+	    <c:when test="${login.account_user == null}">
 			<c:redirect url="${path}/member/login.do" />
 	    </c:when>
 	</c:choose>

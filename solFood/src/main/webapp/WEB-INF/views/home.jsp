@@ -219,6 +219,7 @@
 <body>
 	<!--■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■222-->
 	<jsp:include page="module/Top.jsp" flush="false"/>
+	<jsp:include page="recentView/recentList.jsp" flush="false"/>
 	
 	<%-- account_user 값 받아오기 --%>
 	<input type="text" hidden="true" value="${login.account_user}" name="account_user" id="account_user">
@@ -241,6 +242,7 @@
 				<a href="${path}/product/event.do?product_event=8"><img src="../resources/image/banner3.jpg"></a>
 			</div>
 		</div>
+		
 		<!-- Left and Right Controls -->
 		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -432,9 +434,6 @@
 </div>
 <br><br><br>
 
-
-<%--■■■■■■■■■■■■■■■■■■■■■■ MD추천 ■■■■■■■■■■■■■■■■■■■■■■■■■--%>
-<br><br><br><br>
 <%--■■■■■■■■■■■■■■■■■■■■■■ 레시피 ■■■■■■■■■■■■■■■■■■■■■■■■■--%>
 <div class="container">
 <div align="center"><h2><strong>SolFood 레시피</strong></h2></div>
