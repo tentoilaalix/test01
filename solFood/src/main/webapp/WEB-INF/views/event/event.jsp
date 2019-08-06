@@ -158,6 +158,12 @@
 		        <c:when test="${product_event== 6}">
 		           <h2 class="eventTitle">프리미엄 요거트</h2><br><br>
 		       </c:when>
+		        <c:when test="${product_event== 7}">
+		           <h2 class="eventTitle">신선한 커피</h2><br><br>
+		       </c:when>
+		        <c:when test="${product_event== 8}">
+		           <h2 class="eventTitle">신선한 해물</h2><br><br>
+		       </c:when>
 		       <c:otherwise>
 		       		<h2 class="eventTitle">NO EVENT</h2>
 		       </c:otherwise>

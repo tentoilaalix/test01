@@ -232,13 +232,13 @@
 		</ol>
 		<div class="carousel-inner">
 			<div class="item active" align="center">
-				<a href=""><img src="../resources/image/banner1.jpg"></a>
+				<a href="${path}/product/event.do?product_event=5"><img src="../resources/image/banner1.jpg"></a>
 			</div>
 			<div class="item" align="center">
-				<a href=""><img src="../resources/image/banner2.jpg"></a>
+				<a href="${path}/product/event.do?product_event=7"><img src="../resources/image/banner2.jpg"></a>
 			</div>
 			<div class="item" align="center">
-				<a href=""><img src="../resources/image/banner3.jpg"></a>
+				<a href="${path}/product/event.do?product_event=8"><img src="../resources/image/banner3.jpg"></a>
 			</div>
 		</div>
 		<!-- Left and Right Controls -->
