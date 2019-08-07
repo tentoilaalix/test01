@@ -47,12 +47,17 @@ public class TotalVO {
 	
 	
 	// RECIPE
-	private int 	recipe_id;
-	private String 	recipe_image;
-	private String	recipe_content;
-	private String	recipe_name;
-	private String	recipe_keyword;
-	private Date	recipe_date;
+		private int 	recipe_id;
+		private String 	recipe_image;
+		private String	recipe_content;
+		private String	recipe_name;
+		private String	recipe_keyword;
+		private String	recipe_tag;
+		private Date	recipe_date;
+		
+	// RELATE : Reciepe & Product
+		private int no;
+
 	
 	// HEART
 	private int 	heart_num;
@@ -282,6 +287,18 @@ public class TotalVO {
 	}
 	public void setBuy_delivery(String buy_delivery) {
 		this.buy_delivery = buy_delivery;
+	}
+	public String getRecipe_tag() {
+		return recipe_tag;
+	}
+	public void setRecipe_tag(String recipe_tag) {
+		this.recipe_tag = recipe_tag;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
 	}
 	
 }

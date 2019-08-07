@@ -183,12 +183,21 @@
 			FROM RECIPE R 
 		</select>
 	    
-	    <!-- recipe 특정 레시피 보기 -->
+	    <!-- recipe 특정 레시피 보기 
 		<select id="selectRecipeDetail" parameterType="int" resultType="com.solfood.dto.TotalVO">
 			SELECT * 
 			FROM RECIPE R
 			WHERE RECIPE_ID= #{recipe_id}
 		</select>
+		-->	
+	
+		
+		 <!-- 영민수정 recipe 특정 레시피 보기  -->
+	    <select id="selectRecipeDetail" resultType="com.solfood.dto.TotalVO" parameterType="int">
+	    	SELECT R.NO, R.RECIPE_ID, R.PRODUCT_ID, RC.RECIPE_IMAGE, RC.RECIPE_CONTENT, RC.RECIPE_NAME, RC.RECIPE_KEYWORD, RC.RECIPE_TAG, RC.RECIPE_DATE  
+			FROM RELATERP R, RECIPE RC 
+			WHERE R.RECIPE_ID= RC.RECIPE_ID AND R.RECIPE_ID= #{recipe_id}
+	    </select>
 	    
 	    
 	    <!-- recipe 등록하기 -->
@@ -206,19 +215,19 @@
 	    </update>
 	   
 	    
-	    <!-- 연관성 조회하기 -->
+	    <!-- 연관성 조회하기 --!>
 	    <select id="readRelate" resultType="com.solfood.dto.TotalVO">
 	    	SELECT *
 	    	FROM relateRP
 	    	WHERE recipe_no = #{recipe_id}
 	    </select>
 	    
+	  
+	    
+	    
+	    
 	    <!-- 연관성 테이블에 레시피와 제품번호 입력하기 -->
 	    <update id="insertRelateRP" parameterType="com.solfood.dto.TotalVO">
-	    	<!-- INSERT INTO relateRP (recipe_no,
-					    		  product_no)
-			VALUES (#{recipe_id},
-					#{product_id}) -->
 			INSERT INTO relateRP (recipe_id,
 					    		  product_id)
 			VALUES (#{recipe_id},
