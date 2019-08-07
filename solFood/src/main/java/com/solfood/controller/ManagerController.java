@@ -425,7 +425,7 @@ public class ManagerController {
 	// 레시피 수정
 	@RequestMapping(value="recipe/recipeUpdate.do")
 	public String recipeUpdate(Model model, int recipe_id) throws Exception{
-		TotalVO recipeDetail= service.selectRecipeDetail(recipe_id);
+		List<TotalVO> recipeDetail= service.selectRecipeDetail(recipe_id);
 		model.addAttribute("recipeDetail", recipeDetail);
 		
 		return "manager/recipe/recipeUpdate";

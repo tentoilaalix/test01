@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import com.solfood.dto.TotalVO;
 import com.solfood.service.CartService;
+import com.solfood.service.ManagerService;
 import com.solfood.service.ProductService;
 import com.solfood.service.RecipeService;
 
@@ -26,7 +27,8 @@ public class RecipeController {
 	
 	@Inject
 	private RecipeService recipeService;
-	
+	@Inject
+	private ManagerService managerService;
 	@Inject
 	private ProductService productService;
 	//============================================================
@@ -34,9 +36,18 @@ public class RecipeController {
 		//============================================================
 		@RequestMapping(value = "/recipe.do")
 		public String selectRecipe(Model model, int recipe_id) throws Exception{		
-			List<TotalVO> recipeList= recipeService.selectRecipe(recipe_id);						
-			model.addAttribute("recipeList", recipeList);
-			System.out.println(recipeList);
+			List<TotalVO> recipeList_relate= managerService.selectRecipeDetail(recipe_id); 			
+			model.addAttribute("recipeList_relate", recipeList_relate);
+			
+			// recipe_name, recipe_image, recipe_content
+			String recipe_name_detail= recipeList_relate.get(0).getRecipe_name();
+			String recipe_image_detail= recipeList_relate.get(0).getRecipe_image();
+			String recipe_content_detail= recipeList_relate.get(0).getRecipe_content();
+			
+			model.addAttribute("recipe_name_detail", recipe_name_detail);
+			model.addAttribute("recipe_image_detail", recipe_image_detail);
+			model.addAttribute("recipe_content_detail", recipe_content_detail);
+			
 			return "recipe/recipeMain";
 		}
 		
@@ -44,7 +55,7 @@ public class RecipeController {
 		public String selectRecipeList(Model model) throws Exception{		
 			List<TotalVO> allRecipe= recipeService.allRecipe();						
 			model.addAttribute("allRecipe", allRecipe);
-			System.out.println(allRecipe);
+
 			return "recipe/recipeList";
 		}
 		

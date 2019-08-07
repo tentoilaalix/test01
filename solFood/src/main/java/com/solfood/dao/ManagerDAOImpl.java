@@ -122,8 +122,8 @@ public class ManagerDAOImpl implements ManagerDAO {
 		return sqlSession.selectList(Namespace+".selectRecipe");
 	}
 	@Override
-	public TotalVO selectRecipeDetail(int recipe_id) throws Exception {
-		return sqlSession.selectOne(Namespace+".selectRecipeDetail", recipe_id);
+	public List<TotalVO> selectRecipeDetail(int recipe_id) throws Exception {
+		return sqlSession.selectList(Namespace+".selectRecipeDetail", recipe_id);
 	}
 	@Override
 	public void insertRecipe(TotalVO vo) throws Exception {

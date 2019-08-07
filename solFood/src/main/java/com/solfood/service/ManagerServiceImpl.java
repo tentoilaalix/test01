@@ -120,7 +120,7 @@ public class ManagerServiceImpl implements ManagerService {
 		return dao.selectRecipe();
 	}
 	@Override
-	public TotalVO selectRecipeDetail(int recipe_id) throws Exception {
+	public List<TotalVO> selectRecipeDetail(int recipe_id) throws Exception {
 		return dao.selectRecipeDetail(recipe_id);
 	}
 	
