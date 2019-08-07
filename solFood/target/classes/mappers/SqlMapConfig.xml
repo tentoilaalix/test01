@@ -7,9 +7,6 @@
 	<typeAliases>
 	
 		<typeAlias alias="member" type="com.solfood.MemberDTO"/>
-	
-	
-	
-	
+
 	</typeAliases>
 </configuration>
