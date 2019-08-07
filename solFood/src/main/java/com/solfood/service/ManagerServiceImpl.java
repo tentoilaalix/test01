@@ -25,7 +25,6 @@ public class ManagerServiceImpl implements ManagerService {
 	public List<ProductVO> selectProduct() throws Exception {
 		 return dao.selectProduct();
 	}
-	
 	/* 상품정보 업데이트 */
 	@Override
 	public void updateProduct(ProductVO vo) throws Exception {
@@ -41,15 +40,37 @@ public class ManagerServiceImpl implements ManagerService {
 	public void insertProduct(ProductVO vo) throws Exception {
 		dao.insertProduct(vo);
 	}
-	
-	
+	/* 상품정보 상세조회 */
+	@Override
+	public ProductVO productDetail(int product_id) throws Exception {
+		return dao.productDetail(product_id);
+	}
+	@Override
+	public List<ProductVO> pageProduct(Criteria cri) throws Exception {
+		return dao.pageProduct(cri);
+	}
+	@Override
+	public int countProduct() throws Exception {
+		return dao.countProduct();
+	}
 	
 	//-------------------------------------------------------
     //	buy
     //-------------------------------------------------------
+	/* 구매내역 리스트 */
 	@Override
 	public List<BuyVO> selectBuy() throws Exception {
 		 return dao.selectBuy();
+	}
+
+	/* 구매내역 상세페이지 */
+	@Override
+	public BuyVO buyDetail(int buy_id) throws Exception {
+		return dao.buyDetail(buy_id);
+	}
+	@Override
+	public void updateBuyDetail(BuyVO vo) throws Exception {
+		dao.updateBuyDetail(vo);
 	}
 
 	@Override
@@ -80,24 +101,6 @@ public class ManagerServiceImpl implements ManagerService {
 	public void deleteMember(MemberVO vo) throws Exception {
 		dao.deleteMember(vo);
 	}
-	
-	
-
-	/* 상품정보 상세조회 */
-	@Override
-	public ProductVO productDetail(int product_id) throws Exception {
-		return dao.productDetail(product_id);
-	}
-
-	@Override
-	public List<ProductVO> pageProduct(Criteria cri) throws Exception {
-		return dao.pageProduct(cri);
-	}
-	@Override
-	public int countProduct() throws Exception {
-		return dao.countProduct();
-	}
-
 	
 	@Override
 	public List<MemberVO> pageAccount(Criteria cri) throws Exception {
@@ -135,6 +138,17 @@ public class ManagerServiceImpl implements ManagerService {
 	public void deleteRecipe(int recipe_id) throws Exception {
 		dao.deleteRecipe(recipe_id);
 	}
+
+	@Override
+	public void insertRelateRP(TotalVO vo) throws Exception {
+		dao.insertRelateRP(vo);
+	}
+	
+
+	
+
+
+
 }
 
 

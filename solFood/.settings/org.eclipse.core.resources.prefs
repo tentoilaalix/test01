@@ -1,6 +1,5 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=refs/remotes/origin/byungeun
 eclipse.preferences.version=1
-<<<<<<< HEAD
-=======
 encoding//src/main/webapp/WEB-INF/views/chart/chart.jsp=UTF-8
->>>>>>> refs/remotes/origin/byungeun
-encoding//src/main/webapp/WEB-INF/views/manager/account/account_list.jsp=UTF-8

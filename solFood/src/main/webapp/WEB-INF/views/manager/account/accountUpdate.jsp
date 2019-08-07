@@ -177,56 +177,31 @@
 				 --%>
 				 
 				<div class="field is-horizontal">
-				  <div class="field-label is-normal"><label class="label">Email4</label></div>
+				  <div class="field-label is-normal"><label class="label">E-mail</label></div>
 				  <div class="field-body">
 				    <div class="field is-expanded">
 				      <div class="field has-addons">
-				      
 				      	<p class="control is-expanded">
-				      		<input type="text" class="input" name="account_email1" value="${login.account_email}" maxlength="20" placeholder="Enter E-mail">
+				      		<input type="text" class="input" name="account_email" value="${accountUpdate.account_email}" maxlength="20" placeholder="Enter E-mail">
 				        </p>
-				      
 				        <p class="control">
 				          <a class="button is-static">
 				            @
 				          </a>
 				        </p>
-				        
-
 				        <div class="control">
 				        <div class="select is-harf">
-				        
 				          <select class="form-control" name="account_email2" id="email2">
 				            <option>gmail.com</option>
 				            <option>naver.com</option>
 				            <option>hanmail.net</option>
 				          </select>
-				          
 				        </div>
 				      </div>
-				      
-				      
-       
 				      </div>
 				    </div>
 				  </div>
 				</div>
-				
-				
-				
-				
-				
-				
-				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">이메일</label></div>
-					<div class="field-body">
-						<div class="field is-expanded">
-							<input type="text" class="input" name="account_email" maxlength="20" value="${accountUpdate.account_email}">
-						</div>
-					</div>	
-				</div>
-				
-				
 				
 				<!-------------------------------- 수정완료/취소 버튼 -------------------------------->
 				<hr>

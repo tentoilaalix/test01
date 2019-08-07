@@ -1,7 +1,9 @@
 package com.solfood.dao;
 
 import java.util.List;
+
 import org.springframework.stereotype.Repository;
+
 import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.MemberVO;
@@ -12,7 +14,11 @@ import com.solfood.utils.Criteria;
 @Repository
 public interface ManagerDAO {   
 	
-	public List<BuyVO> selectBuy() throws Exception;
+	public List<BuyVO> selectBuy() throws Exception;							// 구매내역 리스트
+	public BuyVO buyDetail(int buy_id) throws Exception;						// 구매내역 상세페이지
+	public void updateBuyDetail(BuyVO vo) throws Exception;						// 구매내역 수정
+	
+	
 	public List<BoardVO> selectBoard() throws Exception;
 	
 	
@@ -20,6 +26,7 @@ public interface ManagerDAO {
 	public List<MemberVO> selectMember() throws Exception;						//회원정보 조회
 	public List<MemberVO> pageAccount(Criteria cri) throws Exception;			//회원페이지
 	public int countAccount() throws Exception;									//회원페이지 : 카운트
+	
 	public MemberVO memberDetail(String account_user) throws Exception;			//회원정보 상세페이지
 	public void updateMember(MemberVO vo) throws Exception;						//회원정보 수정
 	public void deleteMember(MemberVO vo) throws Exception;						//회원정보 삭제
@@ -37,9 +44,12 @@ public interface ManagerDAO {
 	
 	/* 레시피 관리 */
 	public List<TotalVO> selectRecipe() throws Exception;						// 레시피 조회
+	
 	public TotalVO selectRecipeDetail(int recipe_id) throws Exception;			// 특정 레시피 조회 	
 	public void insertRecipe(TotalVO vo) throws Exception;						// 레시피 등록 
+	public void insertRelateRP(TotalVO vo) throws Exception;
 	public void updateRecipe(TotalVO vo) throws Exception;						// 레시피 수정
 	public void deleteRecipe(int recipe_id) throws Exception;					// 레시피 삭제
+	
 
 }

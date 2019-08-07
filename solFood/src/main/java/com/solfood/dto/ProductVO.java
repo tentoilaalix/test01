@@ -15,6 +15,19 @@ public class ProductVO {
     private String product_content;
     private Date product_date;
     
+	/* productImg table */
+    private int image_no;
+    
+    
+    
+    
+	// Getter/Setter
+	public int getImage_no() {
+		return image_no;
+	}
+	public void setImage_no(int image_no) {
+		this.image_no = image_no;
+	}
 	public int getProduct_id() {
 		return product_id;
 	}
@@ -87,5 +100,9 @@ public class ProductVO {
 	public void setProduct_date(Date product_date) {
 		this.product_date = product_date;
 	}
+    
+    
+	
+	
 	
 }

@@ -1,6 +1,7 @@
 package com.solfood.service;
 
 import java.util.List;
+
 import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.MemberVO;
@@ -11,7 +12,11 @@ import com.solfood.utils.Criteria;
 
 public interface ManagerService {
 	
-	public List<BuyVO> selectBuy() throws Exception;
+	public List<BuyVO> selectBuy() throws Exception;								//구매내역 리스트
+	public BuyVO buyDetail(int buy_id) throws Exception;							//구매내역 상세조회
+	public void updateBuyDetail(BuyVO vo) throws Exception;							//구매내역 수정
+	
+	
 	public List<BoardVO> selectBoard() throws Exception;
 
 	 
@@ -48,8 +53,12 @@ public interface ManagerService {
 	
 	public TotalVO selectRecipeDetail(int recipe_id) throws Exception;				//특정 레시피 조회
 	public void insertRecipe(TotalVO vo) throws Exception;							//레시피 등록 
+	public void insertRelateRP(TotalVO vo) throws Exception;
+	
 	public void updateRecipe(TotalVO vo) throws Exception;							//레시피 수정
 	public void deleteRecipe(int recipe_id) throws Exception;						//레시피 삭제
+	
+	
 
 }
 

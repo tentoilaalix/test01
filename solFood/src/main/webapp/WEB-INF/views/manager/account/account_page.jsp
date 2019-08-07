@@ -18,9 +18,13 @@
 		font-family: 'SpoqaHanSans-kr';
 	}
 	</style>
-
 </head>
 <body>
+<script>
+$(document).ready(function(){
+	$("#table").tablesorter();
+});
+</script>
 	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<jsp:include page="../../module/managerTop.jsp"/>
 	<br>
@@ -29,8 +33,12 @@
 	<div class="container">
 	<h1 class="title">회원관리</h1>
 	<hr>
-
-		<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth is-dark">
+	<div class="column is-one-quarter" style="padding: 0px 0px 22px 0px;" id="search">
+		<p class="control is-loading is-small">
+  			<input class="input is-small" type="text" placeholder="Search by Keyword" id="keyword"/>
+		</p>
+	</div>
+		<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth is-dark" id="table">
 			<thead>
 				<tr>
 					<th class="is-dark col-md-1">No.</th>
@@ -104,7 +112,20 @@
 			$(function(){
 				var thisPage = '${pageMaker.cri.page}';
 				$('#page'+thisPage).addClass('is-current');
-			})
+			});
+			
+			$(document).ready(function(){
+			    $("#search :input:text:visible:enabled:first").focus();
+			});
+			$(document).ready(function() {
+		        $("#keyword").keyup(function() {
+		            var k = $(this).val();
+		            $("#table > tbody > tr").hide();
+		            var temp = $("#table > tbody > tr > td:nth-child(5n+2):contains('" + k + "')");
+
+		            $(temp).parent().show();
+		        });
+		    });
 		</script>
 			
 		<hr>

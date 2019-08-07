@@ -1,10 +1,6 @@
-<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> --%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="false"%>
@@ -12,17 +8,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>게시물 목록</title>
-<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css" />
-<script src="/resources/js/jquery-3.3.1.min.js"></script>
-<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8">
+	<title>게시물 목록</title>
+	<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<script src="/resources/js/jquery-3.3.1.min.js"></script>
+	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
+	<jsp:include page="../module/managerTop.jsp"/>
+	<br>	
+	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<div class="container">
-		<h1 align="center">${view.board_title}의게시글 뷰</h1>
-		<br>
+		<h1 class="title">게시물관리</h1>
+		<hr>
+		
 		<form class="form-horizontal" method="post">
 			<div class="form-group">
 				<label class="control-label col-sm-2">제목</label>
@@ -54,18 +54,17 @@
 				</div>
 			</div>
 			<div class="control-label col-sm-3">
-				<a href="/board/update?board_num=${view.board_num}"
-					class="btn btn-primary">수정</a> <a
-					href="/board/delete?board_num=${view.board_num}"
-					class="btn btn-primary">삭제</a> <a
-					href="/board/managerBoard_listPage" class="btn btn-primary">
-					리스트</a>
+				<a href="/board/managerBoard_update?board_num=${view.board_num}" class="btn btn-primary">수정</a> 
+				<a href="/board/delete?board_num=${view.board_num}" class="btn btn-primary">삭제</a> 
+				<a href="/board/managerBoard_listPage" class="btn btn-primary">리스트</a>
 			</div>
 		</form>
 	</div>
 
-	<jsp:include page="comment.jsp" />
+	<jsp:include page="./comment.jsp" />
 	<!-- 댓글 include -->
 
+
+	<jsp:include page="../module/managerBottom.jsp" flush="false"/>
 </body>
 </html>

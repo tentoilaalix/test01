@@ -6,10 +6,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>recipe register</title>
 	
 	<link href="../../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.js"></script>
 	
 	<!-- summer -->
@@ -18,30 +17,22 @@
 	
 	<%@ include file = "../../module/managerTop.jsp" %>
 	
-	<script>
-	var file = document.getElementById("file");
-	file.onchange = function(){
-	    if(file.files.length > 0)
-	    {
-	      document.getElementById('filename').innerHTML = file.files[0].name;
-	    }
-	};
-	</script>
-	
 	<style>
 	.select_img img{
 		margin: 20px 0px;
 	}
-	</style>
-	<style>
 	td {
 		vertical-align: middle !important;
 	}
 	</style>
 	
+	<script>	//레시피 연관상품 스크립트
+	/* 연관상품 배열 */
+	var relatePro = new Array();
+	</script>
+
 </head>
 <body>
-
 	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<br>
 	
@@ -51,11 +42,28 @@
 		<hr>
 	</div>
 	
+	<!-- 레시피 게시물 번호(최대값+1) 구하기  -->
+	<c:forEach items="${recipeList}" var="recipe" varStatus="status">
+		<c:if test="${status.last}">
+			<%-- ${recipe_Max} --%>
+			<c:set var="recipe_Max" value="${recipe.recipe_id + 1}"/>
+		</c:if>
+	</c:forEach>
+	
 	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<div class="container is-fluid">
 		<div class="columns is-centered">
-			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data">
-			
+			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data" action="${path}/manager/recipe/recipe_register.do">
+				
+				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">no</label></div>
+					<div class="field-body">
+						<div class="control field is-expanded has-icons-right">
+							<input type="text" class="input" name="recipe_id" maxlength="20" value="${recipe_Max}">
+						</div>
+					</div>	
+				</div>
+				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">이름</label></div>
 					<div class="field-body">
@@ -96,45 +104,21 @@
 								<img src="" />
 								
 								<script>
-									$("#recipe_image").change(function(){
-										if(this.files && this.files[0]) {
-											var reader = new FileReader;
-											reader.onload = function(data) {
-												$(".select_img img").attr("src", data.target.result).width(200);								
-											}
-											reader.readAsDataURL(this.files[0]);
+								$("#recipe_image").change(function(){
+									if(this.files && this.files[0]) {
+										var reader = new FileReader;
+										reader.onload = function(data) {
+											$(".select_img img").attr("src", data.target.result).width(200);								
 										}
-									});
+										reader.readAsDataURL(this.files[0]);
+									}
+								});
 								</script>
 							</div>
 						</div>
 					</div>	
 				</div>
-				<!-- 		
-				<div class="field is-horizontal">
-					<div class="field-label is-normal"><label class="label">내용</label></div>
-					<div class="field-body">
-						<div class="field is-expanded">
-							<textarea id="summernote" class="input" name="recipe_content"></textarea>							
-						</div>
-						<script>
-							$(document).ready(function() {
-								$('#summernote').summernote({
-									height: 400,          // 기본 높이값
-									minHeight: null,      // 최소 높이값(null은 제한 없음)
-									maxHeight: null,      // 최대 높이값(null은 제한 없음)
-									//focus: true,        // 페이지가 열릴때 포커스를 지정함
-									lang: 'ko-KR'         // 한국어 지정(기본값은 en-US)
-								});
-							});
-							
-							function postForm(){
-								$('textarea[name="recipe_content"]').val($('#summernote').summernote('code'));
-							}
-						</script>
-					</div>
-				</div>
-				 -->
+				
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">내용</label></div><!-- 에디터 -->
 					<div class="field-body">
@@ -144,6 +128,103 @@
 					</div>
 				</div>
 				
+				<hr>
+				
+				
+				<div class="field is-horizontal">
+					<div class="field-label is-normal"><label class="label">연관상품</label></div>
+					<div class="field-body">
+						<div class="control field is-expanded has-icons-right" id="addedFormDiv">
+							<div class="select">
+								<select id="productSelect" name="selectBox" onchange="selectPro()">
+									<option key="default-empty" hidden>───── 연관상품을 선택하세요. ─────</option>
+									<c:forEach items="${productList}" var="product">
+										<option id="productSelect_op" value="${product.product_id}">${product.product_id}.${product.product_name}</option>
+									</c:forEach>
+								</select>
+							</div>
+							<button class="button is-success is-outlined" type="button" onclick="addbtn()">＋</button>
+							<div id="productAdded">
+							</div>
+						</div>
+					</div>
+					
+					<div class="control field is-expanded" id="addedFormDiv">
+						
+					</div>
+					
+				</div>
+				<script type="text/javascript">
+					/* 현재 작성중인 레시피 게시물 번호 */
+					var recipe_id = ${recipe_Max};
+					/* 셀렉트박스 전체옵션의 length */
+					var length = document.getElementById("productSelect").options.length;
+					/* 셀렉트박스에서 선택되는 값 */
+					var value;
+					/* 셀렉트박스에서 선택된 상품목록 */
+					var totalValue = [];
+					/* DB에 입력가능하도록 변경한 상품번호 */
+					var proNo
+					
+					var input;
+					var inputBtn;
+					var newDiv;
+					
+					function selectPro(){
+						/* 셀렉트박스에서 선택된 옵션의 index 추출 */
+						proNo = document.getElementById("productSelect").selectedIndex;
+						
+						/* 셀렉트박스 옵션의 내용물 */
+						value = document.getElementById("productSelect").options[proNo].text;
+						
+						console.log("select : " + proNo + " | " + "proNo : " + proNo);
+						console.log("value : "+ value);
+					}
+					
+					function addbtn(){
+						newDiv = document.createElement("div")
+						input = document.createElement("input");
+						inputVal = document.createElement("input");
+						inputBtn = document.createElement("button");
+						
+						/* 선택상품목록 배열에 값 추가하기 */
+						totalValue.push(proNo);
+						console.log("selectedPro : " + totalValue);
+						
+						//DIV 추가
+						newDiv.setAttribute("class", "field-body");
+						document.getElementById("productAdded").appendChild(newDiv);
+						
+						//데이터 입력 후, 행추가
+						input.setAttribute("value", value);
+						input.setAttribute("class", "input");
+						//input.setAttribute("name", "proValue")
+						document.getElementById("productAdded").appendChild(input);		
+						
+						//데이터 입력 후, 행추가 / DB 넘기는 값
+						inputVal.setAttribute("value", proNo);
+						inputVal.setAttribute("type", "hidden");
+						inputVal.setAttribute("class", "input");
+						inputVal.setAttribute("name", "proValue")
+						document.getElementById("productAdded").appendChild(inputVal);		
+						
+						//삭제버튼
+						inputBtn.setAttribute("type", "button");
+						inputBtn.setAttribute("class", "button is-danger is-outlined");
+						inputBtn.setAttribute("onclick", "deleteBtn()");
+						inputBtn.innerHTML = "×";
+						document.getElementById("productAdded").appendChild(inputBtn);
+						
+						//DIV에 input과 button을 상속
+						newDiv.appendChild(input);
+						newDiv.appendChild(inputBtn);
+					};
+					
+					function deleteBtn(){
+						closest("div").remove();
+					};
+					
+				</script>
 				<hr>
 				
 				<%-- 등록/취소 버튼 --%>
@@ -160,10 +241,17 @@
 						<input class="button is-danger" type="button" value="취소" onclick="history.back();" />
 					</div>
 				</div>
+				
+				
+				<button class="button is-link" type="button" onclick="send()">aaa</button>
+				
 			</form>
 		</div>
 		<hr>
 	</div>
+	
+	
+	
 	
 	<jsp:include page="../../module/managerBottom.jsp" flush="false"/>
 	<script src="${pageContext.request.contextPath}/resources/js/editor.js"></script>

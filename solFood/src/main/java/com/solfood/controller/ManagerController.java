@@ -1,29 +1,45 @@
 package com.solfood.controller;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
 import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
+import org.json.simple.JSONValue;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.ServletRequestUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.solfood.dto.MemberVO;
+import com.solfood.dto.BoardVO;
 import com.solfood.dto.BuyVO;
 import com.solfood.dto.LikeVO;
 import com.solfood.dto.ProductVO;
+import com.solfood.dto.SearchCriteria;
 import com.solfood.dto.TotalVO;
 
 import com.solfood.service.ManagerService;
+import com.solfood.service.BoardService;
+
 import com.solfood.utils.Criteria;
 import com.solfood.utils.PageMaker;
 import com.solfood.utils.UploadFileUtils;
@@ -42,18 +58,21 @@ public class ManagerController {
 	//========================================================================================================
 	/* 매니저 메인 페이지 이동 */
 	//========================================================================================================
-	@RequestMapping("/managerMain.do")
-	public String managerMain() {
+	@RequestMapping(value="/managerMain.do", method = RequestMethod.GET)
+	public String managerMain(Locale locale, Model model) throws Exception {
+		
+		List<BuyVO> buyList= service.selectBuy();
+		model.addAttribute("buyList", buyList);
+		
+		List<ProductVO> productList= service.selectProduct();
+		model.addAttribute("productList", productList);
+		
+		List<BoardVO> boardList = service.selectBoard();
+		model.addAttribute("boardList", boardList); // JSP에 계산된 페이징 출력
+		
 		return "/manager/managerMain";
 	}
 	
-	//========================================================================================================
-	/* 매니저 메인 url로 가려다가 막혀서 나오는 페이지 */
-	//========================================================================================================
-	@RequestMapping("/managerMainFailPage.do")
-	public String managerMainFailPage() {
-		return "/manager/managerMainFailPage";
-	}
 	
 	//========================================================================================================
 	//회원
@@ -67,8 +86,7 @@ public class ManagerController {
 
         return "/manager/account/account_list";
     }
-	
-	//글 목록 + 페이징
+	//회원 목록 + 페이징
     @RequestMapping(value="account/account_page.do", method = RequestMethod.GET)
     public void pageAccount(Criteria cri, Model model) throws Exception{
     	
@@ -111,16 +129,10 @@ public class ManagerController {
 
 	//========================================================================================================
 	
-
-
-	
-	
+	//-----------------------------------------------------------------------------------------------
+	//구매관리
+	//-----------------------------------------------------------------------------------------------
 	/* 구매관리 페이지 이동 */
-	@RequestMapping("buy/buy_list.do")
-	public String buy_list() {
-		return "/manager/buy/buy_list";
-	}
-	//상품조회
 	@RequestMapping(value = "buy/buy_list.do", method = RequestMethod.GET)
 	public String buyList(Locale locale, Model model) throws Exception{
 		
@@ -130,16 +142,33 @@ public class ManagerController {
 		return "/manager/buy/buy_list";
 	}
 	
+	/* 구매내역 상세조회 */
+	@RequestMapping(value = "buy/buy_detail.do", method = RequestMethod.GET)
+	public void buyDetail(@RequestParam("buy_id") int buy_id, Model model) throws Exception{
+		
+		BuyVO buyDetail = null;
+		buyDetail = service.buyDetail(buy_id);
+		
+		model.addAttribute("buyDetail", buyDetail);
+	}
+	/* 구매내역 수정 */
+	@RequestMapping(value="buy/buy_detail.do", method=RequestMethod.POST)
+	public String buyDetail(BuyVO vo) throws Exception{
+		service.updateBuyDetail(vo);
+		
+		//목록으로 리다이렉트
+		return "redirect:buy_list.do";
+	}
 	
+	//-----------------------------------------------------------------------------------------------
 	
 	
 	
 	
 	
 	//-----------------------------------------------------------------------------------------------
-	//상품관리
+	//상품
 	//-----------------------------------------------------------------------------------------------
-	
 	//상품조회
 	@RequestMapping(value = "product/product_list.do", method = RequestMethod.GET)
 	public String productList(Locale locale, Model model) throws Exception{
@@ -150,7 +179,7 @@ public class ManagerController {
 		return "/manager/product/product_list";
 	}
 
-	//글 목록 + 페이징
+	//상품 목록 + 페이징
     @RequestMapping(value="product/product_page.do", method = RequestMethod.GET)
     public void pageProduct(Criteria cri, Model model) throws Exception{
     	
@@ -165,26 +194,15 @@ public class ManagerController {
     }
 	
 	
-	
-	/* 상품 상세조회 */
-	@RequestMapping(value = "product/productUpdate.do", method = RequestMethod.GET)
-	public void getDetailProduct(@RequestParam("product_id") int product_id, Model model) throws Exception{
-		ProductVO productUpdate = null;
-		productUpdate = service.productDetail(product_id);
-		
-		model.addAttribute("productUpdate", productUpdate);
-	}
-	
-
+	//상품등록 : 파일업로드 위치지정
 	@Resource(name="uploadPath")
 	private String uploadPath;
 	
-	
-	
 	//상품등록
 	@RequestMapping(value="product/product_register.do", method = RequestMethod.GET)
-	public void getWrite() throws Exception{	
-	
+	public void getWrite(Model model) throws Exception{	
+		List<ProductVO> productList= service.selectProduct();
+		model.addAttribute("productList", productList);
 	}
 	@RequestMapping(value="product/product_register.do", method = RequestMethod.POST)
 	public String productRegister(ProductVO productVo, MultipartFile file) throws Exception{
@@ -221,6 +239,16 @@ public class ManagerController {
 		return "redirect:product_page.do";
 	}
 	
+	
+	/* 상품 상세조회 */
+	@RequestMapping(value = "product/productUpdate.do", method = RequestMethod.GET)
+	public void getDetailProduct(@RequestParam("product_id") int product_id, Model model) throws Exception{
+		ProductVO productUpdate = null;
+		productUpdate = service.productDetail(product_id);
+		
+		
+		model.addAttribute("productUpdate", productUpdate);
+	}
 	//상품수정
 	@RequestMapping(value = "product/productUpdate.do", method = RequestMethod.POST)
 	public String productUpdate(ProductVO productVo, MultipartFile file, HttpServletRequest req) throws Exception{
@@ -258,6 +286,19 @@ public class ManagerController {
 		return "redirect:product_page.do";
 	}
 	
+	/*
+	 * @RequestMapping("product/productUpdateForm") public String
+	 * productUpdateForm(int product_id, Model model) throws Exception{ ProductVO
+	 * productById= service.productDetail(product_id);
+	 * model.addAttribute("productById", productById);
+	 * 
+	 * return "/manager/product/productUpdateForm"; }
+	 * 
+	 * @RequestMapping("product/productUpdatePro") public String
+	 * productUpdatePro(ProductVO vo) throws Exception{ service.updateProduct(vo);
+	 * 
+	 * return "redirect:/product_list"; }
+	 */
 	
 	/* 상품정보 삭제 */
 	@RequestMapping(value="product/productDelete.do")
@@ -283,15 +324,38 @@ public class ManagerController {
 	}
 	
 	
-	// 레시피 등록
-	@RequestMapping(value="recipe/recipe_register.do", method = RequestMethod.GET)
-	public void recipe_register() throws Exception{
-		
+	/*
+	//상품조회
+	//상품등록
+	@RequestMapping(value="product/product_register.do", method = RequestMethod.GET)
+	public void getWrite(Model model) throws Exception{	
+		List<ProductVO> productList= service.selectProduct();
+		model.addAttribute("productList", productList);
 	}
+	@RequestMapping(value="product/product_register.do", method = RequestMethod.POST)
+	public String productRegister(ProductVO productVo, MultipartFile file) throws Exception{
+		
+	 */
+	// 레시피 등록
+	@RequestMapping(value="recipe/recipe_register.do", method = RequestMethod.GET) 
+	public void recipe_register(Model model) throws Exception{
+		List<TotalVO> recipeList = service.selectRecipe();
+		model.addAttribute("recipeList", recipeList); 
+		List<ProductVO> productList = service.selectProduct(); 
+		model.addAttribute("productList", productList);
+		
+		System.out.println("@@@@@111@@@@@");
+		int max = recipeList.size(); 
+		System.out.println("레시피 등록개수 : "+max); 
+	}
+	
 	@RequestMapping(value="recipe/recipe_register.do", method = RequestMethod.POST)
-	public String recipe_registerPro(TotalVO vo, MultipartFile file) throws Exception{
+	public String recipe_register(TotalVO vo, Model model, MultipartFile file, HttpServletRequest request) throws Exception{
+
 		String imgUploadPath = uploadPath + File.separator + "productImg";
     	String fileName = null;
+    	
+    	System.out.println(imgUploadPath);
 		    	
     	if(file.getOriginalFilename() != null && file.getOriginalFilename() != "") {
     		fileName =  UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes()); 
@@ -299,11 +363,63 @@ public class ManagerController {
 			fileName = File.separator + "noImage" + File.separator + "noImage.png";
 		}
 		vo.setRecipe_image(File.separator + "productImg" + File.separator + fileName);
+		System.out.println("#########1");
 		
+		//recipe 등록
 		service.insertRecipe(vo);
 		
-		return "redirect:/manager/recipe/recipe_list.do";
+		//연관상품 번호 가져오기 
+		System.out.println("@@@@@222@@@@@");
+		String[] proValue = request.getParameterValues("proValue");
+		String recipe_id = request.getParameter("recipe_id");
+		
+		System.out.println("proValue = " + Arrays.toString(proValue));
+		System.out.println("RecipeNo = " + recipe_id);
+		System.out.println("proValue = " + proValue[0]);
+		
+		// recipeNo을 vo에 등록해주기
+		vo.setRecipe_id(Integer.parseInt(recipe_id));
+		
+		// proValue배열에서 하나씩 뽑아서 vo에 등록해주기
+		for(int i=0; i<proValue.length; i++) {	
+			vo.setProduct_id(Integer.parseInt(proValue[i])); 
+			service.insertRelateRP(vo);
+		}
+		
+		
+		/* relateRP 테이블 */
+		//recipe_id 가져와서 recipe_no로 입력하기
+		/*
+		 * vo.setRecipe_no(vo.getRecipe_id()); service.insertRelateRP(vo);
+		 * 
+		 * System.out.println("###getRecipe_id:"+vo.getRecipe_id());
+		 * System.out.println("###getRecipe_no:"+vo.getRecipe_no());
+		 */
+		
+		//return "redirect:/manager/recipe/recipe_list.do";
+		return null;
 	}
+	
+	
+	@RequestMapping(value = "recipe/relateProduct.do", method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public void relateProduct(String[] relatePro, HttpServletRequest request, HttpServletResponse response) throws Exception{	
+		System.out.println("@@@@@"+ relatePro[0]);
+		
+	}
+	
+	
+	/*
+	@RequestMapping(value = "recipe/relateProduct.do", method = {RequestMethod.POST})
+	public @ResponseBody String relatePro(String value,
+			HttpServletRequest request,
+		    HttpServletResponse response)throws Exception{
+		
+		System.out.println(value);
+		
+		return "redirect:relateProduct.do";
+	}
+	*/
 	
 	
 	// 레시피 수정
@@ -328,6 +444,7 @@ public class ManagerController {
 			String imgUploadPath = uploadPath + File.separator + "productImg";
 			String fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes());
 
+			
 	    	vo.setRecipe_image(File.separator + "productImg" + File.separator + fileName);
 			    	
 	    // 새로운 파일이 등록되지 않았다면 기존 이미지를 그대로 사용

@@ -36,7 +36,7 @@
 			<br>
 			<br>
 			<ul class="nav nav-sidebar" align="center">
-				<li class="active"><a href="/board/managerBoard_listPage"
+				<li class="active"><a href="/board/listPage"
 					style="color: #3273dc">BOARD CATEGORY<span class="sr-only">(current)</span></a></li>
 				<li><a
 					href="/board/managerBoard_category?board_category=notice"
@@ -49,7 +49,7 @@
 				<li><a
 					href="/board/managerBoard_category?board_category=question"
 					style="color: #3273dc">Q&A</a></li>
-				<li><a href="/board/managerBoard_category?board-category=manager_notice"
+				<li><a href="/board/managerBoard_listPage"
 					style="color: #3273dc"><span
 						class="glyphicon glyphicon-eye-open"></span>관리자게시판</a></li>
 			</ul>
@@ -127,8 +127,7 @@
 				<!-- ====================매니저 게시글 페이징================================================================= -->
 				<div align="center">
 					<c:if test="${pageMaker.prev}">
-						<a
-							href="managerBoard_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">«</a>
+						<a href="managerBoard_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">«</a>
 					</c:if>
 					<c:forEach begin="${pageMaker.startPage }"
 						end="${pageMaker.endPage }" var="idx">
@@ -136,13 +135,12 @@
 						<a href="managerBoard_list${pageMaker.makeSearch(idx)}">${idx}</a>
 					</c:forEach>
 					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-						<a
-							href="managerBoard_list${pageMaker.makeQuery(pageMaker.endPage +1) }">
-							» </a>
+						<a href="managerBoard_list${pageMaker.makeQuery(pageMaker.endPage +1) }">»</a>
 					</c:if>
 				</div>
-				<br> <a href="write" class="btn btn-primary" aria-pressed="true">
-					<span class="glyphicon glyphicon-pencil"></span> 작성
+				<br>
+				<a href="write" class="btn btn-info" aria-pressed="true">
+				<span class="glyphicon glyphicon-pencil"></span> 작성
 				</a>
 				<!-- ================검색function======================================================================================= -->
 

@@ -58,29 +58,27 @@
  -->
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Top ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<div class="row">
-		<br>   
-			<c:choose>
-			    <c:when test="${login.account_user == null}">
-			    <div class="col-sm-offset-10">
-			        <a href="${path}/member/login.do">로그인&nbsp;</a>&nbsp;｜&nbsp;
-			        <a href="${path}/member/joinMember.do">회원가입&nbsp;</a>
-			    </div>
-			    </c:when>
-			    <c:otherwise>
-			    <div class="col-sm-offset-9">
-			        <a href="${path}/member/mypage.do?account_user=${login.account_user}">마이페이지&nbsp;</a>&nbsp;｜&nbsp;
-			        <a href="${path}/cart/cartList.do?account_user=${login.account_user}">장바구니&nbsp;</a>&nbsp;｜&nbsp;  
-			        <a href="${path}/buy/buy.do?account_user=${login.account_user}">구매이력&nbsp;</a>&nbsp;｜&nbsp;  
-			        <a href="${path}/member/logout.do">로그아웃&nbsp;</a>
-			    </div>
-			    </c:otherwise>
-			</c:choose>
-			
-			<%-- 
-		 	<a class="navbar-item" href="${path}/manager/managerMain.do">관리자 페이지
-				<img src="${path}/resources/image/logo0.png" width="95" height="35">
-			</a>
-			--%>
+		<c:choose>
+		    <c:when test="${login.account_user == null}">
+		    <div class="col-sm-offset-10"></div>
+		    <div class="col-sm-offset-10">
+		        <a href="${path}/member/login.do"><strong>로그인&nbsp;</strong></a>&nbsp;｜&nbsp;
+		        <a href="${path}/member/joinMember.do"><strong>회원가입&nbsp;</strong></a>
+		    </div>
+		    </c:when>
+		    <c:otherwise>
+		    <div class="col-sm-offset-7"></div>
+		    <div class="col-sm-offset-8">
+		        <a href="${path}/member/mypage.do?account_user=${login.account_user}"><strong>마이페이지&nbsp;</strong></a>&nbsp;｜&nbsp;
+		        <a href="${path}/cart/cartList.do?account_user=${login.account_user}"><strong>장바구니&nbsp;</strong></a>&nbsp;｜&nbsp;  
+		        <a href="${path}/buy/buy.do?account_user=${login.account_user}"><strong>구매이력&nbsp;</strong></a>&nbsp;｜&nbsp;  
+		        <a href="${path}/member/logout.do"><strong>로그아웃&nbsp;</strong></a>
+		        <c:if test="${login.account_grade eq '0'}">
+					<strong>｜&nbsp;</strong><a href="${path}/manager/managerMain.do">관리페이지</a>
+				</c:if>
+		    </div>
+		    </c:otherwise>
+		</c:choose>
 	</div>
 	
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>

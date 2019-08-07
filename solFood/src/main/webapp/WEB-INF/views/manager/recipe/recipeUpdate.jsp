@@ -133,8 +133,11 @@
 						</div>
 					</div>
 				</div>
+				
 				<hr>
-								
+				
+				
+						
 				<%-- 등록/취소 버튼 --%>
 				<div class="field is-grouped is-pulled-right"">
 					<div class="control">
@@ -150,6 +153,7 @@
 					</div>
 				</div>
 			</form>
+			<jsp:include page="./relateProduct.jsp"/>
 		</div>
 		<hr>
 	</div>

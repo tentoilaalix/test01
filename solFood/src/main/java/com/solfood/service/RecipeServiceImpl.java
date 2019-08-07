@@ -24,5 +24,15 @@ public class RecipeServiceImpl implements RecipeService{
 	public List<TotalVO> allRecipe() throws Exception{
 		return dao.allRecipe();
 	}
+
+	@Override
+	public List<TotalVO> relateProduct(String recipe_keyword) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.relateProduct(recipe_keyword);
+	}
 	
+	@Override
+	public TotalVO getRecipe(int recipe_id) throws Exception {
+		return dao.getRecipe(recipe_id);
+	}
 }
