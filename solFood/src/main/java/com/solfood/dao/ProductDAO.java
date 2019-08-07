@@ -1,8 +1,14 @@
 package com.solfood.dao;
 import java.util.List;
 import org.springframework.stereotype.Repository;
+
+import com.solfood.dto.BoardVO;
 import com.solfood.dto.CartVO;
+import com.solfood.dto.CommentVO;
 import com.solfood.dto.TotalVO;
+import com.solfood.dto.ProductVO;
+import com.solfood.dto.SearchCriteria;
+import com.solfood.dto.SearchVO;
 
 @Repository
 public interface ProductDAO {
@@ -21,4 +27,10 @@ public interface ProductDAO {
 		
 		// buy로 상품 넘어가면, product 테이블에서 그만큼 숫자 빼주기 (재고 관리)
 		public void updateProduct_count_minus(TotalVO vo) throws Exception;
+		
+		//상품 검색
+		public List<ProductVO> showAll(String keyword_p) throws Exception;
+		
+		//검색어 저장
+	    public int searchInsert(SearchVO searchvo) throws Exception;
 }

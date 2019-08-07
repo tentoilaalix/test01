@@ -145,7 +145,7 @@ button:hover:before,button:hover:after{
 			<h4 align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;정말로 삭제 하시겠습니까?</h4>
 			<div class="control-label- col-sm-8" align="right">
 				<button type="submit"><span style="color:black">삭제</span></button>
-				<button type="button" onclick="location.href='/board/listPage' "><span style="color:black">취소</span></button>
+				<button type="button" onclick="location.href='/board/managerBoard_listPage' "><span style="color:black">취소</span></button>
 			</div>
 			
 			

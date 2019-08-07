@@ -143,6 +143,21 @@ import com.solfood.dto.SearchCriteria;
 		dao.updateBoard_readcount(board_num); //조회수 업데이트
 		return dao.managerBoard_view(board_num);		
 	}
+	//매니저보드 수정
+	@Override
+	public void managerBoard_update(BoardVO vo) throws Exception {
+		dao.managerBoard_update(vo);
+	}
+	//매니저보드 삭제
+	@Override
+	public void managerBoard_delete(int board_num) throws Exception {
+		dao.delete(board_num);
+	}
+
+	//매니저보드 삭제후
+	@Override public void managerBoard_deleteAfter(int board_num) throws Exception{
+	dao.deleteAfter(board_num); 
+	}
 //====================================================================================================	
 	//매니져보드 카테고리	
 	@Override
@@ -154,6 +169,7 @@ import com.solfood.dto.SearchCriteria;
 	public int managerBoard_categoryCount(SearchCriteria cri) throws Exception{
 		return dao.managerBoard_categoryCount(cri);
 	}
+
 }
 
 	

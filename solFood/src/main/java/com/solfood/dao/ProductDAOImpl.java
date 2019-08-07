@@ -3,8 +3,14 @@ import java.util.List;
 import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
+import com.solfood.dto.BoardVO;
 import com.solfood.dto.CartVO;
+import com.solfood.dto.CommentVO;
+import com.solfood.dto.SearchCriteria;
+import com.solfood.dto.SearchVO;
 import com.solfood.dto.TotalVO;
+import com.solfood.dto.ProductVO;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO{
@@ -47,4 +53,18 @@ public class ProductDAOImpl implements ProductDAO{
 	public void updateProduct_count_minus(TotalVO vo) throws Exception {
 		sqlSession.update(Namespace+".updateProduct_count_minus", vo);
 	}
+	
+//======== 검색기능============================================
+
+
+	//검색
+	@Override
+	public List<ProductVO> showAll(String keyword_p) throws Exception {
+		return sqlSession.selectList(Namespace + ".listSearch3", keyword_p);
+	}
+	   // 검색어 저장
+		@Override
+	    public int searchInsert(SearchVO searchvo) throws Exception{
+			return sqlSession.insert(Namespace + ".searchInsert", searchvo);
+		}
 }

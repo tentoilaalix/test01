@@ -15,6 +15,29 @@
 	<script src="/resources/js/jquery-3.3.1.min.js"></script>
 	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+		body {
+		font-family: 'Noto Sans KR', sans-serif !important;
+	}
+		table{
+		font-family: 'Noto Sans KR', sans-serif !important;
+	}
+		#searchBtn{
+		background: #F0F0F0;
+		font-family: 'Noto Sans KR', sans-serif !important;
+		font-weight: bold;
+		border-radius: 0;
+	}
+		#write_btn{
+		background: #F0F0F0;
+		font-family: 'Noto Sans KR', sans-serif !important;
+		font-weight: bold;
+		border-radius: 0;
+		}
+			
+		
+</style>
 <body>
 <jsp:include page="../module/Top.jsp" flush="false"/>
 	<br>
@@ -66,7 +89,7 @@
 					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
 
-					<button type="button" id='searchBtn' class="btn btn-primary">검색</button>
+					<button type="button" id='searchBtn' class="btn">검색</button>
 				</div>
 				
 				<!-- ============================================================================================================= -->
@@ -93,7 +116,7 @@
 								<td>${list.board_num}</td>
 								<td>${list.board_category}</td>
 								<td><a
-									href="/board/view${pageMaker.makeSearch(pageMaker.cri.page)}&board_num=${list.board_num}"><span style="color:#F361A6">${list.board_title}</span></a>
+									href="/board/view${pageMaker.makeSearch(pageMaker.cri.page)}&board_num=${list.board_num}"><span style="color:#8C8C8C">${list.board_title}</span></a>
 								</td>
 								<td>${list.account_user}</td>
 								<td><fmt:formatDate value="${list.board_date}"
@@ -113,7 +136,7 @@
 					<c:forEach begin="${pageMaker.startPage }"
 						end="${pageMaker.endPage }" var="idx">
 						<c:out value="${pageMaker.cri.page == idx?'':''}" />
-						<a href="listPage${pageMaker.makeSearch(idx)}">${idx}</a>
+						<a href="listPage${pageMaker.makeSearch(idx)}"><span style="color: #8C8C8C">${idx}</span></a>
 					</c:forEach>
 
 					<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
@@ -122,7 +145,7 @@
 					</c:if>
 
 				</div>
-				<br> <a href="write" class="btn btn-info" aria-pressed="true">
+				<br> <a href="write" class="btn" aria-pressed="true" id="write_btn">
 					<span class="glyphicon glyphicon-pencil"></span> 작성
 				</a>
 				<!-- --------------------------------------------------------------------------------------------------------------- -->

@@ -1,6 +1,7 @@
 package com.solfood.controller;
 import java.io.File;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -12,9 +13,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.solfood.dto.PageMaker;
+import com.solfood.dto.PageMaker2;
+import com.solfood.dto.ProductVO;
+import com.solfood.dto.SearchCriteria;
+import com.solfood.dto.SearchVO;
 import com.solfood.dto.TotalVO;
 import com.solfood.service.CartService;
 import com.solfood.service.ProductService;
@@ -61,8 +71,32 @@ public class ProductController {
 		
 		return "product/productInfo";
 	}
-
+	//테스트=-==================================================================
+	// 검색기능 추가 테스트 //검색할때 필요한 페이지
 	
+	//====================================================================
+	
+	
+	
+	@RequestMapping(value = "/productSearch", method = {RequestMethod.POST, RequestMethod.GET})
+	public String productSearch(@RequestParam("keyword_p") String keyword_p, SearchVO searchvo, Locale locale, Model model, HttpServletRequest request) throws Exception{
+		
+		String keyword_p1= request.getParameter("keyword_p");
+		searchvo.setSearch_keyword(keyword_p1);//
+		
+		List<ProductVO> productList= productService.showAll(keyword_p);
+		model.addAttribute("productList", productList);
+		System.out.println(keyword_p);
+		
+		
+		
+		productService.searchInsert(searchvo);//
+		
+		return "/product/productSearch";
+	}
+	
+
+
 }
 
 

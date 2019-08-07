@@ -112,11 +112,15 @@
 
 	<!-- 게시물 목록 -->  <!-- resultType="com.solfood.dto.BoardVO : 데이터를 받아오기위해 -->
 	<select id="list" resultType="com.solfood.dto.BoardVO">
-		SELECT @ROWNUM := @ROWNUM + 1 AS
-		ROWNUM, A.* FROM
-		(SELECT * FROM board) A,
-		(SELECT @ROWNUM := 0 ) B
-		ORDER BY ROWNUM DESC;
+			 <![CDATA[
+		select
+		board_num, board_title, board_content, account_user, board_date, board_readcount
+		from board
+		where 
+		board_num = #{board_num}
+		order by board_num desc, board_date desc
+		limit #{page}, 10
+	 ]]>
 	</select>
 
 	<!-- ================================================================================================================ -->
@@ -300,12 +304,12 @@
 
 	<insert id="commentInsert" parameterType="com.solfood.dto.CommentVO">
 		INSERT INTO
-		comment(reply_num, 
+		comment(
 				board_num, 
 				reply_content, 
 				account_user, 
 				reply_date)
-		VALUES( #{reply_num}, 
+		VALUES(
 				#{board_num}, 
 				#{reply_content}, 
 				#{account_user}, 
@@ -373,9 +377,6 @@
 	</select>
 
 	<!-- ================매니저보드수정============================================================================================= -->
-
-
-
 	<update id="managerBoard_update"
 		parameterType="com.solfood.dto.BoardVO">
 		update
@@ -386,14 +387,22 @@
 		where
 		board_num = #{board_num}
 	</update>
+<!-- ============================================================================================================= -->	
+	<!-- 게시물 삭제 -->
+	<delete id="managerBoard_delete" parameterType="int">
+		delete from
+		board
+		where
+		board_num = #{board_num}
+	</delete>
 
-	<!-- ================매니저보드삭제============================================================================================= 
-		게시물 삭제 <delete id="delete" parameterType="int"> delete from board where board_num 
-		= #{board_num} </delete> =======매니저보드삭제후재정렬====================================================================================================== 
-		삭제후 재정렬 테스트 <delete id="deleteAfter" parameterType="com.solfood.dto.BoardVO"> 
-		update board set board_num= board_num-1 where board_num> #{board_num}; </delete> 
-		===============================매니저보드 테스트==================================================================== -->
-
+	<!-- 삭제후 재정렬 테스트 -->
+	<delete id="managerBoard_deleteAfter" parameterType="com.solfood.dto.BoardVO">
+		update board
+		set board_num= board_num-1
+		where board_num> #{board_num};
+	</delete>
+	<!-- ============================================================================================================= -->
 	<!-- 매니져 게시판 카테고리 -->
 	<select id="managerBoard_category"
 		parameterType="com.solfood.dto.SearchCriteria"

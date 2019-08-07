@@ -235,6 +235,9 @@
 </nav>
 
   </div>
+  
+
+  
   <div class="col-xs-2">
   <a href="#" id="topMenu">공 지 사 항</a>
   </div>
@@ -249,10 +252,15 @@
   </div>
   <div class="col-xs-2">
 <div class="d3">
-<form>
-  <input type="text" placeholder="검색어 입력" style="font-size: 15px !important;">
-  <button type="submit"><strong><span class="glyphicon glyphicon-search"></span></strong></button>
+
+<form method="post" action="${path}/product/productSearch"><%-- method="post" action="${path}/product/productSearch?" --%>
+  <input type="text" placeholder="검색어 입력" name='keyword_p' id="keywordInput_p"	style="font-size: 15px !important;"/>
+  <button type="submit" id='searchBtn_p'/><strong><span class="glyphicon glyphicon-search"></span></strong></button>
+  			 
+	
+				
 </form>
+
 </div>
 </div>
 </div>

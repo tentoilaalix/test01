@@ -14,18 +14,15 @@
 	$(document).ready(function() { //페이지 로딩되면 뜨게 만듬	
 		getCommentList();
 	});
-
+	
+	
 	function getCommentList() {
-		var account_user= document.getElementsByName("account_user")[0].value;	
+		var account_user= document.getElementsByName("account_user_login")[0].value;						// 로그인한 사람 아이디
 		var board_num = document.getElementsByName("board_num")[0].value;
+		
+		var json = {"board_num" : board_num, "account_user":account_user};
 
-		var json = {
-			"board_num" : board_num
-
-		};
-
-		$
-				.ajax({
+		$.ajax({
 					type : 'post',
 					url : '/board/commentList', //boardControlller에 commentList
 					data : json,
@@ -59,10 +56,10 @@
 							
 								// 영민수정
 								for(var i=0; i<data.length; i++){
-									if(data[i].account_user== account_user){ //data[i].account_user는 리플을 단 아이디, 그냥account_user는 로그인한 아이디 둘이 같으면 수정삭제가 보여진다 
-										html += "<table class='table'><h6><strong>"+ data[i].account_user+ "</strong></h6>";
-										html += data[i].reply_num+ "  ";
-										html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
+									if(data[i].account_user== account_user){ 		//data[i].account_user는 리플을 단 아이디, 그냥account_user는 로그인한 아이디 둘이 같으면 수정삭제가 보여진다 
+										html += "<table class='table'><h5><strong>id : "+data[i].account_user+ "</strong>" + data[i].reply_date + "</h5>";
+										//html += data[i].reply_num+ "  ";
+										//html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
 										html += data[i].reply_content;
 										html += "<button class='btn btn-xs btn-link' onClick= 'cm_updateForm("
 												+ data[i].reply_num + ")'>수정</button>";
@@ -73,8 +70,8 @@
 										html += "</div>";
 										html += "</table>";
 									} else {
-										html += "<table class='table'><h6><strong>"+ data[i].account_user+ "</strong></h6>";
-										html += data[i].reply_num+ "  ";
+										html += "<table class='table'><h5><strong>id : "+ data[i].account_user+ "</strong></h5>";
+										//html += data[i].reply_num+ "  ";
 										html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
 										html += data[i].reply_content;
 										html += "<tr><td>";
@@ -104,17 +101,18 @@
 	 */
 
 	//댓글 작성 테스트
-	function cm_insert(board_num) { // 
-		var json
+	function cm_insert(board_num) { 
+		var account_user= document.getElementsByName("account_user_login")[0].value;					
+		var reply_content= document.getElementsByName("board_num")[0].value;
+		
+	
+		
+		var json= {"account_user":account_user, "reply_content":reply_content, "board_num":board_num};
 
 		$.ajax({
 			type : 'POST', //POST방식으로 
 			url : '/board/commentInsert', //url주소는 클라이언트가 HTTP요청을 보낼 서버의 주소
 			data : $("#commentForm").serialize(), // 데이터 HTTP요청과 함께 서버로 보낼 데이터를 전달합니다
-			//ajax를 사용할때 인터셉터를 발동할려면 밑에 두줄을 써주고 sevlet-context.xml에도 board/commentInsert를 써줘야 한다
-			beforeSend: function(xmlHttpRequest){
-				xmlHttpRequest.setRequestHeader("AJAX", "true");
-			},
 			success : function(data) { //HTTP요청이 성공했을때 실행할 함수를 정의
 				if (data == "success") //성공하면 
 				{
@@ -123,7 +121,7 @@
 				}
 			},
 			error : function(request, status, error) {
-				alert("댓글은 로그인한 상태에서만 가능합니다 로그인해주십시오");
+				alert("로그인이 필요합니다 로그인부터 해주시기 바랍니다");
 				//alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 			}
 		});
@@ -190,23 +188,59 @@
 <%-- =============================== top =========================================--%>
 
 </head>
+<style>
+.button-1{
+  width:60px;
+  height:35px;
+  border:1px solid #34495e;
+  float:right;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  margin:0 0 40px 0;
+}
+.button-1 a{
+  font-family:arial;
+  font-size:16px;
+  color:#34495e;
+  text-decoration:none;
+  line-height:30px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+.eff-1{
+  width:140px;
+  height:50px;
+  top:-2px;
+  right:-140px;
+  background:#34495e;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+}
+.button-1:hover .eff-1{
+  right:0;
+}
+.button-1:hover a{
+  color:#fff;
+}
+
+</style>
 <body>
 	<div class="container">
 		<form id="commentForm" name="commentForm" method="post">
 			 <input  type="hidden" class="form-control"
-				name="account_user" maxlength="50" value="${login.account_user}"> 
-		<%-- 	<input type="hidden" id="board_num" name="board_num"
-				value="${view.board_num }" /> --%>
-				
-		<%-- 	<c:set var="account_user" value="${login.account_user}" /> --%>
+				name="account_user_login" maxlength="50" value="${login.account_user}"> 
+	
 
 			<br> <br>
 			<div>
 				<div>
 					<span><strong>Comments</strong></span>
-				
-
-					댓글수 : <span id="commentCount"></span> <input type="hidden"
+					 : <span id="commentCount"></span> <input type="hidden"
 						id="board_num" name="board_num" value="${view.board_num}" />
 				</div>
 				<div>
@@ -215,10 +249,17 @@
 							<td><textarea style="width: 1100px" rows="3" cols="30"
 									id="reply_content" name="reply_content" placeholder="댓글을 입력하세요"></textarea>
 								<br>
-								<div>
+							<%-- 	<div >
 									<a href='#' onClick="cm_insert('${view.board_num}')"			
 										class="btn pull-right btn-success">등록</a>
-								</div></td>
+								</div> --%>
+								
+								<div class="button-1">	
+								    <div class="eff-1"></div>    
+								    <a href='#' onClick="cm_insert('${view.board_num}')">등록</a>
+									</div>
+								
+							</td>
 						</tr>
 					</table>
 				</div>

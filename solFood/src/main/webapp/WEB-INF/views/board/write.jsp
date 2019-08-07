@@ -11,11 +11,54 @@
 	<script src="/resources/js/jquery-3.3.1.min.js"></script>
 	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
+
+<style>
+button{
+  background:#EAEAEA;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:40px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:#000000;
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #000000;
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+
+</style>
+
 <body>
 <%@ include file="../module/Top.jsp"%>
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 글쓰기 창 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
 	<div class="container">
-		<h1 align="center">SOLFOOD 게시판 등록</h1>
+		<h2 align="center">SOLFOOD 게시판 등록</h2>
+		<hr color="#A6A6A6" style= width:80%;>
 		<br>
 		<form class="form-horizontal" method="post">
 
@@ -31,7 +74,7 @@
 					</select>
 				</div>
 			</div>
-
+			<hr style= width:80%;>
 			<div class="form-group">
 				<label class="control-label col-sm-2">제목</label>
 				<div class="col-sm-3">
@@ -39,7 +82,7 @@
 						maxlength="50" placeholder="Enter Title">
 				</div>
 			</div>
-
+			<hr style= width:80%;>
 			<div class="form-group">
 				<label class="control-label col-sm-2">작성자</label>
 				<div class="col-sm-3">
@@ -47,7 +90,7 @@
 						maxlength="50" value="${login.account_user}" readonly="readonly">
 				</div>
 			</div>
-
+			<hr style= width:80%; > 
 			<div class="form-group">
 				<label class="control-label col-sm-2">내용</label>
 				<div class="col-sm-3">
@@ -55,8 +98,9 @@
 				</div>
 			</div>
 			<div class="form-group" align="center">
-				<button type="submit" class="btn btn-primary btn-sm">작성</button>
-			</div>
+				<button type="submit">작성</button>
+			</div>&nbsp;&nbsp;&nbsp;&nbsp;
+	
 		</form>
 	</div>
 	<%@ include file="../module/Bottom.jsp"%>

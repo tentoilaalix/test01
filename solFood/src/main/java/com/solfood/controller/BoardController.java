@@ -137,30 +137,8 @@ public class BoardController {
 		model.addAttribute("pageMaker", pageMaker);
 	}
 
-//----------------------------------------------------------------------------------------------------------------	
-//=====================================================================================================================		
-	// 매니져 게시글
-	@RequestMapping(value = "/managerBoard_listPage", method = { RequestMethod.GET, RequestMethod.POST })
-	public void managerBoard_listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
-		model.addAttribute("managerBoard_list", service.listSearchCriteria2(cri)); // JSP에 계산된 페이징 출력
-		PageMaker pageMaker = new PageMaker(); // 객체생성
-		pageMaker.setCri(cri); // setCri 메소드 사용
-		pageMaker.setTotalCount(service.listSearchCount2(cri)); // 전체 게시글 갯수 카운트
-		model.addAttribute("pageMaker", pageMaker);
-	}
+//----------------------------------------------------------------------------------------------------------------
 
-//===============================================================================================================
-
-	// 매니져게시글 검색기능
-	@RequestMapping(value = "/managerBoard_list", method = RequestMethod.GET)
-	public void managerBoard_list(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
-		model.addAttribute("managerBoard_list", service.listSearchCriteria2(cri)); // 전체목록에 검색페이징 기능+
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.listSearchCount2(cri)); // 전체목록에 검색페이징 카운트+
-		System.out.println(cri);
-		model.addAttribute("pageMaker", pageMaker);
-	}
 //===============================================================================================================	
 
 	// selectByCategory에 검색기능 추가테스트
@@ -231,20 +209,16 @@ public class BoardController {
 	// 댓글 작성
 	@RequestMapping(value="/commentInsert", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
-	public String commentInsert(@ModelAttribute("commentVO") CommentVO commentvo, MemberVO memberVo, HttpServletRequest request)
+	public String commentInsert(@ModelAttribute("commentVO") CommentVO commentvo,  HttpServletRequest request)
 			throws Exception {
 		HttpSession session = request.getSession();
-		// LoginVO loginVO = (LoginVO)session.getAttribute("loginVO");
-	
 		
-		/*
-		 * commentvo.setAccount_user(memberVo.getAccount_user());
-		 * 
-		 * System.out.println("###memberVogetaccount_user:" +
-		 * memberVo.getAccount_user());
-		 * System.out.println("###commentvogetAccount_user:" +
-		 * commentvo.getAccount_user());
-		 */
+		String account_user= request.getParameter("account_user_login");
+		System.out.println("============== commentinsert의 account_user= "+ account_user);
+		commentvo.setAccount_user(account_user);
+		
+		// 삭제하기
+		System.out.println("==========================여기 commentinsert "+ commentvo.toString() );
 		
 
 		try {
@@ -297,6 +271,33 @@ public class BoardController {
 		service.commentDelete(vo);
 	}
 	// =========================매니저보드테스트==================================================================================
+//	매니저 게시판	
+//=====================================================================================================================		
+// 매니져 게시글
+	@RequestMapping(value = "/managerBoard_listPage", method = { RequestMethod.GET, RequestMethod.POST })
+	public void managerBoard_listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		model.addAttribute("managerBoard_list", service.listSearchCriteria2(cri)); // JSP에 계산된 페이징 출력
+		PageMaker pageMaker = new PageMaker(); // 객체생성
+		pageMaker.setCri(cri); // setCri 메소드 사용
+		pageMaker.setTotalCount(service.listSearchCount2(cri)); // 전체 게시글 갯수 카운트
+		model.addAttribute("pageMaker", pageMaker);
+	}
+
+
+
+//===============================================================================================================	
+//===============================================================================================================
+
+// 매니져게시글 검색기능
+	@RequestMapping(value = "/managerBoard_list", method = RequestMethod.GET)
+	public void managerBoard_list(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		model.addAttribute("managerBoard_list", service.listSearchCriteria2(cri)); // 전체목록에 검색페이징 기능+
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listSearchCount2(cri)); // 전체목록에 검색페이징 카운트+
+		System.out.println(cri);
+		model.addAttribute("pageMaker", pageMaker);
+	}
 
 	// 매니저보드작성
 	@RequestMapping(value = "/managerBoard_write", method = RequestMethod.GET)
@@ -309,6 +310,36 @@ public class BoardController {
 		service.managerBoard_write(vo);
 		return "redirect:/board/managerBoard_list";
 	}
+	//===============================================================================================================
+		//매니져보드 수정창
+		@RequestMapping(value = "/managerBoard_update", method = RequestMethod.GET)
+		public void getManager_update(@RequestParam("board_num") int board_num, Model model) throws Exception {
+			BoardVO view = null;
+			view = service.managerBoard_view(board_num);
+			model.addAttribute("view", view);
+		}
+		// 매니져보드 수정
+		@RequestMapping(value = "/managerBoard_update", method = RequestMethod.POST)
+		public String postManger_update(BoardVO vo) throws Exception {
+			service.managerBoard_update(vo);
+			return "redirect:/board/managerBoard_listPage";
+		}
+		//===============================================================================================================		
+		// 매니저 게시물 삭제
+		@RequestMapping(value = "/managerBoard_delete", method = RequestMethod.GET)
+		public void getManager_delete(@RequestParam("board_num") int board_num, Model model) throws Exception {
+			BoardVO view = null;
+			view = service.managerBoard_view(board_num);
+			model.addAttribute("view", view);
+		}
+
+		// 매니저 게시물 삭제
+		@RequestMapping(value = "/managerBoard_delete", method = RequestMethod.POST)
+		public String postManager_delete(BoardVO vo) throws Exception {
+			service.managerBoard_delete(vo.getBoard_num());
+			service.managerBoard_deleteAfter(vo.getBoard_num());
+			return "redirect:/board/managerBoard_listPage";
+		}
 
 	// ========================================================================================================
 	// 매니저보드조회
