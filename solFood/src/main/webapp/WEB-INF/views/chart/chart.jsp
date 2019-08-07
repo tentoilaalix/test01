@@ -256,12 +256,14 @@ ul.tabs li.current {
 	<div class="container">
 		<h1 class="title">통계자료</h1>
 		<hr>
-		<ul class="tabs">
-			<li class="tab-link current" data-tab="tab-1">최다 판매 상품</li>
-			<li class="tab-link" data-tab="tab-2">카테고리별</li>
-			<li class="tab-link" data-tab="tab-3">찜찜찜</li>
-			<li class="tab-link" data-tab="tab-4">핫키워드!!</li>
-		</ul>
+		<div class="tabs is-boxed is-centered">
+			<ul class="tabs">
+				<li class="tab-link current" data-tab="tab-1">최다 판매 상품</li>
+				<li class="tab-link" data-tab="tab-2">카테고리별</li>
+				<li class="tab-link" data-tab="tab-3">찜찜찜</li>
+				<li class="tab-link" data-tab="tab-4">핫키워드!!</li>
+			</ul>
+		</div>
 
 
 		<!--  ■■■■■■■■■ 1번탭 메뉴 ■■■■■■■■■ -->
