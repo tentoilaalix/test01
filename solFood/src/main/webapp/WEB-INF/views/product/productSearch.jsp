@@ -25,14 +25,12 @@
 		// 	heartState--> 페이지 로드시 heart 상태 표시
 		//----------------------------------------------------------------
 		function heartList(){
-			var account_user = document.getElementsByName("account_user")[0].value;
+			// var account_user = document.getElementsByName("account_user")[0].value;
+			var account_user= "1809";
 			var product_id;
 			var html;
 
 			var json= {"account_user":account_user};
-
-			// 삭제하기
-			alert(account_user);
 			
 			// heart table 데이터 받아오기
 			$.ajax({

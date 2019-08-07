@@ -41,7 +41,7 @@
 	<div class="col-xs-1 col-xs-offset-1"><input type="button" id="kakao" class="btn btn-default" value="카카오톡 문의" onClick="window.open('http://pf.kakao.com/_xgWFsT')"><br><br><br><input type="button" id="11" class="btn btn-default" value="1:1 문의"></div>
 	<div class="col-xs-2">365고객센터<br>오전7시~오후7시<br><br><br>24시간 접수 가능<br>순차적으로 답변해드리겠습니다.</div>
 	<div class="col-xs-4 col-xs-offset-4">법인명(상호):주식회사 SolFood｜사업자등록번호:123-456-78912<br>통신판매업:제 2019-서울종로-01542호 ｜ 개인정보보호 책임자:진영민<br>주소:서울특별시 종로구 종로12길 15,코아빌딩 5층 ｜ 대표이사:진영민<br>입점문의:<a href="">입점문의하기</a>｜ 마케팅제휴:<a href="">marketing@solfood.com</a><br>채용문의:<a href="">recruit@solfood.com</a><br>팩스:070-1135-5167｜ 이메일:<a href="">whatdoyoon@naver.com</a><br><br>ⓒ SolFood CORP.ALL RIGHTS RESERVED</div>
-	<div class="row" style="position: absolute; top: -120px !important; left: 46%;"><img src="../resources/image/solfoodLogo.png"></div>
+	<div class="row" style="position: absolute; top: -100px !important; left: 46%;"><img src="../resources/image/solfoodLogo.png"></div>
 </div>
 <hr>
 <div class="row">
