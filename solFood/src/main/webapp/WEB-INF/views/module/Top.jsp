@@ -80,7 +80,6 @@
 		    </c:otherwise>
 		</c:choose>
 	</div>
-	${login.account_user}@
 	<%--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<!-- 메인 로고 : 클릭시 메인으로 이동 -->
 		<a href="../../${path}" class="logo"><img src="../resources/image/solfoodLogo.png"></a>

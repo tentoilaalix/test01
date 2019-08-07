@@ -136,7 +136,7 @@
 	<br>
 	<br>
 	
-	<img src="resources/companyimage/intro6.jpg" style="max-width:100%;">
+	<img src="resources/companyimage/intro1.jpg" style="max-width:100%;">
 	<br>
 	<br>
 	<br>

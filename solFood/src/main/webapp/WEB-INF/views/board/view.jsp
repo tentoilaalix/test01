@@ -164,13 +164,7 @@ table.type05 td {
 	
 </form>
 		
-<h2>${view.account_user}====</h2>
-<hr>
-${account_user}
-<h2><%= request.getParameter("account_user") %></h2>
-			
-			
-	<!--  -->
+					
 		<%-- <form class="form-horizontal" method="post">
 			<div class="form-group">
 				<label class="control-label col-sm-2">제목</label>
