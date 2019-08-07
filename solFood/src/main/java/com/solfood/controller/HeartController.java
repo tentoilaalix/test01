@@ -57,7 +57,7 @@ public class HeartController {
 		model.addAttribute("heartList_productList", heartList_productList);
 				
 		// 삭제하기
-		System.out.println("==================== hearlist productlist");
+		System.out.println("==================== hearlist productlist"+ heartList_productList.get(0).getProduct_name());
 	
 		return heartList_productList;
 	}

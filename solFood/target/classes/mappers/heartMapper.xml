@@ -16,7 +16,6 @@
 		<select id="selectHeartForProductList" resultType="com.solfood.dto.TotalVO">
 			SELECT * FROM HEART;
 		</select>
-		
 	<!-- =============================== INSERT ========================================= -->
 		<!-- heart 누르면 heart 테이블로 상품 들어가게 하기 -->
 		<insert id="insertHeart" parameterType="com.solfood.dto.TotalVO">

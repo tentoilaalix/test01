@@ -18,30 +18,62 @@
 	<script>
 		// 페이지가 로드되면 hear list 표시하기 
 		$(document).ready(function(){
+			productSearchList();
 			heartList();
 		});
 
+		//----------------------------------------------------------------
+		// 	productSearchList
+		//----------------------------------------------------------------
+		function productSearchList(){	
+			var html= "";
+			var account_user= "1809";
+			
+				$.ajax({
+					type: "get",
+					url: "/product/productSearch2.do",
+					data: json,
+					success: function(data){
+						for(var i=0; i<data.length; i++){
+							html+= "<a href='${path}/product/productInfo.do?product_id="+ data[i].product_id +"'>";
+							html+= "<img src='/img/"+ data[i].product_image +"' style='width:200px; height:auto;'/></a><br><br>"+ data[i].product_name +"&nbsp;";
+							html+= "<input type='text' hidden='true' name='product_id'>";
+							
+							// account_user null이면 하트안보이게, 로그인 했으면 하트보이게
+							if(account_user==""){
+								html+= "";
+							} else{
+								html+= "<input type='button' id='heartImage' name='heartImage"+ data[i].product_id +"' onclick= 'changeHeart("+ data[i].product_id +",1809)' class='beforeClick' style='width:29px; height:23px;'><br>";
+							}
+				
+							html+= addComma(data[i].product_price) +"원";							
+							$("#productSearchList").html(html);
+						}
+					},
+					error: function(){
+						alert("productSearch2.do fail");
+					}
+				});
+		}
+		
 		//----------------------------------------------------------------
 		// 	heartState--> 페이지 로드시 heart 상태 표시
 		//----------------------------------------------------------------
 		function heartList(){
 			// var account_user = document.getElementsByName("account_user")[0].value;
 			var account_user= "1809";
-			var product_id;
-			var html;
-
-			var json= {"account_user":account_user};
+			var product_id= document.getElementsByName("product_id");
+			var html= "";
 			
 			// heart table 데이터 받아오기
 			$.ajax({
-				type: "post",
+				type: "get",
 				datatype: "json",
-				url: "/heart/heartListForHeartList.do",
+				url: "/heart/heartListForProductList.do",
 				
 				success: function(data){
-					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기					
 					for(var i=0; i<data.length; i++){						
-						if(data[i].account_user== account_user){								
+						if(data[i].account_user== account_user && data[i].product_id== product_id[i].value){								
 							$("[name='heartImage"+ data[i].product_id +"']").attr({
 								'class' : 'afterClick'
 							});							 
@@ -143,28 +175,28 @@
 	
 	<%-- 검색 결과 --%>
 	<div class="container" id="allVegeC">
-		<c:forEach items="${productList_search}" var="product">
-			
-		<div class="col-xs-4" align="center">
+		<div class="col-xs-4" align="center" id="productSearchList">
 				
-			<%-- ===================  상품 id, 사진, 이름, 찜하기, 가격 순 ======================== --%>
+			<%-- ===================  상품 id, 사진, 이름, 찜하기, 가격 순 ======================== 
+			
 			<input type="text" hidden="true" value= "${product.product_id}" name="product_id"/>
 			<a href="${path}/product/productInfo.do?product_id=${product.product_id}"><img src="/img/${product.product_image}" style="width:200px; height:auto;"/></a><br><br>				     
 		   	${product.product_name}&nbsp;
 				 
-		 		<%--  login 값이 없으면 하트 안보이게 --%>
+		 		<%--  login 값이 없으면 하트 안보이게 
 		 		<c:choose>
 				    <c:when test="${login.account_user== null}">
 						<br>
 				    </c:when>
 				    <c:otherwise>
-				   		<input type="button" id='heartImage' name='heartImage${product.product_id}' onclick= "changeHeart(${product.product_id},1809)" class='beforeClick' style="width:29px; height:23px;"><br>
+				   		<input type="button" id='heartImage' name='heartImage${product.product_id}' onclick= "changeHeart(${product.product_id},${login.account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
 				    </c:otherwise>
 				</c:choose>
 
 				<a href="${path}/product/productInfo.do?product_id=${product.product_id}"><fmt:formatNumber value="${product.product_price}" pattern="#,###.##"/>원</a><br><br><br><br>
+			--%>
+		
 		</div>
-		</c:forEach>
 	</div>
 </body>
 </html>

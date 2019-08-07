@@ -130,9 +130,18 @@ public class ProductController {
 	// 검색
 	//====================================================================
     @RequestMapping(value = "/productSearch.do", method = {RequestMethod.POST, RequestMethod.GET})
-    public String productSearch() throws Exception{
-        return "/product/productSearch";
+    public String productSearch(@RequestParam("keyword_p") String keyword_p, SearchVO searchvo, Locale locale, Model model, HttpServletRequest request) throws Exception{
+    	 String keyword_p1= request.getParameter("keyword_p");
+         searchvo.setSearch_keyword(keyword_p1);//
+         
+         List<TotalVO> productList_search= productService.showAll(keyword_p);
+         model.addAttribute("productList_search", productList_search);
+                 
+         productService.searchInsert(searchvo);//
+    	
+    	return "/product/productSearch";
     }
+    
     @ResponseBody
     @RequestMapping(value = "/productSearch2.do", method = {RequestMethod.POST, RequestMethod.GET})
     public List<TotalVO> productSearch2(@RequestParam("keyword_p") String keyword_p, SearchVO searchvo, Locale locale, Model model, HttpServletRequest request) throws Exception{
