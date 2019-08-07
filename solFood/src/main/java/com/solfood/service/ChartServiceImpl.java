@@ -30,4 +30,10 @@ public class ChartServiceImpl implements ChartService{
 	public List<TotalVO> chart_mostLikedProducts() throws Exception {
 		return dao.chart_mostLikedProducts();
 	}
+	
+	@Override
+	public List<TotalVO> chart_searchKeyword() throws Exception {
+		return dao.chart_searchKeyword();
+	}
+	
 }

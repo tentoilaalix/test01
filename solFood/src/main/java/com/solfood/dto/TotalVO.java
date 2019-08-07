@@ -47,22 +47,26 @@ public class TotalVO {
 	
 	
 	// RECIPE
-		private int 	recipe_id;
-		private String 	recipe_image;
-		private String	recipe_content;
-		private String	recipe_name;
-		private String	recipe_keyword;
-		private String	recipe_tag;
-		private Date	recipe_date;
+	private int 	recipe_id;
+	private String 	recipe_image;
+	private String	recipe_content;
+	private String	recipe_name;
+	private String	recipe_keyword;
+	private String	recipe_tag;
+	private Date	recipe_date;
 		
 	// RELATE : Reciepe & Product
-		private int no;
+	private int no;
 
 	
 	// HEART
 	private int 	heart_num;
 	
-	
+	//Search
+	private int search_count;
+	private String search_keyword;
+	private String search_date;
+	private int keyword_count;
 	
 	// GETTERS AND SETTERS
 	public int getProduct_id() {
@@ -299,6 +303,30 @@ public class TotalVO {
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public String getSearch_keyword() {
+		return search_keyword;
+	}
+	public void setSearch_keyword(String search_keyword) {
+		this.search_keyword = search_keyword;
+	}
+	public int getSearch_count() {
+		return search_count;
+	}
+	public void setSearch_count(int search_count) {
+		this.search_count = search_count;
+	}
+	public String getSearch_date() {
+		return search_date;
+	}
+	public void setSearch_date(String search_date) {
+		this.search_date = search_date;
+	}
+	public int getKeyword_count() {
+		return keyword_count;
+	}
+	public void setKeyword_count(int keyword_count) {
+		this.keyword_count = keyword_count;
 	}
 	
 }

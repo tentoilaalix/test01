@@ -100,19 +100,10 @@
 					</div>
 					
 					<%--============================== 통계 관리 ===============================--%>
-					<div class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link " href="http://bulma.io/blog/">
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link " href="${path}/chart/chart.do">
 							통계자료
 						</a>
-						<div class="navbar-dropdown " data-style="width: 18rem;">
-							<a class="navbar-item" href="/">
-								월간통계
-							</a>
-			
-							<a class="navbar-item" href="/">
-								상품통계
-							</a>
-						</div>
 					</div>
 				</div>
 	

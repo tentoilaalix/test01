@@ -7,5 +7,6 @@ public interface ChartService {
 	public List<TotalVO> chart_mostSelllingProducts_201907() throws Exception;
 	public List<TotalVO> chart_sellingProductsByCategory_201907() throws Exception;
 	public List<TotalVO> chart_mostLikedProducts() throws Exception;
+	public List<TotalVO> chart_searchKeyword() throws Exception;
 	
 }

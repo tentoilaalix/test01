@@ -32,14 +32,14 @@ public class ChartController {
 	//차트
 	@RequestMapping("/chart.do")
 	public String Chart() {
-		System.out.println("------------------------------------------@");
+		
 		
 		return "chart/chart";
 	}
 	
 	// 2019년 최다 판매 상품 
 	@ResponseBody
-	@RequestMapping(value="/chart_mostSelllingProducts_201907.do", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/chart_mostSelllingProducts_201907", method= {RequestMethod.GET, RequestMethod.POST})
 	public List<TotalVO> chart_mostSelllingProducts_201907(Model model) throws Exception{
 		List<TotalVO> productList= chartService.chart_mostSelllingProducts_201907();
 		model.addAttribute("productList", productList);
@@ -57,7 +57,7 @@ public class ChartController {
 		return categoryList;
 	}
 	
-	//카테고리별 판매 수량
+	//찜 best 5
 	@ResponseBody
 	@RequestMapping(value="/chart_mostLikedProducts", method= {RequestMethod.GET, RequestMethod.POST})
 	public List<TotalVO> chart_mostLikedProducts(Model model) throws Exception{
@@ -65,5 +65,15 @@ public class ChartController {
 	//model.addAttribute("productList", productList);
 					
 		return mostLikedProducts;
+	}
+	
+	//인기검색어
+	@ResponseBody
+	@RequestMapping(value="/chart_searchKeyword", method= {RequestMethod.GET, RequestMethod.POST})
+	public List<TotalVO> chart_searchKeyword(Model model) throws Exception{
+		List<TotalVO> searchKeyword= chartService.chart_searchKeyword();
+	//model.addAttribute("productList", productList);
+					
+		return searchKeyword;
 	}
 }
