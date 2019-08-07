@@ -38,7 +38,7 @@
 			$.ajax({
 				type: "post",
 				datatype: "json",
-				url: "/heart/heartList_heartList.do",
+				url: "/heart/heartListForHeartList.do",
 				
 				success: function(data){
 					// 로그인한 아이디가 heart table에 있는 거랑 같은 아이디일때만 그 해당 아이디가 heart누른 product_id를 heartList에 집어넣기					

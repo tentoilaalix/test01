@@ -51,7 +51,7 @@
 		</update> 
 	<!-- =============================== 검색기능 ========================================= -->			
 	<!-- 상품검색 /검색기능 -->
-	<select id="listSearch3" resultType="com.solfood.dto.TotalVO">
+	<select id="listSearch3" resultType="com.solfood.dto.TotalVO" parameterType="String">
 		SELECT *
 		FROM product	
 		WHERE product_name LIKE CONCAT('%',#{keyword_p},'%');	
