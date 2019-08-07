@@ -31,7 +31,7 @@ ul.tabs li {
 	background: none;
 	color: #222;
 	display: inline-block;
-	padding: 10px 15px;
+	padding: 10px 15px; 
 	cursor: pointer;
 }
 
