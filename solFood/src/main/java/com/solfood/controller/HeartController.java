@@ -56,6 +56,9 @@ public class HeartController {
 		List<TotalVO> heartList_productList= heartService.selectHeartForProductList();
 		model.addAttribute("heartList_productList", heartList_productList);
 				
+		// 삭제하기
+		System.out.println("==================== hearlist productlist");
+	
 		return heartList_productList;
 	}
 	

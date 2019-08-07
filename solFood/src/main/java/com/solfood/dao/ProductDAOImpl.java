@@ -4,6 +4,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import com.solfood.dto.CartVO;
+import com.solfood.dto.ProductVO;
+import com.solfood.dto.SearchVO;
 import com.solfood.dto.TotalVO;
 
 @Repository
@@ -48,11 +50,24 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<TotalVO> selectEvent(int product_event) throws Exception {
 		return sqlSession.selectList(Namespace+".selectEvent", product_event);
 	}
+	
+	@Override
+	public List<TotalVO> showAll(String keyword_p) throws Exception {
+		return sqlSession.selectList(Namespace + ".listSearch3", keyword_p);
+	}
 	//-----------------------------------------------------------------------
 	//	update 
 	//-----------------------------------------------------------------------
 	@Override
 	public void updateProduct_count_minus(TotalVO vo) throws Exception {
 		sqlSession.update(Namespace+".updateProduct_count_minus", vo);
+	}
+	
+	//-----------------------------------------------------------------------
+	//	INSERT 
+	//-----------------------------------------------------------------------
+	@Override
+	public void searchInsert(SearchVO searchvo) throws Exception {
+		sqlSession.insert(Namespace+".searchInsert", searchvo);
 	}
 }

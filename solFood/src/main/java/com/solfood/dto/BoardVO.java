@@ -1,17 +1,24 @@
 package com.solfood.dto;
-import java.sql.Date;
 
+import java.util.Date;
+
+/*VO(Value Object) : DB의 정보를 객체화 시키는 용도*/
 public class BoardVO {
 	private int board_num;
-	private Date board_date;
-	private String board_title;
-	private String board_category;
-	private String board_content;
-	private String board_file;
-	private int board_readcount;
-	private String board_comment;
-	private String account_user;
-	
+    private Date board_date;
+    private String board_title;
+    private String board_category;
+    private String board_content;
+    private String board_file;
+    private int board_readcount;
+    private String board_comment;
+    private String account_user;
+    private int account_grade;
+    
+    
+///////////////////가상번호//////////////////////////////    
+
+///////////////////////////////////////////////////////////	
 	public int getBoard_num() {
 		return board_num;
 	}
@@ -72,6 +79,13 @@ public class BoardVO {
 	public void setAccount_grade(int account_grade) {
 		this.account_grade = account_grade;
 	}
-	private int account_grade;
-	
+	@Override
+	public String toString() {
+		return "BoardVO [board_num=" + board_num + ", board_date=" + board_date
+				+ ", board_title=" + board_title + ", board_category=" + board_category + ", board_content="
+				+ board_content + ", board_file=" + board_file + ", board_readcount=" + board_readcount
+				+ ", board_comment=" + board_comment + ", account_user=" + account_user + ", account_grade="
+				+ account_grade + "]";
+	}
+    
 }

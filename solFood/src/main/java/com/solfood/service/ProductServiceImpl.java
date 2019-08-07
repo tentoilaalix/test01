@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import com.solfood.dao.CartDAO;
 import com.solfood.dao.ProductDAO;
 import com.solfood.dto.CartVO;
+import com.solfood.dto.ProductVO;
+import com.solfood.dto.SearchVO;
 import com.solfood.dto.TotalVO;
 
 @Service
@@ -52,6 +54,11 @@ public class ProductServiceImpl implements ProductService{
 	public List<TotalVO> selectEvent(int product_event) throws Exception {
 		return dao.selectEvent(product_event);
 	}
+	
+	@Override
+	public List<TotalVO> showAll(String keyword_p) throws Exception {
+		return dao.showAll(keyword_p);
+	}
 
 	//----------------------------------------------------------
 	//	update
@@ -60,5 +67,13 @@ public class ProductServiceImpl implements ProductService{
 	public void updateProduct_count_minus(TotalVO vo) throws Exception {
 		dao.updateProduct_count_minus(vo);
 		
+	}
+
+	//----------------------------------------------------------
+	//	searchInsert
+	//----------------------------------------------------------	
+	@Override
+	public void searchInsert(SearchVO searchvo) throws Exception {
+		dao.searchInsert(searchvo);
 	}
 }

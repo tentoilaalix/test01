@@ -185,7 +185,6 @@
     </script>
   </head>
   <body>
-
     <div class="jbTitle">
   
     </div>
@@ -292,7 +291,7 @@
   <a href="product/eventMain.do" id="topMenu">이 벤 트</a>
   </div>
   <div class="col-xs-2">
-  <a href="#" id="topMenu">게 시 판</a>
+  <a href="${path}/board/listPage" id="topMenu">게 시 판</a>
   </div>
   <div class="col-xs-2">
   <a href="${path}/recipeList.do" id="topMenu">레 시 피</a>
@@ -300,9 +299,9 @@
   <div class="col-xs-2">
 <div class="d3">
 
-<form>
-  <input type="text" placeholder="검색어 입력" style="font-size: 12px !important;">
-  <button type="submit"><strong><span class="glyphicon glyphicon-search"></span></strong></button>
+<form method="post" action="${path}/product/productSearch.do"><%-- method="post" action="${path}/product/productSearch?" --%>
+  <input type="text" placeholder="검색어 입력" name='keyword_p' id="keywordInput_p"	style="font-size: 15px !important;"/>
+  <button type="submit" id='searchBtn_p'><strong><span class="glyphicon glyphicon-search"></span></strong></button>
 </form>
 
 </div>
