@@ -18,7 +18,7 @@ import com.solfood.dto.SearchCriteria;
 		
 	@Inject
 	private SqlSession sql;
-	private static String namespace = "com.solfood.mapper.boardMapper";
+	private static String namespace = "com.solfood.mappers.boardMapper";
 
 	
 	// 게시물 작성
@@ -176,11 +176,26 @@ import com.solfood.dto.SearchCriteria;
 	public void managerBoard_write(BoardVO vo) throws Exception {
 		sql.insert(namespace + ".managerBoard_write", vo);
 	}
+	//매니저보드 수정
+	@Override
+	public void managerBoard_update(BoardVO vo) throws Exception {
+		sql.update(namespace + ".managerBoard_update", vo);
+	} 
 	// 매니저보드 조회
-		@Override
-		public BoardVO managerBoard_view(int board_num) throws Exception {
-			return sql.selectOne(namespace + ".managerBoard_view", board_num);
-		}
+	@Override
+	public BoardVO managerBoard_view(int board_num) throws Exception {
+		return sql.selectOne(namespace + ".managerBoard_view", board_num);
+	}
+	// 매니저보드 삭제
+	@Override
+	public void managerBoard_delete(int board_num) throws Exception {
+		sql.delete(namespace + ".managerBoard_delete", board_num);
+	}	
+	//매니저보드 삭제후
+	 @Override 
+	 public void managerBoard_deleteAfter(int board_num)throws Exception{
+	 sql.delete(namespace +".managerBoard_deleteAfter",board_num); 
+	 }
 	//매니져보드 카테고리
 	@Override
 	public List<BoardVO> managerBoard_category(SearchCriteria cri) throws Exception { //테스트
@@ -190,7 +205,9 @@ import com.solfood.dto.SearchCriteria;
 	@Override
 	public int managerBoard_categoryCount(SearchCriteria cri) throws Exception {
 		return sql.selectOne(namespace + ".managerBoard_categoryCount", cri);
-	} 
+	}
+
+
 }
 	
 	

@@ -58,8 +58,7 @@
 								for(var i=0; i<data.length; i++){
 									if(data[i].account_user== account_user){ 		//data[i].account_user는 리플을 단 아이디, 그냥account_user는 로그인한 아이디 둘이 같으면 수정삭제가 보여진다 
 										html += "<table class='table'><h6><strong>"+ data[i].account_user+ "</strong></h6>";
-										//html += data[i].reply_num+ "  ";
-										//html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
+										html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
 										html += data[i].reply_content;
 										html += "<button class='btn btn-xs btn-link' onClick= 'cm_updateForm("
 												+ data[i].reply_num + ")'>수정</button>";
@@ -71,7 +70,7 @@
 										html += "</table>";
 									} else {
 										html += "<table class='table'><h6><strong>"+ data[i].account_user+ "</strong></h6>";
-										//html += data[i].reply_num+ "  ";
+										html += data[i].reply_num+ "  ";
 										html += "<div class = 'media text-muted pt-3' id= 'comment"+data[i].reply_num+"'>";
 										html += data[i].reply_content;
 										html += "<tr><td>";
@@ -105,7 +104,8 @@
 		var account_user= document.getElementsByName("account_user_login")[0].value;					
 		var reply_content= document.getElementsByName("board_num")[0].value;
 		
-	
+		// 삭제하기
+		//alert(account_user);
 		
 		var json= {"account_user":account_user, "reply_content":reply_content, "board_num":board_num};
 
@@ -128,8 +128,6 @@
 	}
 	//펀션으로 댓글 수정창 나오게 함
 	function cm_updateForm(reply_num) {
-		alert(reply_num);
-
 		var html = " ";
 		html = "<input type='text' width='100' name='reply_reComment"+ reply_num +"' id='reply_reComment"+ reply_num +"'>";
 		html += "<button type='button' onClick='reply_updateComment("
@@ -152,7 +150,6 @@
 			data : json,
 			
 			success : function() {
-				alert("reply_reComment 성공");
 				getCommentList();
 				// $("#reply_content").val("");	
 			},
@@ -188,59 +185,23 @@
 <%-- =============================== top =========================================--%>
 
 </head>
-<style>
-.button-1{
-  width:60px;
-  height:35px;
-  border:1px solid #34495e;
-  float:right;
-  text-align:center;
-  cursor:pointer;
-  position:relative;
-  box-sizing:border-box;
-  overflow:hidden;
-  margin:0 0 40px 0;
-}
-.button-1 a{
-  font-family:arial;
-  font-size:16px;
-  color:#34495e;
-  text-decoration:none;
-  line-height:30px;
-  transition:all .5s ease;
-  z-index:2;
-  position:relative;
-}
-.eff-1{
-  width:140px;
-  height:50px;
-  top:-2px;
-  right:-140px;
-  background:#34495e;
-  position:absolute;
-  transition:all .5s ease;
-  z-index:1;
-}
-.button-1:hover .eff-1{
-  right:0;
-}
-.button-1:hover a{
-  color:#fff;
-}
-
-</style>
 <body>
 	<div class="container">
 		<form id="commentForm" name="commentForm" method="post">
 			 <input  type="hidden" class="form-control"
 				name="account_user_login" maxlength="50" value="${login.account_user}"> 
-	
+		<%-- 	<input type="hidden" id="board_num" name="board_num"
+				value="${view.board_num }" /> --%>
+				
+		<%-- 	<c:set var="account_user" value="${login.account_user}" /> --%>
 
 			<br> <br>
 			<div>
 				<div>
 					<span><strong>Comments</strong></span>
-					 : <span id="commentCount"></span> <input type="hidden"
+				
+
+					댓글수 : <span id="commentCount"></span> <input type="hidden"
 						id="board_num" name="board_num" value="${view.board_num}" />
 				</div>
 				<div>
@@ -249,17 +210,10 @@
 							<td><textarea style="width: 1100px" rows="3" cols="30"
 									id="reply_content" name="reply_content" placeholder="댓글을 입력하세요"></textarea>
 								<br>
-							<%-- 	<div >
+								<div>
 									<a href='#' onClick="cm_insert('${view.board_num}')"			
 										class="btn pull-right btn-success">등록</a>
-								</div> --%>
-								
-								<div class="button-1">	
-								    <div class="eff-1"></div>    
-								    <a href='#' onClick="cm_insert('${view.board_num}')">등록</a>
-									</div>
-								
-							</td>
+								</div></td>
 						</tr>
 					</table>
 				</div>

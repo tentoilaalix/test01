@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.solfood.mapper.boardMapper">
+<mapper namespace="com.solfood.mappers.boardMapper">
 	<!-- DAO와 연동하기 위한 SQL 작성하기 -->
 	<!-- ============================================================================================================= -->
 
@@ -377,9 +377,6 @@
 	</select>
 
 	<!-- ================매니저보드수정============================================================================================= -->
-
-
-
 	<update id="managerBoard_update"
 		parameterType="com.solfood.dto.BoardVO">
 		update
@@ -390,14 +387,22 @@
 		where
 		board_num = #{board_num}
 	</update>
+<!-- ============================================================================================================= -->	
+	<!-- 게시물 삭제 -->
+	<delete id="managerBoard_delete" parameterType="int">
+		delete from
+		board
+		where
+		board_num = #{board_num}
+	</delete>
 
-	<!-- ================매니저보드삭제============================================================================================= 
-		게시물 삭제 <delete id="delete" parameterType="int"> delete from board where board_num 
-		= #{board_num} </delete> =======매니저보드삭제후재정렬====================================================================================================== 
-		삭제후 재정렬 테스트 <delete id="deleteAfter" parameterType="com.solfood.dto.BoardVO"> 
-		update board set board_num= board_num-1 where board_num> #{board_num}; </delete> 
-		===============================매니저보드 테스트==================================================================== -->
-
+	<!-- 삭제후 재정렬 테스트 -->
+	<delete id="managerBoard_deleteAfter" parameterType="com.solfood.dto.BoardVO">
+		update board
+		set board_num= board_num-1
+		where board_num> #{board_num};
+	</delete>
+	<!-- ============================================================================================================= -->
 	<!-- 매니져 게시판 카테고리 -->
 	<select id="managerBoard_category"
 		parameterType="com.solfood.dto.SearchCriteria"

@@ -11,6 +11,14 @@
 	<link href="../../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.min.js"></script>
+	<style>
+		table{
+			border-right:none;
+			border-left:none;
+			border-top:none;
+			border-bottom:none;
+		}
+	</style>
 </head>
 <body>
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
@@ -59,7 +67,7 @@
 	<div class="container" align="center">
 		<c:set var="i" value="0"/>
 		<c:set var="j" value="4"/>
-		<table border=1>
+		<table>
 			<c:choose>
 				<c:when test="${recipeList != null && fn:length(recipeList) > 0}">
 					<c:forEach var="resultList" items="${recipeList}">
@@ -68,9 +76,8 @@
 						</c:if>
 								<td align="center">
 									<a href="${path}/product/productInfo.do?product_id=${resultList.product_id}">
-										${resultList.product_name}
-										<br>
-										<img src="/img/${resultList.product_image}" style="width:180px; height:130px;"/>
+										${resultList.product_name}<br><br>
+										<img src="/img/${resultList.product_image}" style="width:200px; height: auto; margin-right:20px;"/>
 									</a>
 								</td>
 						<c:if test="${i%j == j-1 }">

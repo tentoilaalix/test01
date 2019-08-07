@@ -135,25 +135,39 @@ table.type05 td {
     
 </table>
 		
-			<div align="right" id="container">
-
-  <div class="button-2">
-    <div class="eff-2"></div>
-    <a href="/board/update?board_num=${view.board_num}">수정</a> 
-      </div>
-      
-<div class="button-2">	
-    <div class="eff-2"></div>
-    <a href="/board/delete?board_num=${view.board_num}">삭제</a> 
-  	</div>
-  	
-<div class="button-2">	
-    <div class="eff-2"></div>    
-    <a href="/board/listPage"> 리스트</a>
-	</div>
+<div align="right" id="container">
+<c:choose>
+	<c:when test="${view.account_user eq login.account_user}">
+	  <div class="button-2">
+	    <div class="eff-2"></div>
+	    	<a href="/board/update?board_num=${view.board_num}">수정</a> 
+	    </div>
+	      
+		<div class="button-2">	
+		    <div class="eff-2"></div>
+		    <a href="/board/delete?board_num=${view.board_num}">삭제</a> 
+		  </div>
+		  	
+		<div class="button-2">	
+		    <div class="eff-2"></div>    
+		    <a href="/board/listPage"> 리스트</a>
+		</div>
+	</c:when>
+	<c:otherwise>  
+		<div class="button-2">	
+		    <div class="eff-2"></div>    
+		    <a href="/board/listPage"> 리스트</a>
+		</div>
+	</c:otherwise>
+</c:choose>
 </div>
-		</form>
+	
+</form>
 		
+<h2>${view.account_user}====</h2>
+<hr>
+${account_user}
+<h2><%= request.getParameter("account_user") %></h2>
 			
 			
 	<!--  -->
@@ -202,7 +216,6 @@ table.type05 td {
 			</div>
 		</form> --%>
 	</div>
-
 	<!-- 영민 test-->
 	<%-- <input type="text" hidden="true" value="${view.board_num}" id="board_num" name="board_num" class="board_num"> --%>
 

@@ -1,23 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>게시글 등록</title>
-	<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	<script src="/resources/js/jquery-3.3.1.min.js"></script>
-	<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>게시글 등록</title>
+<link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css" />
+<script src="/resources/js/jquery-3.3.1.min.js"></script>
+<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
-	<jsp:include page="../module/managerTop.jsp"/>
-	<br>	
-	<%--■■■■■■■■■■■■■■■■■■■■■■ contents ■■■■■■■■■■■■■■■■■■■■■■■■--%>	
 	<div class="container">
-		<h1 class="title">게시물관리</h1>
-		<hr>
-		
+		<h1 align="center">MANAGER 게시판 등록</h1>
+		<br>
 		<form class="form-horizontal" method="post">
 
 			<div class="form-group">
@@ -57,7 +54,5 @@
 			</div>
 		</form>
 	</div>
-	
-	<jsp:include page="../module/managerBottom.jsp" flush="false"/>
 </body>
 </html>

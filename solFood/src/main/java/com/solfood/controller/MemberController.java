@@ -41,7 +41,7 @@ public class MemberController {
 	// login process
 	//---------------------------------------------
 	@RequestMapping(value="loginPro.do")
-	public String loginProcess(HttpSession session, MemberVO dto, Model model){
+	public String loginProcess(HttpSession session, HttpServletRequest request, MemberVO dto, Model model){
 	    String returnURL = "";
 	    if ( session.getAttribute("login") != null ){
 	        session.removeAttribute("login"); 					// 기존에 login이란 세션 값이 존재한다면 기존값을 제거해 준다.
@@ -56,6 +56,7 @@ public class MemberController {
 	        session.setAttribute("account_grade", vo.getAccount_grade());	   
 	        session.setAttribute("account_user", vo.getAccount_user());
 	        model.addAttribute("account_user", vo.getAccount_user());
+	        request.setAttribute("account_user", vo.getAccount_user());
 	        
 	        System.out.println("==============================로그인 성공");
 	        returnURL = "redirect:/"; 							// 로그인 성공시 메인으로 바로 이동

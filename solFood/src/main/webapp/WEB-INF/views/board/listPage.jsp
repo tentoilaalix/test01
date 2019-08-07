@@ -54,15 +54,15 @@
 			<br>
 			<ul class="nav nav-sidebar" align="center">
 				<li class=" active"><a href="/board/listPage"
-					style="color: #F361A6">BOARD CATEGORY<span class="sr-only">(current)</span></a></li>
+					>BOARD CATEGORY<span class="sr-only">(current)</span></a></li>
 				<li><a href="/board/selectByCategory?board_category=notice"
-					style="color: #F361A6"><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;&nbsp;공지사항</a></li>
+					><span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;&nbsp;공지사항</a></li>
 				<li><a href="/board/selectByCategory?board_category=event"
-					style="color: #F361A6"><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이벤트</a></li>
+					><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;이벤트</a></li>
 				<li><a href="/board/selectByCategory?board_category=proposal"
-					style="color: #F361A6"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;상품제안</a></li>
+					><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;상품제안</a></li>
 				<li><a href="/board/selectByCategory?board_category=question"
-					style="color: #F361A6"><span
+					><span
 						class="glyphicon glyphicon-question-sign"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q&A</a></li>
 			</ul>
 		</div>

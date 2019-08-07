@@ -21,7 +21,29 @@
 }
 </style>
 </head>
-
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+		body {
+		font-family: 'Noto Sans KR', sans-serif !important;
+	}
+		table{
+		font-family: 'Noto Sans KR', sans-serif !important;
+	}
+		#searchBtn{
+		background: #F0F0F0;
+		font-family: 'Noto Sans KR', sans-serif !important;
+		font-weight: bold;
+		border-radius: 0;
+	}
+		#write_btn{
+		background: #F0F0F0;
+		font-family: 'Noto Sans KR', sans-serif !important;
+		font-weight: bold;
+		border-radius: 0;
+		}
+			
+		
+</style>
 <body>
 	<%-- top --%>
 
@@ -78,7 +100,7 @@
 							+ 내용 + 작성자</option>
 					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
-					<button type="button" id='searchBtn' class="btn btn-primary">검색</button>
+					<button type="button" id='searchBtn' class="btn">검색</button>
 				</div>
 				<!-- ============================================================================================================= -->
 				<!-- <table class="table table-bordered table-striped nanum table-hover"> -->
@@ -178,7 +200,7 @@
 							<a href="selectByCategory${pageMaker.makeQuery(pageMaker.endPage +1) }"> » </a>
 						</c:if>
 					</div>  --%>
-				<br> <a href="write" class="btn btn-info" aria-pressed="true">
+				<br> <a href="write" class="btn" aria-pressed="true">
 					<span class="glyphicon glyphicon-pencil"></span> 작성
 				</a>
 				<!-- --------------------------------------------------------------------------------------------------------------- -->

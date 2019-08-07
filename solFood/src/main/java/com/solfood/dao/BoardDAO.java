@@ -75,7 +75,14 @@ public interface BoardDAO {
     public void managerBoard_write(BoardVO vo) throws Exception;
     // 매니저보드 조회
  	public BoardVO managerBoard_view(int board_num) throws Exception;
-
+ 	
+ 	//매니저보드 수정
+	public void managerBoard_update(BoardVO vo) throws Exception;
+	// 매니저보드 삭제
+	public void managerBoard_delete(int board_num) throws Exception;
+	//매니저보드 삭제후 
+	public void managerBoard_deleteAfter(int board_num) throws Exception;
+ 	
 //------메니저보드카테고리------------------------------------------------------------------------------
  	
  	//매니져 게시판 카테고리

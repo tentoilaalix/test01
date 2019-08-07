@@ -13,6 +13,39 @@
 <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <style>
+
+	@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+	body{
+	font-family: 'Noto Sans KR', sans-serif !important;
+	}
+	hr{
+	 border-top-color: #A6A6A6 !important; 
+	}
+table.type05 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    margin: 20px 10px;
+    
+    width:1150px;
+}
+table.type05 th {
+    width: 95px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #efefef;
+}
+table.type05 td {
+    width: 400px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
 button{
   background:#FFFFFF;
   color:#fff;
@@ -55,8 +88,62 @@ button:hover:before,button:hover:after{
 
 <body>
 <%@ include file="../module/Top.jsp"%>
+
 <!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 게시물 수정화면 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
-	<div class="container">
+		<div class="container">
+
+	<div class="page_aticle">
+		<div class="page_section">
+			<div class="head_aticle">
+			<br>
+				<h4 align="left">&nbsp;&nbsp;&nbsp;${view.account_user}님의 게시글입니다</h4>
+				<br>	
+					
+			</div>
+		</div>
+	</div>
+	
+		<form align="center" class="form-horizontal" method="post">
+			<table align="center" class="type05">
+    <tr>
+        <th scope="row">제목</th>
+        <td><input type="text" class="form-control" name="board_title"
+						value="${view.board_title}" /></td>
+    </tr>
+    <tr>
+        <th scope="row">작성자</th>
+        <td>${view.account_user}</td>
+    </tr>
+    <tr>
+        <th scope="row">작성날짜</th>
+        <td><fmt:formatDate value="${view.board_date}" pattern="yyyy-MM-dd" /></td>
+    </tr>
+      <tr>
+        <th scope="row">게시글 내용</th>
+        <td><textarea rows="5" cols="50" name="board_content">${view.board_content}</textarea>
+    </tr>
+    
+</table>
+		<div>
+			<div class=" control-label col-sm-5" align="center">
+				<button type="submit">수정</button>
+				<button class="default" id="cancel"><span style ="color:black">취소</span></button>
+			</div>
+		</div>
+<script>
+$("#cancel").click(function(){
+    history.go(-1)();
+});
+</script>
+			
+				
+				
+			
+
+		</form>
+	</div>
+<!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 게시물 수정화면 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
+	<%-- <div class="container">
 		<h2 align="center">${view.board_title}의게시글 수정</h2>
 		<hr color="#A6A6A6" style= width:80%;>
 		<br>
@@ -81,7 +168,7 @@ button:hover:before,button:hover:after{
 
 			<div class="form-group">
 				<label class="control-label col-sm-2">작성날짜</label>
-				<%--<input type="text" name="board_date"value="<fmt:formatDate value="${view.board_date}" pattern="yyyy-MM-dd" />" readonly="readonly" />--%>
+				<input type="text" name="board_date"value="<fmt:formatDate value="${view.board_date}" pattern="yyyy-MM-dd" />" readonly="readonly" />
 				<div class="col-sm-3">
 					<input type="text" class="form-control" name="board_date"
 						value="<fmt:formatDate value="${view.board_date}" pattern="yyyy-MM-dd" />"
@@ -103,7 +190,8 @@ button:hover:before,button:hover:after{
 			</div>
 
 		</form>
-	</div>
+	</div> --%>
+	<!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 게시물 수정화면 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ -->
 	<%@ include file="../module/Bottom.jsp"%>
 </body>
 </html>

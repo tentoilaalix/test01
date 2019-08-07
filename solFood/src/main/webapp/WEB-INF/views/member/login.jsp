@@ -71,7 +71,7 @@
 			<div class="form-group">
 				<label for="" class="col-md-4 control-label">비밀번호</label>
 				<div class="col-md-4">
-					<input id="account_password" type="text" class="form-control" name="account_password" maxlength="20" placeholder="Enter Password" style="border-radius: 0px;">
+					<input id="account_password" type="password" class="form-control" name="account_password" maxlength="20" placeholder="Enter Password" style="border-radius: 0px;">
 				</div>
 			</div>
 			<br>

@@ -65,6 +65,13 @@ public interface BoardService {
 	public void managerBoard_write(BoardVO vo) throws Exception;
 	//매니저보드조회
 	public BoardVO managerBoard_view(int board_num) throws Exception;
+	//매니저 보드 수정
+	public void managerBoard_update(BoardVO vo) throws Exception;
+	
+	//매니저 게시물 삭제
+	public void managerBoard_delete(int board_num) throws Exception;
+	//매니저 게시물 삭제후 
+	public void managerBoard_deleteAfter(int board_num) throws Exception;
 //===========================================================================================================		
 	//매니저게시판카테고리
 	public List<BoardVO> managerBoard_category(SearchCriteria cri) throws Exception; //test

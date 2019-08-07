@@ -230,13 +230,13 @@
 				<div class="form-group">
 					<label for="" class="col-md-4 control-label">비밀번호(4자리 이상)</label>
 					<div class="col-md-4">
-						<input type="text" class="form-control" name="account_password" maxlength="20" placeholder="Enter Password">
+						<input type="password" class="form-control" name="account_password" maxlength="20" placeholder="Enter Password">
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="" class="col-md-4 control-label">비밀번호 확인</label>
 					<div class="col-md-4">
-						<input type="text" class="form-control" name="account_repassword" maxlength="20" placeholder="Enter Password">
+						<input type="password" class="form-control" name="account_repassword" maxlength="20" placeholder="Enter Password">
 					</div>
 				</div>
 				<div class="form-group">
