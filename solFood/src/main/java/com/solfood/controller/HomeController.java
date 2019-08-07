@@ -43,7 +43,7 @@ public class HomeController {
         List<TotalVO> homeRecipe = recipeService.allRecipe();
         model.addAttribute("homeRecipe", homeRecipe);
         
-        return "home";
+        return "home";  
     }
     
     //-----------------------------------------------------
