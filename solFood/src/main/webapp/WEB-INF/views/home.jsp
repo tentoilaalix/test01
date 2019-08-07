@@ -364,7 +364,6 @@
 							   		<input type="button" id='heartImage' name='heartImage${homeProduct.product_id}' onclick= "changeHeart(${homeProduct.product_id},${login.account_user})" class='beforeClick' style="width:29px; height:23px;"><br>
 							    </c:otherwise>
 							</c:choose>
-						
 						</div>
 					</c:forEach>
                 	</div><!--.row-->

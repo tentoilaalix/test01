@@ -82,29 +82,14 @@
 					<a class="navbar-item" href="${path}/manager/account/account_page.do">
 						회원관리
 					</a>
-					
-					
 					<%--============================== 구매 관리 ===============================--%>
-					<div class="navbar-item has-dropdown is-hoverable">
-						<a class="navbar-link" href="${path}/manager/buy/buy_list.do">
-							구매관리
-						</a>
-						<div class="navbar-dropdown " data-style="width: 18rem;">
-							<a class="navbar-item" href="${path}/manager/buy/buy_page.do">
-								주문내역
-							</a>
-							<a class="navbar-item" href="">
-								배송관리
-							</a>
-						</div>
-					</div>
-					
+					<a class="navbar-item" href="${path}/manager/buy/buy_list.do">
+						구매관리
+					</a>
 					<%--============================== 통계 관리 ===============================--%>
-					<div class="navbar-item is-hoverable">
-						<a class="navbar-link " href="${path}/chart/chart.do">
-							통계자료
-						</a>
-					</div>
+					<a class="navbar-item " href="${path}/chart/chart.do">
+						통계자료
+					</a>
 				</div>
 	
 		<%--================================= 관리자 메뉴 ========================================--%>

@@ -10,33 +10,16 @@
 <title>CHART</title>
 
 <style>
-@import
-	url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap')
-	;
-
 body {
 	margin-top: 100px;
-	font-family: 'Noto Sans KR', sans-serif !important;
 	line-height: 1.6
 }
 
 .container {
 	width: 1000px;
 	margin: 0 auto;
-	font-family: 'Noto Sans KR', sans-serif !important;
 }
 
-#chart_title {
-	width: 800px;
-	hight: 500px;
-	margin: 2em auto;
-	padding: 1em;
-	border: 1px solid red;
-	border-radius: 0.5em;
-	font-family: 'Noto Sans KR', sans-serif !important;
-	align: center;
-	font-size: 30px;
-}
 
 ul.tabs {
 	margin: 0px;
@@ -68,18 +51,17 @@ ul.tabs li.current {
 }
 </style>
 
-<%-- 	
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>		
-	<script src="http://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/highcharts-more.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	<script src="https://code.highcharts.com/highcharts-3d.js"></script>
-	<script src="https://code.highcharts.com/modules/cylinder.js"></script>
-	<script src="https://code.highcharts.com/modules/export-data.js"></script>
-	--%>
 
+
+<link href="../resources/bootstrap/css/bootstrap.css" rel="stylesheet">
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="../resources/js/jquery-3.3.1.min.js"></script>
+<script src="../resources/bootstrap/js/bootstrap.js"></script>
+
+
+
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-3d.js"></script>
 <script src="https://code.highcharts.com/modules/cylinder.js"></script>
@@ -267,7 +249,6 @@ ul.tabs li.current {
 </script>
 </head>
 <body>
-
 	<%--■■■■■■■■■■■■■■■■■■■■■■ top & menu ■■■■■■■■■■■■■■■■■■■■■■■■--%>
 	<jsp:include page="../module/managerTop.jsp" />
 	<br>
@@ -287,7 +268,12 @@ ul.tabs li.current {
 		<div id="tab-1" class="tab-content current">
 			<%-- 2019최다 판매 제품 --%>
 			<div id="chart_title" align="center">
-				<p>2019년 최다 판매 제품 top 5</p>
+				<article class="message is-dark">
+					<div class="message-body" style="font-size: 18px;">
+					2019년 최다 판매 제품 top 5
+					</div>
+				</article>
+				<br>
 			</div>
 			<div id="container1" style="height: 400px"></div>
 
@@ -296,8 +282,13 @@ ul.tabs li.current {
 		<!--  ■■■■■■■■■ 2번탭 메뉴 ■■■■■■■■■ -->
 		<div id="tab-2" class="tab-content" align="center">
 			<%-- 2019카테고리별 판매 수량 --%>
-			<div id="chart_title">
-				<p>2019카테고리별 판매 수량</p>
+			<div id="chart_title" align="center">
+				<article class="message is-dark">
+					<div class="message-body" style="font-size: 18px;">
+					2019카테고리별 판매 수량
+					</div>
+				</article>
+				<br>
 			</div>
 			<div id="container2" style="height: 400px"></div>
 		</div>
@@ -306,16 +297,26 @@ ul.tabs li.current {
 		<div id="tab-3" class="tab-content">
 			<%-- 가장 많이 찜한 상품 --%>
 			<div id="chart_title" align="center">
-				<p>가장 많이 찜한 상품</p>
+				<article class="message is-dark">
+					<div class="message-body" style="font-size: 18px;">
+					가장 많이 찜한 상품
+					</div>
+				</article>
+				<br>
 			</div>
 			<div id="container3" style="height: 400px"></div>
 		</div>
 
 		<!--  ■■■■■■■■■ 4번탭 메뉴 ■■■■■■■■■ -->
 		<div id="tab-4" class="tab-content">
-			<%-- 가장 많이 찜한 상품 --%>
+			<%-- 핫키워드 --%>
 			<div id="chart_title" align="center">
-				<p>핫키워드</p>
+				<article class="message is-dark">
+					<div class="message-body" style="font-size: 18px;">
+					인기 검색어
+					</div>
+				</article>
+				<br>
 			</div>
 			<div id="container4" style="height: 400px"></div>
 		</div>
@@ -338,5 +339,8 @@ ul.tabs li.current {
 
 		})
 	</script>
+	<br>
+
+	<jsp:include page="../module/managerBottom.jsp" flush="false" />
 </body>
 </html>
