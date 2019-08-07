@@ -6,11 +6,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
-	<title>SolFood doyoon</title>
+	<title>SolFood</title>
 	<link href="../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../resources/bootstrap/js/bootstrap.min.js"></script>
 	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+	
 	<script>
 		$(document).ready(function(){
 			recentList();
@@ -64,6 +66,13 @@
 			<div id="paging"><a class="btn_prev" style="cursor:pointer" >이전</a><span  id="currentPage"></span><span id="totalPageCount"></span><a class="btn_next" style="cursor:pointer" >다음</a></div>
 		</div>
 	</div> 
+	
+	<script>
+		function recentView() {
+			mouseover
+		
+			}
+	</script>
 </body>
 </html>
 

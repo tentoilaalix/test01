@@ -15,6 +15,8 @@ public interface ChartDAO {
 	// 찜한 상품
 	public List<TotalVO> chart_mostLikedProducts() throws Exception;
 	
+	//인기검색어
+	public List<TotalVO> chart_searchKeyword() throws Exception;
 }
 
 

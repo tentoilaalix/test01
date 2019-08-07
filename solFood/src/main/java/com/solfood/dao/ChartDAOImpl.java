@@ -25,5 +25,9 @@ public class ChartDAOImpl implements ChartDAO{
 		return sqlSession.selectList(Namespace+".chart_mostLikedProducts");
 	}
 
+	@Override
+	public List<TotalVO> chart_searchKeyword() throws Exception {
+		return sqlSession.selectList(Namespace+".chart_searchKeyword");
+	}
 	
 }

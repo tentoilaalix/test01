@@ -30,10 +30,13 @@
 			GROUP BY P.PRODUCT_ID
 			ORDER BY COUNT(P.PRODUCT_ID) DESC LIMIT 5;
 		</select>
+		
+		<!-- 핫키워드 -->
+		<select id="chart_searchKeyword" resultType="com.solfood.dto.TotalVO">
+			select count(search_keyword) keyword_count, search_keyword, search_date 
+			from search
+			group by search_keyword 
+			order by count(search_keyword) LIMIT 5;
+		</select>
+		
 	</mapper>
-	
-	
-	
-	
-	
-	

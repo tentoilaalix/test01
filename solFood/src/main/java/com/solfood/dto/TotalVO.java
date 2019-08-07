@@ -47,7 +47,31 @@ public class TotalVO {
 	
 	private int recent_num;
 	
+	//Search
+	private int search_count;
+	private String search_keyword;
+	private String search_date;
+	private int keyword_count;
 	
+	
+	public int getsearch_count() {
+		return search_count;
+	}
+	public void setsearch_count(int search_count) {
+		this.search_count = search_count;
+	}
+	public String getSearch_keyword() {
+		return search_keyword;
+	}
+	public void setSearch_keyword(String search_keyword) {
+		this.search_keyword = search_keyword;
+	}
+	public String getSearch_date() {
+		return search_date;
+	}
+	public void setSearch_date(String search_date) {
+		this.search_date = search_date;
+	}
 	public int getRecent_num() {
 		return recent_num;
 	}
@@ -223,5 +247,11 @@ public class TotalVO {
 	}
 	public void setBuy_count(int buy_count) {
 		this.buy_count = buy_count;
+	}
+	public int getKeyword_count() {
+		return keyword_count;
+	}
+	public void setKeyword_count(int keyword_count) {
+		this.keyword_count = keyword_count;
 	}
 }

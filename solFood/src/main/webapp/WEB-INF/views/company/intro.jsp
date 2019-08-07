@@ -116,10 +116,11 @@
 <p class="intro_title" align="center" style="font-size:50px;">SolFood</p>
 
 <br>
-
-<input type="button" id="toEnglish" name="toEnglish" onClick="intro_eng()" value="toEnglish">
-<input type="button" id="toEnglish" name="toEnglish" onClick="intro_kor()" value="한글">
-
+<div id="trans-btn" align="right">
+	<input type="button" id="toEnglish" name="toEnglish" onClick="intro_eng()" value="toEnglish">
+	<input type="button" id="toEnglish" name="toEnglish" onClick="intro_kor()" value="한글">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
 <div id="company1" class="intro-text" align="center" Style="font-size:19px;">
 <p>
 
@@ -155,7 +156,7 @@
 <br>
 <br>
 
-<img src="resources/companyimage/intro6.jpg" style="max-width:100%;">
+<img src="resources/companyimage/intro1.jpg" style="max-width:100%;">
 <br>
 <br>
 <br>
@@ -177,73 +178,57 @@
 
 
 
-<hr><br><br><br>
-<div class="container" align="center">
-<div id="directions" class="intro_title" align="center" style="font-size:50px;">
-<p>찾아오시는 길</p><br><br>
-</div>	
-<div id="map" style="width:900px;height:500px;"></div>
+	<hr><br><br><br>
+	<div class="container" align="center">
+	<div id="directions" class="intro_title" align="center" style="font-size:50px;">
+	<p>찾아오시는 길</p><br>
+	</div>	
+	<div id="map" style="width:900px;height:500px;"></div>
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e26a97d51b2b2fd2fe9efb58f595c75a"></script>
+	<script>
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = { 
+	        center: new daum.maps.LatLng(37.569473, 126.986126), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };
+	
+	var map = new daum.maps.Map(mapContainer, mapOption);
+	
+	// 마커가 표시될 위치입니다 
+	var markerPosition  = new daum.maps.LatLng(37.569473, 126.986126); 
+	
+	// 마커를 생성합니다
+	var marker = new daum.maps.Marker({
+	    position: markerPosition
+	});
+	
+	// 마커가 지도 위에 표시되도록 설정합니다
+	marker.setMap(map);
+	
+	var iwContent = '<div style="padding:5px;"> SolFood <br><a href="http://map.daum.net/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="http://map.daum.net/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+	    iwPosition = new daum.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+	
+	// 인포윈도우를 생성합니다
+	var infowindow = new daum.maps.InfoWindow({
+	    position : iwPosition, 
+	    content : iwContent 
+	});
+	  
+	// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+	infowindow.open(map, marker); 
+	
+	
+	</script>
+	</div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e26a97d51b2b2fd2fe9efb58f595c75a"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new daum.maps.LatLng(37.569473, 126.986126), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
-
-var map = new daum.maps.Map(mapContainer, mapOption);
-
-// 마커가 표시될 위치입니다 
-var markerPosition  = new daum.maps.LatLng(37.569473, 126.986126); 
-
-// 마커를 생성합니다
-var marker = new daum.maps.Marker({
-    position: markerPosition
-});
-
-// 마커가 지도 위에 표시되도록 설정합니다
-marker.setMap(map);
-
-var iwContent = '<div style="padding:5px;"> SolFood <br><a href="http://map.daum.net/link/map/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">큰지도보기</a> <a href="http://map.daum.net/link/to/Hello World!,33.450701,126.570667" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwPosition = new daum.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
-
-// 인포윈도우를 생성합니다
-var infowindow = new daum.maps.InfoWindow({
-    position : iwPosition, 
-    content : iwContent 
-});
-  
-// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-infowindow.open(map, marker); 
 
 
-</script>
-</div>
-
-
-
-<div id="address" class="intro-text" style="font-size:15px;"align="center">
-<p >서울특별시 종로구 관철동 종로12길 15<br>연락처: 02-6901-7001</p>
+	<div id="address" class="intro-text" style="font-size:15px;"align="center">
+		<p>서울특별시 종로구 관철동 종로12길 15<br>연락처: 02-6901-7001</p>
 	</div>
 	
 	
-	
-	
-
-
-
-
-
-		
-		
-
-
-
-	
-	
-
-
 <jsp:include page="../module/Bottom.jsp" flush="false"/>
 
 </body>
