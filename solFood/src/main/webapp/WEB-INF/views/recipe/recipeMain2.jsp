@@ -23,7 +23,11 @@
 
 <div class="container">
 	<div class="recipeHeader" align="center">
-	<c:set var="list" value="${recipeLists}" />
+	
+	<%-- 
+	<c:set var="list" value="${recipeList_detail}" />
+	--%>
+		
 			${status}
 			<table>
 				<tr>
@@ -42,36 +46,34 @@
 			<div align="center" style="border-top: 1px solid #5D5D5D; width: 500px;"></div>
 			<br><br>
 			<div align="center" style="font-size: 35px; font-weight: bold; color: #5D5D5D;">
-				${list.recipe_name}
+				${recipe_name_detail}
 			</div>
 			<br><br><br>
-				<img src="/img/${list.recipe_image}" style="width:800px; height:500px;"/>
+				<img src="/img/${recipe_image_detail}" style="width:800px; height:500px;"/>
 			<br><br><br>
 			<div class="col-xs-offset-2" align="left">
-			${list.recipe_content}
+			${recipe_content_detail}
 			</div>
 	</div>
 	<br><br><br>
 	<hr>
 	<div class="col-xs-offset-2" style="border-bottom: 5px solid #5D5D5D; width: 50px;"></div>
-	<div class="col-xs-offset-2">RECIPE ITEMS</div><br>
+	<div class="col-xs-offset-2">RECIPE ITEMS</div>
 	<!--■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ 연관상품 ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■-->
-	<div class="container" align="center">
+	<div class="container">
 		<c:set var="i" value="0"/>
 		<c:set var="j" value="4"/>
 		<table border=1>
 			<c:choose>
 				<c:when test="${recipeList != null && fn:length(recipeList) > 0}">
-					<c:forEach var="resultList" items="${recipeList}">
+					<c:forEach var="resultList" items="${recipeList_relate}">
 						<c:if test="{i%j == 0}">
 							<tr>
 						</c:if>
-								<td align="center">
-									<a href="${path}/product/productInfo.do?product_id=${resultList.product_id}">
-										${resultList.product_name}
-										<br>
-										<img src="/img/${resultList.product_image}" style="width:180px; height:130px;"/>
-									</a>
+								<td>
+									${resultList.product_name}
+									<br>
+									${resultList.product_image}
 								</td>
 						<c:if test="${i%j == j-1 }">
 							</tr>
@@ -84,8 +86,25 @@
 	</div>
 		
 	<hr>
-	
-	<br><br>
+	<hr>
+		<c:forEach var="resultList" items="${recipeList}">
+		
+		 	<%-- ${resultList.product_id} --%>
+			<div class="row">
+				
+				<div class=".col-md-1">
+		  		${resultList.product_name}
+				</div>
+				<div class=".col-md-1">
+			  	<img src="/img/${resultList.product_image}" style="width:180px; height:130px;"/><br>
+			  	</div>
+			</div>
+			
+		</c:forEach>
+			   
+		
+		
+	<br><br><br><br><br>
 	
 	<br><br><br><br>
 	<hr style="border: 1px solid #003399;">

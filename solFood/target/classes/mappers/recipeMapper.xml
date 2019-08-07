@@ -24,8 +24,8 @@
 		<select id="relateProduct" resultType="com.solfood.dto.TotalVO">
 			SELECT *
 			FROM product p, relaterp rp
-			WHERE p.product_id = rp.product_no
-			AND rp.recipe_no = #{recipe_id};
+			WHERE p.product_id = rp.product_id
+			AND rp.recipe_id = #{recipe_id};
 		</select>
 		
 		<!-- 

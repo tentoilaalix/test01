@@ -285,10 +285,10 @@
 
   </div>
   <div class="col-xs-2">
-  <a href="#" id="topMenu">공 지 사 항</a>
+  <a href="${path}/intro.do" id="topMenu">회 사 소 개</a>
   </div>
   <div class="col-xs-2">
-  <a href="product/eventMain.do" id="topMenu">이 벤 트</a>
+  <a href="${path}/product/eventMain.do" id="topMenu">이 벤 트</a>
   </div>
   <div class="col-xs-2">
   <a href="${path}/board/listPage" id="topMenu">게 시 판</a>

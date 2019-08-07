@@ -18,7 +18,7 @@ import com.solfood.dto.SearchCriteria;
 		
 	@Inject
 	private SqlSession sql;
-	private static String namespace = "com.solfood.mappers.boardMapper";
+	private static String namespace = "com.solfood.mapper.boardMapper";
 
 	
 	// 게시물 작성
