@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>manager main</title>
+	<title>SolFood Admin</title>
 	<link href="../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<script src="../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>

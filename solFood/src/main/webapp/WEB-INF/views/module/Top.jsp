@@ -45,7 +45,7 @@
 
 
 </head>
-<body>
+<body style="padding: 0px 0px 0px 0px;">
 
 <!-- 
 	<a href="/member/login.do">로그인1</a>

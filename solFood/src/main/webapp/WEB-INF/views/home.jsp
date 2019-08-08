@@ -233,7 +233,7 @@
 			position: absolute;
 			top: 547px;
 			left: 50%;
-			margin: 0 0 0 100px;
+			margin: 0px 0px 0px 100px;
 		}
 		#rightSide #right_zzim {
 			z-index: 99;
@@ -302,7 +302,7 @@
 		}
 	</style>
 </head>
-<body>
+<body style="padding: 0px 0px 0px 0px;">
 	<!--■■■■■■■■■■■■■■■■■■■■■■ Header ■■■■■■■■■■■■■■■■■■■■■■■■222-->
 	<jsp:include page="module/Top.jsp" flush="false"/>
 	<jsp:include page="recentView/recentList.jsp" flush="false"/>

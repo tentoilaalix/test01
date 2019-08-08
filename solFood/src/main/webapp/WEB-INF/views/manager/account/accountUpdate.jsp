@@ -7,7 +7,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
-	<title>accountUpdate</title>
 	<link href="../../../resources/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.js"></script>

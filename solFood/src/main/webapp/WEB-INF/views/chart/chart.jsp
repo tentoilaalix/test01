@@ -7,8 +7,6 @@
 <head>
 <meta charset="UTF-8">
 
-<title>CHART</title>
-
 <style>
 body {
 	margin-top: 100px;

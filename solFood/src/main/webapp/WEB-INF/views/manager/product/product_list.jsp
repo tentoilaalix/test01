@@ -6,8 +6,6 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>product_list</title>
-	
 	<link href="../../../resources/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	

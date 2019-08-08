@@ -7,10 +7,6 @@
 <head>
 	<meta http-equiv="Content-Type" Content="text/html; charset=UTF-8">
 	<title>SolFood doyoon</title>
-	<link href="../../resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<script src="../../resources/js/jquery-3.3.1.min.js"></script>
-	<script src="../../resources/bootstrap/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			recentList();

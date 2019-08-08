@@ -7,8 +7,6 @@
 <html class="has-navbar-fixed-top">
 <head>
 	<meta charset="UTF-8">
-	
-	<title>manager main page</title>
 	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:700" rel="stylesheet">
 
 	<link rel="shortcut icon" href="favicon.ico">

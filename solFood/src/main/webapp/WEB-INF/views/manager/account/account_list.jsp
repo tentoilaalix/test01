@@ -5,8 +5,6 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>account_list</title>
-	
 	<link href="../../../resources/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<script src="../../../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../../../resources/bootstrap/js/bootstrap.js"></script>
