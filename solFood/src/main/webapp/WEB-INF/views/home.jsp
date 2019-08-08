@@ -239,8 +239,7 @@
 			z-index: 99;
 			position: fixed;
 			top: 126px;
-			left: 50%;
-			margin-left: 510px;
+			left: 2%;
 			border:1px solid #B0B5BD;
 			width:130px;
 			height: auto;
