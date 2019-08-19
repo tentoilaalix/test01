@@ -24,6 +24,7 @@
                 $("#account_password").focus();
                 return;
             }
+            
             // 폼 내부의 데이터를 전송할 주소
             document.loginForm.action="${path}/member/loginPro.do"
             // 제출

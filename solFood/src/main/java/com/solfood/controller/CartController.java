@@ -182,13 +182,11 @@ public class CartController {
 		if(cart_count< product_count_fromDB) {
 			if(product_count_fromDB<= 0) {
 				System.out.println("===================== 품절된 상품입니다// 이거를 alert로 해주기");
-				
 				cartService.deleteCart(vo);	
 			} else {
 				cartService.updateCart_plusCartCount(vo);
 			}
 		}
-		
 		String returnURI= "redirect:/cart/cartList.do?account_user="+ account_user;
 		return returnURI;
 	}

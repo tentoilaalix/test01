@@ -43,7 +43,8 @@ public class MemberController {
 	@RequestMapping(value="loginPro.do")
 	public String loginProcess(HttpSession session, HttpServletRequest request, MemberVO dto, Model model){
 	    String returnURL = "";
-	    if ( session.getAttribute("login") != null ){
+	    
+	    if(session.getAttribute("login") != null ){
 	        session.removeAttribute("login"); 					// 기존에 login이란 세션 값이 존재한다면 기존값을 제거해 준다.
 	    }
 	    MemberVO vo = memberService.login(dto);					// 로그인이 성공하면 UserVO 객체를 반환함.
@@ -60,13 +61,13 @@ public class MemberController {
 	        
 	        System.out.println("==============================로그인 성공");
 	        returnURL = "redirect:/"; 							// 로그인 성공시 메인으로 바로 이동
-		        
+	        
 	    // 로그인에 실패한 경우
 	    }else { 
-	        returnURL = "redirect:/login.do"; 					// 로그인 폼으로 다시 가도록 함
-	        System.out.println("==============================로그인 실패");
+	    	System.out.println("==============================로그인 실패");
+	    	returnURL = "redirect:/login.do"; 					// 로그인 폼으로 다시 가도록 함
 	    }    
-	    return returnURL; 										// 위에서 설정한 returnURL 을 반환해서 이동시킴
+	   return returnURL; 										// 위에서 설정한 returnURL 을 반환해서 이동시킴
 	}
 	
 		
