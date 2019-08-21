@@ -11,7 +11,6 @@
 	<script src="../resources/js/jquery-3.3.1.min.js"></script>
 	<script src="../resources/bootstrap/js/bootstrap.min.js"></script>
 	
-	<%-- <%@ include file = "../module/managerTop.jsp" %> --%>
 	
 </head>
 <body>
@@ -74,25 +73,38 @@
 										<td>
 											${buy.buy_delivery}&ensp;
 										</td>
+										<td>
+											｜&ensp;📦 ${buy.account_address}&ensp;
+										</td>
 									</tr>
 								</c:forEach>
 							</table>
 						</p>
 					</div>
 				</div>
-				<div class="column">
+				<%-- <div class="column">
 					<div class="notification is-warning">
 						<h1 class="title is-size-4"><a href="${path}/manager/buy/buy_list.do" style="text-decoration: none;">판매통계 <b style="font-size: 8px;">(자세히)</b></a></h1>
-						<p class="is-size-5">
-							그래프
-						</p>
+						<div id="tab-1" class="tab-content current">
+							2019최다 판매 제품
+							<div id="chart_title" align="center">
+								<article class="message is-dark">
+									<div class="message-body" style="font-size: 18px;">
+									2019년 최다 판매 제품 top 5
+									</div>
+								</article>
+								<br>
+							</div>
+							<div id="container1" style="height: 400px"></div>
+				
+						</div>
 						<hr>
 						<h1 class="title is-size-4"><a href="${path}/manager/buy/buy_list.do" style="text-decoration: none;">상품통계 <b style="font-size: 8px;">(자세히)</b></a></h1>
 						<p class="is-size-5">
 							그래프
 						</p>
 					</div>
-				</div>
+				</div> --%>
 			</div>
 		</div>
 	</section>

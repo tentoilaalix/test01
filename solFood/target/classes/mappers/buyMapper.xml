@@ -23,7 +23,7 @@
 		<!-- =============================== INSERT ========================================= -->
 		<!-- cart에서 buy테이블로 상품 넣기 -->
 		<insert id="insertBuy" parameterType="com.solfood.dto.TotalVO">
-			INSERT INTO BUY(BUY_DATE, BUY_COUNT, ACCOUNT_USER, PRODUCT_ID) VALUES(current_date(), #{buy_count}, #{account_user}, #{product_id}) 
+			INSERT INTO BUY(BUY_DATE, BUY_COUNT, BUY_DELIVERY, ACCOUNT_USER, PRODUCT_ID) VALUES(current_date(), #{buy_count}, "배송준비중",#{account_user}, #{product_id}) 
 		</insert>
 	</mapper>
 	
