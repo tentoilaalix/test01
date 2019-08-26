@@ -54,6 +54,7 @@
 	<div class="container is-fluid">
 		<div class="columns is-centered">
 			<form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data" action="${path}/manager/recipe/recipeUpdatePro.do?recipe_id=${recipeDetail.recipe_id}">
+			<%-- <form class="column is-half" method="post" autocomplete="off" enctype="multipart/form-data">--%>
 				<div class="field is-horizontal">
 					<div class="field-label is-normal"><label class="label">콘텐츠no.</label></div>
 					<div class="field-body">

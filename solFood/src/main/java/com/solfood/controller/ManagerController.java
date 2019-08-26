@@ -423,12 +423,15 @@ public class ManagerController {
 	
 	
 	// 레시피 수정
-	@RequestMapping(value="recipe/recipeUpdate.do")
+	@RequestMapping(value="recipe/recipeUpdate.do", method = {RequestMethod.POST, RequestMethod.POST})
 	public String recipeUpdate(Model model, int recipe_id) throws Exception{
 		List<TotalVO> recipeDetail= service.selectRecipeDetail(recipe_id);
 		model.addAttribute("recipeDetail", recipeDetail);
 		
-		return "manager/recipe/recipeUpdate";
+		// 삭제하기 
+		System.out.println("=========++++++================"+ recipeDetail.get(0).getRecipe_id());
+		
+		return "/manager/recipe/recipeUpdate";
 	}
 	
 	@RequestMapping(value="recipe/recipeUpdatePro.do")
