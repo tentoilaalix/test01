@@ -139,6 +139,7 @@ $(document).ready(function(){
 			<div class="control">
 				<input class="button is-danger" type="button" value="취소" onclick="history.back();" />
 			</div>
+			<br><br>
 		</div>
 	</form>
 	</div>

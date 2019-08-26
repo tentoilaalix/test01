@@ -56,13 +56,13 @@ $(document).ready(function(){
 						<td align="center">${buy.buy_id}</td>
 						<td align="center">${buy.buy_date}</td>
 						<c:choose>
-							<c:when test="${buy.buy_delivery eq '배송중'}"><b style="color: red;">
+							<c:when test="${buy.buy_delivery eq '배송중'}">
 								<td align="center"><input type="hidden" name="status" value="${buy.buy_delivery}"><b style="color: Gold;">${buy.buy_delivery}</b></td>
 							</c:when>
-							<c:when test="${buy.buy_delivery eq '배송준비중'}"><b style="color: red;">
+							<c:when test="${buy.buy_delivery eq '배송준비중'}">
 								<td align="center"><input type="hidden" name="status" value="${buy.buy_delivery}"><b style="color: Red;">${buy.buy_delivery}</b></td>
 							</c:when>
-							<c:when test="${buy.buy_delivery eq '배송완료'}"><b style="color: red;">
+							<c:when test="${buy.buy_delivery eq '배송완료'}">
 								<td align="center"><input type="hidden" name="status" value="${buy.buy_delivery}"><b style="color: LimeGreen;">${buy.buy_delivery}</b></td>
 							</c:when>
 						</c:choose>
