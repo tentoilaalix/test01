@@ -40,11 +40,12 @@
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><img src='/img/"+ data[i].product_image +"' width='250px' height='320px'/></a><br><br>";
 						html+= "<a href='product/productInfo.do?product_id="+ data[i].product_id +"'><strong>"+ data[i].product_name +"</strong></a>";
 
-						// account_user null이면 하트안보이게, 로그인 했으면 하트보이게
+						// account_user null이면 하트안보이게, 로그인 했으면 하트보이게++ 새로고침해도 하트 상태 그대로 보이게
 						if(account_user==""){
 							html+= "";
 						} else{
-							html+= "<input type='button' id='heartImage' name='heartImage"+ data[i].product_id +"' onclick= 'changeHeart("+ data[i].product_id +",1809)' class='beforeClick' style='width:29px; height:23px;'><br>";
+							html+= "<input type='button' id='heartImage' name='heartImage"+ data[i].product_id +"' onclick= 'changeHeart("+ data[i].product_id +","+ account_user +")' class='beforeClick' style='width:29px; height:23px;'><br>";
+							heartList();
 						}
 			
 						html+= addComma(data[i].product_price) +"원";
